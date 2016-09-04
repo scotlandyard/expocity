@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817A1D7BB7FC00CC8B39 /* expocity.xcdatamodeld */; };
+		DA4F81801D7BB7FC00CC8B39 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4F817D1D7BB7FC00CC8B39 /* Info.plist */; };
+		DA4F81811D7BB7FC00CC8B39 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817E1D7BB7FC00CC8B39 /* test.swift */; };
+		DAC3CAF41D7BB5C60090ECCD /* expocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAC3CAF21D7BB5C60090ECCD /* expocity.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAC3CB001D7BB5C60090ECCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC3CAE01D7BB5C60090ECCD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAC3CAE71D7BB5C60090ECCD;
+			remoteInfo = expocity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA4F817B1D7BB7FC00CC8B39 /* expocity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expocity.xcdatamodel; sourceTree = "<group>"; };
+		DA4F817D1D7BB7FC00CC8B39 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA4F817E1D7BB7FC00CC8B39 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC3CAF31D7BB5C60090ECCD /* expocity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expocity.xcdatamodel; sourceTree = "<group>"; };
+		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC3CAFF1D7BB5C60090ECCD /* expocityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = expocityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAC3CAE51D7BB5C60090ECCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC3CAFC1D7BB5C60090ECCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA4F81791D7BB7FC00CC8B39 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DA4F817A1D7BB7FC00CC8B39 /* expocity.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DA4F817C1D7BB7FC00CC8B39 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				DA4F817D1D7BB7FC00CC8B39 /* Info.plist */,
+				DA4F817E1D7BB7FC00CC8B39 /* test.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		DAC3CADF1D7BB5C60090ECCD = {
+			isa = PBXGroup;
+			children = (
+				DAC3CAEA1D7BB5C60090ECCD /* expocity */,
+				DAC3CAE91D7BB5C60090ECCD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAC3CAE91D7BB5C60090ECCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAC3CAE81D7BB5C60090ECCD /* expocity.app */,
+				DAC3CAFF1D7BB5C60090ECCD /* expocityTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAC3CAEA1D7BB5C60090ECCD /* expocity */ = {
+			isa = PBXGroup;
+			children = (
+				DA4F81791D7BB7FC00CC8B39 /* Data */,
+				DA4F817C1D7BB7FC00CC8B39 /* Test */,
+				DAC3CAFA1D7BB5C60090ECCD /* Info.plist */,
+				DAC3CAF21D7BB5C60090ECCD /* expocity.xcdatamodeld */,
+			);
+			path = expocity;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAC3CAE71D7BB5C60090ECCD /* expocity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC3CB081D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "expocity" */;
+			buildPhases = (
+				DAC3CAE41D7BB5C60090ECCD /* Sources */,
+				DAC3CAE51D7BB5C60090ECCD /* Frameworks */,
+				DAC3CAE61D7BB5C60090ECCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = expocity;
+			productName = expocity;
+			productReference = DAC3CAE81D7BB5C60090ECCD /* expocity.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAC3CAFE1D7BB5C60090ECCD /* expocityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC3CB0B1D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "expocityTests" */;
+			buildPhases = (
+				DAC3CAFB1D7BB5C60090ECCD /* Sources */,
+				DAC3CAFC1D7BB5C60090ECCD /* Frameworks */,
+				DAC3CAFD1D7BB5C60090ECCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAC3CB011D7BB5C60090ECCD /* PBXTargetDependency */,
+			);
+			name = expocityTests;
+			productName = expocityTests;
+			productReference = DAC3CAFF1D7BB5C60090ECCD /* expocityTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAC3CAE01D7BB5C60090ECCD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = iturbide;
+				TargetAttributes = {
+					DAC3CAE71D7BB5C60090ECCD = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					DAC3CAFE1D7BB5C60090ECCD = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DAC3CAE71D7BB5C60090ECCD;
+					};
+				};
+			};
+			buildConfigurationList = DAC3CAE31D7BB5C60090ECCD /* Build configuration list for PBXProject "expocity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAC3CADF1D7BB5C60090ECCD;
+			productRefGroup = DAC3CAE91D7BB5C60090ECCD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAC3CAE71D7BB5C60090ECCD /* expocity */,
+				DAC3CAFE1D7BB5C60090ECCD /* expocityTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAC3CAE61D7BB5C60090ECCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA4F81801D7BB7FC00CC8B39 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC3CAFD1D7BB5C60090ECCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAC3CAE41D7BB5C60090ECCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */,
+				DA4F81811D7BB7FC00CC8B39 /* test.swift in Sources */,
+				DAC3CAF41D7BB5C60090ECCD /* expocity.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC3CAFB1D7BB5C60090ECCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAC3CB011D7BB5C60090ECCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAC3CAE71D7BB5C60090ECCD /* expocity */;
+			targetProxy = DAC3CB001D7BB5C60090ECCD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DAC3CB061D7BB5C60090ECCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAC3CB071D7BB5C60090ECCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAC3CB091D7BB5C60090ECCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = expocity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DAC3CB0A1D7BB5C60090ECCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = expocity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DAC3CB0C1D7BB5C60090ECCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = expocityTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocityTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/expocity.app/expocity";
+			};
+			name = Debug;
+		};
+		DAC3CB0D1D7BB5C60090ECCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = expocityTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocityTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/expocity.app/expocity";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAC3CAE31D7BB5C60090ECCD /* Build configuration list for PBXProject "expocity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC3CB061D7BB5C60090ECCD /* Debug */,
+				DAC3CB071D7BB5C60090ECCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC3CB081D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "expocity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC3CB091D7BB5C60090ECCD /* Debug */,
+				DAC3CB0A1D7BB5C60090ECCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC3CB0B1D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "expocityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC3CB0C1D7BB5C60090ECCD /* Debug */,
+				DAC3CB0D1D7BB5C60090ECCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA4F817A1D7BB7FC00CC8B39 /* expocity.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA4F817B1D7BB7FC00CC8B39 /* expocity.xcdatamodel */,
+			);
+			currentVersion = DA4F817B1D7BB7FC00CC8B39 /* expocity.xcdatamodel */;
+			path = expocity.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		DAC3CAF21D7BB5C60090ECCD /* expocity.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DAC3CAF31D7BB5C60090ECCD /* expocity.xcdatamodel */,
+			);
+			currentVersion = DAC3CAF31D7BB5C60090ECCD /* expocity.xcdatamodel */;
+			path = expocity.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DAC3CAE01D7BB5C60090ECCD /* Project object */;
+}
