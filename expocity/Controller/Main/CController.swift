@@ -13,11 +13,11 @@ class CController:UIViewController
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle
     {
-        return UIStatusBarStyle.Default
+        return UIStatusBarStyle.LightContent
     }
     
     override func prefersStatusBarHidden() -> Bool
     {
-        return true
+        return false
     }
 }

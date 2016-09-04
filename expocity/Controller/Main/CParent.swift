@@ -2,29 +2,29 @@ import UIKit
 
 class CParent:UIViewController
 {
-    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.Default
+    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        let game:CGame = CGame()
-        addChildViewController(game)
-        view.addSubview(game.view)
-        game.didMoveToParentViewController(self)
+        let home:CHome = CHome()
+        addChildViewController(home)
+        view.addSubview(home.view)
+        home.didMoveToParentViewController(self)
         
         let views:[String:AnyObject] = [
-            "child":game.view]
+            "home":home.view]
         
         let metrics:[String:AnyObject] = [:]
         
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[child]-0-|",
+            "H:|-0-[home]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[child]-0-|",
+            "V:|-0-[home]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -37,7 +37,7 @@ class CParent:UIViewController
     
     override func prefersStatusBarHidden() -> Bool
     {
-        return true
+        return false
     }
     
     //MARK: public
