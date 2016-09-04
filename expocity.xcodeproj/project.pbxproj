@@ -30,7 +30,7 @@
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAF31D7BB5C60090ECCD /* expocity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expocity.xcdatamodel; sourceTree = "<group>"; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAC3CAFF1D7BB5C60090ECCD /* expocityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = expocityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				DAC3CAE81D7BB5C60090ECCD /* expocity.app */,
-				DAC3CAFF1D7BB5C60090ECCD /* expocityTests.xctest */,
+				DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,9 +116,9 @@
 			productReference = DAC3CAE81D7BB5C60090ECCD /* expocity.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DAC3CAFE1D7BB5C60090ECCD /* expocityTests */ = {
+		DAC3CAFE1D7BB5C60090ECCD /* tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DAC3CB0B1D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "expocityTests" */;
+			buildConfigurationList = DAC3CB0B1D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "tests" */;
 			buildPhases = (
 				DAC3CAFB1D7BB5C60090ECCD /* Sources */,
 				DAC3CAFC1D7BB5C60090ECCD /* Frameworks */,
@@ -129,9 +129,9 @@
 			dependencies = (
 				DAC3CB011D7BB5C60090ECCD /* PBXTargetDependency */,
 			);
-			name = expocityTests;
+			name = tests;
 			productName = expocityTests;
-			productReference = DAC3CAFF1D7BB5C60090ECCD /* expocityTests.xctest */;
+			productReference = DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -146,6 +146,7 @@
 				TargetAttributes = {
 					DAC3CAE71D7BB5C60090ECCD = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 7AMWG3RLHN;
 					};
 					DAC3CAFE1D7BB5C60090ECCD = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -167,7 +168,7 @@
 			projectRoot = "";
 			targets = (
 				DAC3CAE71D7BB5C60090ECCD /* expocity */,
-				DAC3CAFE1D7BB5C60090ECCD /* expocityTests */,
+				DAC3CAFE1D7BB5C60090ECCD /* tests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,7 +257,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -296,7 +297,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,22 +308,27 @@
 		DAC3CB091D7BB5C60090ECCD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = expocity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ffa8c919-4a34-4832-9caf-c4db3a1a5263";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		DAC3CB0A1D7BB5C60090ECCD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = expocity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "32be3aa7-dd86-4a8c-9e18-873dcdaeabb1";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -371,7 +377,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DAC3CB0B1D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "expocityTests" */ = {
+		DAC3CB0B1D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAC3CB0C1D7BB5C60090ECCD /* Debug */,
