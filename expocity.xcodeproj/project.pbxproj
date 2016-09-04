@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817A1D7BB7FC00CC8B39 /* expocity.xcdatamodeld */; };
-		DA4F81811D7BB7FC00CC8B39 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817E1D7BB7FC00CC8B39 /* test.swift */; };
 		DA4F818E1D7BB97B00CC8B39 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81841D7BB97B00CC8B39 /* CHome.swift */; };
 		DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81861D7BB97B00CC8B39 /* CAppDelegate.swift */; };
 		DA4F81901D7BB97B00CC8B39 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81871D7BB97B00CC8B39 /* CController.swift */; };
 		DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81881D7BB97B00CC8B39 /* CParent.swift */; };
 		DA4F81921D7BB97B00CC8B39 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F818C1D7BB97B00CC8B39 /* VHome.swift */; };
-		DAC3CAF41D7BB5C60090ECCD /* expocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAC3CAF21D7BB5C60090ECCD /* expocity.xcdatamodeld */; };
+		DA4F81931D7BBA6A00CC8B39 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817E1D7BB7FC00CC8B39 /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +36,6 @@
 		DA4F81881D7BB97B00CC8B39 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 		DA4F818C1D7BB97B00CC8B39 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAC3CAF31D7BB5C60090ECCD /* expocity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expocity.xcdatamodel; sourceTree = "<group>"; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -161,7 +159,6 @@
 				DA4F81791D7BB7FC00CC8B39 /* Data */,
 				DA4F817C1D7BB7FC00CC8B39 /* Test */,
 				DAC3CAFA1D7BB5C60090ECCD /* Info.plist */,
-				DAC3CAF21D7BB5C60090ECCD /* expocity.xcdatamodeld */,
 			);
 			path = expocity;
 			sourceTree = "<group>";
@@ -268,10 +265,8 @@
 				DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */,
 				DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */,
 				DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */,
-				DA4F81811D7BB7FC00CC8B39 /* test.swift in Sources */,
 				DA4F818E1D7BB97B00CC8B39 /* CHome.swift in Sources */,
 				DA4F81921D7BB97B00CC8B39 /* VHome.swift in Sources */,
-				DAC3CAF41D7BB5C60090ECCD /* expocity.xcdatamodeld in Sources */,
 				DA4F81901D7BB97B00CC8B39 /* CController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4F81931D7BBA6A00CC8B39 /* test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,16 +465,6 @@
 				DA4F817B1D7BB7FC00CC8B39 /* expocity.xcdatamodel */,
 			);
 			currentVersion = DA4F817B1D7BB7FC00CC8B39 /* expocity.xcdatamodel */;
-			path = expocity.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		DAC3CAF21D7BB5C60090ECCD /* expocity.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				DAC3CAF31D7BB5C60090ECCD /* expocity.xcdatamodel */,
-			);
-			currentVersion = DAC3CAF31D7BB5C60090ECCD /* expocity.xcdatamodel */;
 			path = expocity.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
