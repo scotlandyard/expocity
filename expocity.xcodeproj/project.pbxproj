@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817A1D7BB7FC00CC8B39 /* expocity.xcdatamodeld */; };
-		DA4F81801D7BB7FC00CC8B39 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4F817D1D7BB7FC00CC8B39 /* Info.plist */; };
 		DA4F81811D7BB7FC00CC8B39 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817E1D7BB7FC00CC8B39 /* test.swift */; };
 		DA4F818E1D7BB97B00CC8B39 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81841D7BB97B00CC8B39 /* CHome.swift */; };
 		DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81861D7BB97B00CC8B39 /* CAppDelegate.swift */; };
@@ -249,7 +248,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA4F81801D7BB7FC00CC8B39 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = expocityTests/Info.plist;
+				INFOPLIST_FILE = expocity/Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocityTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,7 +422,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = expocityTests/Info.plist;
+				INFOPLIST_FILE = expocity/Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocityTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
