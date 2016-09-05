@@ -165,6 +165,11 @@ class VParent:UIView
         scroll(controller, delta:width, completion:completion)
     }
     
+    func push(controller:UIViewController)
+    {
+        //TODO: push controller
+    }
+    
     func scrollDidScroll(scroll:UIScrollView)
     {
         var offsetY:CGFloat = kBarHeight - scroll.contentOffset.y
