@@ -1,9 +1,11 @@
-//
-//  MMenuItemHistory.swift
-//  expocity
-//
-//  Created by zero on 9/5/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MMenuItemHistory:MMenuItem
+{
+    private let kIconImage:String = "menuSettings"
+    
+    init(index:Int)
+    {
+        super.init(iconImage:kIconImage, index:index)
+    }
+}
