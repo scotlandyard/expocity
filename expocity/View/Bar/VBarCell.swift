@@ -23,7 +23,7 @@ class VBarCell:UICollectionViewCell
         label.userInteractionEnabled = false
         label.textAlignment = NSTextAlignment.Center
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.regular(11)
+        label.font = UIFont.regular(12)
         label.translatesAutoresizingMaskIntoConstraints = false
         self.label = label
         
@@ -47,7 +47,7 @@ class VBarCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-32-[icon]-0-|",
+            "V:|-29-[icon]-0-|",
             options:[],
             metrics:metrics,
             views:views))

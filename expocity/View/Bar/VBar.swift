@@ -10,7 +10,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private let barHeight:CGFloat
     private let barMaxDelta:CGFloat
     private var currentWidth:CGFloat
-    private let kCellWidth:CGFloat = 60
+    private let kCellWidth:CGFloat = 74
     
     init(parent:CParent)
     {
