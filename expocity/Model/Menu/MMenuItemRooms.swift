@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MMenuItemRooms:MMenuItem
 {
@@ -9,5 +9,12 @@ class MMenuItemRooms:MMenuItem
         let title:String = NSLocalizedString("MMenuItemRoom_title", comment:"")
         
         super.init(title:title, iconImage:kIconImage, index:index)
+    }
+    
+    override func controller() -> CController
+    {
+        let controller:coor = CHome()
+        
+        return controller
     }
 }

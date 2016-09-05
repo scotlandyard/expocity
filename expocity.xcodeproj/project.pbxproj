@@ -41,7 +41,7 @@
 		DA8B1B741D7DF684004D8457 /* MNavLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B731D7DF684004D8457 /* MNavLeft.swift */; };
 		DA8B1B761D7DF690004D8457 /* MNavRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B751D7DF690004D8457 /* MNavRight.swift */; };
 		DA8B1B781D7DF69B004D8457 /* MNavPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B771D7DF69B004D8457 /* MNavPush.swift */; };
-		DA8B1B7B1D7E072E004D8457 /* CRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B7A1D7E072E004D8457 /* CRoom.swift */; };
+		DA8B1B7B1D7E072E004D8457 /* CRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B7A1D7E072E004D8457 /* CRooms.swift */; };
 		DA8B1B7E1D7E0740004D8457 /* VRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B7D1D7E0740004D8457 /* VRooms.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +91,7 @@
 		DA8B1B731D7DF684004D8457 /* MNavLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavLeft.swift; sourceTree = "<group>"; };
 		DA8B1B751D7DF690004D8457 /* MNavRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavRight.swift; sourceTree = "<group>"; };
 		DA8B1B771D7DF69B004D8457 /* MNavPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavPush.swift; sourceTree = "<group>"; };
-		DA8B1B7A1D7E072E004D8457 /* CRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRoom.swift; sourceTree = "<group>"; };
+		DA8B1B7A1D7E072E004D8457 /* CRooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRooms.swift; sourceTree = "<group>"; };
 		DA8B1B7D1D7E0740004D8457 /* VRooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VRooms.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 		DA8B1B791D7E072E004D8457 /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
-				DA8B1B7A1D7E072E004D8457 /* CRoom.swift */,
+				DA8B1B7A1D7E072E004D8457 /* CRooms.swift */,
 			);
 			path = Rooms;
 			sourceTree = "<group>";
@@ -418,7 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8B1B631D7DD74E004D8457 /* MMenuItem.swift in Sources */,
-				DA8B1B7B1D7E072E004D8457 /* CRoom.swift in Sources */,
+				DA8B1B7B1D7E072E004D8457 /* CRooms.swift in Sources */,
 				DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */,
 				DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */,
 				DA8B1B741D7DF684004D8457 /* MNavLeft.swift in Sources */,
