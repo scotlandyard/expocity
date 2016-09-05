@@ -3,7 +3,7 @@ import UIKit
 class CParent:UIViewController
 {
     weak var viewParent:VParent!
-    weak var current:UIViewController!
+    weak var current:UIViewController?
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20
     private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
@@ -13,53 +13,11 @@ class CParent:UIViewController
     {
         super.viewDidLoad()
 
-        let bar:VBar = VBar(parent:self)
-        self.bar = bar
-        view.addSubview(bar)
-        
         let home:CHome = CHome()
         current = home
         addChildViewController(home)
-        view.addSubview(home.view)
+        viewParent.center(home)
         home.didMoveToParentViewController(self)
-        
-        let views:[String:AnyObject] = [
-            "home":home.view,
-            "bar":bar]
-        
-        let metrics:[String:AnyObject] = [
-            "barHeight":kBarHeight]
-        
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[bar]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[bar(barHeight)]-0-[home]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        
-        layoutCurrentLeft = NSLayoutConstraint(
-            item:home.view,
-            attribute:NSLayoutAttribute.Left,
-            relatedBy:NSLayoutRelation.Equal,
-            toItem:view,
-            attribute:NSLayoutAttribute.Left,
-            multiplier:1,
-            constant:0)
-        layoutCurrentRight = NSLayoutConstraint(
-            item:home.view,
-            attribute:NSLayoutAttribute.Right,
-            relatedBy:NSLayoutRelation.Equal,
-            toItem:view,
-            attribute:NSLayoutAttribute.Right,
-            multiplier:1,
-            constant:0)
-        
-        view.addConstraint(layoutCurrentLeft)
-        view.addConstraint(layoutCurrentRight)
     }
     
     override func loadView()
@@ -100,26 +58,27 @@ class CParent:UIViewController
     
     func scrollLeft(controller:UIViewController)
     {
-        let width:CGFloat = view.bounds.maxX
         addChildViewController(controller)
-        view.addSubview(controller.view)
+        current?.willMoveToParentViewController(nil)
         
-        UIView.animateWithDuration(
-            kAnimationDuration,
-            animations:
-            {
-                
-            })
-        { (done) in
-            
+        viewParent.fromLeft(controller)
+        {
+            self.current?.didMoveToParentViewController(nil)
+            self.current = controller
+            self.current!.didMoveToParentViewController(self)
         }
-        
-        home.didMoveToParentViewController(self)
-        
     }
     
     func scrollRight(controller:UIViewController)
     {
+        addChildViewController(controller)
+        current?.willMoveToParentViewController(nil)
         
+        viewParent.fromRight(controller)
+        {
+            self.current?.didMoveToParentViewController(nil)
+            self.current = controller
+            self.current!.didMoveToParentViewController(self)
+        }
     }
 }
