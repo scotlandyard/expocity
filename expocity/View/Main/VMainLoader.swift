@@ -2,7 +2,7 @@ import UIKit
 
 class VMainLoader:UIImageView
 {
-    private let kAnimationDuration:NSTimeInterval = 1
+    private let kAnimationDuration:NSTimeInterval = 2
     
     init()
     {
