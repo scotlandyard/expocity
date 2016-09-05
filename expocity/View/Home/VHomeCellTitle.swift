@@ -22,7 +22,7 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         field.clipsToBounds = true
         field.backgroundColor = UIColor.clearColor()
         field.borderStyle = UITextBorderStyle.None
-        field.font = UIFont.bold(15)
+        field.font = UIFont.bold(16)
         field.textColor = UIColor.blackColor()
         field.tintColor = UIColor.blackColor()
         field.returnKeyType = UIReturnKeyType.Done
@@ -44,7 +44,7 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-15-[field]-12-|",
+            "H:|-16-[field]-12-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -59,7 +59,7 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-10-[base]-10-|",
+            "V:|-14-[base]-14-|",
             options:[],
             metrics:metrics,
             views:views))
