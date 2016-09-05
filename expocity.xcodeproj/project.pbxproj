@@ -15,6 +15,16 @@
 		DA4F81921D7BB97B00CC8B39 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F818C1D7BB97B00CC8B39 /* VHome.swift */; };
 		DA4F81931D7BBA6A00CC8B39 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817E1D7BB7FC00CC8B39 /* test.swift */; };
 		DA4F81951D7D03E400CC8B39 /* VMainBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81941D7D03E400CC8B39 /* VMainBar.swift */; };
+		DA4F81A11D7D062500CC8B39 /* CategoryMKAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */; };
+		DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81981D7D062500CC8B39 /* CategoryNSDate.swift */; };
+		DA4F81A31D7D062500CC8B39 /* CategoryNSFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */; };
+		DA4F81A41D7D062500CC8B39 /* CategoryNSManagerdObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */; };
+		DA4F81A51D7D062500CC8B39 /* CategoryNSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819B1D7D062500CC8B39 /* CategoryNSNotification.swift */; };
+		DA4F81A61D7D062500CC8B39 /* CategoryUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */; };
+		DA4F81A71D7D062500CC8B39 /* CategoryUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819D1D7D062500CC8B39 /* CategoryUIColor.swift */; };
+		DA4F81A81D7D062500CC8B39 /* CategoryUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819E1D7D062500CC8B39 /* CategoryUIFont.swift */; };
+		DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819F1D7D062500CC8B39 /* CategoryUILocalNotification.swift */; };
+		DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81A01D7D062500CC8B39 /* CategoryUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +47,16 @@
 		DA4F81881D7BB97B00CC8B39 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 		DA4F818C1D7BB97B00CC8B39 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA4F81941D7D03E400CC8B39 /* VMainBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainBar.swift; sourceTree = "<group>"; };
+		DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryMKAnnotationView.swift; sourceTree = "<group>"; };
+		DA4F81981D7D062500CC8B39 /* CategoryNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSDate.swift; sourceTree = "<group>"; };
+		DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSFileManager.swift; sourceTree = "<group>"; };
+		DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSManagerdObject.swift; sourceTree = "<group>"; };
+		DA4F819B1D7D062500CC8B39 /* CategoryNSNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSNotification.swift; sourceTree = "<group>"; };
+		DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUICollectionReusableView.swift; sourceTree = "<group>"; };
+		DA4F819D1D7D062500CC8B39 /* CategoryUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUIColor.swift; sourceTree = "<group>"; };
+		DA4F819E1D7D062500CC8B39 /* CategoryUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUIFont.swift; sourceTree = "<group>"; };
+		DA4F819F1D7D062500CC8B39 /* CategoryUILocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUILocalNotification.swift; sourceTree = "<group>"; };
+		DA4F81A01D7D062500CC8B39 /* CategoryUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUIViewController.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +156,23 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		DA4F81961D7D062500CC8B39 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */,
+				DA4F81981D7D062500CC8B39 /* CategoryNSDate.swift */,
+				DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */,
+				DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */,
+				DA4F819B1D7D062500CC8B39 /* CategoryNSNotification.swift */,
+				DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */,
+				DA4F819D1D7D062500CC8B39 /* CategoryUIColor.swift */,
+				DA4F819E1D7D062500CC8B39 /* CategoryUIFont.swift */,
+				DA4F819F1D7D062500CC8B39 /* CategoryUILocalNotification.swift */,
+				DA4F81A01D7D062500CC8B39 /* CategoryUIViewController.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		DAC3CADF1D7BB5C60090ECCD = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +193,7 @@
 		DAC3CAEA1D7BB5C60090ECCD /* expocity */ = {
 			isa = PBXGroup;
 			children = (
+				DA4F81961D7D062500CC8B39 /* Category */,
 				DA4F81821D7BB97B00CC8B39 /* Controller */,
 				DA4F81891D7BB97B00CC8B39 /* Model */,
 				DA4F818A1D7BB97B00CC8B39 /* View */,
@@ -265,13 +303,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */,
 				DA4F81951D7D03E400CC8B39 /* VMainBar.swift in Sources */,
 				DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */,
 				DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */,
+				DA4F81A31D7D062500CC8B39 /* CategoryNSFileManager.swift in Sources */,
+				DA4F81A51D7D062500CC8B39 /* CategoryNSNotification.swift in Sources */,
+				DA4F81A61D7D062500CC8B39 /* CategoryUICollectionReusableView.swift in Sources */,
+				DA4F81A81D7D062500CC8B39 /* CategoryUIFont.swift in Sources */,
 				DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */,
 				DA4F818E1D7BB97B00CC8B39 /* CHome.swift in Sources */,
+				DA4F81A11D7D062500CC8B39 /* CategoryMKAnnotationView.swift in Sources */,
 				DA4F81921D7BB97B00CC8B39 /* VHome.swift in Sources */,
 				DA4F81901D7BB97B00CC8B39 /* CController.swift in Sources */,
+				DA4F81A41D7D062500CC8B39 /* CategoryNSManagerdObject.swift in Sources */,
+				DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */,
+				DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */,
+				DA4F81A71D7D062500CC8B39 /* CategoryUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
