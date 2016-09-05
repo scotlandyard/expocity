@@ -24,7 +24,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
-        flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsMake(controller.parent.viewParent.kBarHeight, 0, kCollectionBottom, 0)
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
         collection.clipsToBounds = true
