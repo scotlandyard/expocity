@@ -67,4 +67,19 @@ class CParent:UIViewController
         statusBarStyle = UIStatusBarStyle.Default
         setNeedsStatusBarAppearanceUpdate()
     }
+    
+    func push(controller:UIViewController)
+    {
+        
+    }
+    
+    func scrollLeft(controller:UIViewController)
+    {
+        
+    }
+    
+    func scrollRight(controller:UIViewController)
+    {
+        
+    }
 }

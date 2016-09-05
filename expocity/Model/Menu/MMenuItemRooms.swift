@@ -13,7 +13,7 @@ class MMenuItemRooms:MMenuItem
     
     override func controller() -> CController
     {
-        let controller:coor = CHome()
+        let controller:CRooms = CRooms()
         
         return controller
     }

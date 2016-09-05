@@ -227,11 +227,24 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
         let item:MMenuItem = modelAtIndex(indexPath)
-        model.current = item
         
-        collectionView.scrollToItemAtIndexPath(
-            indexPath,
-            atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally,
-            animated:true)
+        if item !== model.current
+        {
+            let controller:CController = item.controller()
+            
+            if item.index < model.current.index
+            {
+                controller.parent.scrollLeft(controller)
+            }
+            else
+            {
+                controller.parent.scrollRight(controller)
+            }
+            
+            collectionView.scrollToItemAtIndexPath(
+                indexPath,
+                atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally,
+                animated:true)
+        }
     }
 }
