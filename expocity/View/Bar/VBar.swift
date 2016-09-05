@@ -223,4 +223,15 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         return cell
     }
+    
+    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    {
+        let item:MMenuItem = modelAtIndex(indexPath)
+        model.current = item
+        
+        collectionView.scrollToItemAtIndexPath(
+            indexPath,
+            atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally,
+            animated:true)
+    }
 }
