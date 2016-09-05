@@ -47,6 +47,7 @@
 		DA8B1B831D7E21CA004D8457 /* CChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B821D7E21CA004D8457 /* CChat.swift */; };
 		DA8B1B861D7E22C0004D8457 /* VChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B851D7E22C0004D8457 /* VChat.swift */; };
 		DA8B1B891D7E23B4004D8457 /* MChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B881D7E23B4004D8457 /* MChat.swift */; };
+		DA8B1B8C1D7E244C004D8457 /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B8B1D7E244C004D8457 /* MHome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		DA8B1B821D7E21CA004D8457 /* CChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CChat.swift; sourceTree = "<group>"; };
 		DA8B1B851D7E22C0004D8457 /* VChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChat.swift; sourceTree = "<group>"; };
 		DA8B1B881D7E23B4004D8457 /* MChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChat.swift; sourceTree = "<group>"; };
+		DA8B1B8B1D7E244C004D8457 /* MHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +175,7 @@
 		DA4F81891D7BB97B00CC8B39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B1B8A1D7E2442004D8457 /* Home */,
 				DA8B1B871D7E23AB004D8457 /* Chat */,
 				DA8B1B701D7DF664004D8457 /* Nav */,
 				DA8B1B5F1D7DD735004D8457 /* Menu */,
@@ -315,6 +318,14 @@
 				DA8B1B881D7E23B4004D8457 /* MChat.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		DA8B1B8A1D7E2442004D8457 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B1B8B1D7E244C004D8457 /* MHome.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		DAC3CADF1D7BB5C60090ECCD = {
@@ -485,6 +496,7 @@
 				DA4F81AF1D7DBB4000CC8B39 /* VBar.swift in Sources */,
 				DA8B1B6B1D7DEAFC004D8457 /* MMenuItemRooms.swift in Sources */,
 				DA8B1B671D7DD79C004D8457 /* MMenuItemSettings.swift in Sources */,
+				DA8B1B8C1D7E244C004D8457 /* MHome.swift in Sources */,
 				DA4F81A71D7D062500CC8B39 /* CategoryUIColor.swift in Sources */,
 				DA8B1B861D7E22C0004D8457 /* VChat.swift in Sources */,
 				DA8B1B721D7DF679004D8457 /* MNav.swift in Sources */,
