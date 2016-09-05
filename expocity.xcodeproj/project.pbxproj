@@ -25,6 +25,7 @@
 		DA4F81A81D7D062500CC8B39 /* CategoryUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819E1D7D062500CC8B39 /* CategoryUIFont.swift */; };
 		DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819F1D7D062500CC8B39 /* CategoryUILocalNotification.swift */; };
 		DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81A01D7D062500CC8B39 /* CategoryUIViewController.swift */; };
+		DA4F81AC1D7DBA5E00CC8B39 /* VMainLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81AB1D7DBA5E00CC8B39 /* VMainLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		DA4F819E1D7D062500CC8B39 /* CategoryUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUIFont.swift; sourceTree = "<group>"; };
 		DA4F819F1D7D062500CC8B39 /* CategoryUILocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUILocalNotification.swift; sourceTree = "<group>"; };
 		DA4F81A01D7D062500CC8B39 /* CategoryUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUIViewController.swift; sourceTree = "<group>"; };
+		DA4F81AB1D7DBA5E00CC8B39 /* VMainLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainLoader.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				DA4F81941D7D03E400CC8B39 /* VMainBar.swift */,
+				DA4F81AB1D7DBA5E00CC8B39 /* VMainLoader.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				DA4F81A41D7D062500CC8B39 /* CategoryNSManagerdObject.swift in Sources */,
 				DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */,
 				DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */,
+				DA4F81AC1D7DBA5E00CC8B39 /* VMainLoader.swift in Sources */,
 				DA4F81A71D7D062500CC8B39 /* CategoryUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
