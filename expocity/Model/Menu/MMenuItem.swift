@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MMenuItem
 {
@@ -13,5 +13,12 @@ class MMenuItem
         self.index = index
         iconImageOn = String(format:"%@On", iconImage)
         iconImageOff = String(format:"%@Off", iconImage)
+    }
+    
+    //MARK: public
+    
+    func controller() -> CController
+    {
+        fatalError()
     }
 }

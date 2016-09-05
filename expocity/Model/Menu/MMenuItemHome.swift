@@ -10,4 +10,11 @@ class MMenuItemHome:MMenuItem
         
         super.init(title:title, iconImage:kIconImage, index:index)
     }
+    
+    override func controller() -> CController
+    {
+        let controller:CHome = CHome()
+        
+        return controller
+    }
 }
