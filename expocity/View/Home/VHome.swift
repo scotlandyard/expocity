@@ -155,4 +155,10 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         return selectable
     }
+    
+    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    {
+        let cell:VHomeCell = collectionView.cellForItemAtIndexPath(indexPath) as! VHomeCell
+        cell.selected(controller)
+    }
 }

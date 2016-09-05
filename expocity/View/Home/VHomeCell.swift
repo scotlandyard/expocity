@@ -49,4 +49,11 @@ class VHomeCell:UICollectionViewCell
     {
         hover()
     }
+    
+    func selected(controller:CHome)
+    {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        
+        
+    }
 }

@@ -3,6 +3,7 @@ import UIKit
 class VHomeCellTitle:VHomeCell, UITextFieldDelegate
 {
     weak var field:UITextField!
+    weak var modelTitle:MHomeItemTitle!
     private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
@@ -70,7 +71,18 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         fatalError()
     }
     
+    override func config(model:MHomeItem)
+    {
+        modelTitle = model as! MHomeItemTitle
+        field.text = modelTitle.title
+    }
+    
     //MARK: field del
+    
+    func textFieldDidEndEditing(textField:UITextField)
+    {
+        modelTitle.title = textField.text!
+    }
     
     func textFieldShouldReturn(textField:UITextField) -> Bool
     {
