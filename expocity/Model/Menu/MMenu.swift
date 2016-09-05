@@ -19,8 +19,8 @@ class MMenu
         current = itemHome
         items.append(itemHome)
         
-        let itemRoom:MMenuItemRoom = MMenuItemRoom(index:items.count)
-        items.append(itemRoom)
+        let itemRooms:MMenuItemRooms = MMenuItemRooms(index:items.count)
+        items.append(itemRooms)
         
         self.items = items
     }

@@ -1,8 +1,8 @@
 import Foundation
 
-class MMenuItemRoom:MMenuItem
+class MMenuItemRooms:MMenuItem
 {
-    private let kIconImage:String = "menuRoom"
+    private let kIconImage:String = "menuRooms"
     
     init(index:Int)
     {

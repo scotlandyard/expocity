@@ -1,10 +1,10 @@
 import UIKit
 
-class VRoom:UIView
+class VRooms:UIView
 {
-    weak var controller:CRoom!
+    weak var controller:CRooms!
     
-    convenience init(controller:CRoom)
+    convenience init(controller:CRooms)
     {
         self.init()
         translatesAutoresizingMaskIntoConstraints = false
