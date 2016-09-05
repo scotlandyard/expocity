@@ -83,4 +83,11 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         
     }
+    
+    //MARK: col del
+    
+    func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
 }
