@@ -96,6 +96,15 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     //MARK: col del
     
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    {
+        let item:MHomeItem = modelAtIndex(indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSizeMake(width, item.cellHeight)
+        
+        return size
+    }
+    
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
         return 1
