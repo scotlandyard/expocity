@@ -128,4 +128,20 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         return cell
     }
+    
+    func collectionView(collectionView:UICollectionView, shouldHighlightItemAtIndexPath indexPath:NSIndexPath) -> Bool
+    {
+        let item:MHomeItem = modelAtIndex(indexPath)
+        let highlightable:Bool = item.selectable
+        
+        return highlightable
+    }
+    
+    func collectionView(collectionView:UICollectionView, shouldSelectItemAtIndexPath indexPath:NSIndexPath) -> Bool
+    {
+        let item:MHomeItem = modelAtIndex(indexPath)
+        let selectable:Bool = item.selectable
+        
+        return selectable
+    }
 }

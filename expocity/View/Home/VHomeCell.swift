@@ -47,5 +47,6 @@ class VHomeCell:UICollectionViewCell
     
     func config(model:MHomeItem)
     {
+        hover()
     }
 }
