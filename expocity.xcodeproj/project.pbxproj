@@ -14,7 +14,6 @@
 		DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81881D7BB97B00CC8B39 /* CParent.swift */; };
 		DA4F81921D7BB97B00CC8B39 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F818C1D7BB97B00CC8B39 /* VHome.swift */; };
 		DA4F81931D7BBA6A00CC8B39 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817E1D7BB7FC00CC8B39 /* test.swift */; };
-		DA4F81951D7D03E400CC8B39 /* VMainBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81941D7D03E400CC8B39 /* VMainBar.swift */; };
 		DA4F81A11D7D062500CC8B39 /* CategoryMKAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */; };
 		DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81981D7D062500CC8B39 /* CategoryNSDate.swift */; };
 		DA4F81A31D7D062500CC8B39 /* CategoryNSFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */; };
@@ -26,6 +25,8 @@
 		DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819F1D7D062500CC8B39 /* CategoryUILocalNotification.swift */; };
 		DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81A01D7D062500CC8B39 /* CategoryUIViewController.swift */; };
 		DA4F81AC1D7DBA5E00CC8B39 /* VMainLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81AB1D7DBA5E00CC8B39 /* VMainLoader.swift */; };
+		DA4F81AF1D7DBB4000CC8B39 /* VBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81AE1D7DBB4000CC8B39 /* VBar.swift */; };
+		DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,6 @@
 		DA4F81871D7BB97B00CC8B39 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA4F81881D7BB97B00CC8B39 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 		DA4F818C1D7BB97B00CC8B39 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
-		DA4F81941D7D03E400CC8B39 /* VMainBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainBar.swift; sourceTree = "<group>"; };
 		DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryMKAnnotationView.swift; sourceTree = "<group>"; };
 		DA4F81981D7D062500CC8B39 /* CategoryNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSDate.swift; sourceTree = "<group>"; };
 		DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSFileManager.swift; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		DA4F819F1D7D062500CC8B39 /* CategoryUILocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUILocalNotification.swift; sourceTree = "<group>"; };
 		DA4F81A01D7D062500CC8B39 /* CategoryUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUIViewController.swift; sourceTree = "<group>"; };
 		DA4F81AB1D7DBA5E00CC8B39 /* VMainLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainLoader.swift; sourceTree = "<group>"; };
+		DA4F81AE1D7DBB4000CC8B39 /* VBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBar.swift; sourceTree = "<group>"; };
+		DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBarCell.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 		DA4F818A1D7BB97B00CC8B39 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA4F81AD1D7DBB4000CC8B39 /* Bar */,
 				DA4F818B1D7BB97B00CC8B39 /* Home */,
 				DA4F818D1D7BB97B00CC8B39 /* Main */,
 			);
@@ -153,7 +156,6 @@
 		DA4F818D1D7BB97B00CC8B39 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DA4F81941D7D03E400CC8B39 /* VMainBar.swift */,
 				DA4F81AB1D7DBA5E00CC8B39 /* VMainLoader.swift */,
 			);
 			path = Main;
@@ -174,6 +176,15 @@
 				DA4F81A01D7D062500CC8B39 /* CategoryUIViewController.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		DA4F81AD1D7DBB4000CC8B39 /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				DA4F81AE1D7DBB4000CC8B39 /* VBar.swift */,
+				DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */,
+			);
+			path = Bar;
 			sourceTree = "<group>";
 		};
 		DAC3CADF1D7BB5C60090ECCD = {
@@ -307,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */,
-				DA4F81951D7D03E400CC8B39 /* VMainBar.swift in Sources */,
+				DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */,
 				DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */,
 				DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */,
 				DA4F81A31D7D062500CC8B39 /* CategoryNSFileManager.swift in Sources */,
@@ -323,6 +334,7 @@
 				DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */,
 				DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */,
 				DA4F81AC1D7DBA5E00CC8B39 /* VMainLoader.swift in Sources */,
+				DA4F81AF1D7DBB4000CC8B39 /* VBar.swift in Sources */,
 				DA4F81A71D7D062500CC8B39 /* CategoryUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
