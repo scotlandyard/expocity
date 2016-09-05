@@ -1,9 +1,13 @@
-//
-//  MMenuItem.swift
-//  expocity
-//
-//  Created by zero on 9/5/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MMenuItem
+{
+    let iconImage:String
+    let index:Int
+    
+    init(iconImage:String, index:Int)
+    {
+        self.iconImage = iconImage
+        self.index = index
+    }
+}
