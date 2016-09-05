@@ -77,11 +77,21 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             views:views))
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:NSIndexPath) -> MHomeItem
+    {
+        let item:MHomeItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func sessionLoaded()
     {
-        
+        loader.stopAnimating()
+        collection.hidden = false
     }
     
     //MARK: col del
@@ -89,5 +99,24 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
         return 1
+    }
+    
+    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    {
+        let item:MHomeItem = modelAtIndex(indexPath)
+        let cell:VHomeCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            item.reusableIdentifier,
+            forIndexPath:
+            indexPath) as! VHomeCell
+        cell.config(item)
+        
+        return cell
     }
 }
