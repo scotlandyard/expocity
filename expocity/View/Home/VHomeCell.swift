@@ -52,8 +52,5 @@ class VHomeCell:UICollectionViewCell
     
     func selected(controller:CHome)
     {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
-        
-        
     }
 }

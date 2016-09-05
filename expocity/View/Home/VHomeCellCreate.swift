@@ -39,4 +39,13 @@ class VHomeCellCreate:VHomeCell
     {
         fatalError()
     }
+    
+    override func selected(controller:CHome)
+    {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        
+        let model:MChat = controller.model.chat()
+        let chat:CChat = CChat(model:model)
+        controller.parent.push(chat)
+    }
 }
