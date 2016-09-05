@@ -42,7 +42,7 @@ class VParent:UIView
     
     private func scroll(controller:UIViewController, delta:CGFloat, completion:(() -> ()))
     {
-        addSubview(controller.view)
+        insertSubview(controller.view, belowSubview:bar)
         
         let views:[String:AnyObject] = [
             "view":controller.view]
@@ -104,7 +104,7 @@ class VParent:UIView
     func center(controller:UIViewController)
     {
         current = controller.view
-        addSubview(current!)
+        insertSubview(current!, belowSubview:bar)
         
         let views:[String:AnyObject] = [
             "view":current!]
