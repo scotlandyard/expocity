@@ -29,6 +29,7 @@
 		DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */; };
 		DA8B1B541D7DBF40004D8457 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B531D7DBF40004D8457 /* Launch.storyboard */; };
 		DA8B1B561D7DC9D0004D8457 /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B551D7DC9D0004D8457 /* generic.xcassets */; };
+		DA8B1B591D7DD0DB004D8457 /* CRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B581D7DD0DB004D8457 /* CRoom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBarCell.swift; sourceTree = "<group>"; };
 		DA8B1B531D7DBF40004D8457 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		DA8B1B551D7DC9D0004D8457 /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
+		DA8B1B581D7DD0DB004D8457 /* CRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRoom.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 		DA4F81821D7BB97B00CC8B39 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B1B571D7DD0CC004D8457 /* Room */,
 				DA4F81831D7BB97B00CC8B39 /* Home */,
 				DA4F81851D7BB97B00CC8B39 /* Main */,
 			);
@@ -198,6 +201,14 @@
 				DA8B1B551D7DC9D0004D8457 /* generic.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		DA8B1B571D7DD0CC004D8457 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B1B581D7DD0DB004D8457 /* CRoom.swift */,
+			);
+			path = Room;
 			sourceTree = "<group>";
 		};
 		DAC3CADF1D7BB5C60090ECCD = {
@@ -335,6 +346,7 @@
 			files = (
 				DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */,
 				DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */,
+				DA8B1B591D7DD0DB004D8457 /* CRoom.swift in Sources */,
 				DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */,
 				DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */,
 				DA4F81A31D7D062500CC8B39 /* CategoryNSFileManager.swift in Sources */,

@@ -12,8 +12,7 @@ class VMainLoader:UIImageView
             UIImage(named:"genericLoader0")!,
             UIImage(named:"genericLoader1")!,
             UIImage(named:"genericLoader2")!,
-            UIImage(named:"genericLoader3")!,
-            UIImage(named:"genericLoader4")!
+            UIImage(named:"genericLoader3")!
         ]
         
         userInteractionEnabled = false
