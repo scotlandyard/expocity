@@ -4,8 +4,10 @@ class VParent:UIView
 {
     weak var parent:CParent!
     weak var bar:VBar!
+    weak var current:UIView?
     weak var layoutCurrentLeft:NSLayoutConstraint!
     weak var layoutCurrentRight:NSLayoutConstraint!
+    private let kAnimationDurantion:NSTimeInterval = 0.3
     
     convenience init(parent:CParent)
     {
@@ -36,14 +38,73 @@ class VParent:UIView
             views:views))
     }
     
-    //MARK: public
+    //MARK: private
     
-    func center(controller:CController)
+    private func scroll(controller:UIViewController, delta:CGFloat, completion:(() -> ()))
     {
         addSubview(controller.view)
         
         let views:[String:AnyObject] = [
             "view":controller.view,
+            "bar":bar]
+        
+        let metrics:[String:AnyObject] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[bar]-0-[view]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        let layoutLeft:NSLayoutConstraint = NSLayoutConstraint(
+            item:controller.view,
+            attribute:NSLayoutAttribute.Left,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Left,
+            multiplier:1,
+            constant:-delta)
+        let layoutRight:NSLayoutConstraint = NSLayoutConstraint(
+            item:controller.view,
+            attribute:NSLayoutAttribute.Right,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Right,
+            multiplier:1,
+            constant:-delta)
+        
+        addConstraint(layoutLeft)
+        addConstraint(layoutRight)
+        
+        UIView.animateWithDuration(
+            kAnimationDurantion,
+            animations:
+            {
+                layoutLeft.constant = 0
+                layoutRight.constant = 0
+                self.layoutCurrentRight.constant = delta
+                self.layoutCurrentRight.constant = delta
+            })
+        { (done) in
+            
+            self.current?.removeFromSuperview()
+            self.current = controller.view
+            self.layoutCurrentRight = layoutRight
+            self.layoutCurrentLeft = layoutLeft
+            
+            completion()
+        }
+    }
+    
+    //MARK: public
+    
+    func center(controller:UIViewController)
+    {
+        current = controller.view
+        addSubview(current!)
+        
+        let views:[String:AnyObject] = [
+            "view":current!,
             "bar":bar]
         
         let metrics:[String:AnyObject] = [:]
@@ -60,7 +121,7 @@ class VParent:UIView
             views:views))
         
         layoutCurrentLeft = NSLayoutConstraint(
-            item:controller.view,
+            item:current!,
             attribute:NSLayoutAttribute.Left,
             relatedBy:NSLayoutRelation.Equal,
             toItem:self,
@@ -68,7 +129,7 @@ class VParent:UIView
             multiplier:1,
             constant:0)
         layoutCurrentRight = NSLayoutConstraint(
-            item:controller.view,
+            item:current!,
             attribute:NSLayoutAttribute.Right,
             relatedBy:NSLayoutRelation.Equal,
             toItem:self,
@@ -78,5 +139,17 @@ class VParent:UIView
         
         addConstraint(layoutCurrentLeft)
         addConstraint(layoutCurrentRight)
+    }
+    
+    func fromLeft(controller:UIViewController, completion:(() -> ()))
+    {
+        let width:CGFloat = bounds.maxX
+        scroll(controller, delta:width, completion:completion)
+    }
+    
+    func fromRight(controller:UIViewController, completion:(() -> ()))
+    {
+        let width:CGFloat = -bounds.maxX
+        scroll(controller, delta:width, completion:completion)
     }
 }
