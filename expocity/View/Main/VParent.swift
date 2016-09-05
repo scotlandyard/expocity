@@ -76,14 +76,18 @@ class VParent:UIView
         addConstraint(layoutLeft)
         addConstraint(layoutRight)
         
+        layoutIfNeeded()
+        
+        layoutLeft.constant = 0
+        layoutRight.constant = 0
+        layoutCurrentRight.constant = delta
+        layoutCurrentRight.constant = delta
+        
         UIView.animateWithDuration(
             kAnimationDurantion,
             animations:
             {
-                layoutLeft.constant = 0
-                layoutRight.constant = 0
-                self.layoutCurrentRight.constant = delta
-                self.layoutCurrentRight.constant = delta
+                self.layoutIfNeeded()
             })
         { (done) in
             
@@ -109,11 +113,6 @@ class VParent:UIView
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[view]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:[bar]-0-[view]-0-|",
             options:[],

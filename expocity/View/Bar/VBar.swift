@@ -234,11 +234,11 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             
             if item.index < model.current.index
             {
-                controller.parent.scrollLeft(controller)
+                parent.scrollLeft(controller)
             }
             else
             {
-                controller.parent.scrollRight(controller)
+                parent.scrollRight(controller)
             }
             
             collectionView.scrollToItemAtIndexPath(
