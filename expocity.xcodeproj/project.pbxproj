@@ -31,6 +31,7 @@
 		DA8B1B561D7DC9D0004D8457 /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B551D7DC9D0004D8457 /* generic.xcassets */; };
 		DA8B1B591D7DD0DB004D8457 /* CRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B581D7DD0DB004D8457 /* CRoom.swift */; };
 		DA8B1B5C1D7DD113004D8457 /* VRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B5B1D7DD113004D8457 /* VRoom.swift */; };
+		DA8B1B5E1D7DD48C004D8457 /* menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B5D1D7DD48C004D8457 /* menu.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		DA8B1B551D7DC9D0004D8457 /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA8B1B581D7DD0DB004D8457 /* CRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRoom.swift; sourceTree = "<group>"; };
 		DA8B1B5B1D7DD113004D8457 /* VRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VRoom.swift; sourceTree = "<group>"; };
+		DA8B1B5D1D7DD48C004D8457 /* menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = menu.xcassets; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +204,7 @@
 			children = (
 				DA8B1B531D7DBF40004D8457 /* Launch.storyboard */,
 				DA8B1B551D7DC9D0004D8457 /* generic.xcassets */,
+				DA8B1B5D1D7DD48C004D8457 /* menu.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8B1B541D7DBF40004D8457 /* Launch.storyboard in Resources */,
+				DA8B1B5E1D7DD48C004D8457 /* menu.xcassets in Resources */,
 				DA8B1B561D7DC9D0004D8457 /* generic.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
