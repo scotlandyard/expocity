@@ -2,8 +2,8 @@ import UIKit
 
 class CParent:UIViewController
 {
-    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
     weak var bar:VBar!
+    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
     private let kBarHeight:CGFloat = 64
     
     override func viewDidLoad()
