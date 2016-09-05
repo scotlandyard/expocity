@@ -2,9 +2,7 @@ import UIKit
 
 class CParent:UIViewController
 {
-    weak var bar:VBar!
-    weak var layoutCurrentLeft:NSLayoutConstraint!
-    weak var layoutCurrentRight:NSLayoutConstraint!
+    weak var viewParent:VParent!
     weak var current:UIViewController!
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20
@@ -64,6 +62,13 @@ class CParent:UIViewController
         view.addConstraint(layoutCurrentRight)
     }
     
+    override func loadView()
+    {
+        let viewParent:VParent = VParent(parent:self)
+        self.viewParent = viewParent
+        view = viewParent
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle
     {
         return statusBarStyle
@@ -99,7 +104,15 @@ class CParent:UIViewController
         addChildViewController(controller)
         view.addSubview(controller.view)
         
-        UIView.animateWithDuration(<#T##duration: NSTimeInterval##NSTimeInterval#>, animations: <#T##() -> Void#>)
+        UIView.animateWithDuration(
+            kAnimationDuration,
+            animations:
+            {
+                
+            })
+        { (done) in
+            
+        }
         
         home.didMoveToParentViewController(self)
         
