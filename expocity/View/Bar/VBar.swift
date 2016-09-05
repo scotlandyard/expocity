@@ -7,11 +7,17 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     weak var label:UILabel!
     weak var backButton:UIButton!
     private let model:MMenu
+    private let barHeight:CGFloat
+    private let barMaxDelta:CGFloat
+    private var currentWidth:CGFloat
     private let kCellWidth:CGFloat = 60
     
     init(parent:CParent)
     {
         model = MMenu()
+        barHeight = parent.kBarHeight
+        barMaxDelta = barHeight - parent.kBarMinHeight
+        currentWidth = 0
         
         super.init(frame:CGRectZero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -36,12 +42,10 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         collection.bounces = false
         collection.dataSource = self
         collection.delegate = self
-        collection.hidden = true
         collection.registerClass(
             VBarCell.self,
             forCellWithReuseIdentifier:
             VBarCell.reusableIdentifier())
-        
         self.collection = collection
         
         let label:UILabel = UILabel()
@@ -51,12 +55,16 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         label.textAlignment = NSTextAlignment.Center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.whiteColor()
+        label.hidden = true
         self.label = label
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.imageView!.image = UIImage(named:"genericBack")
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.Center
+        backButton.addTarget(self, action:#selector(self.actionBack(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        backButton.hidden = true
         self.backButton = backButton
         
         addSubview(label)
@@ -65,18 +73,40 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let views:[String:AnyObject] = [
             "collection":collection,
-            "back":back]
+            "backButton":backButton,
+            "label":label]
         
         let metrics:[String:AnyObject] = [
-            "barHeight":barHeight]
+            "barHeight":barHeight,
+            "barUsableHeight":barMaxDelta]
         
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-30-[label]-30-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[backButton(60)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:[collection(barHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[back(barHeight)]-0-|",
+            "V:[backButton(barUsableHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[label(barUsableHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -85,6 +115,13 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionBack(sender button:UIButton)
+    {
+        
     }
     
     //MARK: private
