@@ -77,6 +77,12 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collection.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:NSIndexPath) -> MHomeItem
@@ -95,6 +101,11 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     //MARK: col del
+    
+    func scrollViewDidScroll(scrollView:UIScrollView)
+    {
+        controller.parent.viewParent.scrollDidScroll(scrollView)
+    }
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
