@@ -4,8 +4,6 @@ class CParent:UIViewController
 {
     weak var viewParent:VParent!
     weak var current:UIViewController?
-    let kBarHeight:CGFloat = 64
-    let kBarMinHeight:CGFloat = 20
     private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
     private let kAnimationDuration:NSTimeInterval = 0.3
     

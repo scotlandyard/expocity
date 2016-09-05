@@ -6,17 +6,17 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     weak var collection:UICollectionView!
     weak var label:UILabel!
     weak var backButton:UIButton!
-    private let model:MMenu
-    private let barHeight:CGFloat
-    private let barMaxDelta:CGFloat
     private var currentWidth:CGFloat
+    private let barHeight:CGFloat
+    private let barDelta:CGFloat
+    private let model:MMenu
     private let kCellWidth:CGFloat = 74
     
-    init(parent:CParent)
+    init(parent:CParent, barHeight:CGFloat, barDelta:CGFloat)
     {
+        self.barHeight = barHeight
+        self.barDelta = barDelta
         model = MMenu()
-        barHeight = parent.kBarHeight
-        barMaxDelta = barHeight - parent.kBarMinHeight
         currentWidth = 0
         
         super.init(frame:CGRectZero)
@@ -78,7 +78,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let metrics:[String:AnyObject] = [
             "barHeight":barHeight,
-            "barUsableHeight":barMaxDelta]
+            "barDelta":barDelta]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-30-[label]-30-|",
@@ -96,17 +96,17 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[collection(barHeight)]-0-|",
+            "V:[collection(barheight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[backButton(barUsableHeight)]-0-|",
+            "V:[backButton(barDelta)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label(barUsableHeight)]-0-|",
+            "V:[label(barDelta)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -149,16 +149,12 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         }
         
         dispatch_async(dispatch_get_main_queue())
-        { [weak self] in
-            
-            if self != nil
-            {
-                let currentHeight:CGFloat = self!.bounds.maxY
-                let deltaHeight:CGFloat = self!.barHeight - currentHeight
-                let deltaPercent:CGFloat = deltaHeight / self!.barMaxDelta
-                let alpha:CGFloat = 1 - deltaPercent
-                self!.collection.alpha = alpha
-            }
+        {
+            let currentHeight:CGFloat = self.bounds.maxY
+            let deltaHeight:CGFloat = self.barHeight - currentHeight
+            let deltaPercent:CGFloat = deltaHeight / self.barDelta
+            let alpha:CGFloat = 1 - deltaPercent
+            self.collection.alpha = alpha
         }
         
         super.layoutSubviews()

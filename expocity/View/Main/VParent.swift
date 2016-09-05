@@ -7,6 +7,9 @@ class VParent:UIView
     weak var current:UIView?
     weak var layoutCurrentLeft:NSLayoutConstraint!
     weak var layoutCurrentRight:NSLayoutConstraint!
+    weak var layoutBarHeight:NSLayoutConstraint!
+    let kBarHeight:CGFloat = 64
+    let kBarMinHeight:CGFloat = 20
     private let kAnimationDurantion:NSTimeInterval = 0.3
     
     convenience init(parent:CParent)
@@ -16,7 +19,8 @@ class VParent:UIView
         clipsToBounds = true
         backgroundColor = UIColor.whiteColor()
         
-        let bar:VBar = VBar(parent:parent)
+        let barDelta:CGFloat = kBarHeight - kBarMinHeight
+        let bar:VBar = VBar(parent:parent, barHeight:kBarHeight, barDelta:barDelta)
         self.bar = bar
         addSubview(bar)
         
@@ -24,7 +28,7 @@ class VParent:UIView
             "bar":bar]
         
         let metrics:[String:AnyObject] = [
-            "barHeight":parent.kBarHeight]
+            "barHeight":kBarHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[bar]-0-|",
@@ -32,10 +36,21 @@ class VParent:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[bar(barHeight)]",
+            "V:|-0-[bar]",
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutBarHeight = NSLayoutConstraint(
+            item:bar,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:kBarHeight)
+        
+        addConstraint(layoutBarHeight)
     }
     
     //MARK: private
@@ -148,5 +163,17 @@ class VParent:UIView
     {
         let width:CGFloat = -bounds.maxX
         scroll(controller, delta:width, completion:completion)
+    }
+    
+    func scrollDidScroll(scroll:UIScrollView)
+    {
+        var offsetY:CGFloat = kBarHeight - scroll.contentOffset.y
+        
+        if offsetY < kBarMinHeight
+        {
+            offsetY = kBarMinHeight
+        }
+        
+        layoutBarHeight.constant = offsetY
     }
 }
