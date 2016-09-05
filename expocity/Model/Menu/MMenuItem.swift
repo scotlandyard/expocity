@@ -2,12 +2,14 @@ import Foundation
 
 class MMenuItem
 {
-    let iconImage:String
+    let iconImageOn:String
+    let iconImageOff:String
     let index:Int
     
     init(iconImage:String, index:Int)
     {
-        self.iconImage = iconImage
         self.index = index
+        iconImageOn = String(format:"%@On", iconImage)
+        iconImageOff = String(format:"%@Off", iconImage)
     }
 }

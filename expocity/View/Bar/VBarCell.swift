@@ -3,6 +3,7 @@ import UIKit
 class VBarCell:UICollectionViewCell
 {
     weak var icon:UIImageView!
+    weak var model:MMenuItem!
     
     override init(frame:CGRect)
     {
@@ -63,11 +64,11 @@ class VBarCell:UICollectionViewCell
     {
         if selected || highlighted
         {
-            alpha = 1
+            icon.image = UIImage(named:model.iconImageOn)
         }
         else
         {
-            alpha = 0.3
+            icon.image = UIImage(named:model.iconImageOff)
         }
     }
     
@@ -75,7 +76,7 @@ class VBarCell:UICollectionViewCell
     
     func config(model:MMenuItem)
     {
-        icon.image = UIImage(named:model.iconImage)
+        self.model = model
         hover()
     }
 }
