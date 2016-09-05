@@ -6,13 +6,13 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     weak var collection:UICollectionView!
     weak var loader:VMainLoader!
     private let kCollectionBottom:CGFloat = 40
+    private let kInterLine:CGFloat = 2
     
     convenience init(controller:CHome)
     {
         self.init()
         backgroundColor = UIColor.whiteColor()
         translatesAutoresizingMaskIntoConstraints = false
-        userInteractionEnabled = false
         self.controller = controller
         
         let loader:VMainLoader = VMainLoader()
@@ -22,7 +22,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
-        flow.minimumLineSpacing = 0
+        flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
         
@@ -71,7 +71,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[loader]-0-|",
+            "V:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
