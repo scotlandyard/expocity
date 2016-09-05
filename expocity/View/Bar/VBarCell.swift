@@ -44,7 +44,7 @@ class VBarCell:UICollectionViewCell
     
     //MARK: public
     
-    func config()
+    func config(model:MMenuItem)
     {
         
     }

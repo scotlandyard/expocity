@@ -1,11 +1,14 @@
 import UIKit
 
-class VBar:UIView
+class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    private let model:MMenu
     weak var parent:CParent!
     
     init(parent:CParent)
     {
+        model = MMenu()
+        
         super.init(frame:CGRectZero)
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
@@ -17,4 +20,8 @@ class VBar:UIView
     {
         fatalError()
     }
+    
+    //MARK: col del
+    
+    
 }
