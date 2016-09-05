@@ -48,6 +48,9 @@
 		DA8B1B861D7E22C0004D8457 /* VChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B851D7E22C0004D8457 /* VChat.swift */; };
 		DA8B1B891D7E23B4004D8457 /* MChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B881D7E23B4004D8457 /* MChat.swift */; };
 		DA8B1B8C1D7E244C004D8457 /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B8B1D7E244C004D8457 /* MHome.swift */; };
+		DA8B1B8E1D7E2462004D8457 /* MHomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B8D1D7E2462004D8457 /* MHomeItem.swift */; };
+		DA8B1B901D7E253A004D8457 /* MHomeItemCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B8F1D7E253A004D8457 /* MHomeItemCreate.swift */; };
+		DA8B1B921D7E2548004D8457 /* MHomeItemTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B911D7E2548004D8457 /* MHomeItemTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		DA8B1B851D7E22C0004D8457 /* VChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChat.swift; sourceTree = "<group>"; };
 		DA8B1B881D7E23B4004D8457 /* MChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChat.swift; sourceTree = "<group>"; };
 		DA8B1B8B1D7E244C004D8457 /* MHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
+		DA8B1B8D1D7E2462004D8457 /* MHomeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItem.swift; sourceTree = "<group>"; };
+		DA8B1B8F1D7E253A004D8457 /* MHomeItemCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemCreate.swift; sourceTree = "<group>"; };
+		DA8B1B911D7E2548004D8457 /* MHomeItemTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemTitle.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +330,9 @@
 			isa = PBXGroup;
 			children = (
 				DA8B1B8B1D7E244C004D8457 /* MHome.swift */,
+				DA8B1B8D1D7E2462004D8457 /* MHomeItem.swift */,
+				DA8B1B911D7E2548004D8457 /* MHomeItemTitle.swift */,
+				DA8B1B8F1D7E253A004D8457 /* MHomeItemCreate.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 				DA8B1B831D7E21CA004D8457 /* CChat.swift in Sources */,
 				DA8B1B7B1D7E072E004D8457 /* CRooms.swift in Sources */,
 				DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */,
+				DA8B1B921D7E2548004D8457 /* MHomeItemTitle.swift in Sources */,
 				DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */,
 				DA8B1B741D7DF684004D8457 /* MNavLeft.swift in Sources */,
 				DA8B1B891D7E23B4004D8457 /* MChat.swift in Sources */,
@@ -489,6 +499,7 @@
 				DA4F81901D7BB97B00CC8B39 /* CController.swift in Sources */,
 				DA4F81A41D7D062500CC8B39 /* CategoryNSManagerdObject.swift in Sources */,
 				DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */,
+				DA8B1B901D7E253A004D8457 /* MHomeItemCreate.swift in Sources */,
 				DA8B1B761D7DF690004D8457 /* MNavRight.swift in Sources */,
 				DA8B1B781D7DF69B004D8457 /* MNavPush.swift in Sources */,
 				DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */,
@@ -496,6 +507,7 @@
 				DA4F81AF1D7DBB4000CC8B39 /* VBar.swift in Sources */,
 				DA8B1B6B1D7DEAFC004D8457 /* MMenuItemRooms.swift in Sources */,
 				DA8B1B671D7DD79C004D8457 /* MMenuItemSettings.swift in Sources */,
+				DA8B1B8E1D7E2462004D8457 /* MHomeItem.swift in Sources */,
 				DA8B1B8C1D7E244C004D8457 /* MHome.swift in Sources */,
 				DA4F81A71D7D062500CC8B39 /* CategoryUIColor.swift in Sources */,
 				DA8B1B861D7E22C0004D8457 /* VChat.swift in Sources */,
