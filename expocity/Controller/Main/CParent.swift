@@ -3,28 +3,41 @@ import UIKit
 class CParent:UIViewController
 {
     private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
+    weak var bar:VBar!
+    private let kBarHeight:CGFloat = 64
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
+        let bar:VBar = VBar(parent:self)
+        self.bar = bar
+        view.addSubview(bar)
+        
         let home:CHome = CHome()
         addChildViewController(home)
         view.addSubview(home.view)
         home.didMoveToParentViewController(self)
         
         let views:[String:AnyObject] = [
-            "home":home.view]
+            "home":home.view,
+            "bar":bar]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "barHeight":kBarHeight]
         
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[bar]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[home]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[home]-0-|",
+            "V:|-0-[bar(barHeight)]-0-[home]-0-|",
             options:[],
             metrics:metrics,
             views:views))

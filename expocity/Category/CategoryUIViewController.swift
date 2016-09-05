@@ -2,11 +2,11 @@ import UIKit
 
 extension UIViewController
 {
-    var parent:CMainParent
+    var parent:CParent
     {
         get
         {
-            return self.parentViewController as! CMainParent
+            return self.parentViewController as! CParent
         }
     }
 }

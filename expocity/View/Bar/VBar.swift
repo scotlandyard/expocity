@@ -1,6 +1,6 @@
 import UIKit
 
-class VMainBar:UIView
+class VBar:UIView
 {
     weak var parent:CParent!
     
