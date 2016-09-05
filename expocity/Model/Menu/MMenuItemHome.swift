@@ -2,7 +2,7 @@ import Foundation
 
 class MMenuItemHome:MMenuItem
 {
-    private let kIconImage:String = "menuSettings"
+    private let kIconImage:String = "menuHome"
     
     init(index:Int)
     {
