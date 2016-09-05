@@ -3,6 +3,7 @@ import Foundation
 class MMenu
 {
     let items:[MMenuItem]
+    weak var current:MMenuItem!
     
     init()
     {
@@ -15,7 +16,11 @@ class MMenu
         items.append(itemHistory)
         
         let itemHome:MMenuItemHome = MMenuItemHome(index:items.count)
+        current = itemHome
         items.append(itemHome)
+        
+        let itemRoom:MMenuItemRoom = MMenuItemRoom(index:items.count)
+        items.append(itemRoom)
         
         self.items = items
     }

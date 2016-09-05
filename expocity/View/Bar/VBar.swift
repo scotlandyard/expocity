@@ -110,11 +110,58 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             options:[],
             metrics:metrics,
             views:views))
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+        { [weak collection, weak model] in
+            
+            if model != nil
+            {
+                let indexPath:NSIndexPath = NSIndexPath(forItem:model!.current.index, inSection:0)
+                collection?.selectItemAtIndexPath(indexPath, animated:false, scrollPosition:UICollectionViewScrollPosition.CenteredHorizontally)
+            }
+        }
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        
+        if currentWidth != width
+        {
+            currentWidth = width
+            collection.collectionViewLayout.invalidateLayout()
+            
+            dispatch_async(dispatch_get_main_queue())
+            { [weak self] in
+                
+                if self != nil
+                {
+                    let selected:Int = self!.model.current.index
+                    let selectedIndexPath:NSIndexPath = NSIndexPath(forItem:selected, inSection:0)
+                    self!.collection.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
+                }
+            }
+        }
+        
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            if self != nil
+            {
+                let currentHeight:CGFloat = self!.bounds.maxY
+                let deltaHeight:CGFloat = self!.barHeight - currentHeight
+                let deltaPercent:CGFloat = deltaHeight / self!.barMaxDelta
+                let alpha:CGFloat = 1 - deltaPercent
+                self!.collection.alpha = alpha
+            }
+        }
+        
+        super.layoutSubviews()
     }
     
     //MARK: actions
@@ -134,6 +181,16 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     }
     
     //MARK: col del
+    
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAtIndex section:Int) -> UIEdgeInsets
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let remain:CGFloat = width - kCellWidth
+        let margin:CGFloat = remain / 2.0
+        let insets:UIEdgeInsets = UIEdgeInsetsMake(0, margin, 0, margin)
+        
+        return insets
+    }
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
