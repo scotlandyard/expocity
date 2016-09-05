@@ -3,6 +3,9 @@ import UIKit
 class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var parent:CParent!
+    weak var collection:UICollectionView!
+    weak var label:UILabel!
+    weak var backButton:UIButton!
     private let model:MMenu
     private let kCellWidth:CGFloat = 60
     
@@ -15,6 +18,68 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         clipsToBounds = true
         backgroundColor = UIColor.main()
         self.parent = parent
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSizeZero
+        flow.footerReferenceSize = CGSizeZero
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        
+        let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        collection.clipsToBounds = true
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.backgroundColor = UIColor.clearColor()
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.scrollEnabled = false
+        collection.bounces = false
+        collection.dataSource = self
+        collection.delegate = self
+        collection.hidden = true
+        collection.registerClass(
+            VBarCell.self,
+            forCellWithReuseIdentifier:
+            VBarCell.reusableIdentifier())
+        
+        self.collection = collection
+        
+        let label:UILabel = UILabel()
+        label.userInteractionEnabled = false
+        label.backgroundColor = UIColor.clearColor()
+        label.font = UIFont.bold(16)
+        label.textAlignment = NSTextAlignment.Center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.whiteColor()
+        self.label = label
+        
+        let backButton:UIButton = UIButton()
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.imageView!.clipsToBounds = true
+        backButton.imageView!.contentMode = UIViewContentMode.Center
+        self.backButton = backButton
+        
+        addSubview(label)
+        addSubview(backButton)
+        addSubview(collection)
+        
+        let views:[String:AnyObject] = [
+            "collection":collection,
+            "back":back]
+        
+        let metrics:[String:AnyObject] = [
+            "barHeight":barHeight]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[collection(barHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[back(barHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
