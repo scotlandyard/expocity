@@ -45,13 +45,12 @@ class VParent:UIView
         addSubview(controller.view)
         
         let views:[String:AnyObject] = [
-            "view":controller.view,
-            "bar":bar]
+            "view":controller.view]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[bar]-0-[view]-0-|",
+            "V:|-0-[view]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -108,13 +107,12 @@ class VParent:UIView
         addSubview(current!)
         
         let views:[String:AnyObject] = [
-            "view":current!,
-            "bar":bar]
+            "view":current!]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[bar]-0-[view]-0-|",
+            "V:|-0-[view]-0-|",
             options:[],
             metrics:metrics,
             views:views))
