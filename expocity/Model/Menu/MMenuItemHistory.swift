@@ -6,6 +6,8 @@ class MMenuItemHistory:MMenuItem
     
     init(index:Int)
     {
-        super.init(iconImage:kIconImage, index:index)
+        let title:String = NSLocalizedString("MMenuItemHistory_title", comment:"")
+        
+        super.init(title:title, iconImage:kIconImage, index:index)
     }
 }

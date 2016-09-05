@@ -3,6 +3,7 @@ import UIKit
 class VBarCell:UICollectionViewCell
 {
     weak var icon:UIImageView!
+    weak var label:UILabel!
     weak var model:MMenuItem!
     
     override init(frame:CGRect)
@@ -18,10 +19,20 @@ class VBarCell:UICollectionViewCell
         icon.contentMode = UIViewContentMode.Center
         self.icon = icon
         
+        let label:UILabel = UILabel()
+        label.userInteractionEnabled = false
+        label.textAlignment = NSTextAlignment.Center
+        label.backgroundColor = UIColor.clearColor()
+        label.font = UIFont.regular(12)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        self.label = label
+        
         addSubview(icon)
+        addSubview(label)
         
         let views:[String:AnyObject] = [
-            "icon":icon]
+            "icon":icon,
+            "label":label]
         
         let metrics:[String:AnyObject] = [:]
         
@@ -31,7 +42,17 @@ class VBarCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-20-[icon]-0-|",
+            "H:|-0-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-20-[icon]-5-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[label(20)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -65,10 +86,12 @@ class VBarCell:UICollectionViewCell
         if selected || highlighted
         {
             icon.image = UIImage(named:model.iconImageOn)
+            label.textColor = UIColor.whiteColor()
         }
         else
         {
             icon.image = UIImage(named:model.iconImageOff)
+            label.textColor = UIColor(white:1, alpha:0.5)
         }
     }
     
@@ -77,6 +100,7 @@ class VBarCell:UICollectionViewCell
     func config(model:MMenuItem)
     {
         self.model = model
+        label.text = model.title
         hover()
     }
 }
