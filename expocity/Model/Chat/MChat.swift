@@ -4,8 +4,8 @@ class MChat
 {
     var title:String
     
-    init()
+    init(title:String)
     {
-        title = ""
+        self.title = title
     }
 }
