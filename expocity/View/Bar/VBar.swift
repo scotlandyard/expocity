@@ -241,6 +241,8 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
                 parent.scrollRight(controller)
             }
             
+            model.current = item
+            
             collectionView.scrollToItemAtIndexPath(
                 indexPath,
                 atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally,

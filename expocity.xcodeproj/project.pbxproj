@@ -44,6 +44,7 @@
 		DA8B1B7B1D7E072E004D8457 /* CRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B7A1D7E072E004D8457 /* CRooms.swift */; };
 		DA8B1B7E1D7E0740004D8457 /* VRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B7D1D7E0740004D8457 /* VRooms.swift */; };
 		DA8B1B801D7E11CA004D8457 /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B7F1D7E11CA004D8457 /* VParent.swift */; };
+		DA8B1B831D7E21CA004D8457 /* CChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B821D7E21CA004D8457 /* CChat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		DA8B1B7A1D7E072E004D8457 /* CRooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRooms.swift; sourceTree = "<group>"; };
 		DA8B1B7D1D7E0740004D8457 /* VRooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VRooms.swift; sourceTree = "<group>"; };
 		DA8B1B7F1D7E11CA004D8457 /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
+		DA8B1B821D7E21CA004D8457 /* CChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CChat.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 		DA4F81821D7BB97B00CC8B39 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B1B811D7E21BF004D8457 /* Chat */,
 				DA8B1B791D7E072E004D8457 /* Rooms */,
 				DA4F81831D7BB97B00CC8B39 /* Home */,
 				DA4F81851D7BB97B00CC8B39 /* Main */,
@@ -284,6 +287,14 @@
 			path = Rooms;
 			sourceTree = "<group>";
 		};
+		DA8B1B811D7E21BF004D8457 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B1B821D7E21CA004D8457 /* CChat.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		DAC3CADF1D7BB5C60090ECCD = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8B1B631D7DD74E004D8457 /* MMenuItem.swift in Sources */,
+				DA8B1B831D7E21CA004D8457 /* CChat.swift in Sources */,
 				DA8B1B7B1D7E072E004D8457 /* CRooms.swift in Sources */,
 				DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */,
 				DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */,
