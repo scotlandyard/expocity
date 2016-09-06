@@ -77,7 +77,7 @@ class CParent:UIViewController
         {
             let controller:CController = self.controllers.popLast()!
             controller.view.removeFromSuperview()
-            controller.didMoveToParentViewController(nil)
+            controller.removeFromParentViewController()
         }
     }
     
@@ -90,7 +90,7 @@ class CParent:UIViewController
         {
             let lastController:CController? = self.controllers.popLast()
             lastController?.view.removeFromSuperview()
-            lastController?.didMoveToParentViewController(nil)
+            lastController?.removeFromParentViewController()
             self.controllers.append(controller)
             controller.didMoveToParentViewController(self)
         }
@@ -105,7 +105,7 @@ class CParent:UIViewController
         {
             let lastController:CController? = self.controllers.popLast()
             lastController?.view.removeFromSuperview()
-            lastController?.didMoveToParentViewController(nil)
+            lastController?.removeFromParentViewController()
             self.controllers.append(controller)
             controller.didMoveToParentViewController(self)
         }
