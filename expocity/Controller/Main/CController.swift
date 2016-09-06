@@ -2,6 +2,9 @@ import UIKit
 
 class CController:UIViewController
 {
+    weak var layoutLeft:NSLayoutConstraint!
+    weak var layoutRight:NSLayoutConstraint!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()

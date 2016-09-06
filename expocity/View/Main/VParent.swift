@@ -4,9 +4,7 @@ class VParent:UIView
 {
     weak var parent:CParent!
     weak var bar:VBar!
-    weak var current:UIView?
-    weak var layoutCurrentLeft:NSLayoutConstraint!
-    weak var layoutCurrentRight:NSLayoutConstraint!
+    weak var current:CController?
     weak var layoutBarHeight:NSLayoutConstraint!
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20
@@ -70,7 +68,7 @@ class VParent:UIView
             metrics:metrics,
             views:views))
         
-        let layoutLeft:NSLayoutConstraint = NSLayoutConstraint(
+        controller.layoutLeft = NSLayoutConstraint(
             item:controller.view,
             attribute:NSLayoutAttribute.Left,
             relatedBy:NSLayoutRelation.Equal,
@@ -78,7 +76,7 @@ class VParent:UIView
             attribute:NSLayoutAttribute.Left,
             multiplier:1,
             constant:-delta)
-        let layoutRight:NSLayoutConstraint = NSLayoutConstraint(
+        controller.layoutRight = NSLayoutConstraint(
             item:controller.view,
             attribute:NSLayoutAttribute.Right,
             relatedBy:NSLayoutRelation.Equal,
@@ -87,15 +85,15 @@ class VParent:UIView
             multiplier:1,
             constant:-delta)
         
-        addConstraint(layoutLeft)
-        addConstraint(layoutRight)
+        addConstraint(controller.layoutLeft)
+        addConstraint(controller.layoutRight)
         
         layoutIfNeeded()
         
-        layoutLeft.constant = 0
-        layoutRight.constant = 0
-        layoutCurrentRight.constant = delta
-        layoutCurrentRight.constant = delta
+        controller.layoutLeft.constant = 0
+        controller.layoutRight.constant = 0
+        current?.layoutLeft.constant = delta
+        current?.layoutRight.constant = delta
         
         UIView.animateWithDuration(
             kAnimationDurantion,
@@ -105,10 +103,8 @@ class VParent:UIView
             })
         { (done) in
             
-            self.current?.removeFromSuperview()
-            self.current = controller.view
-            self.layoutCurrentRight = layoutRight
-            self.layoutCurrentLeft = layoutLeft
+            self.current?.view.removeFromSuperview()
+            self.current = controller
             
             completion()
         }
@@ -118,8 +114,8 @@ class VParent:UIView
     
     func center(controller:CController)
     {
-        current = controller.view
-        insertSubview(current!, belowSubview:bar)
+        current = controller
+        insertSubview(controller.view, belowSubview:bar)
         
         let views:[String:AnyObject] = [
             "view":current!]
@@ -132,7 +128,7 @@ class VParent:UIView
             metrics:metrics,
             views:views))
         
-        layoutCurrentLeft = NSLayoutConstraint(
+        controller.layoutLeft = NSLayoutConstraint(
             item:current!,
             attribute:NSLayoutAttribute.Left,
             relatedBy:NSLayoutRelation.Equal,
@@ -140,7 +136,7 @@ class VParent:UIView
             attribute:NSLayoutAttribute.Left,
             multiplier:1,
             constant:0)
-        layoutCurrentRight = NSLayoutConstraint(
+        controller.layoutRight = NSLayoutConstraint(
             item:current!,
             attribute:NSLayoutAttribute.Right,
             relatedBy:NSLayoutRelation.Equal,
@@ -149,8 +145,8 @@ class VParent:UIView
             multiplier:1,
             constant:0)
         
-        addConstraint(layoutCurrentLeft)
-        addConstraint(layoutCurrentRight)
+        addConstraint(controller.layoutLeft)
+        addConstraint(controller.layoutRight)
     }
     
     func fromLeft(controller:CController, completion:(() -> ()))
@@ -183,7 +179,7 @@ class VParent:UIView
             metrics:metrics,
             views:views))
         
-        let layoutLeft:NSLayoutConstraint = NSLayoutConstraint(
+        controller.layoutLeft = NSLayoutConstraint(
             item:controller.view,
             attribute:NSLayoutAttribute.Left,
             relatedBy:NSLayoutRelation.Equal,
@@ -191,7 +187,7 @@ class VParent:UIView
             attribute:NSLayoutAttribute.Left,
             multiplier:1,
             constant:width)
-        let layoutRight:NSLayoutConstraint = NSLayoutConstraint(
+        controller.layoutRight = NSLayoutConstraint(
             item:controller.view,
             attribute:NSLayoutAttribute.Right,
             relatedBy:NSLayoutRelation.Equal,
@@ -200,15 +196,15 @@ class VParent:UIView
             multiplier:1,
             constant:width)
         
-        addConstraint(layoutLeft)
-        addConstraint(layoutRight)
+        addConstraint(controller.layoutLeft)
+        addConstraint(controller.layoutRight)
         
         layoutIfNeeded()
         
-        layoutLeft.constant = 0
-        layoutRight.constant = 0
-        layoutCurrentRight.constant = -width_2
-        layoutCurrentRight.constant = -width_2
+        controller.layoutLeft.constant = 0
+        controller.layoutRight.constant = 0
+        current?.layoutLeft.constant = -width_2
+        current?.layoutRight.constant = -width_2
         
         UIView.animateWithDuration(
             kAnimationDurantion,
@@ -218,10 +214,8 @@ class VParent:UIView
             })
         { (done) in
             
-            self.current?.removeFromSuperview()
-            self.current = controller.view
-            self.layoutCurrentRight = layoutRight
-            self.layoutCurrentLeft = layoutLeft
+            self.current?.view.removeFromSuperview()
+            self.current = controller
             
             completion()
         }

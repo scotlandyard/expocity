@@ -72,7 +72,7 @@ class CParent:UIViewController
         addChildViewController(controller)
         current?.willMoveToParentViewController(nil)
         
-        viewParent.fromRight(CController)
+        viewParent.fromRight(controller)
         {
             self.current?.didMoveToParentViewController(nil)
             self.current = controller
