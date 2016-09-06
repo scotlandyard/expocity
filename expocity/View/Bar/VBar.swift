@@ -11,6 +11,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private let barDelta:CGFloat
     private let model:MMenu
     private let kCellWidth:CGFloat = 74
+    private let kAnimationDuration:NSTimeInterval = 0.3
     
     init(parent:CParent, barHeight:CGFloat, barDelta:CGFloat)
     {
@@ -174,6 +175,30 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let item:MMenuItem = model.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func push()
+    {
+        label.text = parent.controllers.last?.title
+        
+        UIView.animateWithDuration(kAnimationDuration)
+        {
+            self.collection.alpha = 0
+            self.backButton.alpha = 1
+            self.label.alpha = 1
+        }
+    }
+    
+    func pop()
+    {
+        UIView.animateWithDuration(kAnimationDuration)
+        {
+            self.collection.alpha = 1
+            self.backButton.alpha = 0
+            self.label.alpha = 0
+        }
     }
     
     //MARK: col del

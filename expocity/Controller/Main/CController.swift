@@ -33,10 +33,21 @@ class CController:UIViewController
         self.shadow = shadow
         
         view.addSubview(shadow)
-    }
-    
-    func removeShadow()
-    {
         
+        let views:[String:AnyObject] = [
+            "shadow":shadow]
+        
+        let metrics:[String:AnyObject] = [:]
+        
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[shadow]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[shadow]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
 }
