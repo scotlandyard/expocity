@@ -6,7 +6,6 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     weak var collection:UICollectionView!
     weak var loader:VMainLoader!
     private let kCollectionBottom:CGFloat = 40
-    private let kInterLine:CGFloat = 2
     
     convenience init(controller:CHome)
     {
@@ -22,7 +21,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
-        flow.minimumLineSpacing = kInterLine
+        flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
         flow.sectionInset = UIEdgeInsetsMake(controller.parent.viewParent.kBarHeight, 0, kCollectionBottom, 0)
         
@@ -160,5 +159,11 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         let cell:VHomeCell = collectionView.cellForItemAtIndexPath(indexPath) as! VHomeCell
         cell.selected(controller)
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+        { [weak collectionView] in
+            
+            collectionView?.selectItemAtIndexPath(nil, animated:false, scrollPosition:UICollectionViewScrollPosition.None)
+        }
     }
 }
