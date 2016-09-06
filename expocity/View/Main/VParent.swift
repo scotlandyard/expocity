@@ -200,16 +200,19 @@ class VParent:UIView
         controller.layoutRight.constant = 0
         parent.controllers.last?.layoutLeft.constant = -width_2
         parent.controllers.last?.layoutRight.constant = -width_2
+        parent.controllers.last?.addShadow()
         
         UIView.animateWithDuration(
             kAnimationDurantion,
             animations:
             {
                 self.layoutIfNeeded()
+                self.parent.controllers.last?.shadow?.maxAlpha()
             })
         { (done) in
             
             completion()
+            self.bar.push()
         }
     }
     

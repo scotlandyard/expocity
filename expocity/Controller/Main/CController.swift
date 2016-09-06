@@ -49,5 +49,7 @@ class CController:UIViewController
             options:[],
             metrics:metrics,
             views:views))
+        
+        shadow.layoutIfNeeded()
     }
 }
