@@ -216,6 +216,33 @@ class VParent:UIView
         }
     }
     
+    func pop(completion:(() -> ()))
+    {
+        let width:CGFloat = bounds.maxX
+        let countControllers:Int = parent.controllers.count
+        let controller:CController = parent.controllers[countControllers - 1]
+        let previous:CController = parent.controllers[countControllers - 2]
+        
+        controller.layoutLeft.constant = width
+        controller.layoutRight.constant = width
+        previous.layoutLeft.constant = 0
+        previous.layoutRight.constant = 0
+        
+        UIView.animateWithDuration(
+            kAnimationDurantion,
+            animations:
+            {
+                self.layoutIfNeeded()
+                previous.shadow?.minAlpha()
+            })
+        { (done) in
+            
+            previous.shadow?.removeFromSuperview()
+            completion()
+            self.bar.pop()
+        }
+    }
+    
     func scrollDidScroll(scroll:UIScrollView)
     {
         var offsetY:CGFloat = kBarHeight - scroll.contentOffset.y

@@ -52,20 +52,21 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.bold(16)
+        label.font = UIFont.bold(18)
         label.textAlignment = NSTextAlignment.Center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.whiteColor()
-        label.hidden = true
+        label.alpha = 0
         self.label = label
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.imageView!.image = UIImage(named:"genericBack")
+        backButton.setImage(UIImage(named:"genericBack"), forState:UIControlState.Normal)
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.Center
         backButton.addTarget(self, action:#selector(self.actionBack(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        backButton.hidden = true
+        backButton.alpha = 0
+        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
         self.backButton = backButton
         
         addSubview(label)
@@ -165,7 +166,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func actionBack(sender button:UIButton)
     {
-        
+        parent.pop()
     }
     
     //MARK: private

@@ -71,6 +71,16 @@ class CParent:UIViewController
         }
     }
     
+    func pop()
+    {
+        viewParent.pop()
+        {
+            let controller:CController = self.controllers.popLast()!
+            controller.view.removeFromSuperview()
+            controller.didMoveToParentViewController(nil)
+        }
+    }
+    
     func scrollLeft(controller:CController)
     {
         addChildViewController(controller)
