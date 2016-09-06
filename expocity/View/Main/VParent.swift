@@ -55,7 +55,7 @@ class VParent:UIView
     
     //MARK: private
     
-    private func scroll(controller:UIViewController, delta:CGFloat, completion:(() -> ()))
+    private func scroll(controller:CController, delta:CGFloat, completion:(() -> ()))
     {
         insertSubview(controller.view, belowSubview:bar)
         
@@ -116,7 +116,7 @@ class VParent:UIView
     
     //MARK: public
     
-    func center(controller:UIViewController)
+    func center(controller:CController)
     {
         current = controller.view
         insertSubview(current!, belowSubview:bar)
@@ -153,21 +153,78 @@ class VParent:UIView
         addConstraint(layoutCurrentRight)
     }
     
-    func fromLeft(controller:UIViewController, completion:(() -> ()))
+    func fromLeft(controller:CController, completion:(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         scroll(controller, delta:width, completion:completion)
     }
     
-    func fromRight(controller:UIViewController, completion:(() -> ()))
+    func fromRight(controller:CController, completion:(() -> ()))
     {
         let width:CGFloat = -bounds.maxX
         scroll(controller, delta:width, completion:completion)
     }
     
-    func push(controller:UIViewController)
+    func push(controller:CController, completion:(() -> ()))
     {
-        //TODO: push controller
+        let width:CGFloat = bounds.maxX
+        let width_2:CGFloat = width / 2.0
+        
+        insertSubview(controller.view, belowSubview:bar)
+        
+        let views:[String:AnyObject] = [
+            "view":controller.view]
+        
+        let metrics:[String:AnyObject] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[view]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        let layoutLeft:NSLayoutConstraint = NSLayoutConstraint(
+            item:controller.view,
+            attribute:NSLayoutAttribute.Left,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Left,
+            multiplier:1,
+            constant:width)
+        let layoutRight:NSLayoutConstraint = NSLayoutConstraint(
+            item:controller.view,
+            attribute:NSLayoutAttribute.Right,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Right,
+            multiplier:1,
+            constant:width)
+        
+        addConstraint(layoutLeft)
+        addConstraint(layoutRight)
+        
+        layoutIfNeeded()
+        
+        layoutLeft.constant = 0
+        layoutRight.constant = 0
+        layoutCurrentRight.constant = -width_2
+        layoutCurrentRight.constant = -width_2
+        
+        UIView.animateWithDuration(
+            kAnimationDurantion,
+            animations:
+            {
+                self.layoutIfNeeded()
+            })
+        { (done) in
+            
+            self.current?.removeFromSuperview()
+            self.current = controller.view
+            self.layoutCurrentRight = layoutRight
+            self.layoutCurrentLeft = layoutLeft
+            
+            completion()
+        }
     }
     
     func scrollDidScroll(scroll:UIScrollView)

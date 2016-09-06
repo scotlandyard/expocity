@@ -3,7 +3,7 @@ import UIKit
 class CParent:UIViewController
 {
     weak var viewParent:VParent!
-    weak var current:UIViewController?
+    weak var current:CController?
     private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
     private let kAnimationDuration:NSTimeInterval = 0.3
     
@@ -49,12 +49,12 @@ class CParent:UIViewController
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    func push(controller:UIViewController)
+    func push(controller:CController)
     {
         
     }
     
-    func scrollLeft(controller:UIViewController)
+    func scrollLeft(controller:CController)
     {
         addChildViewController(controller)
         current?.willMoveToParentViewController(nil)
@@ -67,12 +67,12 @@ class CParent:UIViewController
         }
     }
     
-    func scrollRight(controller:UIViewController)
+    func scrollRight(controller:CController)
     {
         addChildViewController(controller)
         current?.willMoveToParentViewController(nil)
         
-        viewParent.fromRight(controller)
+        viewParent.fromRight(CController)
         {
             self.current?.didMoveToParentViewController(nil)
             self.current = controller
