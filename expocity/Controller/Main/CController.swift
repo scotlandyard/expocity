@@ -6,11 +6,6 @@ class CController:UIViewController
     weak var layoutRight:NSLayoutConstraint!
     weak var shadow:VMainShadow?
     
-    deinit
-    {
-        print("dealloc")
-    }
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
