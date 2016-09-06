@@ -9,12 +9,12 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.collectionBackground()
+        backgroundColor = UIColor.clearColor()
         
         let base:UIView = UIView()
         base.userInteractionEnabled = false
         base.translatesAutoresizingMaskIntoConstraints = false
-        base.backgroundColor = UIColor.whiteColor()
+        base.backgroundColor = UIColor.collectionBackground()
         base.clipsToBounds = true
         base.layer.cornerRadius = kCornerRadius
         
