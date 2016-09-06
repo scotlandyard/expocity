@@ -4,7 +4,6 @@ class VParent:UIView
 {
     weak var parent:CParent!
     weak var bar:VBar!
-    weak var current:CController?
     weak var layoutBarHeight:NSLayoutConstraint!
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20

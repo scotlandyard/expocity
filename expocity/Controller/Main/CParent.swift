@@ -3,16 +3,27 @@ import UIKit
 class CParent:UIViewController
 {
     weak var viewParent:VParent!
-    weak var current:CController?
+    var controllers:[CController]
     private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
     private let kAnimationDuration:NSTimeInterval = 0.3
+    
+    init()
+    {
+        controllers = []
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         let home:CHome = CHome()
-        current = home
+        controllers.append(home)
         addChildViewController(home)
         viewParent.center(home)
         home.didMoveToParentViewController(self)
@@ -57,26 +68,26 @@ class CParent:UIViewController
     func scrollLeft(controller:CController)
     {
         addChildViewController(controller)
-        current?.willMoveToParentViewController(nil)
+        controllers.last?.willMoveToParentViewController(nil)
         
         viewParent.fromLeft(controller)
         {
-            self.current?.didMoveToParentViewController(nil)
-            self.current = controller
-            self.current!.didMoveToParentViewController(self)
+            self.controllers.last?.didMoveToParentViewController(nil)
+            self.controllers.append(controller)
+            controller.didMoveToParentViewController(self)
         }
     }
     
     func scrollRight(controller:CController)
     {
         addChildViewController(controller)
-        current?.willMoveToParentViewController(nil)
+        controllers.last?.willMoveToParentViewController(nil)
         
         viewParent.fromRight(controller)
         {
-            self.current?.didMoveToParentViewController(nil)
-            self.current = controller
-            self.current!.didMoveToParentViewController(self)
+            self.controllers.last?.didMoveToParentViewController(nil)
+            self.controllers.append(controller)
+            controller.didMoveToParentViewController(self)
         }
     }
 }
