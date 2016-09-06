@@ -91,8 +91,8 @@ class VParent:UIView
         
         controller.layoutLeft.constant = 0
         controller.layoutRight.constant = 0
-        current?.layoutLeft.constant = delta
-        current?.layoutRight.constant = delta
+        parent.controllers.last?.layoutLeft.constant = delta
+        parent.controllers.last?.layoutRight.constant = delta
         
         UIView.animateWithDuration(
             kAnimationDurantion,
@@ -102,9 +102,6 @@ class VParent:UIView
             })
         { (done) in
             
-            self.current?.view.removeFromSuperview()
-            self.current = controller
-            
             completion()
         }
     }
@@ -113,7 +110,6 @@ class VParent:UIView
     
     func center(controller:CController)
     {
-        current = controller
         insertSubview(controller.view, belowSubview:bar)
         
         let views:[String:AnyObject] = [
@@ -202,8 +198,8 @@ class VParent:UIView
         
         controller.layoutLeft.constant = 0
         controller.layoutRight.constant = 0
-        current?.layoutLeft.constant = -width_2
-        current?.layoutRight.constant = -width_2
+        parent.controllers.last?.layoutLeft.constant = -width_2
+        parent.controllers.last?.layoutRight.constant = -width_2
         
         UIView.animateWithDuration(
             kAnimationDurantion,
@@ -212,9 +208,6 @@ class VParent:UIView
                 self.layoutIfNeeded()
             })
         { (done) in
-            
-            self.current?.view.removeFromSuperview()
-            self.current = controller
             
             completion()
         }

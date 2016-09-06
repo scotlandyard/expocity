@@ -62,7 +62,13 @@ class CParent:UIViewController
     
     func push(controller:CController)
     {
+        addChildViewController(controller)
         
+        viewParent.push(controller)
+        {
+            self.controllers.append(controller)
+            controller.didMoveToParentViewController(self)
+        }
     }
     
     func scrollLeft(controller:CController)
@@ -72,7 +78,9 @@ class CParent:UIViewController
         
         viewParent.fromLeft(controller)
         {
-            self.controllers.last?.didMoveToParentViewController(nil)
+            let lastController:CController? = self.controllers.popLast()
+            lastController?.view.removeFromSuperview()
+            lastController?.didMoveToParentViewController(nil)
             self.controllers.append(controller)
             controller.didMoveToParentViewController(self)
         }
@@ -85,7 +93,9 @@ class CParent:UIViewController
         
         viewParent.fromRight(controller)
         {
-            self.controllers.last?.didMoveToParentViewController(nil)
+            let lastController:CController? = self.controllers.popLast()
+            lastController?.view.removeFromSuperview()
+            lastController?.didMoveToParentViewController(nil)
             self.controllers.append(controller)
             controller.didMoveToParentViewController(self)
         }
