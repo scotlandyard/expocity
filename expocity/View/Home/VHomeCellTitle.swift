@@ -32,6 +32,7 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         field.spellCheckingType = UITextSpellCheckingType.No
         field.autocapitalizationType = UITextAutocapitalizationType.Words
         field.clearButtonMode = UITextFieldViewMode.Never
+        field.placeholder = NSLocalizedString("VHomeCellTitle_placeholder", comment:"")
         field.delegate = self
         self.field = field
         
