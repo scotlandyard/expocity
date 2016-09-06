@@ -118,7 +118,7 @@ class VParent:UIView
         insertSubview(controller.view, belowSubview:bar)
         
         let views:[String:AnyObject] = [
-            "view":current!]
+            "view":controller.view]
         
         let metrics:[String:AnyObject] = [:]
         
@@ -129,7 +129,7 @@ class VParent:UIView
             views:views))
         
         controller.layoutLeft = NSLayoutConstraint(
-            item:current!,
+            item:controller.view,
             attribute:NSLayoutAttribute.Left,
             relatedBy:NSLayoutRelation.Equal,
             toItem:self,
@@ -137,7 +137,7 @@ class VParent:UIView
             multiplier:1,
             constant:0)
         controller.layoutRight = NSLayoutConstraint(
-            item:current!,
+            item:controller.view,
             attribute:NSLayoutAttribute.Right,
             relatedBy:NSLayoutRelation.Equal,
             toItem:self,
