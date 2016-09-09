@@ -59,6 +59,8 @@
 		DAFBF7081D831F43002B294C /* chat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFBF7071D831F43002B294C /* chat.xcassets */; };
 		DAFBF70A1D833017002B294C /* VChatConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBF7091D833017002B294C /* VChatConversation.swift */; };
 		DAFBF70C1D833E65002B294C /* VChatConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBF70B1D833E65002B294C /* VChatConversationCell.swift */; };
+		DAFBF70E1D834489002B294C /* VChatConversationCellText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBF70D1D834489002B294C /* VChatConversationCellText.swift */; };
+		DAFBF7101D834496002B294C /* VChatConversationCellTextMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBF70F1D834496002B294C /* VChatConversationCellTextMine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		DAFBF7071D831F43002B294C /* chat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = chat.xcassets; sourceTree = "<group>"; };
 		DAFBF7091D833017002B294C /* VChatConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversation.swift; sourceTree = "<group>"; };
 		DAFBF70B1D833E65002B294C /* VChatConversationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversationCell.swift; sourceTree = "<group>"; };
+		DAFBF70D1D834489002B294C /* VChatConversationCellText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversationCellText.swift; sourceTree = "<group>"; };
+		DAFBF70F1D834496002B294C /* VChatConversationCellTextMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversationCellTextMine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +342,8 @@
 				DA73F1561D7F9073004E3875 /* VChatInput.swift */,
 				DAFBF7091D833017002B294C /* VChatConversation.swift */,
 				DAFBF70B1D833E65002B294C /* VChatConversationCell.swift */,
+				DAFBF70D1D834489002B294C /* VChatConversationCellText.swift */,
+				DAFBF70F1D834496002B294C /* VChatConversationCellTextMine.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -519,6 +525,8 @@
 				DA73F1571D7F9073004E3875 /* VChatInput.swift in Sources */,
 				DA4F81A61D7D062500CC8B39 /* CategoryUICollectionReusableView.swift in Sources */,
 				DA4F81A81D7D062500CC8B39 /* CategoryUIFont.swift in Sources */,
+				DAFBF7101D834496002B294C /* VChatConversationCellTextMine.swift in Sources */,
+				DAFBF70E1D834489002B294C /* VChatConversationCellText.swift in Sources */,
 				DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */,
 				DA4F818E1D7BB97B00CC8B39 /* CHome.swift in Sources */,
 				DA4F81A11D7D062500CC8B39 /* CategoryMKAnnotationView.swift in Sources */,
