@@ -15,7 +15,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     //MARK: public
     
-    func addedChatItem()
+    func didAddChatItem()
     {
         
     }

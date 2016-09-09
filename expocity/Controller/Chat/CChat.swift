@@ -29,4 +29,13 @@ class CChat:CController
         self.viewChat = viewChat
         view = viewChat
     }
+    
+    //MARK: public
+    
+    func addTextMine(text:String)
+    {
+        let chatItem:MChatItemTextMine = MChatItemTextMine(text:text)
+        model.items.append(chatItem)
+        viewChat.conversation.didAddChatItem()
+    }
 }

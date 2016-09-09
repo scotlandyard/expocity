@@ -99,7 +99,19 @@ class VChatInput:UIView, UITextFieldDelegate
     
     private func sendMessage()
     {
-        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            let text:String? = self?.field.text
+            
+            if text != nil
+            {
+                if !text!.isEmpty
+                {
+                    self?.controller.addTextMine(text!)
+                }
+            }
+        }
     }
     
     //MARK: text delegate
