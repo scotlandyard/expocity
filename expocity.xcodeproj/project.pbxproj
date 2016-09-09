@@ -58,6 +58,7 @@
 		DA8B1B981D7E25CE004D8457 /* VHomeCellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */; };
 		DAFBF7081D831F43002B294C /* chat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFBF7071D831F43002B294C /* chat.xcassets */; };
 		DAFBF70A1D833017002B294C /* VChatConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBF7091D833017002B294C /* VChatConversation.swift */; };
+		DAFBF70C1D833E65002B294C /* VChatConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBF70B1D833E65002B294C /* VChatConversationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFBF7071D831F43002B294C /* chat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = chat.xcassets; sourceTree = "<group>"; };
 		DAFBF7091D833017002B294C /* VChatConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversation.swift; sourceTree = "<group>"; };
+		DAFBF70B1D833E65002B294C /* VChatConversationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +337,7 @@
 				DA8B1B851D7E22C0004D8457 /* VChat.swift */,
 				DA73F1561D7F9073004E3875 /* VChatInput.swift */,
 				DAFBF7091D833017002B294C /* VChatConversation.swift */,
+				DAFBF70B1D833E65002B294C /* VChatConversationCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				DA8B1B941D7E2575004D8457 /* VHomeCell.swift in Sources */,
 				DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */,
 				DA8B1B901D7E253A004D8457 /* MHomeItemCreate.swift in Sources */,
+				DAFBF70C1D833E65002B294C /* VChatConversationCell.swift in Sources */,
 				DA8B1B761D7DF690004D8457 /* MNavRight.swift in Sources */,
 				DA8B1B781D7DF69B004D8457 /* MNavPush.swift in Sources */,
 				DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */,
