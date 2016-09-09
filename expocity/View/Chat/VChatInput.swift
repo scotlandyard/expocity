@@ -3,8 +3,10 @@ import UIKit
 class VChatInput:UIView, UITextFieldDelegate
 {
     weak var controller:CChat!
+    weak var sendButton:UIButton!
     weak var field:UITextField!
     private let kCornerRadius:CGFloat = 4
+    private let kSendButtonWidth:CGFloat = 60
     
     convenience init(controller:CChat)
     {
@@ -13,6 +15,13 @@ class VChatInput:UIView, UITextFieldDelegate
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.collectionBackground()
         self.controller = controller
+        
+        let sendButton:UIButton = UIButton()
+        sendButton.translatesAutoresizingMaskIntoConstraints = false
+        sendButton.setImage(UIImage(named:"chatSend"), forState:UIControlState.Normal)
+        sendButton.imageView?.contentMode = UIViewContentMode.Center
+        sendButton.imageView?.clipsToBounds = true
+        self.sendButton = sendButton
         
         let fieldBase:UIView = UIView()
         fieldBase.clipsToBounds = true
@@ -41,15 +50,18 @@ class VChatInput:UIView, UITextFieldDelegate
         
         fieldBase.addSubview(field)
         addSubview(fieldBase)
+        addSubview(sendButton)
         
         let views:[String:AnyObject] = [
             "field":field,
-            "fieldBase":fieldBase]
+            "fieldBase":fieldBase,
+            "sendButton":sendButton]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "sendButtonWidth":kSendButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-40-[fieldBase]-90-|",
+            "H:|-40-[fieldBase]-0-[sendButton(sendButtonWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -65,6 +77,11 @@ class VChatInput:UIView, UITextFieldDelegate
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[field]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[sendButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))
