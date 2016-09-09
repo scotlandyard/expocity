@@ -91,6 +91,14 @@ class VChatInput:UIView, UITextFieldDelegate
    
     func actionSend(sender button:UIButton)
     {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        sendMessage()
+    }
+    
+    //MARK: private
+    
+    private func sendMessage()
+    {
         
     }
     
@@ -99,7 +107,7 @@ class VChatInput:UIView, UITextFieldDelegate
     func textFieldShouldReturn(textField:UITextField) -> Bool
     {
         textField.resignFirstResponder()
-        
+        sendMessage()
         
         return true
     }
