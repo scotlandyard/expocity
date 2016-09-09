@@ -6,7 +6,7 @@ class VChatInput:UIView, UITextFieldDelegate
     weak var sendButton:UIButton!
     weak var field:UITextField!
     private let kCornerRadius:CGFloat = 4
-    private let kSendButtonWidth:CGFloat = 60
+    private let kSendButtonWidth:CGFloat = 50
     
     convenience init(controller:CChat)
     {
@@ -28,7 +28,7 @@ class VChatInput:UIView, UITextFieldDelegate
         fieldBase.backgroundColor = UIColor.whiteColor()
         fieldBase.translatesAutoresizingMaskIntoConstraints = false
         fieldBase.layer.borderWidth = 1
-        fieldBase.layer.borderColor = UIColor(white:0, alpha:0.2).CGColor
+        fieldBase.layer.borderColor = UIColor(white:0, alpha:0.1).CGColor
         fieldBase.layer.cornerRadius = kCornerRadius
         
         let field:UITextField = UITextField()
@@ -61,7 +61,7 @@ class VChatInput:UIView, UITextFieldDelegate
             "sendButtonWidth":kSendButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-40-[fieldBase]-0-[sendButton(sendButtonWidth)]-0-|",
+            "H:|-10-[fieldBase]-0-[sendButton(sendButtonWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -71,7 +71,7 @@ class VChatInput:UIView, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-7-[field]-3-|",
+            "H:|-6-[field]-3-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -87,11 +87,19 @@ class VChatInput:UIView, UITextFieldDelegate
             views:views))
     }
     
+    //MARK: actions
+   
+    func actionSend(sender button:UIButton)
+    {
+        
+    }
+    
     //MARK: text delegate
     
     func textFieldShouldReturn(textField:UITextField) -> Bool
     {
         textField.resignFirstResponder()
+        
         
         return true
     }
