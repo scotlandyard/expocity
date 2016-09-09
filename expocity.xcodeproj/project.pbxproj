@@ -56,6 +56,7 @@
 		DA8B1B941D7E2575004D8457 /* VHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B931D7E2575004D8457 /* VHomeCell.swift */; };
 		DA8B1B961D7E25C1004D8457 /* VHomeCellCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */; };
 		DA8B1B981D7E25CE004D8457 /* VHomeCellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */; };
+		DAFBF7081D831F43002B294C /* chat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFBF7071D831F43002B294C /* chat.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAFBF7071D831F43002B294C /* chat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = chat.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 				DA8B1B531D7DBF40004D8457 /* Launch.storyboard */,
 				DA8B1B551D7DC9D0004D8457 /* generic.xcassets */,
 				DA8B1B5D1D7DD48C004D8457 /* menu.xcassets */,
+				DAFBF7071D831F43002B294C /* chat.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFBF7081D831F43002B294C /* chat.xcassets in Resources */,
 				DA8B1B541D7DBF40004D8457 /* Launch.storyboard in Resources */,
 				DA8B1B6F1D7DEC45004D8457 /* Localizable.strings in Resources */,
 				DA8B1B5E1D7DD48C004D8457 /* menu.xcassets in Resources */,

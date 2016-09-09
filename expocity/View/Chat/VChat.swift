@@ -5,7 +5,7 @@ class VChat:UIView
     weak var controller:CChat!
     weak var input:VChatInput!
     weak var layoutInputBottom:NSLayoutConstraint!
-    private let kInputHeight:CGFloat = 44
+    private let kInputHeight:CGFloat = 40
     
     convenience init(controller:CChat)
     {

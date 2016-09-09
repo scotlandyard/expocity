@@ -19,7 +19,7 @@ class VChatInput:UIView, UITextFieldDelegate
         fieldBase.backgroundColor = UIColor.whiteColor()
         fieldBase.translatesAutoresizingMaskIntoConstraints = false
         fieldBase.layer.borderWidth = 1
-        fieldBase.layer.borderColor = UIColor(white:0, alpha:0.1).CGColor
+        fieldBase.layer.borderColor = UIColor(white:0, alpha:0.2).CGColor
         fieldBase.layer.cornerRadius = kCornerRadius
         
         let field:UITextField = UITextField()
@@ -59,7 +59,7 @@ class VChatInput:UIView, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[field]-5-|",
+            "H:|-7-[field]-3-|",
             options:[],
             metrics:metrics,
             views:views))
