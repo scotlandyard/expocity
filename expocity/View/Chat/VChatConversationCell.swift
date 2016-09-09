@@ -13,4 +13,11 @@ class VChatConversationCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MChatItem, controller:CChat)
+    {
+        
+    }
 }

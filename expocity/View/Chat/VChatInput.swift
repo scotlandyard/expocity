@@ -109,6 +109,12 @@ class VChatInput:UIView, UITextFieldDelegate
                 if !text!.isEmpty
                 {
                     self?.controller.addTextMine(text!)
+                    
+                    dispatch_async(dispatch_get_main_queue())
+                    { [weak self] in
+                        
+                        self?.field.text = ""
+                    }
                 }
             }
         }
