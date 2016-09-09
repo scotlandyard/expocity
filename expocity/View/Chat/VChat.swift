@@ -4,6 +4,7 @@ class VChat:UIView
 {
     weak var controller:CChat!
     weak var input:VChatInput!
+    weak var conversation:VChatConversation!
     weak var layoutInputBottom:NSLayoutConstraint!
     private let kInputHeight:CGFloat = 40
     
@@ -18,10 +19,15 @@ class VChat:UIView
         let input:VChatInput = VChatInput(controller:controller)
         self.input = input
         
+        let conversation:VChatConversation = VChatConversation(controller:controller)
+        self.conversation = conversation
+        
         addSubview(input)
+        addSubview(conversation)
         
         let views:[String:AnyObject] = [
-            "input":input]
+            "input":input,
+            "conversation":conversation]
         
         let metrics:[String:AnyObject] = [
             "inputHeight":kInputHeight]
@@ -32,7 +38,12 @@ class VChat:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[input(inputHeight)]",
+            "H:|-0-[conversation]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[conversation]-0-[input(inputHeight)]",
             options:[],
             metrics:metrics,
             views:views))
