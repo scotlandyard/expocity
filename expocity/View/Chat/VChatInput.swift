@@ -43,17 +43,18 @@ class VChatInput:UIView, UITextFieldDelegate
         addSubview(field)
         
         let views:[String:AnyObject] = [
-            "field":field]
+            "field":field,
+            "fieldBase":fieldBase]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-40-[base]-50-|",
+            "H:|-40-[fieldBase]-50-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-10-[base]-10-|",
+            "V:|-10-[fieldBase]-10-|",
             options:[],
             metrics:metrics,
             views:views))
