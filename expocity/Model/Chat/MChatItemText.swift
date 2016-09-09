@@ -7,7 +7,12 @@ class MChatItemText:MChatItem
     
     init(reusableIdentifier:String, text:String, font:UIFont)
     {
+        let attributes:[String:AnyObject] = [NSFontAttributeName:font]
         self.text = text
+        attributedString = NSAttributedString(
+            string:text,
+            attributes:attributes)
+        
         super.init(reusableIdentifier:reusableIdentifier)
     }
 }
