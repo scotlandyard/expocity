@@ -13,6 +13,13 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.controller = controller
     }
     
+    //MARK: public
+    
+    func addedChatItem()
+    {
+        
+    }
+    
     //MARK: col del
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
