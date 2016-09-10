@@ -4,6 +4,7 @@ class MChatItemText:MChatItem
 {
     let text:String
     let attributedString:NSAttributedString
+    let stringDrawingOptions:NSStringDrawingOptions
     let marginLeft:CGFloat
     let marginRight:CGFloat
     let marginTop:CGFloat
@@ -21,6 +22,10 @@ class MChatItemText:MChatItem
         attributedString = NSAttributedString(
             string:text,
             attributes:attributes)
+        stringDrawingOptions = NSStringDrawingOptions([
+            NSStringDrawingOptions.UsesLineFragmentOrigin,
+            NSStringDrawingOptions.UsesFontLeading
+        ])
         
         super.init(reusableIdentifier:reusableIdentifier)
     }

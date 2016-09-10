@@ -22,6 +22,8 @@ class MChatItemTextMine:MChatItemText
         let remainWidth:CGFloat = cellWidth - totalMarginHr
         let maxSize:CGSize = CGSizeMake(remainWidth, kMaxHeight)
         let size:CGSize = attributedString.boundingRectWithSize(
-            <#T##size: CGSize##CGSize#>, options: <#T##NSStringDrawingOptions#>, context: <#T##NSStringDrawingContext?#>)
+            maxSize,
+            options:stringDrawingOptions,
+            context:nil)
     }
 }
