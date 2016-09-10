@@ -21,9 +21,14 @@ class MChatItemTextMine:MChatItemText
         let totalMarginVr:CGFloat = marginTop + marginBottom
         let remainWidth:CGFloat = cellWidth - totalMarginHr
         let maxSize:CGSize = CGSizeMake(remainWidth, kMaxHeight)
-        let size:CGSize = attributedString.boundingRectWithSize(
+        let rect:CGRect = attributedString.boundingRectWithSize(
             maxSize,
             options:stringDrawingOptions,
             context:nil)
+        let size:CGSize = rect.size
+        let textHeight:CGFloat = size.height
+        let totalHeight:CGFloat = textHeight + totalMarginVr
+        
+        return totalHeight
     }
 }
