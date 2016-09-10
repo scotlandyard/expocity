@@ -15,7 +15,7 @@ class MChatItemTextMine:MChatItemText
     
     override func heightForCurrentWidth() -> CGFloat
     {
-        let
+        let totalMarginHr:CGFloat
         let maxSize:CGSize = CGSizeMake(<#T##width: CGFloat##CGFloat#>, kMaxHeight)
         let size:CGSize = attributedString.boundingRectWithSize(
             <#T##size: CGSize##CGSize#>, options: <#T##NSStringDrawingOptions#>, context: <#T##NSStringDrawingContext?#>)
