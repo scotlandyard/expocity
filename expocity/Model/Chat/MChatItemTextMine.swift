@@ -17,18 +17,8 @@ class MChatItemTextMine:MChatItemText
     
     override func heightForCurrentWidth() -> CGFloat
     {
-        let totalMarginHr:CGFloat = marginLeft + marginRight
-        let totalMarginVr:CGFloat = marginTop + marginBottom
-        let remainWidth:CGFloat = cellWidth - totalMarginHr
-        let maxSize:CGSize = CGSizeMake(remainWidth, kMaxHeight)
-        let rect:CGRect = attributedString.boundingRectWithSize(
-            maxSize,
-            options:stringDrawingOptions,
-            context:nil)
-        let size:CGSize = rect.size
-        let textHeight:CGFloat = size.height
-        let totalHeight:CGFloat = textHeight + totalMarginVr
+        let textHeight:CGFloat = textContentHeight()
         
-        return totalHeight
+        return textHeight
     }
 }
