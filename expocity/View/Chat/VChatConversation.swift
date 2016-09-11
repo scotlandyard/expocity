@@ -31,6 +31,11 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     //MARK: col del
     
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    {
+        
+    }
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
     {
         return 1
