@@ -35,7 +35,9 @@ class CChat:CController
     func addTextMine(text:String)
     {
         let chatItem:MChatItemTextMine = MChatItemTextMine(text:text)
+        let index:Int = model.items.count
+        let indexPath:NSIndexPath = NSIndexPath(forItem:index, inSection:0)
         model.items.append(chatItem)
-        viewChat.conversation.didAddChatItem()
+        viewChat.conversation.didAddChatItem(indexPath)
     }
 }
