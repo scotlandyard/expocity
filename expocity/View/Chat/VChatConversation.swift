@@ -3,6 +3,7 @@ import UIKit
 class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CChat!
+    weak var collection:UICollectionView!
     
     convenience init(controller:CChat)
     {
@@ -24,9 +25,13 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     //MARK: public
     
-    func didAddChatItem(index:NSIndexPath)
+    func didAddChatItem(indexes:[NSIndexPath])
     {
-        
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.collection.insertItemsAtIndexPaths(indexes)
+        }
     }
     
     //MARK: col del
