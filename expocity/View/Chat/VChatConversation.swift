@@ -33,7 +33,12 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
+        let item:MChatItem = modelAtIndex(indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let height:CGFloat = item.heightForCollection(collectionView)
+        let size:CGSize = CGSizeMake(width, height)
         
+        return size
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
