@@ -12,6 +12,13 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         backgroundColor = UIColor.collectionBackground()
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+        let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        self.collection = collection
+        
+        addSubview(collection)
     }
     
     //MARK: private
