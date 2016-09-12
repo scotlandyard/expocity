@@ -21,6 +21,7 @@ class VChatConversationCellText:VChatConversationCell
         labelContent.translatesAutoresizingMaskIntoConstraints = false
         labelContent.userInteractionEnabled = false
         labelContent.numberOfLines = 0
+        labelContent.textColor = UIColor.blackColor()
         self.labelContent = labelContent
         
         let bubbleContent:UIView = UIView()
