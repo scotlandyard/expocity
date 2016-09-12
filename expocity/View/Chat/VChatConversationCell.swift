@@ -3,6 +3,8 @@ import UIKit
 class VChatConversationCell:UICollectionViewCell
 {
     weak var labelContent:UILabel!
+    weak var bubbleContent:UIView!
+    private let kBubbleCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
@@ -17,7 +19,17 @@ class VChatConversationCell:UICollectionViewCell
         labelContent.numberOfLines = 0
         self.labelContent = labelContent
         
-        addSubview(labelContent)
+        let bubbleContent:UIView = UIView()
+        bubbleContent.clipsToBounds = true
+        bubbleContent.translatesAutoresizingMaskIntoConstraints = false
+        bubbleContent.userInteractionEnabled = false
+        bubbleContent.layer.cornerRadius = kBubbleCornerRadius
+        self.bubbleContent = bubbleContent
+        
+        bubbleContent.addSubview(labelContent)
+        addSubview(bubbleContent)
+        
+        
     }
     
     required init?(coder:NSCoder)
