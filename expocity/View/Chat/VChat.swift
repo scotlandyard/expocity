@@ -7,6 +7,7 @@ class VChat:UIView
     weak var conversation:VChatConversation!
     weak var layoutInputBottom:NSLayoutConstraint!
     private let kInputHeight:CGFloat = 40
+    private let kAnimationDuration:NSTimeInterval = 0.4
     
     convenience init(controller:CChat)
     {
@@ -82,6 +83,12 @@ class VChat:UIView
         else
         {
             layoutInputBottom.constant = 0
+        }
+        
+        UIView.animateWithDuration(kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
         }
     }
 }
