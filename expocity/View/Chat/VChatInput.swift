@@ -34,7 +34,7 @@ class VChatInput:UIView, UITextFieldDelegate
         fieldBase.backgroundColor = UIColor.whiteColor()
         fieldBase.translatesAutoresizingMaskIntoConstraints = false
         fieldBase.layer.borderWidth = 1
-        fieldBase.layer.borderColor = UIColor(white:0, alpha:0.1).CGColor
+        fieldBase.layer.borderColor = UIColor.bubbleMine().CGColor
         fieldBase.layer.cornerRadius = kCornerRadius
         
         let field:UITextField = UITextField()

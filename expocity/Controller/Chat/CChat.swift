@@ -30,6 +30,12 @@ class CChat:CController
         view = viewChat
     }
     
+    override func viewWillTransitionToSize(size:CGSize, withTransitionCoordinator coordinator:UIViewControllerTransitionCoordinator)
+    {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator:coordinator)
+        viewChat.conversation.collection.collectionViewLayout.invalidateLayout()
+    }
+    
     //MARK: public
     
     func addTextMine(text:String)
