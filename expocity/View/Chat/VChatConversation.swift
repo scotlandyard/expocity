@@ -106,6 +106,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             item.reusableIdentifier,
             forIndexPath:
             indexPath) as! VChatConversationCell
+        cell.config(item, controller:controller)
         
         return cell
     }

@@ -95,8 +95,9 @@ class VChatConversationCellText:VChatConversationCell
     {
         let modelText:MChatItemText = model as! MChatItemText
         layoutBubbleTop.constant = modelText.marginTop
-        layoutBubbleBottom.constant = modelText.marginBottom
+        layoutBubbleBottom.constant = -modelText.marginBottom
         layoutBubbleLeft.constant = modelText.marginLeft
-        layoutBubbleRight.constant = modelText.marginRight
+        layoutBubbleRight.constant = -modelText.marginRight
+        labelContent.attributedText = modelText.attributedString
     }
 }
