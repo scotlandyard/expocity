@@ -29,7 +29,7 @@ class VChatConversationCellText:VChatConversationCell
         labelContent.numberOfLines = 0
         labelContent.textColor = UIColor.blackColor()
         labelContent.shadowOffset = CGSizeMake(0.5, 0.5)
-        labelContent.shadowColor = UIColor(white:0, alpha:0.5)
+        labelContent.shadowColor = UIColor(white:0, alpha:0.25)
         self.labelContent = labelContent
         
         let bubbleContent:UIView = UIView()
