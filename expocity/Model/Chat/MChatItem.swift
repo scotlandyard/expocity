@@ -2,6 +2,7 @@ import UIKit
 
 class MChatItem
 {
+    weak var cell:VChatConversationCell?
     let reusableIdentifier:String
     var cellWidth:CGFloat
     var cellHeight:CGFloat
@@ -20,16 +21,13 @@ class MChatItem
         return 0
     }
     
-    func heightForCollection(collection:UICollectionView) -> CGFloat
+    func heightForCollection(width:CGFloat) -> CGFloat
     {
-        let width:CGFloat = collection.bounds.maxX
-        
         if width != cellWidth
         {
             cellWidth = width
             cellHeight = heightForCurrentWidth()
-            
-            collection.collectionViewLayout.invalidateLayout()
+            cell?.layoutConstraints()
         }
         
         return cellHeight

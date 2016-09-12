@@ -18,5 +18,10 @@ class VChatConversationCell:UICollectionViewCell
     
     func config(model:MChatItem, controller:CChat)
     {
+        model.cell = self
+    }
+    
+    func layoutConstraints()
+    {
     }
 }

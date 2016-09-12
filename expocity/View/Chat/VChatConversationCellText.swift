@@ -5,9 +5,10 @@ class VChatConversationCellText:VChatConversationCell
     weak var labelContent:UILabel!
     weak var bubbleContent:UIView!
     weak var layoutBubbleTop:NSLayoutConstraint!
-    weak var layoutBubbleBottom:NSLayoutConstraint!
+    weak var layoutBubbleHeight:NSLayoutConstraint!
     weak var layoutBubbleLeft:NSLayoutConstraint!
-    weak var layoutBubbleRight:NSLayoutConstraint!
+    weak var layoutBubbleWidth:NSLayoutConstraint!
+    weak var modelText:MChatItemText!
     private let kBubbleCornerRadius:CGFloat = 4
     private let kInterMarginHr:CGFloat = 8
     private let kInterMarginVr:CGFloat = 5
@@ -60,12 +61,12 @@ class VChatConversationCellText:VChatConversationCell
             attribute:NSLayoutAttribute.Top,
             multiplier:1,
             constant:0)
-        layoutBubbleBottom = NSLayoutConstraint(
+        layoutBubbleHeight = NSLayoutConstraint(
             item:bubbleContent,
-            attribute:NSLayoutAttribute.Bottom,
+            attribute:NSLayoutAttribute.Height,
             relatedBy:NSLayoutRelation.Equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.Bottom,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
             multiplier:1,
             constant:0)
         layoutBubbleLeft = NSLayoutConstraint(
@@ -76,19 +77,19 @@ class VChatConversationCellText:VChatConversationCell
             attribute:NSLayoutAttribute.Left,
             multiplier:1,
             constant:0)
-        layoutBubbleRight = NSLayoutConstraint(
+        layoutBubbleWidth = NSLayoutConstraint(
             item:bubbleContent,
-            attribute:NSLayoutAttribute.Right,
+            attribute:NSLayoutAttribute.Width,
             relatedBy:NSLayoutRelation.Equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.Right,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
             multiplier:1,
             constant:0)
         
         addConstraint(layoutBubbleTop)
-        addConstraint(layoutBubbleBottom)
-        addConstraint(layoutBubbleRight)
+        addConstraint(layoutBubbleHeight)
         addConstraint(layoutBubbleLeft)
+        addConstraint(layoutBubbleWidth)
     }
     
     required init?(coder:NSCoder)
@@ -98,11 +99,22 @@ class VChatConversationCellText:VChatConversationCell
     
     override func config(model:MChatItem, controller:CChat)
     {
-        let modelText:MChatItemText = model as! MChatItemText
-        layoutBubbleTop.constant = modelText.marginTop - kInterMarginVr
-        layoutBubbleBottom.constant = -(modelText.marginBottom - kInterMarginVr)
-        layoutBubbleLeft.constant = (modelText.marginLeft - kInterMarginHr) + modelText.extraMargin
-        layoutBubbleRight.constant = -(modelText.marginRight - kInterMarginHr)
+        super.config(model, controller:controller)
+        modelText = model as! MChatItemText
         labelContent.attributedText = modelText.attributedString
+        layoutConstraints()
+    }
+    
+    override func layoutConstraints()
+    {
+        let constantTop:CGFloat = modelText.marginTop - kInterMarginVr
+        let constantHeight:CGFloat = modelText.contentHeight
+        let constantLeft:CGFloat = (modelText.marginLeft - kInterMarginHr) + modelText.extraMargin
+        let constantWidth:CGFloat = modelText.contentWidth
+        
+        layoutBubbleTop.constant = constantTop
+        layoutBubbleHeight.constant = constantHeight
+        layoutBubbleLeft.constant = constantLeft
+        layoutBubbleWidth.constant = constantWidth
     }
 }

@@ -57,6 +57,12 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collection.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:NSIndexPath) -> MChatItem
@@ -96,7 +102,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     {
         let item:MChatItem = modelAtIndex(indexPath)
         let width:CGFloat = collectionView.bounds.maxX
-        let height:CGFloat = item.heightForCollection(collectionView)
+        let height:CGFloat = item.heightForCollection(width)
         let size:CGSize = CGSizeMake(width, height)
         
         return size

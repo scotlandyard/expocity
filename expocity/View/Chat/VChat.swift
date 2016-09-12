@@ -85,14 +85,12 @@ class VChat:UIView
             layoutInputBottom.constant = 0
         }
         
-        UIView.animateWithDuration(kAnimationDuration, animations:
-            { [weak self] in
-                
-                self?.layoutIfNeeded()
-            })
-        { [weak self] (done) in
+        UIView.animateWithDuration(kAnimationDuration)
+        { [weak self] in
             
-            self?.conversation.scrollToBottom()
+            self?.layoutIfNeeded()
         }
+        
+        conversation.scrollToBottom()
     }
 }
