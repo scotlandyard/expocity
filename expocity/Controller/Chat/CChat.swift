@@ -34,6 +34,7 @@ class CChat:CController
     {
         super.viewWillTransitionToSize(size, withTransitionCoordinator:coordinator)
         viewChat.conversation.collection.collectionViewLayout.invalidateLayout()
+        viewChat.conversation.scrollToBottom()
     }
     
     //MARK: public
