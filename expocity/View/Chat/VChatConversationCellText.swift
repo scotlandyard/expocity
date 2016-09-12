@@ -9,8 +9,8 @@ class VChatConversationCellText:VChatConversationCell
     weak var layoutBubbleLeft:NSLayoutConstraint!
     weak var layoutBubbleRight:NSLayoutConstraint!
     private let kBubbleCornerRadius:CGFloat = 4
-    private let kInterMarginHr:CGFloat = 6
-    private let kInterMarginVr:CGFloat = 3
+    private let kInterMarginHr:CGFloat = 7
+    private let kInterMarginVr:CGFloat = 5
     
     override init(frame:CGRect)
     {
