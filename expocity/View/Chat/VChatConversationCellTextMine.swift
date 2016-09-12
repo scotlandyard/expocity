@@ -6,7 +6,7 @@ class VChatConversationCellTextMine:VChatConversationCellText
     {
         super.init(frame:frame)
         
-        bubbleContent.backgroundColor = UIColor.complement()
+        bubbleContent.backgroundColor = UIColor.bubbleMine()
     }
     
     required init?(coder:NSCoder)

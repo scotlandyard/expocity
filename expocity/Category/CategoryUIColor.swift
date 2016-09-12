@@ -14,11 +14,11 @@ extension UIColor
     
     class func collectionBackground() -> UIColor
     {
-        return UIColor(red:0.92588235294118, green:0.97294117647059, blue:0.99254901960784, alpha:1)
+        return UIColor(red:0.94, green:0.98, blue:0.999, alpha:1)
     }
     
     class func bubbleMine() -> UIColor
     {
-        return UIColor(red:0.90588235294118, green:0.95294117647059, blue:0.97254901960784, alpha:1)
+        return UIColor(red:0.85, green:0.93, blue:0.96, alpha:1)
     }
 }

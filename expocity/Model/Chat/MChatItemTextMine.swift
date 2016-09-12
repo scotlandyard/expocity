@@ -4,7 +4,7 @@ class MChatItemTextMine:MChatItemText
 {
     private let kFontSize:CGFloat = 15
     private let kMarginLeft:CGFloat = 60
-    private let kMarginRight:CGFloat = 16
+    private let kMarginRight:CGFloat = 12
     private let kMarginTop:CGFloat = 7
     private let kMarginBottom:CGFloat = 7
     
