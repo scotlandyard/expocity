@@ -12,7 +12,7 @@ class VChat:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.collectionBackground()
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -58,5 +58,30 @@ class VChat:UIView
             constant:0)
         
         addConstraint(layoutInputBottom)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedKeyboardChanged(sender:)), name:UIKeyboardWillChangeFrameNotification, object:nil)
+    }
+    
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    //MARK: notified
+    
+    func notifiedKeyboardChanged(sender notification:NSNotification)
+    {
+        let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
+        let yOrigin = keyRect.origin.y
+        let screenHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
+        
+        if yOrigin < screenHeight
+        {
+            layoutInputBottom.constant = -(screenHeight - yOrigin)
+        }
+        else
+        {
+            layoutInputBottom.constant = 0
+        }
     }
 }

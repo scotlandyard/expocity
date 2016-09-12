@@ -9,7 +9,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.collectionBackground()
+        backgroundColor = UIColor.clearColor()
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -71,7 +71,6 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         dispatch_async(dispatch_get_main_queue())
         { [weak self] in
             
-            print("count \(self!.controller.model.items.count)")
             self?.collection.insertItemsAtIndexPaths(indexes)
         }
     }
