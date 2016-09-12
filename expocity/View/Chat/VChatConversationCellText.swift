@@ -9,6 +9,7 @@ class VChatConversationCellText:VChatConversationCell
     weak var layoutBubbleLeft:NSLayoutConstraint!
     weak var layoutBubbleRight:NSLayoutConstraint!
     private let kBubbleCornerRadius:CGFloat = 4
+    private let kInterMargin:CGFloat = 2
     
     override init(frame:CGRect)
     {
@@ -34,15 +35,16 @@ class VChatConversationCellText:VChatConversationCell
         let views:[String:AnyObject] = [
             "labelContent":labelContent]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "interMargin":kInterMargin]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[labelContent]-0-|",
+            "H:|-(interMargin)-[labelContent]-(interMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[labelContent]-0-|",
+            "V:|-(interMargin)-[labelContent]-(interMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -94,10 +96,10 @@ class VChatConversationCellText:VChatConversationCell
     override func config(model:MChatItem, controller:CChat)
     {
         let modelText:MChatItemText = model as! MChatItemText
-        layoutBubbleTop.constant = modelText.marginTop
-        layoutBubbleBottom.constant = -modelText.marginBottom
-        layoutBubbleLeft.constant = modelText.marginLeft
-        layoutBubbleRight.constant = -modelText.marginRight
+        layoutBubbleTop.constant = modelText.marginTop - kInterMargin
+        layoutBubbleBottom.constant = -(modelText.marginBottom - kInterMargin)
+        layoutBubbleLeft.constant = modelText.marginLeft - kInterMargin
+        layoutBubbleRight.constant = -(modelText.marginRight - kInterMargin)
         labelContent.attributedText = modelText.attributedString
     }
 }
