@@ -81,9 +81,13 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     func scrollToBottom()
     {
         let count:Int = controller.model.items.count
-        let lastItem:Int = count - 1
-        let indexPath:NSIndexPath = NSIndexPath(forItem:lastItem, inSection:0)
-        collection.scrollToItemAtIndexPath(indexPath, atScrollPosition:UICollectionViewScrollPosition.Top, animated:true)
+        
+        if count > 0
+        {
+            let lastItem:Int = count - 1
+            let indexPath:NSIndexPath = NSIndexPath(forItem:lastItem, inSection:0)
+            collection.scrollToItemAtIndexPath(indexPath, atScrollPosition:UICollectionViewScrollPosition.Top, animated:true)
+        }
     }
     
     //MARK: col del
