@@ -51,7 +51,11 @@ class MChatItemText:MChatItem
         
         if totalWidth < remainWidth
         {
-            extraMargin = totalWidth - remainWidth
+            extraMargin = remainWidth - totalWidth
+        }
+        else
+        {
+            extraMargin = 0
         }
         
         return totalHeight

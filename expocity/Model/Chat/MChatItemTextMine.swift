@@ -3,10 +3,10 @@ import UIKit
 class MChatItemTextMine:MChatItemText
 {
     private let kFontSize:CGFloat = 15
-    private let kMarginLeft:CGFloat = 50
-    private let kMarginRight:CGFloat = 10
-    private let kMarginTop:CGFloat = 10
-    private let kMarginBottom:CGFloat = 10
+    private let kMarginLeft:CGFloat = 60
+    private let kMarginRight:CGFloat = 16
+    private let kMarginTop:CGFloat = 5
+    private let kMarginBottom:CGFloat = 5
     
     init(text:String)
     {

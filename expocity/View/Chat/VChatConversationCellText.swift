@@ -100,7 +100,7 @@ class VChatConversationCellText:VChatConversationCell
         let modelText:MChatItemText = model as! MChatItemText
         layoutBubbleTop.constant = modelText.marginTop - kInterMarginVr
         layoutBubbleBottom.constant = -(modelText.marginBottom - kInterMarginVr)
-        layoutBubbleLeft.constant = modelText.marginLeft - kInterMarginHr
+        layoutBubbleLeft.constant = (modelText.marginLeft - kInterMarginHr) + modelText.extraMargin
         layoutBubbleRight.constant = -(modelText.marginRight - kInterMarginHr)
         labelContent.attributedText = modelText.attributedString
     }
