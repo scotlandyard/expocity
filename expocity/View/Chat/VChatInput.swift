@@ -45,7 +45,7 @@ class VChatInput:UIView, UITextFieldDelegate
         field.font = UIFont.bold(14)
         field.textColor = UIColor.blackColor()
         field.tintColor = UIColor.blackColor()
-        field.returnKeyType = UIReturnKeyType.Done
+        field.returnKeyType = UIReturnKeyType.Default
         field.keyboardAppearance = UIKeyboardAppearance.Light
         field.autocorrectionType = UITextAutocorrectionType.No
         field.spellCheckingType = UITextSpellCheckingType.No
