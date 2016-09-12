@@ -19,6 +19,22 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.collection = collection
         
         addSubview(collection)
+        
+        let views:[String:AnyObject] = [
+            "collection":collection]
+        
+        let metrics:[String:AnyObject] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     //MARK: private
@@ -37,6 +53,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         dispatch_async(dispatch_get_main_queue())
         { [weak self] in
             
+            print("count \(self!.controller.model.items.count)")
             self?.collection.insertItemsAtIndexPaths(indexes)
         }
     }
