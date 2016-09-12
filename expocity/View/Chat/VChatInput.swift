@@ -19,8 +19,9 @@ class VChatInput:UIView, UITextFieldDelegate
         let sendButton:UIButton = UIButton()
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.setImage(UIImage(named:"chatSend"), forState:UIControlState.Normal)
-        sendButton.imageView?.contentMode = UIViewContentMode.Center
-        sendButton.imageView?.clipsToBounds = true
+        sendButton.imageView!.contentMode = UIViewContentMode.Center
+        sendButton.imageView!.clipsToBounds = true
+        sendButton.addTarget(self, action:#selector(self.actionSend(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         self.sendButton = sendButton
         
         let fieldBase:UIView = UIView()
