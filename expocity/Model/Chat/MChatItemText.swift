@@ -45,8 +45,8 @@ class MChatItemText:MChatItem
             options:stringDrawingOptions,
             context:nil)
         let size:CGSize = rect.size
-        let totalWidth:CGFloat = size.width
-        let textHeight:CGFloat = size.height
+        let totalWidth:CGFloat = ceil(size.width)
+        let textHeight:CGFloat = ceil(size.height)
         let totalHeight:CGFloat = textHeight + totalMarginVr
         
         if totalWidth < remainWidth
