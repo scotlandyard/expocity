@@ -10,6 +10,7 @@ class MChatItemText:MChatItem
     let marginTop:CGFloat
     let marginBottom:CGFloat
     let kMaxHeight:CGFloat = 2000
+    var extraMargin:CGFloat
     
     init(reusableIdentifier:String, text:String, font:UIFont, marginLeft:CGFloat, marginRight:CGFloat, marginTop:CGFloat, marginBottom:CGFloat)
     {
@@ -19,6 +20,7 @@ class MChatItemText:MChatItem
         self.marginRight = marginRight
         self.marginTop = marginTop
         self.marginBottom = marginBottom
+        extraMargin = 0
         attributedString = NSAttributedString(
             string:text,
             attributes:attributes)
@@ -43,8 +45,14 @@ class MChatItemText:MChatItem
             options:stringDrawingOptions,
             context:nil)
         let size:CGSize = rect.size
+        let totalWidth:CGFloat = size.width
         let textHeight:CGFloat = size.height
         let totalHeight:CGFloat = textHeight + totalMarginVr
+        
+        if totalWidth < remainWidth
+        {
+            extraMargin = totalWidth - remainWidth
+        }
         
         return totalHeight
     }
