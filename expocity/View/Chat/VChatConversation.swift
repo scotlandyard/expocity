@@ -4,6 +4,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
 {
     weak var controller:CChat!
     weak var collection:UICollectionView!
+    private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CChat)
     {
@@ -13,12 +14,13 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let collectionTop:CGFloat = controller.parent.viewParent.kBarHeight
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
-        flow.sectionInset = UIEdgeInsetsZero
+        flow.sectionInset = UIEdgeInsetsMake(collectionTop, 0, kCollectionBottom, 0)
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
