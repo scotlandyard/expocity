@@ -51,8 +51,9 @@ class MChatItemText:MChatItem
         let size:CGSize = rect.size
         let totalWidth:CGFloat = ceil(size.width)
         let textHeight:CGFloat = ceil(size.height)
-        contentWidth = totalWidth + totalMarginHr
-        contentHeight = textHeight + totalMarginVr
+        contentWidth = totalWidth
+        contentHeight = textHeight
+        let totalHeight:CGFloat = contentHeight + totalMarginVr
         
         if totalWidth < remainWidth
         {
@@ -63,6 +64,6 @@ class MChatItemText:MChatItem
             extraMargin = 0
         }
         
-        return contentHeight
+        return totalHeight
     }
 }

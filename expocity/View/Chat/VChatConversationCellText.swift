@@ -9,12 +9,17 @@ class VChatConversationCellText:VChatConversationCell
     weak var layoutBubbleLeft:NSLayoutConstraint!
     weak var layoutBubbleWidth:NSLayoutConstraint!
     weak var modelText:MChatItemText!
+    private let interMarginVr2:CGFloat
+    private let interMarginHr2:CGFloat
     private let kBubbleCornerRadius:CGFloat = 4
     private let kInterMarginHr:CGFloat = 8
     private let kInterMarginVr:CGFloat = 5
     
     override init(frame:CGRect)
     {
+        interMarginHr2 = kInterMarginHr + kInterMarginHr
+        interMarginVr2 = kInterMarginVr + kInterMarginVr
+        
         super.init(frame:frame)
         
         let labelContent:UILabel = UILabel()
@@ -23,6 +28,8 @@ class VChatConversationCellText:VChatConversationCell
         labelContent.userInteractionEnabled = false
         labelContent.numberOfLines = 0
         labelContent.textColor = UIColor.blackColor()
+        labelContent.shadowOffset = CGSizeMake(0.5, 0.5)
+        labelContent.shadowColor = UIColor(white:0, alpha:0.5)
         self.labelContent = labelContent
         
         let bubbleContent:UIView = UIView()
@@ -108,9 +115,9 @@ class VChatConversationCellText:VChatConversationCell
     override func layoutConstraints()
     {
         let constantTop:CGFloat = modelText.marginTop - kInterMarginVr
-        let constantHeight:CGFloat = modelText.contentHeight
+        let constantHeight:CGFloat = modelText.contentHeight + interMarginVr2
         let constantLeft:CGFloat = (modelText.marginLeft - kInterMarginHr) + modelText.extraMargin
-        let constantWidth:CGFloat = modelText.contentWidth
+        let constantWidth:CGFloat = modelText.contentWidth + interMarginHr2
         
         layoutBubbleTop.constant = constantTop
         layoutBubbleHeight.constant = constantHeight

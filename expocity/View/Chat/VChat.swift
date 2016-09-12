@@ -75,22 +75,25 @@ class VChat:UIView
         let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
         let yOrigin = keyRect.origin.y
         let screenHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
+        let currentOffset:CGPoint = conversation.collection.contentOffset
+        let keyboardHeight:CGFloat
         
         if yOrigin < screenHeight
         {
-            layoutInputBottom.constant = -(screenHeight - yOrigin)
+            keyboardHeight = screenHeight - yOrigin
         }
         else
         {
-            layoutInputBottom.constant = 0
+            keyboardHeight = 0
         }
+        
+        layoutInputBottom.constant = -keyboardHeight
+        conversation.collection.contentOffset = CGPointMake(0, currentOffset.y + keyboardHeight)
         
         UIView.animateWithDuration(kAnimationDuration)
         { [weak self] in
             
             self?.layoutIfNeeded()
         }
-        
-        conversation.scrollToBottom()
     }
 }
