@@ -14,8 +14,26 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSizeZero
+        flow.footerReferenceSize = CGSizeZero
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
+        flow.sectionInset = UIEdgeInsetsZero
+        flow.scrollDirection = UICollectionViewScrollDirection.Vertical
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        collection.clipsToBounds = true
+        collection.backgroundColor = UIColor.clearColor()
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.showsVerticalScrollIndicator = false
+        collection.alwaysBounceVertical = true
+        collection.delegate = self
+        collection.dataSource = self
+        collection.registerClass(
+            VChatConversationCellTextMine.self,
+            forCellWithReuseIdentifier:
+            VChatConversationCellTextMine.reusableIdentifier())
         self.collection = collection
         
         addSubview(collection)
