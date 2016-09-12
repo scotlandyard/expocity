@@ -16,6 +16,11 @@ class VChatInput:UIView, UITextFieldDelegate
         backgroundColor = UIColor.collectionBackground()
         self.controller = controller
         
+        let borderTop:UIView = UIView()
+        borderTop.userInteractionEnabled = false
+        borderTop.translatesAutoresizingMaskIntoConstraints = false
+        borderTop.backgroundColor = UIColor.bubbleMine()
+        
         let sendButton:UIButton = UIButton()
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.setImage(UIImage(named:"chatSend"), forState:UIControlState.Normal)
@@ -50,13 +55,15 @@ class VChatInput:UIView, UITextFieldDelegate
         self.field = field
         
         fieldBase.addSubview(field)
+        addSubview(borderTop)
         addSubview(fieldBase)
         addSubview(sendButton)
         
         let views:[String:AnyObject] = [
             "field":field,
             "fieldBase":fieldBase,
-            "sendButton":sendButton]
+            "sendButton":sendButton,
+            "borderTop":borderTop]
         
         let metrics:[String:AnyObject] = [
             "sendButtonWidth":kSendButtonWidth]
@@ -67,12 +74,17 @@ class VChatInput:UIView, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-4-[fieldBase]-4-|",
+            "V:|-0-[borderTop(1)]-4-[fieldBase]-4-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-6-[field]-3-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[borderTop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
