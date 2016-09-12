@@ -9,7 +9,8 @@ class VChatConversationCellText:VChatConversationCell
     weak var layoutBubbleLeft:NSLayoutConstraint!
     weak var layoutBubbleRight:NSLayoutConstraint!
     private let kBubbleCornerRadius:CGFloat = 4
-    private let kInterMargin:CGFloat = 2
+    private let kInterMarginHr:CGFloat = 6
+    private let kInterMarginVr:CGFloat = 3
     
     override init(frame:CGRect)
     {
@@ -36,15 +37,16 @@ class VChatConversationCellText:VChatConversationCell
             "labelContent":labelContent]
         
         let metrics:[String:AnyObject] = [
-            "interMargin":kInterMargin]
+            "interMarginHr":kInterMarginHr,
+            "interMarginVr":kInterMarginVr]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-(interMargin)-[labelContent]-(interMargin)-|",
+            "H:|-(interMarginHr)-[labelContent]-(interMarginHr)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-(interMargin)-[labelContent]-(interMargin)-|",
+            "V:|-(interMarginVr)-[labelContent]-(interMarginVr)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -96,10 +98,10 @@ class VChatConversationCellText:VChatConversationCell
     override func config(model:MChatItem, controller:CChat)
     {
         let modelText:MChatItemText = model as! MChatItemText
-        layoutBubbleTop.constant = modelText.marginTop - kInterMargin
-        layoutBubbleBottom.constant = -(modelText.marginBottom - kInterMargin)
-        layoutBubbleLeft.constant = modelText.marginLeft - kInterMargin
-        layoutBubbleRight.constant = -(modelText.marginRight - kInterMargin)
+        layoutBubbleTop.constant = modelText.marginTop - kInterMarginVr
+        layoutBubbleBottom.constant = -(modelText.marginBottom - kInterMarginVr)
+        layoutBubbleLeft.constant = modelText.marginLeft - kInterMarginHr
+        layoutBubbleRight.constant = -(modelText.marginRight - kInterMarginHr)
         labelContent.attributedText = modelText.attributedString
     }
 }
