@@ -4,7 +4,7 @@ class VChatDisplay:UIView
 {
     weak var controller:CChat!
     weak var layoutHeight:NSLayoutConstraint!
-    let kMinHeight:CGFloat = 100
+    let kMinHeight:CGFloat = 5
     private let kBorderHeight:CGFloat = 1
     
     convenience init(controller:CChat)
@@ -35,7 +35,7 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[border(borderHeight)]-0-|",
+            "V:|-0-[border(borderHeight)]",
             options:[],
             metrics:metrics,
             views:views))

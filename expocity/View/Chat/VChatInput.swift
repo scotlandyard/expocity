@@ -6,6 +6,7 @@ class VChatInput:UIView, UITextViewDelegate
     weak var sendButton:UIButton!
     weak var field:UITextView!
     weak var layoutHeight:NSLayoutConstraint!
+    weak var layoutBaseRight:NSLayoutConstraint!
     let kMinHeight:CGFloat = 40
     private let kFieldMarginVr:CGFloat = 4
     private let kBorderHeight:CGFloat = 1
@@ -78,7 +79,12 @@ class VChatInput:UIView, UITextViewDelegate
             "minHeight":kMinHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[fieldBase]-0-[sendButton(sendButtonWidth)]-0-|",
+            "H:[sendButton(sendButtonWidth)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-10-[fieldBase]",
             options:[],
             metrics:metrics,
             views:views))
