@@ -7,15 +7,25 @@ class VChatInput:UIView, UITextViewDelegate
     weak var field:UITextView!
     weak var layoutHeight:NSLayoutConstraint!
     let kMinHeight:CGFloat = 40
-    private let kMaxExtraLine:Int = 2
-    private let kAddedHeight:CGFloat = 18
+    let stringDrawingOptions:NSStringDrawingOptions
+    private let marginField:CGFloat
+    private let kFieldMarginVr:CGFloat = 4
+    private let kBorderHeight:CGFloat = 1
+    private let kMaxHeight:CGFloat = 80
     private let kCornerRadius:CGFloat = 4
     private let kSendButtonWidth:CGFloat = 50
+    private let kHypoteticalMaxHeight:CGFloat = 10000
     private let kEmpty:String = ""
     
-    convenience init(controller:CChat)
+    init(controller:CChat)
     {
-        self.init()
+        marginField = kBorderHeight + kFieldMarginVr + kFieldMarginVr
+        stringDrawingOptions = NSStringDrawingOptions([
+            NSStringDrawingOptions.UsesLineFragmentOrigin,
+            NSStringDrawingOptions.UsesFontLeading
+            ])
+        
+        super.init(frame:CGRectZero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.collectionBackground()
@@ -70,7 +80,10 @@ class VChatInput:UIView, UITextViewDelegate
             "borderTop":borderTop]
         
         let metrics:[String:AnyObject] = [
-            "sendButtonWidth":kSendButtonWidth]
+            "sendButtonWidth":kSendButtonWidth,
+            "fieldMarginVr":kFieldMarginVr,
+            "borderHeight":kBorderHeight,
+            "minHeight":kMinHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-10-[fieldBase]-0-[sendButton(sendButtonWidth)]-0-|",
@@ -78,7 +91,7 @@ class VChatInput:UIView, UITextViewDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[borderTop(1)]-4-[fieldBase]-4-|",
+            "V:|-0-[borderTop(borderHeight)]-(fieldMarginVr)-[fieldBase]-(fieldMarginVr)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -98,10 +111,15 @@ class VChatInput:UIView, UITextViewDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[sendButton]-0-|",
+            "V:|-0-[sendButton(minHeight)]",
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     //MARK: actions
@@ -144,18 +162,28 @@ class VChatInput:UIView, UITextViewDelegate
     
     private func heightForText(text:String)
     {
-        var newHeight:CGFloat = kMinHeight
-        let arrLines:[String] = text.componentsSeparatedByString("\n")
-        var countLines:Int = arrLines.count - 1
+        let newHeight:CGFloat
+        let nsString:NSString = NSString(string:text)
+        let attributes:[String:AnyObject] = field.typingAttributes
+        let size:CGSize = CGSizeMake(field.bounds.maxX, kHypoteticalMaxHeight)
+        let rect:CGRect = nsString.boundingRectWithSize(
+            size,
+            options:stringDrawingOptions,
+            attributes:attributes,
+            context:nil)
+        let height:CGFloat = ceil(rect.maxY) + marginField
         
-        if countLines > 0
+        if height > kMaxHeight
         {
-            if countLines > kMaxExtraLine
-            {
-                countLines = kMaxExtraLine
-            }
-            
-            newHeight += CGFloat(countLines) * kAddedHeight
+            newHeight = kMaxHeight
+        }
+        else if height < kMinHeight
+        {
+            newHeight = kMinHeight
+        }
+        else
+        {
+            newHeight = height
         }
         
         layoutHeight.constant = newHeight
