@@ -10,6 +10,7 @@
 		DA0DEE421D88979B00B52422 /* MChatMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE411D88979B00B52422 /* MChatMenu.swift */; };
 		DA0DEE441D8897C600B52422 /* MChatMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE431D8897C600B52422 /* MChatMenuItem.swift */; };
 		DA0DEE461D889E7700B52422 /* MChatMenuItemSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE451D889E7700B52422 /* MChatMenuItemSend.swift */; };
+		DA0DEE481D889EF100B52422 /* MChatMenuItemPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE471D889EF100B52422 /* MChatMenuItemPicture.swift */; };
 		DA32F8301D884F6D00108E96 /* MMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F82F1D884F6D00108E96 /* MMenuState.swift */; };
 		DA32F8321D88501800108E96 /* MMenuStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F8311D88501800108E96 /* MMenuStateOptions.swift */; };
 		DA32F8341D88502400108E96 /* MMenuStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F8331D88502400108E96 /* MMenuStatePushed.swift */; };
@@ -89,6 +90,7 @@
 		DA0DEE411D88979B00B52422 /* MChatMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenu.swift; sourceTree = "<group>"; };
 		DA0DEE431D8897C600B52422 /* MChatMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuItem.swift; sourceTree = "<group>"; };
 		DA0DEE451D889E7700B52422 /* MChatMenuItemSend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuItemSend.swift; sourceTree = "<group>"; };
+		DA0DEE471D889EF100B52422 /* MChatMenuItemPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuItemPicture.swift; sourceTree = "<group>"; };
 		DA32F82F1D884F6D00108E96 /* MMenuState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuState.swift; sourceTree = "<group>"; };
 		DA32F8311D88501800108E96 /* MMenuStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuStateOptions.swift; sourceTree = "<group>"; };
 		DA32F8331D88502400108E96 /* MMenuStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuStatePushed.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				DA0DEE411D88979B00B52422 /* MChatMenu.swift */,
 				DA0DEE431D8897C600B52422 /* MChatMenuItem.swift */,
 				DA0DEE451D889E7700B52422 /* MChatMenuItemSend.swift */,
+				DA0DEE471D889EF100B52422 /* MChatMenuItemPicture.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				DA32F8361D88704B00108E96 /* VChatDisplay.swift in Sources */,
 				DAFBF70C1D833E65002B294C /* VChatConversationCell.swift in Sources */,
 				DA8B1B761D7DF690004D8457 /* MNavRight.swift in Sources */,
+				DA0DEE481D889EF100B52422 /* MChatMenuItemPicture.swift in Sources */,
 				DA8B1B781D7DF69B004D8457 /* MNavPush.swift in Sources */,
 				DA4F81A91D7D062500CC8B39 /* CategoryUILocalNotification.swift in Sources */,
 				DA4F81AC1D7DBA5E00CC8B39 /* VMainLoader.swift in Sources */,
