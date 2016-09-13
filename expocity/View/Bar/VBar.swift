@@ -114,13 +114,9 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             views:views))
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
-        { [weak collection, weak model] in
-            
-            if model != nil
-            {
-                let indexPath:NSIndexPath = NSIndexPath(forItem:model!.current.index, inSection:0)
-                collection?.selectItemAtIndexPath(indexPath, animated:false, scrollPosition:UICollectionViewScrollPosition.CenteredHorizontally)
-            }
+        {
+            let indexPath:NSIndexPath = NSIndexPath(forItem:self.model.current.index, inSection:0)
+            self.collection.selectItemAtIndexPath(indexPath, animated:false, scrollPosition:UICollectionViewScrollPosition.CenteredHorizontally)
         }
     }
     
@@ -139,14 +135,10 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             collection.collectionViewLayout.invalidateLayout()
             
             dispatch_async(dispatch_get_main_queue())
-            { [weak self] in
-                
-                if self != nil
-                {
-                    let selected:Int = self!.model.current.index
-                    let selectedIndexPath:NSIndexPath = NSIndexPath(forItem:selected, inSection:0)
-                    self!.collection.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
-                }
+            {
+                let selected:Int = self.model.current.index
+                let selectedIndexPath:NSIndexPath = NSIndexPath(forItem:selected, inSection:0)
+                self.collection.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
             }
         }
         
@@ -156,7 +148,21 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             let deltaHeight:CGFloat = self.barHeight - currentHeight
             let deltaPercent:CGFloat = deltaHeight / self.barDelta
             let alpha:CGFloat = 1 - deltaPercent
-            self.collection.alpha = alpha
+            
+            if self.model.state.showOptions()
+            {
+                self.collection.alpha = alpha
+            }
+            
+            if self.model.state.showBackButton()
+            {
+                self.backButton.alpha = alpha
+            }
+            
+            if self.model.state.showTitle()
+            {
+                self.label.alpha = alpha
+            }
         }
         
         super.layoutSubviews()
@@ -185,22 +191,85 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         model.pushed()
         label.text = name
         
+        let alphaCollection:CGFloat
+        let alphaBackButton:CGFloat
+        let alphaLabel:CGFloat
+        
+        if model.state.showOptions()
+        {
+            alphaCollection = 1
+        }
+        else
+        {
+            alphaCollection = 0
+        }
+        
+        if model.state.showBackButton()
+        {
+            alphaBackButton = 1
+        }
+        else
+        {
+            alphaBackButton = 0
+        }
+        
+        if model.state.showTitle()
+        {
+            alphaLabel = 1
+        }
+        else
+        {
+            alphaLabel = 0
+        }
+        
         UIView.animateWithDuration(kAnimationDuration)
         {
-            self.collection.alpha = 0
-            self.backButton.alpha = 1
-            self.label.alpha = 1
+            self.collection.alpha = alphaCollection
+            self.backButton.alpha = alphaBackButton
+            self.label.alpha = alphaLabel
         }
     }
     
     func pop()
     {
         model.poped()
+        
+        let alphaCollection:CGFloat
+        let alphaBackButton:CGFloat
+        let alphaLabel:CGFloat
+        
+        if model.state.showOptions()
+        {
+            alphaCollection = 1
+        }
+        else
+        {
+            alphaCollection = 0
+        }
+        
+        if model.state.showBackButton()
+        {
+            alphaBackButton = 1
+        }
+        else
+        {
+            alphaBackButton = 0
+        }
+        
+        if model.state.showTitle()
+        {
+            alphaLabel = 1
+        }
+        else
+        {
+            alphaLabel = 0
+        }
+        
         UIView.animateWithDuration(kAnimationDuration)
         {
-            self.collection.alpha = 1
-            self.backButton.alpha = 0
-            self.label.alpha = 0
+            self.collection.alpha = alphaCollection
+            self.backButton.alpha = alphaBackButton
+            self.label.alpha = alphaLabel
         }
     }
     
