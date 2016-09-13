@@ -116,4 +116,9 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         return cell
     }
+    
+    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    {
+        
+    }
 }
