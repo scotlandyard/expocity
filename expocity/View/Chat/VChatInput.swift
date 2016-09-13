@@ -1,14 +1,17 @@
 import UIKit
 
-class VChatInput:UIView
+class VChatInput:UIView, UITextViewDelegate
 {
     weak var controller:CChat!
     weak var sendButton:UIButton!
     weak var field:UITextView!
     weak var layoutHeight:NSLayoutConstraint!
     let kMinHeight:CGFloat = 40
+    private let kMaxExtraLine:Int = 2
+    private let kAddedHeight:CGFloat = 25
     private let kCornerRadius:CGFloat = 4
     private let kSendButtonWidth:CGFloat = 50
+    private let kEmpty:String = ""
     
     convenience init(controller:CChat)
     {
@@ -51,6 +54,7 @@ class VChatInput:UIView
         field.autocorrectionType = UITextAutocorrectionType.No
         field.spellCheckingType = UITextSpellCheckingType.No
         field.autocapitalizationType = UITextAutocapitalizationType.Sentences
+        field.delegate = self
         self.field = field
         
         fieldBase.addSubview(field)
@@ -125,10 +129,45 @@ class VChatInput:UIView
                     dispatch_async(dispatch_get_main_queue())
                     { [weak self] in
                         
-                        self?.field.text = ""
+                        self?.field.text = self?.kEmpty
+                        
+                        if self != nil
+                        {
+                            self!.heightForText(self!.kEmpty)
+                        }
                     }
                 }
             }
         }
+    }
+    
+    private func heightForText(text:String)
+    {
+        var newHeight:CGFloat = kMinHeight
+        let arrLines:[String] = text.componentsSeparatedByString("\n")
+        var countLines:Int = arrLines.count - 1
+        
+        if countLines > 0
+        {
+            if countLines > kMaxExtraLine
+            {
+                countLines = kMaxExtraLine
+            }
+            
+            newHeight += CGFloat(countLines) * kAddedHeight
+        }
+        
+        layoutHeight.constant = newHeight
+    }
+    
+    //MARK: textview del
+    
+    func textView(textView:UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String) -> Bool
+    {
+        let currentText:NSString = NSString(string:textView.text)
+        let newText:String = currentText.stringByReplacingCharactersInRange(range, withString:text)
+        heightForText(newText)
+        
+        return true
     }
 }
