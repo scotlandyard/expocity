@@ -8,11 +8,4 @@ class MChatMenuStatus
     {
         self.items = items
     }
-    
-    //MARK: public
-    
-    func shouldChangeStatus(currentText:String) -> MChatMenuStatus?
-    {
-        fatalError()
-    }
 }

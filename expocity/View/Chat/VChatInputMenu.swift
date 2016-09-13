@@ -82,16 +82,16 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         return cellsWidth
     }
     
-    func checkStatus(currentText:String) -> Bool
+    func modeTyping()
     {
-        let update:Bool = model.checkStatusAndReload(currentText)
-        
-        if update
-        {
-            collection.reloadData()
-        }
-        
-        return update
+        model.status = MChatMenuStatusTyping()
+        collection.reloadData()
+    }
+    
+    func modeStandby()
+    {
+        model.status = MChatMenuStatusStandby()
+        collection.reloadData()
     }
     
     //MARK: col del

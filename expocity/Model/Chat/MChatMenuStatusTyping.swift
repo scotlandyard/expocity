@@ -12,20 +12,4 @@ class MChatMenuStatusTyping:MChatMenuStatus
         
         super.init(items:items)
     }
-    
-    override func shouldChangeStatus(currentText:String) -> MChatMenuStatus?
-    {
-        let nextStatus:MChatMenuStatus?
-        
-        if currentText.isEmpty
-        {
-            nextStatus = MChatMenuStatusStandby()
-        }
-        else
-        {
-            nextStatus = nil
-        }
-        
-        return nextStatus
-    }
 }
