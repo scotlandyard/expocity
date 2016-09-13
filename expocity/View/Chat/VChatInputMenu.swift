@@ -72,14 +72,35 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         return item
     }
     
+    //MARK: public
+    
+    func rightMargin() -> CGFloat
+    {
+        let count:Int = model.items.count
+        let cellsWidth:CGFloat = CGFloat(count) * kCellWidth
+        
+        return cellsWidth
+    }
+    
+    func makeTyping()
+    {
+        model.menuTyping()
+        collection.reloadData()
+    }
+    
+    func makeStandby()
+    {
+        model.menuStandby()
+        collection.reloadData()
+    }
+    
     //MARK: col del
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAtIndex section:Int) -> UIEdgeInsets
     {
         let totalWidth:CGFloat = collectionView.bounds.maxX
-        let count:Int = model.items.count
-        let cellsWidth:CGFloat = CGFloat(count) * kCellWidth
-        let remain:CGFloat = totalWidth - cellsWidth
+        let margin:CGFloat = rightMargin()
+        let remain:CGFloat = totalWidth - margin
         let insets:UIEdgeInsets = UIEdgeInsetsMake(0, remain, 0, 0)
         
         return insets

@@ -12,6 +12,7 @@ class VChatInput:UIView, UITextViewDelegate
     private let kBorderHeight:CGFloat = 1
     private let kMaxHeight:CGFloat = 75
     private let kCornerRadius:CGFloat = 4
+    private let kAnimationDuration:NSTimeInterval = 0.3
     private let kHypoteticalMaxHeight:CGFloat = 10000
     private let kEmpty:String = ""
     
@@ -57,8 +58,8 @@ class VChatInput:UIView, UITextViewDelegate
         
         fieldBase.addSubview(field)
         addSubview(borderTop)
-        addSubview(fieldBase)
         addSubview(menu)
+        addSubview(fieldBase)
         
         let views:[String:AnyObject] = [
             "field":field,
@@ -107,6 +108,8 @@ class VChatInput:UIView, UITextViewDelegate
             metrics:metrics,
             views:views))
         
+        let rightMargin:CGFloat = -menu.rightMargin()
+        
         layoutBaseRight = NSLayoutConstraint(
             item:fieldBase,
             attribute:NSLayoutAttribute.Right,
@@ -114,7 +117,7 @@ class VChatInput:UIView, UITextViewDelegate
             toItem:self,
             attribute:NSLayoutAttribute.Right,
             multiplier:1,
-            constant:0)
+            constant:rightMargin)
         
         addConstraint(layoutBaseRight)
     }
@@ -174,6 +177,18 @@ class VChatInput:UIView, UITextViewDelegate
         layoutHeight.constant = newHeight
     }
     
+    private func updateRightMargin()
+    {
+        let rightMargin:CGFloat = -menu.rightMargin()
+        layoutBaseRight.constant = rightMargin
+        
+        UIView.animateWithDuration(kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
     //MARK: textview del
     
     func textViewDidBeginEditing(textView:UITextView)
@@ -188,6 +203,7 @@ class VChatInput:UIView, UITextViewDelegate
     
     func textViewDidChange(textView:UITextView)
     {
+        
         heightForText()
     }
 }
