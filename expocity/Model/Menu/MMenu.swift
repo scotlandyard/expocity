@@ -27,4 +27,16 @@ class MMenu
         
         self.items = items
     }
+    
+    //MARK: public
+    
+    func pushed()
+    {
+        state = MMenuStatePushed()
+    }
+    
+    func poped()
+    {
+        state = MMenuStateOptions()
+    }
 }
