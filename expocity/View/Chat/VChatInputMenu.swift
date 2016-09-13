@@ -41,7 +41,21 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         addSubview(collection)
         
+        let views:[String:AnyObject] = [
+            "collection":collection]
         
+        let metrics:[String:AnyObject] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
