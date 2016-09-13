@@ -113,6 +113,17 @@ class VChatInput:UIView, UITextViewDelegate
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutBaseRight = NSLayoutConstraint(
+            item:fieldBase,
+            attribute:NSLayoutAttribute.Right,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Right,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutBaseRight)
     }
     
     //MARK: actions
