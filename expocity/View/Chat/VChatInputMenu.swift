@@ -5,6 +5,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     weak var controller:CChat!
     weak var collection:UICollectionView!
     let model:MChatMenu
+    private let kCellWidth:CGFloat = 50
     
     init(controller:CChat)
     {
@@ -21,7 +22,6 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.Horizontal
-        flow.sectionInset = UIEdgeInsetsZero
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
         collection.clipsToBounds = true
@@ -73,6 +73,17 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     //MARK: col del
+    
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAtIndex section:Int) -> UIEdgeInsets
+    {
+        let totalWidth:CGFloat = collectionView.bounds.maxX
+        let count:Int = model.items.count
+        let cellsWidth:CGFloat = CGFloat(count) * kCellWidth
+        let remain:CGFloat = totalWidth - cellsWidth
+        let insets:UIEdgeInsets = UIEdgeInsetsMake(0, remain, 0, 0)
+        
+        return insets
+    }
     
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
