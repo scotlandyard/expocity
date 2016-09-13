@@ -63,6 +63,15 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:NSIndexPath) -> MChatMenuItem
+    {
+        let item:MChatMenuItem = model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: col del
     
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
@@ -72,6 +81,20 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return
+        let count:Int = model.items.count
+        
+        return count
+    }
+    
+    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    {
+        let item:MChatMenuItem = modelAtIndex(indexPath)
+        let cell:VChatInputMenuCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            VChatInputMenuCell.reusableIdentifier(),
+            forIndexPath:
+            indexPath) as! VChatInputMenuCell
+        cell.config(item)
+        
+        return cell
     }
 }
