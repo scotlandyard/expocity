@@ -6,7 +6,6 @@ class VChat:UIView
     weak var input:VChatInput!
     weak var conversation:VChatConversation!
     weak var layoutInputBottom:NSLayoutConstraint!
-    private let kInputHeight:CGFloat = 40
     private let kAnimationDuration:NSTimeInterval = 0.4
     
     convenience init(controller:CChat)
@@ -30,8 +29,7 @@ class VChat:UIView
             "input":input,
             "conversation":conversation]
         
-        let metrics:[String:AnyObject] = [
-            "inputHeight":kInputHeight]
+        let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[input]-0-|",
@@ -44,7 +42,7 @@ class VChat:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[conversation]-0-[input(inputHeight)]",
+            "V:|-0-[conversation]-0-[input]",
             options:[],
             metrics:metrics,
             views:views))
@@ -58,8 +56,17 @@ class VChat:UIView
             multiplier:1,
             constant:0)
         
-        addConstraint(layoutInputBottom)
+        input.layoutHeight = NSLayoutConstraint(
+            item:input,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:input.kMinHeight)
         
+        addConstraint(layoutInputBottom)
+        addConstraint(input.layoutHeight)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedKeyboardChanged(sender:)), name:UIKeyboardWillChangeFrameNotification, object:nil)
     }
     

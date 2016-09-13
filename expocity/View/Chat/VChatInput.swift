@@ -1,10 +1,12 @@
 import UIKit
 
-class VChatInput:UIView, UITextFieldDelegate
+class VChatInput:UIView
 {
     weak var controller:CChat!
     weak var sendButton:UIButton!
-    weak var field:UITextField!
+    weak var field:UITextView!
+    weak var layoutHeight:NSLayoutConstraint!
+    let kMinHeight:CGFloat = 40
     private let kCornerRadius:CGFloat = 4
     private let kSendButtonWidth:CGFloat = 50
     
@@ -37,11 +39,10 @@ class VChatInput:UIView, UITextFieldDelegate
         fieldBase.layer.borderColor = UIColor.bubbleMine().CGColor
         fieldBase.layer.cornerRadius = kCornerRadius
         
-        let field:UITextField = UITextField()
+        let field:UITextView = UITextView()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.clipsToBounds = true
         field.backgroundColor = UIColor.clearColor()
-        field.borderStyle = UITextBorderStyle.None
         field.font = UIFont.bold(14)
         field.textColor = UIColor.blackColor()
         field.tintColor = UIColor.blackColor()
@@ -50,8 +51,6 @@ class VChatInput:UIView, UITextFieldDelegate
         field.autocorrectionType = UITextAutocorrectionType.No
         field.spellCheckingType = UITextSpellCheckingType.No
         field.autocapitalizationType = UITextAutocapitalizationType.Sentences
-        field.clearButtonMode = UITextFieldViewMode.Never
-        field.delegate = self
         self.field = field
         
         fieldBase.addSubview(field)
@@ -131,15 +130,5 @@ class VChatInput:UIView, UITextFieldDelegate
                 }
             }
         }
-    }
-    
-    //MARK: text delegate
-    
-    func textFieldShouldReturn(textField:UITextField) -> Bool
-    {
-        textField.resignFirstResponder()
-        sendMessage()
-        
-        return true
     }
 }
