@@ -1,6 +1,6 @@
 import UIKit
 
-class VChat:UIView
+class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     weak var controller:CChat!
     weak var input:VChatInput!
@@ -122,6 +122,19 @@ class VChat:UIView
         { [weak self] in
             
             self?.layoutIfNeeded()
+        }
+    }
+    
+    //MARK: imagePicker delegate
+    
+    func imagePickerController(picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:AnyObject])
+    {
+        let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        controller.dismissViewControllerAnimated(true)
+        { [weak self] in
+            
+            self?.display.displayImage(image)
         }
     }
 }

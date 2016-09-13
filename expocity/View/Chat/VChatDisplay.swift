@@ -60,7 +60,7 @@ class VChatDisplay:UIView
     
     //MARK: public
     
-    func displayImage(image:UIImage)
+    func displayImage(image:UIImage?)
     {
         imageView.image = image
         layoutHeight.constant = kMaxHeight
