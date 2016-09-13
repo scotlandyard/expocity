@@ -8,4 +8,9 @@ class MChatMenuItemSend:MChatMenuItem
     {
         super.init(icon:kIcon)
     }
+    
+    override func selected(controller:CChat)
+    {
+        controller.viewChat.input.actionSend()
+    }
 }

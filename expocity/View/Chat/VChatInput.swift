@@ -122,36 +122,21 @@ class VChatInput:UIView, UITextViewDelegate
         addConstraint(layoutBaseRight)
     }
     
-    //MARK: actions
-   
-    func actionSend(sender button:UIButton)
-    {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
-        sendMessage()
-    }
-    
     //MARK: private
     
     private func sendMessage()
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-        { [weak self] in
+        let text:String = field.text
+        
+        if !text.isEmpty
+        {
+            controller.addTextMine(text)
             
-            let text:String? = self?.field.text
-            
-            if text != nil
-            {
-                if !text!.isEmpty
-                {
-                    self?.controller.addTextMine(text!)
-                    
-                    dispatch_async(dispatch_get_main_queue())
-                    { [weak self] in
-                        
-                        self?.field.text = self?.kEmpty
-                        self?.heightForText()
-                    }
-                }
+            dispatch_async(dispatch_get_main_queue())
+            { [weak self] in
+                
+                self?.field.text = self?.kEmpty
+                self?.heightForText()
             }
         }
     }
@@ -186,6 +171,19 @@ class VChatInput:UIView, UITextViewDelegate
         { [weak self] in
             
             self?.layoutIfNeeded()
+        }
+    }
+    
+    //MARK: public
+    
+    func actionSend()
+    {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            self?.sendMessage()
         }
     }
     
