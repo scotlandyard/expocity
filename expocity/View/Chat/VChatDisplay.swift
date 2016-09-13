@@ -1,9 +1,12 @@
-//
-//  VChatDisplay.swift
-//  expocity
-//
-//  Created by zero on 9/13/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VChatDisplay:UIView
+{
+    weak var controller:CChat!
+    
+    convenience init(controller:CChat)
+    {
+        self.init()
+        self.controller = controller
+    }
+}

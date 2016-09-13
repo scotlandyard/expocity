@@ -15,9 +15,9 @@ class VChatInput:UIView, UITextViewDelegate
     private let kHypoteticalMaxHeight:CGFloat = 10000
     private let kEmpty:String = ""
     
-    init(controller:CChat)
+    convenience init(controller:CChat)
     {
-        super.init(frame:CGRectZero)
+        self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.collectionBackground()
@@ -107,11 +107,6 @@ class VChatInput:UIView, UITextViewDelegate
             options:[],
             metrics:metrics,
             views:views))
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        fatalError()
     }
     
     //MARK: actions

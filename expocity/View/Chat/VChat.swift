@@ -4,6 +4,7 @@ class VChat:UIView
 {
     weak var controller:CChat!
     weak var input:VChatInput!
+    weak var display:VChatDisplay!
     weak var conversation:VChatConversation!
     weak var layoutInputBottom:NSLayoutConstraint!
     private let kAnimationDuration:NSTimeInterval = 0.4
@@ -22,17 +23,27 @@ class VChat:UIView
         let conversation:VChatConversation = VChatConversation(controller:controller)
         self.conversation = conversation
         
+        let display:VChatDisplay = VChatDisplay(controller:controller)
+        self.display = display
+        
         addSubview(input)
         addSubview(conversation)
+        addSubview(display)
         
         let views:[String:AnyObject] = [
             "input":input,
-            "conversation":conversation]
+            "conversation":conversation,
+            "display":display]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[input]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[display]-0-|",
             options:[],
             metrics:metrics,
             views:views))
