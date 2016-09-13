@@ -7,6 +7,7 @@ class MChatMenu
     init()
     {
         items = []
+        menuStandby()
     }
     
     //MARK: public

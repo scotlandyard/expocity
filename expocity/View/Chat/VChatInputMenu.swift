@@ -119,6 +119,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        
+        let item:MChatMenuItem = modelAtIndex(indexPath)
+        item.selected(controller)
     }
 }

@@ -3,7 +3,7 @@ import UIKit
 class VChatInput:UIView, UITextViewDelegate
 {
     weak var controller:CChat!
-    weak var sendButton:UIButton!
+    weak var menu:VChatInputMenu!
     weak var field:UITextView!
     weak var layoutHeight:NSLayoutConstraint!
     weak var layoutBaseRight:NSLayoutConstraint!
@@ -12,7 +12,6 @@ class VChatInput:UIView, UITextViewDelegate
     private let kBorderHeight:CGFloat = 1
     private let kMaxHeight:CGFloat = 75
     private let kCornerRadius:CGFloat = 4
-    private let kSendButtonWidth:CGFloat = 50
     private let kHypoteticalMaxHeight:CGFloat = 10000
     private let kEmpty:String = ""
     
@@ -24,18 +23,13 @@ class VChatInput:UIView, UITextViewDelegate
         backgroundColor = UIColor.collectionBackground()
         self.controller = controller
         
+        let menu:VChatInputMenu = VChatInputMenu(controller:controller)
+        self.menu = menu
+        
         let borderTop:UIView = UIView()
         borderTop.userInteractionEnabled = false
         borderTop.translatesAutoresizingMaskIntoConstraints = false
         borderTop.backgroundColor = UIColor.bubbleMine()
-        
-        let sendButton:UIButton = UIButton()
-        sendButton.translatesAutoresizingMaskIntoConstraints = false
-        sendButton.setImage(UIImage(named:"chatSend"), forState:UIControlState.Normal)
-        sendButton.imageView!.contentMode = UIViewContentMode.Center
-        sendButton.imageView!.clipsToBounds = true
-        sendButton.addTarget(self, action:#selector(self.actionSend(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        self.sendButton = sendButton
         
         let fieldBase:UIView = UIView()
         fieldBase.clipsToBounds = true
@@ -64,25 +58,19 @@ class VChatInput:UIView, UITextViewDelegate
         fieldBase.addSubview(field)
         addSubview(borderTop)
         addSubview(fieldBase)
-        addSubview(sendButton)
+        addSubview(menu)
         
         let views:[String:AnyObject] = [
             "field":field,
             "fieldBase":fieldBase,
-            "sendButton":sendButton,
-            "borderTop":borderTop]
+            "borderTop":borderTop,
+            "menu":menu]
         
         let metrics:[String:AnyObject] = [
-            "sendButtonWidth":kSendButtonWidth,
             "fieldMarginVr":kFieldMarginVr,
             "borderHeight":kBorderHeight,
             "minHeight":kMinHeight]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[sendButton(sendButtonWidth)]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-10-[fieldBase]",
             options:[],
@@ -104,12 +92,17 @@ class VChatInput:UIView, UITextViewDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[menu]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[field]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[sendButton(minHeight)]",
+            "V:|-0-[menu(minHeight)]",
             options:[],
             metrics:metrics,
             views:views))
