@@ -15,6 +15,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         clipsToBounds = true
         backgroundColor = UIColor.clearColor()
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
