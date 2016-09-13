@@ -158,8 +158,10 @@ class VChatInput:UIView, UITextViewDelegate
     
     private func heightForText()
     {
+        let currentText:String = field.text
         let newHeight:CGFloat
         let height:CGFloat = field.contentSize.height
+        let updateWidth:Bool = menu.checkStatus(currentText)
         
         if height > kMaxHeight
         {
@@ -175,6 +177,11 @@ class VChatInput:UIView, UITextViewDelegate
         }
         
         layoutHeight.constant = newHeight
+        
+        if updateWidth
+        {
+            updateRightMargin()
+        }
     }
     
     private func updateRightMargin()

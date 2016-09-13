@@ -67,7 +67,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     private func modelAtIndex(index:NSIndexPath) -> MChatMenuItem
     {
-        let item:MChatMenuItem = model.items[index.item]
+        let item:MChatMenuItem = model.status.items[index.item]
         
         return item
     }
@@ -76,22 +76,22 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     func rightMargin() -> CGFloat
     {
-        let count:Int = model.items.count
+        let count:Int = model.status.items.count
         let cellsWidth:CGFloat = CGFloat(count) * kCellWidth
         
         return cellsWidth
     }
     
-    func makeTyping()
+    func checkStatus(currentText:String) -> Bool
     {
-        model.menuTyping()
-        collection.reloadData()
-    }
-    
-    func makeStandby()
-    {
-        model.menuStandby()
-        collection.reloadData()
+        let update:Bool = model.checkStatusAndReload(currentText)
+        
+        if update
+        {
+            collection.reloadData()
+        }
+        
+        return update
     }
     
     //MARK: col del
@@ -121,7 +121,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = model.items.count
+        let count:Int = model.status.items.count
         
         return count
     }
