@@ -3,6 +3,7 @@ import Foundation
 class MChatMenu
 {
     var items:[MChatMenuItem]
+    var status:MChatMenuStatus!
     
     init()
     {
@@ -14,21 +15,13 @@ class MChatMenu
     
     func menuTyping()
     {
-        let itemSend:MChatMenuItemSend = MChatMenuItemSend()
-        
-        items = [
-            itemSend
-        ]
+        status = MChatMenuStatusTyping()
+        items = status.items()
     }
     
     func menuStandby()
     {
-        let itemPicture:MChatMenuItemPicture = MChatMenuItemPicture()
-        let itemAnnotate:MChatMenuItemAnnotate = MChatMenuItemAnnotate()
-        
-        items = [
-            itemPicture,
-            itemAnnotate
-        ]
+        status = MChatMenuStatusStandby()
+        items = status.items()
     }
 }
