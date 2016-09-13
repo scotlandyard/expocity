@@ -4,7 +4,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
 {
     weak var controller:CChat!
     weak var collection:UICollectionView!
-    private let kCollectionBottom:CGFloat = 20
+    private let kCollectionBottom:CGFloat = 10
     
     convenience init(controller:CChat)
     {

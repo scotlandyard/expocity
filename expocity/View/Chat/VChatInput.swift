@@ -8,7 +8,7 @@ class VChatInput:UIView, UITextViewDelegate
     weak var layoutHeight:NSLayoutConstraint!
     let kMinHeight:CGFloat = 40
     private let kMaxExtraLine:Int = 2
-    private let kAddedHeight:CGFloat = 25
+    private let kAddedHeight:CGFloat = 18
     private let kCornerRadius:CGFloat = 4
     private let kSendButtonWidth:CGFloat = 50
     private let kEmpty:String = ""
@@ -46,7 +46,7 @@ class VChatInput:UIView, UITextViewDelegate
         field.translatesAutoresizingMaskIntoConstraints = false
         field.clipsToBounds = true
         field.backgroundColor = UIColor.clearColor()
-        field.font = UIFont.bold(14)
+        field.font = UIFont.medium(15)
         field.textColor = UIColor.blackColor()
         field.tintColor = UIColor.blackColor()
         field.returnKeyType = UIReturnKeyType.Default
@@ -54,6 +54,7 @@ class VChatInput:UIView, UITextViewDelegate
         field.autocorrectionType = UITextAutocorrectionType.No
         field.spellCheckingType = UITextSpellCheckingType.No
         field.autocapitalizationType = UITextAutocapitalizationType.Sentences
+        field.textContainerInset = UIEdgeInsetsMake(6, 0, 0, 0)
         field.delegate = self
         self.field = field
         
