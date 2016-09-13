@@ -92,6 +92,11 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     //MARK: col del
     
+    func scrollViewDidScroll(scrollView:UIScrollView)
+    {
+        controller.parent.viewParent.scrollDidScroll(scrollView)
+    }
+    
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
         let item:MChatItem = modelAtIndex(indexPath)
