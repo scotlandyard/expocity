@@ -85,6 +85,14 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         return insets
     }
     
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSizeMake(kCellWidth, height)
+        
+        return size
+    }
+    
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
         return 1
