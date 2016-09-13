@@ -180,9 +180,10 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     //MARK: public
     
-    func push()
+    func push(name:String?)
     {
-        label.text = parent.controllers.last?.title
+        model.pushed()
+        label.text = name
         
         UIView.animateWithDuration(kAnimationDuration)
         {
@@ -194,6 +195,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func pop()
     {
+        model.poped()
         UIView.animateWithDuration(kAnimationDuration)
         {
             self.collection.alpha = 1

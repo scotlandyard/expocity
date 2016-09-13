@@ -201,6 +201,7 @@ class VParent:UIView
         parent.controllers.last?.layoutLeft.constant = -width_2
         parent.controllers.last?.layoutRight.constant = -width_2
         parent.controllers.last?.addShadow()
+        bar.push(controller.title)
         
         UIView.animateWithDuration(
             kAnimationDurantion,
@@ -212,7 +213,6 @@ class VParent:UIView
         { (done) in
             
             completion()
-            self.bar.push()
         }
     }
     
@@ -227,6 +227,7 @@ class VParent:UIView
         controller.layoutLeft.constant = width
         previous.layoutLeft.constant = 0
         previous.layoutRight.constant = 0
+        bar.pop()
         
         UIView.animateWithDuration(
             kAnimationDurantion,
@@ -239,7 +240,6 @@ class VParent:UIView
             
             previous.shadow?.removeFromSuperview()
             completion()
-            self.bar.pop()
         }
     }
     
