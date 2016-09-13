@@ -125,6 +125,17 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         }
     }
     
+    //MARK: public
+    
+    func presentImagePicker()
+    {
+        let imagePicker:UIImagePickerController = UIImagePickerController()
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.delegate = self
+        
+        controller.presentViewController(imagePicker, animated:true, completion:nil)
+    }
+    
     //MARK: imagePicker delegate
     
     func imagePickerController(picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:AnyObject])
