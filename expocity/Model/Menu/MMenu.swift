@@ -3,10 +3,13 @@ import Foundation
 class MMenu
 {
     let items:[MMenuItem]
+    var state:MMenuState
     weak var current:MMenuItem!
     
     init()
     {
+        state = MMenuStateOptions()
+        
         var items:[MMenuItem] = []
         
         let itemSettings:MMenuItemSettings = MMenuItemSettings(index:items.count)
