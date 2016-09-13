@@ -6,16 +6,16 @@ class MMenuState
     
     func showOptions() -> Bool
     {
-        fatalError()
+        return false
     }
     
     func showBackButton() -> Bool
     {
-        fatalError()
+        return false
     }
     
     func showTitle() -> Bool
     {
-        fatalError()
+        return false
     }
 }
