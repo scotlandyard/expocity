@@ -2,7 +2,7 @@ import Foundation
 
 class MChatMenuStatusStandby:MChatMenuStatus
 {
-    override func items() -> [MChatMenuItem]
+    init()
     {
         let itemPicture:MChatMenuItemPicture = MChatMenuItemPicture()
         let itemAnnotate:MChatMenuItemAnnotate = MChatMenuItemAnnotate()
@@ -12,6 +12,22 @@ class MChatMenuStatusStandby:MChatMenuStatus
             itemAnnotate
         ]
         
-        return items
+        super.init(items:items)
+    }
+    
+    override func shouldChangeStatus(currentText:String) -> MChatMenuStatus?
+    {
+        let nextStatus:MChatMenuStatus?
+        
+        if currentText.isEmpty
+        {
+            nextStatus = nil
+        }
+        else
+        {
+            nextStatus = MChatMenuStatusTyping()
+        }
+        
+        return nextStatus
     }
 }

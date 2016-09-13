@@ -2,26 +2,30 @@ import Foundation
 
 class MChatMenu
 {
-    var items:[MChatMenuItem]
-    var status:MChatMenuStatus!
+    var status:MChatMenuStatus
     
     init()
     {
-        items = []
-        menuStandby()
+        status = MChatMenuStatusStandby()
     }
     
     //MARK: public
     
-    func menuTyping()
+    func checkStatusAndReload(currentText:String) -> Bool
     {
-        status = MChatMenuStatusTyping()
-        items = status.items()
-    }
-    
-    func menuStandby()
-    {
-        status = MChatMenuStatusStandby()
-        items = status.items()
+        let reload:Bool
+        let nextStatus:MChatMenuStatus? = status.shouldChangeStatus(currentText)
+        
+        if nextStatus == nil
+        {
+            reload = false
+        }
+        else
+        {
+            reload = true
+            status = nextStatus!
+        }
+        
+        return reload
     }
 }

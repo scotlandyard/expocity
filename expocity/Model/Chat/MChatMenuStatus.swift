@@ -2,7 +2,16 @@ import Foundation
 
 class MChatMenuStatus
 {
-    func items() -> [MChatMenuItem]
+    let items:[MChatMenuItem]
+    
+    init(items:[MChatMenuItem])
+    {
+        self.items = items
+    }
+    
+    //MARK: public
+    
+    func shouldChangeStatus(currentText:String) -> MChatMenuStatus?
     {
         fatalError()
     }

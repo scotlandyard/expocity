@@ -2,7 +2,7 @@ import Foundation
 
 class MChatMenuStatusTyping:MChatMenuStatus
 {
-    override func items() -> [MChatMenuItem]
+    init()
     {
         let itemSend:MChatMenuItemSend = MChatMenuItemSend()
         
@@ -10,6 +10,22 @@ class MChatMenuStatusTyping:MChatMenuStatus
             itemSend
         ]
         
-        return items
+        super.init(items:items)
+    }
+    
+    override func shouldChangeStatus(currentText:String) -> MChatMenuStatus?
+    {
+        let nextStatus:MChatMenuStatus?
+        
+        if currentText.isEmpty
+        {
+            nextStatus = MChatMenuStatusStandby()
+        }
+        else
+        {
+            nextStatus = nil
+        }
+        
+        return nextStatus
     }
 }
