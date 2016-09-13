@@ -223,8 +223,8 @@ class VParent:UIView
         let controller:CController = parent.controllers[countControllers - 1]
         let previous:CController = parent.controllers[countControllers - 2]
         
-        controller.layoutLeft.constant = width
         controller.layoutRight.constant = width
+        controller.layoutLeft.constant = width
         previous.layoutLeft.constant = 0
         previous.layoutRight.constant = 0
         
