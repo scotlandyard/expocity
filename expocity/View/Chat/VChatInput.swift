@@ -7,11 +7,9 @@ class VChatInput:UIView, UITextViewDelegate
     weak var field:UITextView!
     weak var layoutHeight:NSLayoutConstraint!
     let kMinHeight:CGFloat = 40
-    let stringDrawingOptions:NSStringDrawingOptions
-    private let marginField:CGFloat
     private let kFieldMarginVr:CGFloat = 4
     private let kBorderHeight:CGFloat = 1
-    private let kMaxHeight:CGFloat = 80
+    private let kMaxHeight:CGFloat = 75
     private let kCornerRadius:CGFloat = 4
     private let kSendButtonWidth:CGFloat = 50
     private let kHypoteticalMaxHeight:CGFloat = 10000
@@ -19,12 +17,6 @@ class VChatInput:UIView, UITextViewDelegate
     
     init(controller:CChat)
     {
-        marginField = kBorderHeight + kFieldMarginVr + kFieldMarginVr
-        stringDrawingOptions = NSStringDrawingOptions([
-            NSStringDrawingOptions.UsesLineFragmentOrigin,
-            NSStringDrawingOptions.UsesFontLeading
-            ])
-        
         super.init(frame:CGRectZero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -149,29 +141,17 @@ class VChatInput:UIView, UITextViewDelegate
                     { [weak self] in
                         
                         self?.field.text = self?.kEmpty
-                        
-                        if self != nil
-                        {
-                            self!.heightForText(self!.kEmpty)
-                        }
+                        self?.heightForText()
                     }
                 }
             }
         }
     }
     
-    private func heightForText(text:String)
+    private func heightForText()
     {
         let newHeight:CGFloat
-        let nsString:NSString = NSString(string:text)
-        let attributes:[String:AnyObject] = field.typingAttributes
-        let size:CGSize = CGSizeMake(field.bounds.maxX, kHypoteticalMaxHeight)
-        let rect:CGRect = nsString.boundingRectWithSize(
-            size,
-            options:stringDrawingOptions,
-            attributes:attributes,
-            context:nil)
-        let height:CGFloat = ceil(rect.maxY) + marginField
+        let height:CGFloat = field.contentSize.height
         
         if height > kMaxHeight
         {
@@ -191,12 +171,18 @@ class VChatInput:UIView, UITextViewDelegate
     
     //MARK: textview del
     
-    func textView(textView:UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String) -> Bool
+    func textViewDidBeginEditing(textView:UITextView)
     {
-        let currentText:NSString = NSString(string:textView.text)
-        let newText:String = currentText.stringByReplacingCharactersInRange(range, withString:text)
-        heightForText(newText)
-        
-        return true
+        heightForText()
+    }
+    
+    func textViewDidEndEditing(textView:UITextView)
+    {
+        heightForText()
+    }
+    
+    func textViewDidChange(textView:UITextView)
+    {
+        heightForText()
     }
 }
