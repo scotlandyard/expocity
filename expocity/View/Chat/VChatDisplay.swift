@@ -24,6 +24,10 @@ class VChatDisplay:UIView
         border.translatesAutoresizingMaskIntoConstraints = false
         border.backgroundColor = UIColor.bubbleMine()
         
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action:#selector(self.actionButton(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        
         let imageView:UIImageView = UIImageView()
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
@@ -33,10 +37,12 @@ class VChatDisplay:UIView
         
         addSubview(border)
         addSubview(imageView)
+        addSubview(button)
         
         let views:[String:AnyObject] = [
             "border":border,
-            "imageView":imageView]
+            "imageView":imageView,
+            "button":button]
         
         let metrics:[String:AnyObject] = [
             "borderHeight":kBorderHeight]
@@ -56,6 +62,13 @@ class VChatDisplay:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        
     }
     
     //MARK: public
