@@ -53,7 +53,7 @@ class VChat:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[conversation]-0-[input]",
+            "V:|-0-[conversation]-0-[display]-0-[input]",
             options:[],
             metrics:metrics,
             views:views))
@@ -76,8 +76,18 @@ class VChat:UIView
             multiplier:1,
             constant:input.kMinHeight)
         
+        display.layoutHeight = NSLayoutConstraint(
+            item:display,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:display.kMinHeight)
+        
         addConstraint(layoutInputBottom)
         addConstraint(input.layoutHeight)
+        addConstraint(display.layoutHeight)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedKeyboardChanged(sender:)), name:UIKeyboardWillChangeFrameNotification, object:nil)
     }
     
