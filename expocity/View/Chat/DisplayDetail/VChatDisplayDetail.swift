@@ -8,7 +8,7 @@ class VChatDisplayDetail:UIView
     weak var layoutImageBottom:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
     weak var layoutImageRight:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 50
+    private let kBarHeight:CGFloat = 64
     private let kAnimateDuration:NSTimeInterval = 0.3
     
     convenience init(controller:CChatDisplayDetail)
