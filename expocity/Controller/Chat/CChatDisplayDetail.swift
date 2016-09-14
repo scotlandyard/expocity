@@ -27,4 +27,10 @@ class CChatDisplayDetail:CController
         self.viewDetail = viewDetail
         view = viewDetail
     }
+    
+    override func viewDidAppear(animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewDetail.animateImage()
+    }
 }
