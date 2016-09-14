@@ -13,7 +13,7 @@ class VChatDisplayDetail:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.8)
+        backgroundColor = UIColor.clearColor()
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -46,5 +46,43 @@ class VChatDisplayDetail:UIView
             views:views))
         
         setNeedsLayout()
+        
+        layoutImageTop = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.Top,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Top,
+            multiplier:1,
+            constant:0)
+        layoutImageBottom = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.Bottom,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Bottom,
+            multiplier:1,
+            constant:0)
+        layoutImageLeft = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.Left,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Left,
+            multiplier:1,
+            constant:0)
+        layoutImageRight = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.Right,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Right,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutImageTop)
+        addConstraint(layoutImageBottom)
+        addConstraint(layoutImageLeft)
+        addConstraint(layoutImageRight)
     }
 }
