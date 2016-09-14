@@ -7,6 +7,8 @@ class CChatDisplayDetail:CController
     init()
     {
         super.init(nibName:nil, bundle:nil)
+        modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
     }
     
     required init?(coder:NSCoder)
@@ -17,5 +19,7 @@ class CChatDisplayDetail:CController
     override func loadView()
     {
         let viewDetail:VChatDisplayDetail = VChatDisplayDetail(controller:self)
+        self.viewDetail = viewDetail
+        view = viewDetail
     }
 }
