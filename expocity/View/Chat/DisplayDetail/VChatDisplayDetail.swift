@@ -44,5 +44,7 @@ class VChatDisplayDetail:UIView
             options:[],
             metrics:metrics,
             views:views))
+        
+        setNeedsLayout()
     }
 }
