@@ -108,9 +108,16 @@ class VParent:UIView
     
     //MARK: public
     
-    func center(controller:CController)
+    func over(controller:CController, underBar:Bool)
     {
-        insertSubview(controller.view, belowSubview:bar)
+        if underBar
+        {
+            insertSubview(controller.view, belowSubview:bar)
+        }
+        else
+        {
+            addSubview(controller.view)
+        }
         
         let views:[String:AnyObject] = [
             "view":controller.view]

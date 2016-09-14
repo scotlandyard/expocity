@@ -71,6 +71,16 @@ class CParent:UIViewController
         }
     }
     
+    func over(controller:CController)
+    {
+        addChildViewController(controller)
+        
+        viewParent.center(controller)
+        {
+            self.controllers.append(controller)
+        }
+    }
+    
     func pop()
     {
         viewParent.pop()

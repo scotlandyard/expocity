@@ -58,6 +58,7 @@ class CChat:CController
     
     func displayDetail(imageView:UIImageView)
     {
-        
+        let displayDetail:CChatDisplayDetail = CChatDisplayDetail()
+        parent.push(<#T##controller: CController##CController#>)
     }
 }

@@ -68,7 +68,7 @@ class VChatDisplay:UIView
     
     func actionButton(sender button:UIButton)
     {
-        
+        controller.displayDetail(imageView)
     }
     
     //MARK: public
