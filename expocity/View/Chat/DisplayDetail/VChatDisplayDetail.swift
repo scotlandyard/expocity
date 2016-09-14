@@ -14,7 +14,6 @@ class VChatDisplayDetail:UIView
         self.controller = controller
         
         let bar:VChatDisplayDetailBar = VChatDisplayDetailBar(controller:controller)
-        
         addSubview(bar)
         
         let views:[String:AnyObject] = [
