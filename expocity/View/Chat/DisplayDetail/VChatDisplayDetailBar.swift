@@ -14,7 +14,7 @@ class VChatDisplayDetailBar:UIView
         alpha = 0
         self.controller = controller
         
-        let colorTop:CGColor = UIColor(white:0, alpha:0.7).CGColor
+        let colorTop:CGColor = UIColor(white:0, alpha:0.5).CGColor
         let colorBottom:CGColor = UIColor.clearColor().CGColor
         let gradientLayer:CAGradientLayer = layer as! CAGradientLayer
         gradientLayer.colors = [colorTop, colorBottom]
@@ -27,6 +27,7 @@ class VChatDisplayDetailBar:UIView
         closeButton.imageView!.contentMode = UIViewContentMode.Center
         closeButton.imageView!.clipsToBounds = true
         closeButton.addTarget(self, action:#selector(self.actionClose(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        closeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 5, 40)
         
         addSubview(closeButton)
         
