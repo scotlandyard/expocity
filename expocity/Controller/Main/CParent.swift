@@ -23,10 +23,7 @@ class CParent:UIViewController
         super.viewDidLoad()
 
         let home:CHome = CHome()
-        controllers.append(home)
-        addChildViewController(home)
-        viewParent.center(home)
-        home.didMoveToParentViewController(self)
+        center(home)
     }
     
     override func loadView()
@@ -69,6 +66,22 @@ class CParent:UIViewController
             self.controllers.append(controller)
             controller.didMoveToParentViewController(self)
         }
+    }
+    
+    func center(controller:CController)
+    {
+        addChildViewController(controller)
+        viewParent.over(controller, underBar:true)
+        controllers.append(controller)
+        controller.didMoveToParentViewController(self)
+    }
+    
+    func over(controller:CController)
+    {
+        addChildViewController(controller)
+        viewParent.over(controller, underBar:false)
+        controllers.append(controller)
+        controller.didMoveToParentViewController(self)
     }
     
     func pop()

@@ -55,4 +55,10 @@ class CChat:CController
         model.items.append(chatItem)
         viewChat.conversation.didAddChatItem(indexes)
     }
+    
+    func displayDetail(imageView:UIImageView)
+    {
+        let controllerDetail:CChatDisplayDetail = CChatDisplayDetail()
+        parent.over(controllerDetail)
+    }
 }
