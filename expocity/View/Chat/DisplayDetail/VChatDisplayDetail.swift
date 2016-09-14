@@ -8,6 +8,7 @@ class VChatDisplayDetail:UIView
     weak var layoutImageLeft:NSLayoutConstraint!
     weak var layoutImageRight:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 50
+    private let kAnimateDuration:NSTimeInterval = 5
     
     convenience init(controller:CChatDisplayDetail)
     {
@@ -22,7 +23,7 @@ class VChatDisplayDetail:UIView
         let imageView:UIImageView = UIImageView()
         imageView.userInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = controller.image
         
@@ -89,7 +90,21 @@ class VChatDisplayDetail:UIView
         addConstraint(layoutImageBottom)
         addConstraint(layoutImageLeft)
         addConstraint(layoutImageRight)
+    }
+    
+    //MARK: public
+    
+    func animateImage()
+    {
+        layoutImageTop.constant = 0
+        layoutImageBottom.constant = 0
+        layoutImageLeft.constant = 0
+        layoutImageRight.constant = 0
         
-        setNeedsLayout()
+        UIView.animateWithDuration(kAnimateDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
 }
