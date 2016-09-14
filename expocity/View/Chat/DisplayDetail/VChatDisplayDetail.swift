@@ -29,6 +29,7 @@ class VChatDisplayDetail:UIView
         let blur:UIView = UIView()
         blur.userInteractionEnabled = false
         blur.translatesAutoresizingMaskIntoConstraints = false
+        blur.backgroundColor = UIColor.clearColor()
         blur.alpha = 0
         self.blur = blur
         
@@ -46,6 +47,7 @@ class VChatDisplayDetail:UIView
         let bottomMargin:CGFloat = controller.imageRect.maxY - screenRect.maxY
         
         blur.addSubview(visualEffect)
+        addSubview(blur)
         addSubview(imageView)
         addSubview(bar)
         
