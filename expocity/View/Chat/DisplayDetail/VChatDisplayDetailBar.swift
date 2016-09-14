@@ -38,6 +38,16 @@ class VChatDisplayDetailBar:UIView
             views:views))
     }
     
+    override var layer:CALayer
+    {
+        get
+        {
+            let gradient:CAGradientLayer = CAGradientLayer()
+            
+            return gradient
+        }
+    }
+    
     //MARK: actions
     
     func actionClose(sender button:UIButton)
