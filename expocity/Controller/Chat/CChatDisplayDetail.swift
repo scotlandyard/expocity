@@ -1,6 +1,6 @@
 import UIKit
 
-class CChatDisplayDetail:UIViewController
+class CChatDisplayDetail:CController
 {
     
 }
