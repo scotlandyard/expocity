@@ -26,6 +26,12 @@ class VChatDisplayDetail:UIView
         imageView.clipsToBounds = true
         imageView.image = controller.image
         
+        let screenRect:CGRect = UIScreen.mainScreen().bounds
+        let topMargin:CGFloat = controller.imageRect.minY
+        let leftMargin:CGFloat = controller.imageRect.minX
+        let rightMargin:CGFloat = controller.imageRect.maxX - screenRect.maxX
+        let bottomMargin:CGFloat = controller.imageRect.maxY - screenRect.maxY
+        
         addSubview(imageView)
         addSubview(bar)
         
@@ -46,8 +52,6 @@ class VChatDisplayDetail:UIView
             metrics:metrics,
             views:views))
         
-        setNeedsLayout()
-        
         layoutImageTop = NSLayoutConstraint(
             item:imageView,
             attribute:NSLayoutAttribute.Top,
@@ -55,7 +59,7 @@ class VChatDisplayDetail:UIView
             toItem:self,
             attribute:NSLayoutAttribute.Top,
             multiplier:1,
-            constant:0)
+            constant:topMargin)
         layoutImageBottom = NSLayoutConstraint(
             item:imageView,
             attribute:NSLayoutAttribute.Bottom,
@@ -63,7 +67,7 @@ class VChatDisplayDetail:UIView
             toItem:self,
             attribute:NSLayoutAttribute.Bottom,
             multiplier:1,
-            constant:0)
+            constant:bottomMargin)
         layoutImageLeft = NSLayoutConstraint(
             item:imageView,
             attribute:NSLayoutAttribute.Left,
@@ -71,7 +75,7 @@ class VChatDisplayDetail:UIView
             toItem:self,
             attribute:NSLayoutAttribute.Left,
             multiplier:1,
-            constant:0)
+            constant:leftMargin)
         layoutImageRight = NSLayoutConstraint(
             item:imageView,
             attribute:NSLayoutAttribute.Right,
@@ -79,11 +83,13 @@ class VChatDisplayDetail:UIView
             toItem:self,
             attribute:NSLayoutAttribute.Right,
             multiplier:1,
-            constant:0)
+            constant:rightMargin)
         
         addConstraint(layoutImageTop)
         addConstraint(layoutImageBottom)
         addConstraint(layoutImageLeft)
         addConstraint(layoutImageRight)
+        
+        setNeedsLayout()
     }
 }
