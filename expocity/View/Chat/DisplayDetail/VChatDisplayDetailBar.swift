@@ -10,7 +10,14 @@ class VChatDisplayDetailBar:UIView
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = UIColor.clearColor()
         self.controller = controller
+        
+        let colorTop:CGColor = UIColor.redColor().CGColor
+        let colorBottom:CGColor = UIColor.blueColor().CGColor
+        let gradientLayer:CAGradientLayer = layer as! CAGradientLayer
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0, 1]
         
         let closeButton:UIButton = UIButton()
         closeButton.clipsToBounds = true
@@ -40,20 +47,6 @@ class VChatDisplayDetailBar:UIView
     override class func layerClass() -> AnyClass
     {
         return CAGradientLayer.self
-    }
-    
-    override var layer:CALayer
-    {
-        get
-        {
-            let colorTop:CGColor = UIColor.redColor().CGColor
-            let colorBottom:CGColor = UIColor.blueColor().CGColor
-            let gradient:CAGradientLayer = CAGradientLayer()
-            gradient.colors = [colorTop, colorBottom]
-            gradient.locations = [0, 1]
-            
-            return gradient
-        }
     }
     
     //MARK: actions
