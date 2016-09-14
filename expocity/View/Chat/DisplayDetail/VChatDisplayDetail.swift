@@ -24,6 +24,7 @@ class VChatDisplayDetail:UIView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
         imageView.clipsToBounds = true
+        imageView.image = controller.image
         
         addSubview(imageView)
         addSubview(bar)
