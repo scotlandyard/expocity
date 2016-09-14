@@ -9,7 +9,6 @@ class VChatDisplayDetailBar:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -38,11 +37,20 @@ class VChatDisplayDetailBar:UIView
             views:views))
     }
     
+    override class func layerClass() -> AnyClass
+    {
+        return CAGradientLayer.self
+    }
+    
     override var layer:CALayer
     {
         get
         {
+            let colorTop:CGColor = UIColor.redColor().CGColor
+            let colorBottom:CGColor = UIColor.blueColor().CGColor
             let gradient:CAGradientLayer = CAGradientLayer()
+            gradient.colors = [colorTop, colorBottom]
+            gradient.locations = [0, 1]
             
             return gradient
         }
