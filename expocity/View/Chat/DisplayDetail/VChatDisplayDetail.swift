@@ -9,7 +9,7 @@ class VChatDisplayDetail:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor(white:1, alpha:0.8)
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
