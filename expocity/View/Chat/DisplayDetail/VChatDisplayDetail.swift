@@ -3,6 +3,10 @@ import UIKit
 class VChatDisplayDetail:UIView
 {
     weak var controller:CChatDisplayDetail!
+    weak var layoutImageTop:NSLayoutConstraint!
+    weak var layoutImageBottom:NSLayoutConstraint!
+    weak var layoutImageLeft:NSLayoutConstraint!
+    weak var layoutImageRight:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 50
     
     convenience init(controller:CChatDisplayDetail)
