@@ -3,6 +3,7 @@ import UIKit
 class VChatDisplayDetail:UIView
 {
     weak var controller:CChatDisplayDetail!
+    weak var bar:VChatDisplayDetailBar!
     weak var blur:UIView!
     weak var layoutImageTop:NSLayoutConstraint!
     weak var layoutImageBottom:NSLayoutConstraint!
@@ -20,6 +21,7 @@ class VChatDisplayDetail:UIView
         self.controller = controller
         
         let bar:VChatDisplayDetailBar = VChatDisplayDetailBar(controller:controller)
+        self.bar = bar
         
         let blurEffect:UIVisualEffect = UIBlurEffect(style:UIBlurEffectStyle.Dark)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
@@ -133,16 +135,25 @@ class VChatDisplayDetail:UIView
     
     func animateImage()
     {
+        let animationDuration:NSTimeInterval = kAnimateDuration
         layoutImageTop.constant = 0
         layoutImageBottom.constant = 0
         layoutImageLeft.constant = 0
         layoutImageRight.constant = 0
         
-        UIView.animateWithDuration(kAnimateDuration)
-        { [weak self] in
+        UIView.animateWithDuration(animationDuration, animations:
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+                self?.blur.alpha = 1
+            })
+        { (done) in
             
-            self?.layoutIfNeeded()
-            self?.blur.alpha = 1
+            UIView.animateWithDuration(animationDuration)
+            { [weak self] in
+                
+                self?.bar.alpha = 1
+            }
         }
     }
 }

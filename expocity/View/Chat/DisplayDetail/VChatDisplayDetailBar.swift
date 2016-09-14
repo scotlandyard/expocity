@@ -11,6 +11,7 @@ class VChatDisplayDetailBar:UIView
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clearColor()
+        alpha = 0
         self.controller = controller
         
         let colorTop:CGColor = UIColor(white:0, alpha:0.6).CGColor
