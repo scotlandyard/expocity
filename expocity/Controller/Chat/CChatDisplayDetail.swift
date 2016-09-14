@@ -3,10 +3,10 @@ import UIKit
 class CChatDisplayDetail:CController
 {
     weak var viewDetail:VChatDisplayDetail!
-    let image:UIImage
+    let image:UIImage?
     let imageRect:CGRect
     
-    init(image:UIImage, imageRect:CGRect)
+    init(image:UIImage?, imageRect:CGRect)
     {
         self.image = image
         self.imageRect = imageRect
