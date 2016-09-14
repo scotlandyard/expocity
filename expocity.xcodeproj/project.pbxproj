@@ -78,6 +78,7 @@
 		DA8B1B941D7E2575004D8457 /* VHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B931D7E2575004D8457 /* VHomeCell.swift */; };
 		DA8B1B961D7E25C1004D8457 /* VHomeCellCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */; };
 		DA8B1B981D7E25CE004D8457 /* VHomeCellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */; };
+		DA9846031D89C9E10084A0A6 /* VChatDisplayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846021D89C9E10084A0A6 /* VChatDisplayDetail.swift */; };
 		DAFBF7081D831F43002B294C /* chat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFBF7071D831F43002B294C /* chat.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +165,7 @@
 		DA8B1B931D7E2575004D8457 /* VHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCell.swift; sourceTree = "<group>"; };
 		DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellCreate.swift; sourceTree = "<group>"; };
 		DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellTitle.swift; sourceTree = "<group>"; };
+		DA9846021D89C9E10084A0A6 /* VChatDisplayDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetail.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				DA0DEE571D88C0C000B52422 /* VChatDisplay.swift */,
+				DA9846021D89C9E10084A0A6 /* VChatDisplayDetail.swift */,
 			);
 			path = Display;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				DA4F81A71D7D062500CC8B39 /* CategoryUIColor.swift in Sources */,
 				DA32F8301D884F6D00108E96 /* MMenuState.swift in Sources */,
 				DA8B1B721D7DF679004D8457 /* MNav.swift in Sources */,
+				DA9846031D89C9E10084A0A6 /* VChatDisplayDetail.swift in Sources */,
 				DA0DEE5E1D88C0C000B52422 /* VChatConversation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
