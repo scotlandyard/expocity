@@ -14,6 +14,14 @@ class VChatDisplayDetail:UIView
         self.controller = controller
         
         let bar:VChatDisplayDetailBar = VChatDisplayDetailBar(controller:controller)
+        
+        let image:UIImageView = UIImageView()
+        image.userInteractionEnabled = false
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = UIViewContentMode.ScaleAspectFit
+        image.clipsToBounds = true
+        
+        addSubview(image)
         addSubview(bar)
         
         let views:[String:AnyObject] = [
