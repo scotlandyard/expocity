@@ -3,6 +3,7 @@ import UIKit
 class VChatDisplayDetail:UIView
 {
     weak var controller:CChatDisplayDetail!
+    weak var blur:UIView!
     weak var layoutImageTop:NSLayoutConstraint!
     weak var layoutImageBottom:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
@@ -20,6 +21,17 @@ class VChatDisplayDetail:UIView
         
         let bar:VChatDisplayDetailBar = VChatDisplayDetailBar(controller:controller)
         
+        let blurEffect:UIVisualEffect = UIBlurEffect(style:UIBlurEffectStyle.Dark)
+        let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        visualEffect.userInteractionEnabled = false
+        visualEffect.translatesAutoresizingMaskIntoConstraints = false
+        
+        let blur:UIView = UIView()
+        blur.userInteractionEnabled = false
+        blur.translatesAutoresizingMaskIntoConstraints = false
+        blur.alpha = 0
+        self.blur = blur
+        
         let imageView:UIImageView = UIImageView()
         imageView.userInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,17 +45,40 @@ class VChatDisplayDetail:UIView
         let rightMargin:CGFloat = controller.imageRect.maxX - screenRect.maxX
         let bottomMargin:CGFloat = controller.imageRect.maxY - screenRect.maxY
         
+        blur.addSubview(visualEffect)
         addSubview(imageView)
         addSubview(bar)
         
         let views:[String:AnyObject] = [
-            "bar":bar]
+            "bar":bar,
+            "blur":blur,
+            "visualEffect":visualEffect]
         
         let metrics:[String:AnyObject] = [
             "barHeight":kBarHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[bar]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -105,6 +140,7 @@ class VChatDisplayDetail:UIView
         { [weak self] in
             
             self?.layoutIfNeeded()
+            self?.blur.alpha = 1
         }
     }
 }
