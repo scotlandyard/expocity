@@ -12,4 +12,11 @@ class VChatDisplayOptions:UIView
         
         self.controller = controller
     }
+    
+    //MARK: public
+    
+    func animateBlur()
+    {
+        
+    }
 }
