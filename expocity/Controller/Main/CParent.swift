@@ -94,6 +94,11 @@ class CParent:UIViewController
         }
     }
     
+    func dismiss()
+    {
+        
+    }
+    
     func scrollLeft(controller:CController)
     {
         addChildViewController(controller)
