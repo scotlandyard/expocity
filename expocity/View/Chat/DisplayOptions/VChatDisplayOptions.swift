@@ -1,8 +1,9 @@
 import UIKit
 
-class VChatDisplayOptions:UIView
+class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CChatDisplayOptions!
+    weak var collection:UICollectionView!
     weak var blur:UIView!
     weak var base:UIView!
     private let kAnimationDuration:NSTimeInterval = 0.3
@@ -120,5 +121,22 @@ class VChatDisplayOptions:UIView
             
             self?.blur.alpha = 1
         }
+    }
+    
+    //MARK: collection del
+    
+    func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        
+    }
+    
+    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    {
+        
     }
 }
