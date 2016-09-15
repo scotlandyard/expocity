@@ -1,9 +1,14 @@
-//
-//  MChatDisplayOptionsItemFit.swift
-//  expocity
-//
-//  Created by zero on 9/15/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MChatDisplayOptionsItemFit:MChatDisplayOptionsItem
+{
+    private let kContentMode:UIViewContentMode = UIViewContentMode.ScaleAspectFit
+    private let kIcon:String = ""
+    
+    init()
+    {
+        let title:String = NSLocalizedString("", comment:"")
+        
+        super.init(title:title, icon:kIcon, contentMode:kContentMode)
+    }
+}
