@@ -476,6 +476,7 @@
 		DA8B1B841D7E22B9004D8457 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				DAE27C581D8AEAD500E43F33 /* DisplayOptions */,
 				DA9846041D89D61B0084A0A6 /* DisplayDetail */,
 				DA0DEE511D88C0C000B52422 /* Conversation */,
 				DA0DEE561D88C0C000B52422 /* Display */,
@@ -546,6 +547,13 @@
 				DAC3CAFA1D7BB5C60090ECCD /* Info.plist */,
 			);
 			path = expocity;
+			sourceTree = "<group>";
+		};
+		DAE27C581D8AEAD500E43F33 /* DisplayOptions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DisplayOptions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
