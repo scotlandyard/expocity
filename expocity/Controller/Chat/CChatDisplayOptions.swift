@@ -26,6 +26,6 @@ class CChatDisplayOptions:CController
     override func viewDidAppear(animated:Bool)
     {
         super.viewDidAppear(animated)
-        viewDetail.animateBlur()
+        viewOptions.animateBlur()
     }
 }
