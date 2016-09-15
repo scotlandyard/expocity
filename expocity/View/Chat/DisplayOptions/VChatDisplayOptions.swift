@@ -8,7 +8,7 @@ class VChatDisplayOptions:UIView
     private let kCornerRadius:CGFloat = 4
     private let kBaseMarginVertical:CGFloat = 40
     private let kBaseMarginHorizontal:CGFloat = 10
-    private let kButtonDoneHeight:CGFloat = 36
+    private let kButtonDoneHeight:CGFloat = 40
     
     convenience init(controller:CChatDisplayOptions)
     {
@@ -43,6 +43,8 @@ class VChatDisplayOptions:UIView
         buttonDone.setTitleColor(UIColor.whiteColor(), forState:UIControlState.Normal)
         buttonDone.setTitleColor(UIColor(white:1, alpha:0.2), forState:UIControlState.Highlighted)
         buttonDone.setTitle(NSLocalizedString("VChatDisplayOptions_buttonDone", comment:""), forState:UIControlState.Normal)
+        buttonDone.titleLabel!.font = UIFont.bold(14)
+        buttonDone.addTarget(self, action:#selector(self.actionDone(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         blur.addSubview(visualEffect)
         base.addSubview(buttonDone)
@@ -100,6 +102,13 @@ class VChatDisplayOptions:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: actions
+    
+    func actionDone(sender button:UIButton)
+    {
+        controller.parent.dismiss()
     }
     
     //MARK: public
