@@ -4,6 +4,7 @@ class VChatDisplayOptions:UIView
 {
     weak var controller:CChatDisplayOptions!
     weak var blur:UIView!
+    weak var base:UIView!
     private let kAnimationDuration:NSTimeInterval = 0.3
     private let kCornerRadius:CGFloat = 4
     private let kBaseMarginVertical:CGFloat = 40
@@ -25,7 +26,6 @@ class VChatDisplayOptions:UIView
         
         let blur:UIView = UIView()
         blur.translatesAutoresizingMaskIntoConstraints = false
-        blur.userInteractionEnabled = false
         blur.alpha = 0
         self.blur = blur
         
@@ -47,9 +47,9 @@ class VChatDisplayOptions:UIView
         buttonDone.addTarget(self, action:#selector(self.actionDone(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         blur.addSubview(visualEffect)
+        blur.addSubview(base)
         base.addSubview(buttonDone)
         addSubview(blur)
-        addSubview(base)
         
         let views:[String:AnyObject] = [
             "visualEffect":visualEffect,
