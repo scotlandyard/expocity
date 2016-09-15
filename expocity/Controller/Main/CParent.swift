@@ -96,9 +96,12 @@ class CParent:UIViewController
     
     func dismiss()
     {
-        let controller:CController = controllers.popLast()!
-        controller.view.removeFromSuperview()
-        controller.removeFromParentViewController()
+        viewParent.dismiss()
+        {
+            let controller:CController = self.controllers.popLast()!
+            controller.view.removeFromSuperview()
+            controller.removeFromParentViewController()
+        }
     }
     
     func scrollLeft(controller:CController)
