@@ -63,4 +63,9 @@ class CChat:CController
         let controllerDetail:CChatDisplayDetail = CChatDisplayDetail(image:image, imageRect:rect)
         parent.over(controllerDetail)
     }
+    
+    func displayOptions()
+    {
+        
+    }
 }
