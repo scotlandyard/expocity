@@ -27,6 +27,33 @@ class VChatDisplayOptions:UIView
         
         blur.addSubview(visualEffect)
         addSubview(blur)
+        
+        let views:[String:AnyObject] = [
+            "visualEffect":visualEffect,
+            "blur":blur]
+        
+        let metrics:[String:AnyObject] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     //MARK: public
