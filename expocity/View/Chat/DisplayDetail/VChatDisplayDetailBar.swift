@@ -58,6 +58,6 @@ class VChatDisplayDetailBar:UIView
     
     func actionClose(sender button:UIButton)
     {
-        controller.parent.pop()
+        controller.parent.dismiss()
     }
 }
