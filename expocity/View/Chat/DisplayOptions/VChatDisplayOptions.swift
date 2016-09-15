@@ -5,6 +5,8 @@ class VChatDisplayOptions:UIView
     weak var controller:CChatDisplayOptions!
     weak var blur:UIView!
     private let kAnimationDuration:NSTimeInterval = 0.3
+    private let kCornerRadius:CGFloat = 4
+    private let kBaseMargin:CGFloat = 20
     
     convenience init(controller:CChatDisplayOptions)
     {
@@ -25,14 +27,25 @@ class VChatDisplayOptions:UIView
         blur.alpha = 0
         self.blur = blur
         
+        let base:UIView = UIView()
+        base.backgroundColor = UIColor.whiteColor()
+        base.translatesAutoresizingMaskIntoConstraints = false
+        base.clipsToBounds = true
+        base.layer.borderWidth = 1
+        base.layer.borderColor = UIColor(white:0, alpha:0.4).CGColor
+        base.layer.cornerRadius = kCornerRadius
+        
         blur.addSubview(visualEffect)
         addSubview(blur)
+        addSubview(base)
         
         let views:[String:AnyObject] = [
             "visualEffect":visualEffect,
-            "blur":blur]
+            "blur":blur,
+            "base":base]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "baseMargin":kBaseMargin]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[visualEffect]-0-|",
@@ -45,12 +58,22 @@ class VChatDisplayOptions:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-(baseMargin)-[base]-(baseMargin)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-(baseMargin)-[base]-(baseMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
