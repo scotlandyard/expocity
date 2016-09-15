@@ -499,6 +499,7 @@
 		DA8B1B871D7E23AB004D8457 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				DAE27C611D8B116600E43F33 /* Display */,
 				DA0DEE671D88C16400B52422 /* Item */,
 				DA0DEE6B1D88C16400B52422 /* Main */,
 				DA0DEE6D1D88C16400B52422 /* Menu */,
@@ -566,6 +567,21 @@
 				DAE27C5B1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift */,
 			);
 			path = DisplayOptions;
+			sourceTree = "<group>";
+		};
+		DAE27C611D8B116600E43F33 /* Display */ = {
+			isa = PBXGroup;
+			children = (
+				DAE27C621D8B116600E43F33 /* Options */,
+			);
+			path = Display;
+			sourceTree = "<group>";
+		};
+		DAE27C621D8B116600E43F33 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Options;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
