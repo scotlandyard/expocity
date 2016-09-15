@@ -80,6 +80,7 @@
 		DA8B1B981D7E25CE004D8457 /* VHomeCellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */; };
 		DA9846061D89D61B0084A0A6 /* VChatDisplayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */; };
 		DA9846081D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */; };
+		DAE27C5A1D8AEB4A00E43F33 /* VChatDisplayOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C591D8AEB4A00E43F33 /* VChatDisplayOptions.swift */; };
 		DAFBF7081D831F43002B294C /* chat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFBF7071D831F43002B294C /* chat.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +172,7 @@
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAE27C591D8AEB4A00E43F33 /* VChatDisplayOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayOptions.swift; sourceTree = "<group>"; };
 		DAFBF7071D831F43002B294C /* chat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = chat.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -552,6 +554,7 @@
 		DAE27C581D8AEAD500E43F33 /* DisplayOptions */ = {
 			isa = PBXGroup;
 			children = (
+				DAE27C591D8AEB4A00E43F33 /* VChatDisplayOptions.swift */,
 			);
 			path = DisplayOptions;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				DA0DEE861D88C21000B52422 /* CChatDisplayDetail.swift in Sources */,
 				DA0DEE7A1D88C16400B52422 /* MChatItemText.swift in Sources */,
 				DA8B1B941D7E2575004D8457 /* VHomeCell.swift in Sources */,
+				DAE27C5A1D8AEB4A00E43F33 /* VChatDisplayOptions.swift in Sources */,
 				DA32F8321D88501800108E96 /* MMenuStateOptions.swift in Sources */,
 				DA0DEE641D88C0C000B52422 /* VChatInputMenu.swift in Sources */,
 				DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */,
