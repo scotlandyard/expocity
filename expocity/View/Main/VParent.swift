@@ -250,6 +250,23 @@ class VParent:UIView
         }
     }
     
+    func dismiss(completion:(() -> ()))
+    {
+        let countControllers:Int = parent.controllers.count
+        let controller:CController = parent.controllers[countControllers - 1]
+        
+        UIView.animateWithDuration(
+            kAnimationDurantion,
+            animations:
+            {
+                controller.view.alpha = 0
+            })
+        { (done) in
+            
+            completion()
+        }
+    }
+    
     func scrollDidScroll(scroll:UIScrollView)
     {
         var offsetY:CGFloat = kBarHeight - scroll.contentOffset.y
