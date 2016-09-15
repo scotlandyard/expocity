@@ -6,7 +6,8 @@ class VChatDisplayOptions:UIView
     weak var blur:UIView!
     private let kAnimationDuration:NSTimeInterval = 0.3
     private let kCornerRadius:CGFloat = 4
-    private let kBaseMargin:CGFloat = 20
+    private let kBaseMarginVertical:CGFloat = 40
+    private let kBaseMarginHorizontal:CGFloat = 10
     
     convenience init(controller:CChatDisplayOptions)
     {
@@ -32,7 +33,7 @@ class VChatDisplayOptions:UIView
         base.translatesAutoresizingMaskIntoConstraints = false
         base.clipsToBounds = true
         base.layer.borderWidth = 1
-        base.layer.borderColor = UIColor(white:0, alpha:0.4).CGColor
+        base.layer.borderColor = UIColor(white:0, alpha:0.1).CGColor
         base.layer.cornerRadius = kCornerRadius
         
         blur.addSubview(visualEffect)
@@ -45,7 +46,8 @@ class VChatDisplayOptions:UIView
             "base":base]
         
         let metrics:[String:AnyObject] = [
-            "baseMargin":kBaseMargin]
+            "baseMarginVertical":kBaseMarginVertical,
+            "baseMarginHorizontal":kBaseMarginHorizontal]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[visualEffect]-0-|",
@@ -58,7 +60,7 @@ class VChatDisplayOptions:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-(baseMargin)-[base]-(baseMargin)-|",
+            "H:|-(baseMarginHorizontal)-[base]-(baseMarginHorizontal)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,7 +75,7 @@ class VChatDisplayOptions:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-(baseMargin)-[base]-(baseMargin)-|",
+            "V:|-(baseMarginVertical)-[base]-(baseMarginVertical)-|",
             options:[],
             metrics:metrics,
             views:views))
