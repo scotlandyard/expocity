@@ -14,7 +14,7 @@ class VChatDisplayDetailBar:UIView
         alpha = 0
         self.controller = controller
         
-        let colorTop:CGColor = UIColor(white:0, alpha:0.5).CGColor
+        let colorTop:CGColor = UIColor(white:0, alpha:0.3).CGColor
         let colorBottom:CGColor = UIColor.clearColor().CGColor
         let gradientLayer:CAGradientLayer = layer as! CAGradientLayer
         gradientLayer.colors = [colorTop, colorBottom]
