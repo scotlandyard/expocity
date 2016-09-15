@@ -26,12 +26,17 @@ class VChatDisplayOptions:UIView
         self.blur = blur
         
         blur.addSubview(visualEffect)
+        addSubview(blur)
     }
     
     //MARK: public
     
     func animateBlur()
     {
-        
+        UIView.animateWithDuration(kAnimationDuration)
+        { [weak self] in
+            
+            self?.blur.alpha = 1
+        }
     }
 }
