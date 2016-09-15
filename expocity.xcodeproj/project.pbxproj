@@ -84,6 +84,8 @@
 		DAE27C5C1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C5B1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift */; };
 		DAE27C5E1D8AEDCE00E43F33 /* CChatDisplayOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C5D1D8AEDCE00E43F33 /* CChatDisplayOptions.swift */; };
 		DAE27C601D8AF65500E43F33 /* MChatMenuItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C5F1D8AF65500E43F33 /* MChatMenuItemOptions.swift */; };
+		DAE27C641D8B118300E43F33 /* MChatDisplayOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C631D8B118300E43F33 /* MChatDisplayOptions.swift */; };
+		DAE27C661D8B119700E43F33 /* MChatDisplayOptionsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C651D8B119700E43F33 /* MChatDisplayOptionsItem.swift */; };
 		DAFBF7081D831F43002B294C /* chat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFBF7071D831F43002B294C /* chat.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +181,8 @@
 		DAE27C5B1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayOptionsCell.swift; sourceTree = "<group>"; };
 		DAE27C5D1D8AEDCE00E43F33 /* CChatDisplayOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CChatDisplayOptions.swift; sourceTree = "<group>"; };
 		DAE27C5F1D8AF65500E43F33 /* MChatMenuItemOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuItemOptions.swift; sourceTree = "<group>"; };
+		DAE27C631D8B118300E43F33 /* MChatDisplayOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatDisplayOptions.swift; sourceTree = "<group>"; };
+		DAE27C651D8B119700E43F33 /* MChatDisplayOptionsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatDisplayOptionsItem.swift; sourceTree = "<group>"; };
 		DAFBF7071D831F43002B294C /* chat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = chat.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -580,6 +584,8 @@
 		DAE27C621D8B116600E43F33 /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				DAE27C631D8B118300E43F33 /* MChatDisplayOptions.swift */,
+				DAE27C651D8B119700E43F33 /* MChatDisplayOptionsItem.swift */,
 			);
 			path = Options;
 			sourceTree = "<group>";
@@ -735,6 +741,8 @@
 				DA0DEE641D88C0C000B52422 /* VChatInputMenu.swift in Sources */,
 				DA4F81AA1D7D062500CC8B39 /* CategoryUIViewController.swift in Sources */,
 				DA0DEE7F1D88C16400B52422 /* MChatMenuItemPicture.swift in Sources */,
+				DAE27C641D8B118300E43F33 /* MChatDisplayOptions.swift in Sources */,
+				DAE27C661D8B119700E43F33 /* MChatDisplayOptionsItem.swift in Sources */,
 				DA0DEE7D1D88C16400B52422 /* MChatMenuItem.swift in Sources */,
 				DA8B1B901D7E253A004D8457 /* MHomeItemCreate.swift in Sources */,
 				DA0DEE791D88C16400B52422 /* MChatItem.swift in Sources */,
