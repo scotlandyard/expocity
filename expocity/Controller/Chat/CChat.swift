@@ -66,6 +66,7 @@ class CChat:CController
     
     func displayOptions()
     {
-        
+        let controllerOptions:CChatDisplayOptions = CChatDisplayOptions()
+        parent.over(controllerOptions)
     }
 }
