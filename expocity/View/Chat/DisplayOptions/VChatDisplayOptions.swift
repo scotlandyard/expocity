@@ -38,7 +38,7 @@ class VChatDisplayOptions:UIView
         base.layer.cornerRadius = kCornerRadius
         
         let buttonDone:UIButton = UIButton()
-        buttonDone.backgroundColor = UIColor.main()
+        buttonDone.backgroundColor = UIColor.complement()
         buttonDone.translatesAutoresizingMaskIntoConstraints = false
         buttonDone.setTitleColor(UIColor.whiteColor(), forState:UIControlState.Normal)
         buttonDone.setTitleColor(UIColor(white:1, alpha:0.2), forState:UIControlState.Highlighted)
