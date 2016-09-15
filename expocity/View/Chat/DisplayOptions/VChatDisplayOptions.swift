@@ -8,6 +8,7 @@ class VChatDisplayOptions:UIView
     private let kCornerRadius:CGFloat = 4
     private let kBaseMarginVertical:CGFloat = 40
     private let kBaseMarginHorizontal:CGFloat = 10
+    private let kButtonDoneHeight:CGFloat = 36
     
     convenience init(controller:CChatDisplayOptions)
     {
@@ -36,18 +37,28 @@ class VChatDisplayOptions:UIView
         base.layer.borderColor = UIColor(white:0, alpha:0.1).CGColor
         base.layer.cornerRadius = kCornerRadius
         
+        let buttonDone:UIButton = UIButton()
+        buttonDone.backgroundColor = UIColor.main()
+        buttonDone.translatesAutoresizingMaskIntoConstraints = false
+        buttonDone.setTitleColor(UIColor.whiteColor(), forState:UIControlState.Normal)
+        buttonDone.setTitleColor(UIColor(white:1, alpha:0.2), forState:UIControlState.Highlighted)
+        buttonDone.setTitle(NSLocalizedString("VChatDisplayOptions_buttonDone", comment:""), forState:UIControlState.Normal)
+        
         blur.addSubview(visualEffect)
+        base.addSubview(buttonDone)
         addSubview(blur)
         addSubview(base)
         
         let views:[String:AnyObject] = [
             "visualEffect":visualEffect,
             "blur":blur,
-            "base":base]
+            "base":base,
+            "buttonDone":buttonDone]
         
         let metrics:[String:AnyObject] = [
             "baseMarginVertical":kBaseMarginVertical,
-            "baseMarginHorizontal":kBaseMarginHorizontal]
+            "baseMarginHorizontal":kBaseMarginHorizontal,
+            "buttonDoneHeight":kButtonDoneHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[visualEffect]-0-|",
@@ -65,6 +76,11 @@ class VChatDisplayOptions:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[buttonDone]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
@@ -76,6 +92,11 @@ class VChatDisplayOptions:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-(baseMarginVertical)-[base]-(baseMarginVertical)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[buttonDone(buttonDoneHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
