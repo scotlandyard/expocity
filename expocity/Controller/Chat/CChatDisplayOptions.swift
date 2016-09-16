@@ -3,9 +3,12 @@ import UIKit
 class CChatDisplayOptions:CController
 {
     weak var viewOptions:VChatDisplayOptions!
+    let model:MChatDisplayOptions
     
     init()
     {
+        model = MChatDisplayOptions()
+        
         super.init(nibName:nil, bundle:nil)
         modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
