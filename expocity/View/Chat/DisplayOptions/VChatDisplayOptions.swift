@@ -112,6 +112,15 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         controller.parent.dismiss()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:NSIndexPath) -> MChatDisplayOptionsItem
+    {
+        let item:MChatDisplayOptionsItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func animateBlur()
@@ -132,11 +141,20 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
+        let count:Int = controller.model.items.count
         
+        return count
     }
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
+        let item:MChatDisplayOptionsItem = modelAtIndex(indexPath)
+        let cell:VChatDisplayOptionsCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            VChatDisplayOptionsCell.reusableIdentifier(),
+            forIndexPath:
+            indexPath) as! VChatDisplayOptionsCell
+        cell.config(item)
         
+        return cell
     }
 }

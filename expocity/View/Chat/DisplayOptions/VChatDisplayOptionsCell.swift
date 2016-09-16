@@ -13,4 +13,11 @@ class VChatDisplayOptionsCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MChatDisplayOptionsItem)
+    {
+        
+    }
 }
