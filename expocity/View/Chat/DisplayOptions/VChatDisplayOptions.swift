@@ -134,6 +134,25 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     
     //MARK: collection del
     
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let height:CGFloat = collectionView.bounds.maxY
+        let count:Int = controller.model.items.count
+        let size:CGSize
+        
+        if width > height
+        {
+            
+        }
+        else
+        {
+            
+        }
+        
+        return size
+    }
+    
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
         return 1
