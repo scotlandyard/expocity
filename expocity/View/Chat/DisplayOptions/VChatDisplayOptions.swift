@@ -139,15 +139,18 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         let width:CGFloat = collectionView.bounds.maxX
         let height:CGFloat = collectionView.bounds.maxY
         let count:Int = controller.model.items.count
+        let countFloat:CGFloat = CGFloat(count)
         let size:CGSize
         
         if width > height
         {
-            
+            let cellWidth:CGFloat = width / countFloat
+            size = CGSizeMake(cellWidth, height)
         }
         else
         {
-            
+            let cellHeight:CGFloat = height / countFloat
+            size = CGSizeMake(width, cellHeight)
         }
         
         return size
