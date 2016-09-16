@@ -7,7 +7,7 @@ class CChatDisplayOptions:CController
     
     init(displayOption:MChatDisplayOptionsItem)
     {
-        model = MChatDisplayOptions()
+        model = MChatDisplayOptions(displayOption:displayOption)
         
         super.init(nibName:nil, bundle:nil)
         modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
