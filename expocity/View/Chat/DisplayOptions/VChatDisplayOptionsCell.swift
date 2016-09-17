@@ -2,6 +2,9 @@ import UIKit
 
 class VChatDisplayOptionsCell:UICollectionViewCell
 {
+    weak var label:UILabel!
+    weak var image:UIImageView!
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
