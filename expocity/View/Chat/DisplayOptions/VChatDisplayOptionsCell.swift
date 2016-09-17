@@ -10,6 +10,16 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clearColor()
+        
+        let label:UILabel = UILabel()
+        label.userInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clearColor()
+        label.font = UIFont.regular(12)
+        label.textAlignment = NSTextAlignment.Center
+        self.label = label
+        
+        addSubview(label)
     }
     
     required init?(coder:NSCoder)
