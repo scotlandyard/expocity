@@ -61,6 +61,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
     
     func config(model:MChatDisplayOptionsItem)
     {
-        
+        label.text = model.title
+        imageView.image = UIImage(named:model.icon)
     }
 }
