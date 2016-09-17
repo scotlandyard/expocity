@@ -3,7 +3,7 @@ import UIKit
 class VChatDisplayOptionsCell:UICollectionViewCell
 {
     weak var label:UILabel!
-    weak var image:UIImageView!
+    weak var imageView:UIImageView!
     
     override init(frame:CGRect)
     {
@@ -19,7 +19,15 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         label.textAlignment = NSTextAlignment.Center
         self.label = label
         
+        let imageView:UIImageView = UIImageView()
+        imageView.contentMode = UIViewContentMode.Center
+        imageView.clipsToBounds = true
+        imageView.userInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView = imageView
+        
         addSubview(label)
+        addSubview(imageView)
     }
     
     required init?(coder:NSCoder)
