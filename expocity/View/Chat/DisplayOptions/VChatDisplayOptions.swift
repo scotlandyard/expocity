@@ -56,10 +56,25 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.backgroundColor = UIColor.clearColor()
+        collection.clipsToBounds = true
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.scrollEnabled = false
+        collection.bounces = false
+        collection.delegate = self
+        collection.dataSource = self
+        collection.registerClass(
+            VChatDisplayOptionsCell.self,
+            forCellWithReuseIdentifier:
+            VChatDisplayOptionsCell.reusableIdentifier())
+        self.collection = collection
         
         blur.addSubview(visualEffect)
         blur.addSubview(base)
         base.addSubview(buttonDone)
+        base.addSubview(collection)
         addSubview(blur)
         
         let views:[String:AnyObject] = [
