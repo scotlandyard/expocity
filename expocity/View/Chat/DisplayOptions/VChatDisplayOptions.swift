@@ -136,6 +136,12 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: actions
     
     func actionDone(sender button:UIButton)
