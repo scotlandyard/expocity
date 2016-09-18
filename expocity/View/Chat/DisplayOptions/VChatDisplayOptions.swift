@@ -110,6 +110,11 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
@@ -125,7 +130,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[buttonDone(buttonDoneHeight)]-0-|",
+            "V:|-0-[collectionView]-0-[buttonDone(buttonDoneHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
