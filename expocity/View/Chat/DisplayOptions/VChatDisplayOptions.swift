@@ -3,7 +3,7 @@ import UIKit
 class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CChatDisplayOptions!
-    weak var collection:UICollectionView!
+    weak var collectionView:UICollectionView!
     weak var blur:UIView!
     weak var base:UIView!
     private let kAnimationDuration:NSTimeInterval = 0.3
@@ -55,33 +55,34 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         flow.sectionInset = UIEdgeInsetsZero
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
         
-        let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = UIColor.clearColor()
-        collection.clipsToBounds = true
-        collection.showsVerticalScrollIndicator = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.scrollEnabled = false
-        collection.bounces = false
-        collection.delegate = self
-        collection.dataSource = self
-        collection.registerClass(
+        let collectionView:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clearColor()
+        collectionView.clipsToBounds = true
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.scrollEnabled = false
+        collectionView.bounces = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerClass(
             VChatDisplayOptionsCell.self,
             forCellWithReuseIdentifier:
             VChatDisplayOptionsCell.reusableIdentifier())
-        self.collection = collection
+        self.collectionView = collectionView
         
         blur.addSubview(visualEffect)
         blur.addSubview(base)
         base.addSubview(buttonDone)
-        base.addSubview(collection)
+        base.addSubview(collectionView)
         addSubview(blur)
         
         let views:[String:AnyObject] = [
             "visualEffect":visualEffect,
             "blur":blur,
             "base":base,
-            "buttonDone":buttonDone]
+            "buttonDone":buttonDone,
+            "collectionView":collectionView]
         
         let metrics:[String:AnyObject] = [
             "baseMarginVertical":kBaseMarginVertical,
