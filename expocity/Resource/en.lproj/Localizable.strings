@@ -2,6 +2,7 @@
 "MMenuItemSettings_title"="Settings";
 "MMenuItemHistory_title"="History";
 "MMenuItemRoom_title"="Rooms";
+"MChatDisplayOptionsItemFit_title"="Fit";
 
 "VHomeCellCreate_label"="Create";
 "VHomeCellTitle_placeholder"="Room title";

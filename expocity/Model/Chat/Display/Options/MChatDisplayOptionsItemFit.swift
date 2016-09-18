@@ -7,7 +7,7 @@ class MChatDisplayOptionsItemFit:MChatDisplayOptionsItem
     
     init()
     {
-        let title:String = NSLocalizedString("", comment:"")
+        let title:String = NSLocalizedString("MChatDisplayOptionsItemFit_title", comment:"")
         
         super.init(title:title, icon:kIcon, contentMode:kContentMode)
     }
