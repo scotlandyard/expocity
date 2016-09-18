@@ -15,7 +15,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.regular(12)
+        label.font = UIFont.bold(13)
         label.textAlignment = NSTextAlignment.Center
         self.label = label
         
@@ -83,7 +83,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         }
         else
         {
-            label.textColor = UIColor(white:0.6, alpha:1)
+            label.textColor = UIColor(white:0.7, alpha:1)
         }
     }
     

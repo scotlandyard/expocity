@@ -11,6 +11,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     private let kBaseMarginVertical:CGFloat = 40
     private let kBaseMarginHorizontal:CGFloat = 10
     private let kButtonDoneHeight:CGFloat = 40
+    private let kWaitingSelected:UInt64 = 150
     
     convenience init(controller:CChatDisplayOptions)
     {
@@ -134,6 +135,14 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
             options:[],
             metrics:metrics,
             views:views))
+        
+        let selected:NSIndexPath = NSIndexPath(forItem:controller.model.selected, inSection:0)
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC * kWaitingSelected)), dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.collectionView.selectItemAtIndexPath(selected, animated:false, scrollPosition:UICollectionViewScrollPosition.None)
+        }
     }
     
     override func layoutSubviews()
