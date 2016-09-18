@@ -47,6 +47,16 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         buttonDone.titleLabel!.font = UIFont.bold(14)
         buttonDone.addTarget(self, action:#selector(self.actionDone(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSizeZero
+        flow.footerReferenceSize = CGSizeZero
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
+        flow.sectionInset = UIEdgeInsetsZero
+        flow.scrollDirection = UICollectionViewScrollDirection.Vertical
+        
+        let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        
         blur.addSubview(visualEffect)
         blur.addSubview(base)
         base.addSubview(buttonDone)
