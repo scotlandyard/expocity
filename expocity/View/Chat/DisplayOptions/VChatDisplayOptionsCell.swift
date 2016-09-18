@@ -46,7 +46,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[imageView(30)]-0-[label(15)]-0-|",
+            "V:[imageView(30)]-0-[label(15)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -57,11 +57,42 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         fatalError()
     }
     
+    override var selected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var highlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if selected || highlighted
+        {
+            label.textColor = UIColor.main()
+        }
+        else
+        {
+            label.textColor = UIColor(white:0.6, alpha:1)
+        }
+    }
+    
     //MARK: public
     
     func config(model:MChatDisplayOptionsItem)
     {
         label.text = model.title
         imageView.image = UIImage(named:model.icon)
+        hover()
     }
 }
