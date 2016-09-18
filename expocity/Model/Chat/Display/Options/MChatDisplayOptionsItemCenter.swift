@@ -7,7 +7,7 @@ class MChatDisplayOptionsItemCenter:MChatDisplayOptionsItem
     
     init()
     {
-        let title:String = NSLocalizedString("", comment:"")
+        let title:String = NSLocalizedString("MChatDisplayOptionsItemCenter_title", comment:"")
         
         super.init(title:title, icon:kIcon, contentMode:kContentMode)
     }
