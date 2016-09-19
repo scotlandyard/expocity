@@ -91,26 +91,46 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     func modeTyping()
     {
-        model.status = MChatMenuStatusTyping()
-        collection.reloadData()
+        let currentStatus:MChatMenuStatusTyping? = model.status as? MChatMenuStatusTyping
+        
+        if currentStatus == nil
+        {
+            model.status = MChatMenuStatusTyping()
+            collection.reloadData()
+        }
     }
     
     func modeTypeReady()
     {
-        model.status = MChatMenuStatusTypeReady()
-        collection.reloadData()
+        let currentStatus:MChatMenuStatusTypeReady? = model.status as? MChatMenuStatusTypeReady
+        
+        if currentStatus == nil
+        {
+            model.status = MChatMenuStatusTypeReady()
+            collection.reloadData()
+        }
     }
     
     func modeStandby()
     {
-        model.status = MChatMenuStatusStandby()
-        collection.reloadData()
+        let currentStatus:MChatMenuStatusStandby? = model.status as? MChatMenuStatusStandby
+        
+        if currentStatus == nil
+        {
+            model.status = MChatMenuStatusStandby()
+            collection.reloadData()
+        }
     }
     
     func modeStandbyImage()
     {
-        model.status = MChatMenuStatusStandbyImage()
-        collection.reloadData()
+        let currentStatus:MChatMenuStatusStandbyImage? = model.status as? MChatMenuStatusStandbyImage
+        
+        if currentStatus == nil
+        {
+            model.status = MChatMenuStatusStandbyImage()
+            collection.reloadData()
+        }
     }
     
     //MARK: col del
