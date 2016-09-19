@@ -46,6 +46,14 @@ class CChat:CController
     
     //MARK: public
     
+    func displayImageRect() -> CGRect
+    {
+        let imageView:UIImageView = viewChat.display.imageView
+        let rect:CGRect = imageView.superview!.convertRect(imageView.frame, toView:parent.viewParent)
+        
+        return rect
+    }
+    
     func addTextMine(text:String)
     {
         let chatItem:MChatItemTextMine = MChatItemTextMine(text:text)
@@ -73,8 +81,7 @@ class CChat:CController
     
     func displayAnnotations()
     {
-        let imageView:UIImageView = viewChat.display.imageView
-        let rect:CGRect = imageView.superview!.convertRect(imageView.frame, toView:parent.viewParent)
+        
         let controllerAnnotations:CChatDisplayAnnotations = CChatDisplayAnnotations(imageRect:rect)
         parent.over(controllerAnnotations)
     }

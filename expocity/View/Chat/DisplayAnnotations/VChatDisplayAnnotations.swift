@@ -46,10 +46,6 @@ class VChatDisplayAnnotations:UIView
         addSubview(shadeTop)
         addSubview(shadeBottom)
         
-        let screenRect:CGRect = UIScreen.mainScreen().bounds
-        let topHeight:CGFloat = controller.imageRect.minY
-        let bottomHeight:CGFloat = screenRect.maxY - controller.imageRect.maxY
-        
         let views:[String:AnyObject] = [
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
@@ -134,7 +130,10 @@ class VChatDisplayAnnotations:UIView
     
     private func layoutShades()
     {
-        
+        let imageRect:CGRect = 
+        let screenRect:CGRect = UIScreen.mainScreen().bounds
+        let topHeight:CGFloat = controller.imageRect.minY
+        let bottomHeight:CGFloat = screenRect.maxY - controller.imageRect.maxY
     }
     
     //MARK: public
