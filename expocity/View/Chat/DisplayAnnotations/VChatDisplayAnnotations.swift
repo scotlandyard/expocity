@@ -15,17 +15,20 @@ class VChatDisplayAnnotations:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let shadeColor:UIColor = UIColor(white:0, alpha:0.6)
-        
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.Dark)
+        
         let blurTop:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        blurTop.userInteractionEnabled = false
+        blurTop.translatesAutoresizingMaskIntoConstraints = false
+        
         let blurBottom:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        blurBottom.userInteractionEnabled = false
+        blurBottom.translatesAutoresizingMaskIntoConstraints = false
         
         let shadeTop:UIView = UIView()
         shadeTop.userInteractionEnabled = false
         shadeTop.translatesAutoresizingMaskIntoConstraints = false
         shadeTop.clipsToBounds = true
-        shadeTop.backgroundColor = shadeColor
         shadeTop.alpha = 0
         self.shadeTop = shadeTop
         
@@ -33,10 +36,11 @@ class VChatDisplayAnnotations:UIView
         shadeBottom.userInteractionEnabled = false
         shadeBottom.translatesAutoresizingMaskIntoConstraints = false
         shadeBottom.clipsToBounds = true
-        shadeBottom.backgroundColor = shadeColor
         shadeBottom.alpha = 0
         self.shadeBottom = shadeBottom
         
+        shadeTop.addSubview(blurTop)
+        shadeBottom.addSubview(blurBottom)
         addSubview(shadeTop)
         addSubview(shadeBottom)
         
@@ -46,12 +50,24 @@ class VChatDisplayAnnotations:UIView
         
         let views:[String:AnyObject] = [
             "shadeTop":shadeTop,
-            "shadeBottom":shadeBottom]
+            "shadeBottom":shadeBottom,
+            "blurTop":blurTop,
+            "blurBottom":blurBottom]
         
         let metrics:[String:AnyObject] = [
             "topHeight":topHeight,
             "bottomHeight":bottomHeight]
         
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[blurTop]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[blurBottom]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[shadeTop]-0-|",
             options:[],
@@ -59,6 +75,16 @@ class VChatDisplayAnnotations:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[shadeBottom]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[blurTop]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[blurBottom]-0-|",
             options:[],
             metrics:metrics,
             views:views))
