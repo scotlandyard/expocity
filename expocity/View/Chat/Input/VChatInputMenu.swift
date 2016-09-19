@@ -5,7 +5,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     weak var controller:CChat!
     weak var collection:UICollectionView!
     let model:MChatMenu
-    private let kCellWidth:CGFloat = 50
+    private let kCellWidth:CGFloat = 45
     
     init(controller:CChat)
     {
@@ -91,14 +91,46 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     func modeTyping()
     {
-        model.status = MChatMenuStatusTyping()
-        collection.reloadData()
+        let currentStatus:MChatMenuStatusTyping? = model.status as? MChatMenuStatusTyping
+        
+        if currentStatus == nil
+        {
+            model.status = MChatMenuStatusTyping()
+            collection.reloadData()
+        }
+    }
+    
+    func modeTypeReady()
+    {
+        let currentStatus:MChatMenuStatusTypeReady? = model.status as? MChatMenuStatusTypeReady
+        
+        if currentStatus == nil
+        {
+            model.status = MChatMenuStatusTypeReady()
+            collection.reloadData()
+        }
     }
     
     func modeStandby()
     {
-        model.status = MChatMenuStatusStandby()
-        collection.reloadData()
+        let currentStatus:MChatMenuStatusStandby? = model.status as? MChatMenuStatusStandby
+        
+        if currentStatus == nil
+        {
+            model.status = MChatMenuStatusStandby()
+            collection.reloadData()
+        }
+    }
+    
+    func modeStandbyImage()
+    {
+        let currentStatus:MChatMenuStatusStandbyImage? = model.status as? MChatMenuStatusStandbyImage
+        
+        if currentStatus == nil
+        {
+            model.status = MChatMenuStatusStandbyImage()
+            collection.reloadData()
+        }
     }
     
     //MARK: col del
@@ -149,5 +181,14 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     {
         let item:MChatMenuItem = modelAtIndex(indexPath)
         item.selected(controller)
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+        { [weak collectionView] in
+            
+            collectionView?.selectItemAtIndexPath(
+                nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition.None)
+        }
     }
 }

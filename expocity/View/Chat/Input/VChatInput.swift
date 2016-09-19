@@ -130,7 +130,13 @@ class VChatInput:UIView, UITextViewDelegate
         
         if !text.isEmpty
         {
-            controller.addTextMine(text)
+            var textValidating:String = text.stringByReplacingOccurrencesOfString(" ", withString:"")
+            textValidating = textValidating.stringByReplacingOccurrencesOfString("\n", withString:"")
+            
+            if !textValidating.isEmpty
+            {
+                controller.addTextMine(text)
+            }
             
             dispatch_async(dispatch_get_main_queue())
             { [weak self] in
@@ -174,11 +180,25 @@ class VChatInput:UIView, UITextViewDelegate
         }
     }
     
+    private func updateTypingMenu()
+    {
+        if field.text.isEmpty
+        {
+            menu.modeTypeReady()
+        }
+        else
+        {
+            menu.modeTyping()
+        }
+        
+        updateRightMargin()
+    }
+    
     //MARK: public
     
     func actionSend()
     {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -187,24 +207,37 @@ class VChatInput:UIView, UITextViewDelegate
         }
     }
     
+    func updateStandbyMenu()
+    {
+        if controller.viewChat.display.imageView.image == nil
+        {
+            menu.modeStandby()
+        }
+        else
+        {
+            menu.modeStandbyImage()
+        }
+        
+        updateRightMargin()
+    }
+    
     //MARK: textview del
     
     func textViewDidBeginEditing(textView:UITextView)
     {
         heightForText()
-        menu.modeTyping()
-        updateRightMargin()
+        updateTypingMenu()
     }
     
     func textViewDidEndEditing(textView:UITextView)
     {
         heightForText()
-        menu.modeStandby()
-        updateRightMargin()
+        updateStandbyMenu()
     }
     
     func textViewDidChange(textView:UITextView)
     {
         heightForText()
+        updateTypingMenu()
     }
 }

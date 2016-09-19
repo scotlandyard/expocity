@@ -32,7 +32,7 @@ class CChat:CController
     
     override func viewWillTransitionToSize(size:CGSize, withTransitionCoordinator coordinator:UIViewControllerTransitionCoordinator)
     {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
         
         super.viewWillTransitionToSize(size, withTransitionCoordinator:coordinator)
         viewChat.conversation.collection.collectionViewLayout.invalidateLayout()

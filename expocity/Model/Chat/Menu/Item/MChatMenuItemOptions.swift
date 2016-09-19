@@ -2,7 +2,7 @@ import UIKit
 
 class MChatMenuItemOptions:MChatMenuItem
 {
-    private let kIcon:String = "chatSend"
+    private let kIcon:String = "chatOptions"
     
     init()
     {
@@ -11,7 +11,7 @@ class MChatMenuItemOptions:MChatMenuItem
     
     override func selected(controller:CChat)
     {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
         controller.displayOptions()
     }
 }

@@ -60,7 +60,7 @@ class VHomeCellCreate:VHomeCell
     
     override func selected(controller:CHome)
     {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
         
         let model:MChat = controller.model.chat()
         let chat:CChat = CChat(model:model)

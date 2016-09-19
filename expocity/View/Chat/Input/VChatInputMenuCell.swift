@@ -41,10 +41,41 @@ class VChatInputMenuCell:UICollectionViewCell
         fatalError()
     }
     
+    override var selected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var highlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if selected || highlighted
+        {
+            image.alpha = 0.2
+        }
+        else
+        {
+            image.alpha = 1
+        }
+    }
+    
     //MARK: public
     
     func config(model:MChatMenuItem)
     {
         image.image = UIImage(named:model.icon)
+        hover()
     }
 }

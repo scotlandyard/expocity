@@ -1,15 +1,15 @@
 import Foundation
 
-class MChatMenuStatusStandby:MChatMenuStatus
+class MChatMenuStatusTypeReady:MChatMenuStatus
 {
     init()
     {
-        let itemPicture:MChatMenuItemPicture = MChatMenuItemPicture()
         let itemEmoji:MChatMenuItemEmoji = MChatMenuItemEmoji()
+        let itemHideKeyboard:MChatMenuItemHideKeyboard = MChatMenuItemHideKeyboard()
         
         let items:[MChatMenuItem] = [
-            itemPicture,
-            itemEmoji
+            itemEmoji,
+            itemHideKeyboard
         ]
         
         super.init(items:items)
