@@ -8,6 +8,7 @@ class VChatDisplayAnnotations:UIView
     weak var layoutShadeTopHeight:NSLayoutConstraint!
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     private let kAnimateDuration:NSTimeInterval = 0.3
+    private let kDelayLayout:UInt64 = 200
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -126,7 +127,7 @@ class VChatDisplayAnnotations:UIView
             self?.shadeTop.alpha = 0
             self?.shadeBottom.alpha = 0
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC * kDelayLayout)), dispatch_get_main_queue())
             { [weak self] in
                 
                 self?.layoutShades()
