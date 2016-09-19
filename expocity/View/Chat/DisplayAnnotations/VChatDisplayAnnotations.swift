@@ -98,6 +98,21 @@ class VChatDisplayAnnotations:UIView
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutShades()
+    }
+    
+    override func layoutSubviews()
+    {
+        layoutShades()
+        super.layoutSubviews()
+    }
+    
+    //MARK: private
+    
+    private func layoutShades()
+    {
+        
     }
     
     //MARK: public
