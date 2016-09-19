@@ -1,13 +1,15 @@
 import Foundation
 
-class MChatMenuStatusTyping:MChatMenuStatus
+class MChatMenuStatusTypeReady:MChatMenuStatus
 {
     init()
     {
-        let itemSend:MChatMenuItemSend = MChatMenuItemSend()
+        let itemEmoji:MChatMenuItemEmoji = MChatMenuItemEmoji()
+        let itemHideKeyboard:MChatMenuItemHideKeyboard = MChatMenuItemHideKeyboard()
         
         let items:[MChatMenuItem] = [
-            itemSend
+            itemEmoji,
+            itemHideKeyboard
         ]
         
         super.init(items:items)

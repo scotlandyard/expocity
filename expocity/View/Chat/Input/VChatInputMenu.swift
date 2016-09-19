@@ -101,6 +101,12 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         collection.reloadData()
     }
     
+    func modeStandbyImage()
+    {
+        model.status = MChatMenuStatusStandbyImage()
+        collection.reloadData()
+    }
+    
     //MARK: col del
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAtIndex section:Int) -> UIEdgeInsets
