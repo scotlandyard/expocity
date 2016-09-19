@@ -117,10 +117,14 @@ class VChatDisplay:UIView
         imageView.image = image
         layoutHeight.constant = kMaxHeight
         
-        UIView.animateWithDuration(kAnimationDuration)
+        UIView.animateWithDuration(kAnimationDuration, animations:
         { [weak self] in
             
             self?.layoutIfNeeded()
+        })
+        { [weak self] (done) in
+            
+            self?.controller.viewChat.input.updateStandbyMenu()
         }
     }
     
@@ -137,6 +141,7 @@ class VChatDisplay:UIView
         { [weak self] (done) in
             
             self?.imageView.image = nil
+            self?.controller.viewChat.input.updateStandbyMenu()
         }
     }
 }

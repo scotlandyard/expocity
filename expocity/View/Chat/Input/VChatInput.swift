@@ -174,6 +174,20 @@ class VChatInput:UIView, UITextViewDelegate
         }
     }
     
+    private func updateTypingMenu()
+    {
+        if field.text.isEmpty
+        {
+            menu.modeTypeReady()
+        }
+        else
+        {
+            menu.modeTyping()
+        }
+        
+        updateRightMargin()
+    }
+    
     //MARK: public
     
     func actionSend()
@@ -187,15 +201,15 @@ class VChatInput:UIView, UITextViewDelegate
         }
     }
     
-    private func updateTypingMenu()
+    func updateStandbyMenu()
     {
-        if field.text.isEmpty
+        if controller.viewChat.display.imageView.image == nil
         {
-            menu.modeTypeReady()
+            menu.modeStandby()
         }
         else
         {
-            menu.modeTyping()
+            menu.modeStandbyImage()
         }
         
         updateRightMargin()
@@ -212,17 +226,7 @@ class VChatInput:UIView, UITextViewDelegate
     func textViewDidEndEditing(textView:UITextView)
     {
         heightForText()
-        
-        if controller.viewChat.display.imageView.image == nil
-        {
-            menu.modeStandby()
-        }
-        else
-        {
-            menu.modeStandbyImage()
-        }
-        
-        updateRightMargin()
+        updateStandbyMenu()
     }
     
     func textViewDidChange(textView:UITextView)
