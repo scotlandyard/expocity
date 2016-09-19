@@ -17,6 +17,10 @@ class VChatDisplayAnnotations:UIView
         
         let shadeColor:UIColor = UIColor(white:0, alpha:0.6)
         
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.Dark)
+        let blurTop:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        let blurBottom:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        
         let shadeTop:UIView = UIView()
         shadeTop.userInteractionEnabled = false
         shadeTop.translatesAutoresizingMaskIntoConstraints = false
