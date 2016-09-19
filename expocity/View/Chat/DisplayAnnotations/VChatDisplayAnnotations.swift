@@ -49,22 +49,22 @@ class VChatDisplayAnnotations:UIView
             "bottomHeight":bottomHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[shateTop]-0-|",
+            "H:|-0-[shadeTop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[shateBottom]-0-|",
+            "H:|-0-[shadeBottom]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[shateTop(topHeight)]",
+            "V:|-0-[shadeTop(topHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[shateBottom(bottomHeight)]-0-|",
+            "V:[shadeBottom(bottomHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -25,4 +25,10 @@ class CChatDisplayAnnotations:CController
         self.viewAnnotations = viewAnnotations
         view = viewAnnotations
     }
+    
+    override func viewDidAppear(animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewAnnotations.animateShades()
+    }
 }
