@@ -3,7 +3,7 @@ import UIKit
 class MChatDisplayOptionsItemFill:MChatDisplayOptionsItem
 {
     private let kContentMode:UIViewContentMode = UIViewContentMode.ScaleAspectFill
-    private let kIcon:String = ""
+    private let kIcon:String = "chatDisplayFill"
     
     init()
     {
