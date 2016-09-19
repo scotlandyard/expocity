@@ -187,24 +187,47 @@ class VChatInput:UIView, UITextViewDelegate
         }
     }
     
+    private func updateTypingMenu()
+    {
+        if field.text.isEmpty
+        {
+            menu.modeTypeReady()
+        }
+        else
+        {
+            menu.modeTyping()
+        }
+        
+        updateRightMargin()
+    }
+    
     //MARK: textview del
     
     func textViewDidBeginEditing(textView:UITextView)
     {
         heightForText()
-        menu.modeTyping()
-        updateRightMargin()
+        updateTypingMenu()
     }
     
     func textViewDidEndEditing(textView:UITextView)
     {
         heightForText()
-        menu.modeStandby()
+        
+        if controller.viewChat.display.imageView.image == nil
+        {
+            menu.modeStandby()
+        }
+        else
+        {
+            menu.modeStandbyImage()
+        }
+        
         updateRightMargin()
     }
     
     func textViewDidChange(textView:UITextView)
     {
         heightForText()
+        updateTypingMenu()
     }
 }
