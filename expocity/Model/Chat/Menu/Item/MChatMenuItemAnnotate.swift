@@ -2,7 +2,7 @@ import UIKit
 
 class MChatMenuItemAnnotate:MChatMenuItem
 {
-    private let kIcon:String = "chatSend"
+    private let kIcon:String = "chatAnnotate"
     
     init()
     {

@@ -2,7 +2,7 @@ import UIKit
 
 class MChatMenuItemOptions:MChatMenuItem
 {
-    private let kIcon:String = "chatSend"
+    private let kIcon:String = "chatOptions"
     
     init()
     {
