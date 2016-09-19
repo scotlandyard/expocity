@@ -46,7 +46,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[imageView(30)]-0-[label(15)]-10-|",
+            "V:[imageView(44)]-0-[label(15)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -92,7 +92,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
     func config(model:MChatDisplayOptionsItem)
     {
         label.text = model.title
-        imageView.image = UIImage(named:model.icon)
+        imageView.image = UIImage(named:model.icon)!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         hover()
     }
 }
