@@ -95,6 +95,12 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         collection.reloadData()
     }
     
+    func modeTypeReady()
+    {
+        model.status = MChatMenuStatusTypeReady()
+        collection.reloadData()
+    }
+    
     func modeStandby()
     {
         model.status = MChatMenuStatusStandby()
