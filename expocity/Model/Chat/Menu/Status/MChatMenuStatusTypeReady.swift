@@ -1,9 +1,15 @@
-//
-//  MChatMenuStatusTypeReady.swift
-//  expocity
-//
-//  Created by zero on 9/19/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MChatMenuStatusTyping:MChatMenuStatus
+{
+    init()
+    {
+        let itemSend:MChatMenuItemSend = MChatMenuItemSend()
+        
+        let items:[MChatMenuItem] = [
+            itemSend
+        ]
+        
+        super.init(items:items)
+    }
+}
