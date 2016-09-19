@@ -81,8 +81,7 @@ class CChat:CController
     
     func displayAnnotations()
     {
-        
-        let controllerAnnotations:CChatDisplayAnnotations = CChatDisplayAnnotations(imageRect:rect)
+        let controllerAnnotations:CChatDisplayAnnotations = CChatDisplayAnnotations(controllerChat:self)
         parent.over(controllerAnnotations)
     }
 }

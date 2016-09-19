@@ -3,12 +3,11 @@ import UIKit
 class CChatDisplayAnnotations:CController
 {
     weak var viewAnnotations:VChatDisplayAnnotations!
-    let imageRect:CGRect
+    weak var controllerChat:CChat!
     
-    init(imageRect:CGRect)
+    init(controllerChat:CChat)
     {
-        self.imageRect = imageRect
-        
+        self.controllerChat = controllerChat
         super.init(nibName:nil, bundle:nil)
         modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         modalTransitionStyle = UIModalTransitionStyle.CrossDissolve

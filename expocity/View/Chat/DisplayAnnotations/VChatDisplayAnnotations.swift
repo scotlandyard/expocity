@@ -52,9 +52,7 @@ class VChatDisplayAnnotations:UIView
             "blurTop":blurTop,
             "blurBottom":blurBottom]
         
-        let metrics:[String:AnyObject] = [
-            "topHeight":topHeight,
-            "bottomHeight":bottomHeight]
+        let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[blurTop]-0-|",
@@ -122,7 +120,20 @@ class VChatDisplayAnnotations:UIView
     
     override func layoutSubviews()
     {
-        layoutShades()
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.shadeTop.alpha = 0
+            self?.shadeBottom.alpha = 0
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+            { [weak self] in
+                
+                self?.layoutShades()
+                self?.animateShades()
+            }
+        }
+        
         super.layoutSubviews()
     }
     
@@ -130,26 +141,24 @@ class VChatDisplayAnnotations:UIView
     
     private func layoutShades()
     {
-        let imageRect:CGRect = 
+        let imageRect:CGRect = controller.controllerChat.displayImageRect()
         let screenRect:CGRect = UIScreen.mainScreen().bounds
-        let topHeight:CGFloat = controller.imageRect.minY
-        let bottomHeight:CGFloat = screenRect.maxY - controller.imageRect.maxY
+        let topHeight:CGFloat = imageRect.minY
+        let bottomHeight:CGFloat = screenRect.maxY - imageRect.maxY
+        
+        layoutShadeTopHeight.constant = topHeight
+        layoutShadeBottomHeight.constant = bottomHeight
     }
     
     //MARK: public
     
     func animateShades()
     {
-        UIView.animateWithDuration(
-            kAnimateDuration, animations:
+        UIView.animateWithDuration(kAnimateDuration)
         { [weak self] in
             
             self?.shadeTop.alpha = 1
             self?.shadeBottom.alpha = 1
-        })
-        { [weak self] (done) in
-            
-            
         }
     }
 }
