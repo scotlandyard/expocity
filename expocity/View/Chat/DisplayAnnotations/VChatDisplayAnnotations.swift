@@ -5,6 +5,8 @@ class VChatDisplayAnnotations:UIView
     weak var controller:CChatDisplayAnnotations!
     weak var shadeTop:UIView!
     weak var shadeBottom:UIView!
+    weak var layoutShadeTopHeight:NSLayoutConstraint!
+    weak var layoutShadeBottomHeight:NSLayoutConstraint!
     private let kAnimateDuration:NSTimeInterval = 0.3
     
     convenience init(controller:CChatDisplayAnnotations)
@@ -89,15 +91,35 @@ class VChatDisplayAnnotations:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[shadeTop(topHeight)]",
+            "V:|-0-[shadeTop]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[shadeBottom(bottomHeight)]-0-|",
+            "V:[shadeBottom]-0-|",
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutShadeTopHeight = NSLayoutConstraint(
+            item:shadeTop,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:0)
+        layoutShadeBottomHeight = NSLayoutConstraint(
+            item:shadeBottom,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutShadeTopHeight)
+        addConstraint(layoutShadeBottomHeight)
         
         layoutShades()
     }
