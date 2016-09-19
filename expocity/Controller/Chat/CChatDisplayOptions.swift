@@ -5,9 +5,9 @@ class CChatDisplayOptions:CController
     weak var viewOptions:VChatDisplayOptions!
     let model:MChatDisplayOptions
     
-    init(model:MChat)
+    init(modelChat:MChat)
     {
-        model = MChatDisplayOptions(displayOption:displayOption)
+        model = MChatDisplayOptions(modelChat:modelChat)
         
         super.init(nibName:nil, bundle:nil)
         modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
