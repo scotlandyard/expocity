@@ -8,12 +8,14 @@ class MChatMenuStatusStandby:MChatMenuStatus
         let itemRemovePicture:MChatMenuItemRemovePicture = MChatMenuItemRemovePicture()
         let itemOptions:MChatMenuItemOptions = MChatMenuItemOptions()
         let itemAnnotate:MChatMenuItemAnnotate = MChatMenuItemAnnotate()
+        let itemEmoji:MChatMenuItemEmoji = MChatMenuItemEmoji()
         
         let items:[MChatMenuItem] = [
             itemPicture,
             itemRemovePicture,
             itemOptions,
-            itemAnnotate
+            itemAnnotate,
+            itemEmoji
         ]
         
         super.init(items:items)
