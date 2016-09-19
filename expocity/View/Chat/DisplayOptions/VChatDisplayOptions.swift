@@ -225,4 +225,9 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         
         return cell
     }
+    
+    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    {
+        controller.model.modelChat
+    }
 }

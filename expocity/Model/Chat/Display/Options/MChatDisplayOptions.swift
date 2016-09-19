@@ -34,4 +34,11 @@ class MChatDisplayOptions
         
         self.selected = selected
     }
+    
+    //MARK: public
+    
+    func selectItem(index:Int)
+    {
+        
+    }
 }
