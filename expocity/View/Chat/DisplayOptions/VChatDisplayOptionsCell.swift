@@ -80,10 +80,12 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         if selected || highlighted
         {
             label.textColor = UIColor.main()
+            imageView.tintColor = UIColor.main()
         }
         else
         {
             label.textColor = UIColor(white:0.7, alpha:1)
+            imageView.tintColor = UIColor(white:0.8, alpha:1)
         }
     }
     
