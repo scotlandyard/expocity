@@ -5,7 +5,7 @@ class CChatDisplayOptions:CController
     weak var viewOptions:VChatDisplayOptions!
     let model:MChatDisplayOptions
     
-    init(displayOption:MChatDisplayOptionsItem)
+    init(model:MChat)
     {
         model = MChatDisplayOptions(displayOption:displayOption)
         

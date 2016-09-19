@@ -2,11 +2,13 @@ import Foundation
 
 class MChatDisplayOptions
 {
+    weak var model:MChat!
     let items:[MChatDisplayOptionsItem]
     var selected:Int
     
-    init(displayOption:MChatDisplayOptionsItem)
+    init(model:MChat)
     {
+        self.model = model
         let itemFit:MChatDisplayOptionsItemFit = MChatDisplayOptionsItemFit()
         let itemFill:MChatDisplayOptionsItemFill = MChatDisplayOptionsItemFill()
         let itemCenter:MChatDisplayOptionsItemCenter = MChatDisplayOptionsItemCenter()
@@ -18,10 +20,11 @@ class MChatDisplayOptions
         ]
         
         var selected:Int = 0
+        let currentDisplayOption:MChatDisplayOptionsItem = model.displayOption
         
         for item:MChatDisplayOptionsItem in items
         {
-            if displayOption.contentMode == item.contentMode
+            if currentDisplayOption.contentMode == item.contentMode
             {
                 break
             }

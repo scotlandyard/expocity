@@ -66,8 +66,7 @@ class CChat:CController
     
     func displayOptions()
     {
-        let displayOption:MChatDisplayOptionsItem = model.displayOption
-        let controllerOptions:CChatDisplayOptions = CChatDisplayOptions(displayOption:displayOption)
+        let controllerOptions:CChatDisplayOptions = CChatDisplayOptions(model:model)
         parent.over(controllerOptions)
     }
 }
