@@ -37,6 +37,7 @@
 		DA4A200F1D90705800BCDFCA /* MChatMenuStatusStandbyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A200E1D90705800BCDFCA /* MChatMenuStatusStandbyImage.swift */; };
 		DA4A20111D90707D00BCDFCA /* MChatMenuStatusTypeReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A20101D90707D00BCDFCA /* MChatMenuStatusTypeReady.swift */; };
 		DA4A20131D9072E900BCDFCA /* MChatMenuItemHideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A20121D9072E900BCDFCA /* MChatMenuItemHideKeyboard.swift */; };
+		DA4A20151D9089C200BCDFCA /* CChatDisplayAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A20141D9089C200BCDFCA /* CChatDisplayAnnotations.swift */; };
 		DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817A1D7BB7FC00CC8B39 /* expocity.xcdatamodeld */; };
 		DA4F818E1D7BB97B00CC8B39 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81841D7BB97B00CC8B39 /* CHome.swift */; };
 		DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81861D7BB97B00CC8B39 /* CAppDelegate.swift */; };
@@ -138,6 +139,7 @@
 		DA4A200E1D90705800BCDFCA /* MChatMenuStatusStandbyImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuStatusStandbyImage.swift; sourceTree = "<group>"; };
 		DA4A20101D90707D00BCDFCA /* MChatMenuStatusTypeReady.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuStatusTypeReady.swift; sourceTree = "<group>"; };
 		DA4A20121D9072E900BCDFCA /* MChatMenuItemHideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuItemHideKeyboard.swift; sourceTree = "<group>"; };
+		DA4A20141D9089C200BCDFCA /* CChatDisplayAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CChatDisplayAnnotations.swift; sourceTree = "<group>"; };
 		DA4F817B1D7BB7FC00CC8B39 /* expocity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expocity.xcdatamodel; sourceTree = "<group>"; };
 		DA4F817D1D7BB7FC00CC8B39 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA4F817E1D7BB7FC00CC8B39 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				DA8B1B821D7E21CA004D8457 /* CChat.swift */,
 				DA0DEE851D88C21000B52422 /* CChatDisplayDetail.swift */,
 				DAE27C5D1D8AEDCE00E43F33 /* CChatDisplayOptions.swift */,
+				DA4A20141D9089C200BCDFCA /* CChatDisplayAnnotations.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */,
 				DA8B1B7E1D7E0740004D8457 /* VRooms.swift in Sources */,
 				DA8B1B801D7E11CA004D8457 /* VParent.swift in Sources */,
+				DA4A20151D9089C200BCDFCA /* CChatDisplayAnnotations.swift in Sources */,
 				DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */,
 				DA4A20131D9072E900BCDFCA /* MChatMenuItemHideKeyboard.swift in Sources */,
 				DA0DEE7E1D88C16400B52422 /* MChatMenuItemAnnotate.swift in Sources */,
