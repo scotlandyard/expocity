@@ -37,9 +37,40 @@ class VChatDisplayAnnotations:UIView
         addSubview(shadeBottom)
         
         let screenRect:CGRect = UIScreen.mainScreen().bounds
-        let topMargin:CGFloat = controller.imageRect.minY
-        let leftMargin:CGFloat = controller.imageRect.minX
-        let rightMargin:CGFloat = controller.imageRect.maxX - screenRect.maxX
-        let bottomMargin:CGFloat = controller.imageRect.maxY - screenRect.maxY
+        let topHeight:CGFloat = controller.imageRect.minY
+        let bottomHeight:CGFloat = screenRect.maxY - controller.imageRect.maxY
+        
+        let views:[String:AnyObject] = [
+            "shadeTop":shadeTop,
+            "shadeBottom":shadeBottom]
+        
+        let metrics:[String:AnyObject] = [
+            "topHeight":topHeight,
+            "bottomHeight":bottomHeight]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[shateTop]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[shateBottom]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[shateTop(topHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[shateBottom(bottomHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
+    
+    //MARK: public
+    
+    
 }
