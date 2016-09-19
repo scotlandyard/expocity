@@ -2,7 +2,7 @@ import UIKit
 
 class MChatMenuItemRemovePicture:MChatMenuItem
 {
-    private let kIcon:String = "chatPicture"
+    private let kIcon:String = "chatRemovePicture"
     
     init()
     {
