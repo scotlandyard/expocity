@@ -72,5 +72,18 @@ class VChatDisplayAnnotations:UIView
     
     //MARK: public
     
-    
+    func animateShades()
+    {
+        UIView.animateWithDuration(
+            kAnimateDuration, animations:
+        { [weak self] in
+            
+            self?.shadeTop.alpha = 1
+            self?.shadeBottom.alpha = 1
+        })
+        { [weak self] (done) in
+            
+            
+        }
+    }
 }
