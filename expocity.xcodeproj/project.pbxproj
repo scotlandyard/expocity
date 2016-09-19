@@ -32,6 +32,7 @@
 		DA32F8301D884F6D00108E96 /* MMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F82F1D884F6D00108E96 /* MMenuState.swift */; };
 		DA32F8321D88501800108E96 /* MMenuStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F8311D88501800108E96 /* MMenuStateOptions.swift */; };
 		DA32F8341D88502400108E96 /* MMenuStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F8331D88502400108E96 /* MMenuStatePushed.swift */; };
+		DA4A200B1D9065A500BCDFCA /* MChatMenuItemRemovePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A200A1D9065A500BCDFCA /* MChatMenuItemRemovePicture.swift */; };
 		DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817A1D7BB7FC00CC8B39 /* expocity.xcdatamodeld */; };
 		DA4F818E1D7BB97B00CC8B39 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81841D7BB97B00CC8B39 /* CHome.swift */; };
 		DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81861D7BB97B00CC8B39 /* CAppDelegate.swift */; };
@@ -128,6 +129,7 @@
 		DA32F82F1D884F6D00108E96 /* MMenuState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuState.swift; sourceTree = "<group>"; };
 		DA32F8311D88501800108E96 /* MMenuStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuStateOptions.swift; sourceTree = "<group>"; };
 		DA32F8331D88502400108E96 /* MMenuStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuStatePushed.swift; sourceTree = "<group>"; };
+		DA4A200A1D9065A500BCDFCA /* MChatMenuItemRemovePicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuItemRemovePicture.swift; sourceTree = "<group>"; };
 		DA4F817B1D7BB7FC00CC8B39 /* expocity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expocity.xcdatamodel; sourceTree = "<group>"; };
 		DA4F817D1D7BB7FC00CC8B39 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA4F817E1D7BB7FC00CC8B39 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				DA0DEE711D88C16400B52422 /* MChatMenuItemPicture.swift */,
 				DA0DEE721D88C16400B52422 /* MChatMenuItemSend.swift */,
 				DAE27C5F1D8AF65500E43F33 /* MChatMenuItemOptions.swift */,
+				DA4A200A1D9065A500BCDFCA /* MChatMenuItemRemovePicture.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				DAE27C661D8B119700E43F33 /* MChatDisplayOptionsItem.swift in Sources */,
 				DA0DEE7D1D88C16400B52422 /* MChatMenuItem.swift in Sources */,
 				DA8B1B901D7E253A004D8457 /* MHomeItemCreate.swift in Sources */,
+				DA4A200B1D9065A500BCDFCA /* MChatMenuItemRemovePicture.swift in Sources */,
 				DA0DEE791D88C16400B52422 /* MChatItem.swift in Sources */,
 				DA8B1B761D7DF690004D8457 /* MNavRight.swift in Sources */,
 				DA0DEE651D88C0C000B52422 /* VChatInputMenuCell.swift in Sources */,
