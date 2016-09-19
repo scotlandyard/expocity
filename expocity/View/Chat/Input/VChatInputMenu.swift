@@ -64,6 +64,12 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         fatalError()
     }
     
+    override func layoutSubviews()
+    {
+        collection.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:NSIndexPath) -> MChatMenuItem

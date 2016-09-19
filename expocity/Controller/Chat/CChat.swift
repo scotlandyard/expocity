@@ -60,7 +60,14 @@ class CChat:CController
     {
         let image:UIImage? = imageView.image
         let rect:CGRect = imageView.superview!.convertRect(imageView.frame, toView:parent.viewParent)
-        let controllerDetail:CChatDisplayDetail = CChatDisplayDetail(image:image, imageRect:rect)
+        let displayOption:MChatDisplayOptionsItem = model.displayOption
+        let controllerDetail:CChatDisplayDetail = CChatDisplayDetail(image:image, imageRect:rect, displayOption:displayOption)
         parent.over(controllerDetail)
+    }
+    
+    func displayOptions()
+    {
+        let controllerOptions:CChatDisplayOptions = CChatDisplayOptions(modelChat:model)
+        parent.over(controllerOptions)
     }
 }
