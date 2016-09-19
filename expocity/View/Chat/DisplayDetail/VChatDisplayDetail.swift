@@ -38,7 +38,7 @@ class VChatDisplayDetail:UIView
         let imageView:UIImageView = UIImageView()
         imageView.userInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = controller.displayOption.contentMode
         imageView.clipsToBounds = true
         imageView.image = controller.image
         
