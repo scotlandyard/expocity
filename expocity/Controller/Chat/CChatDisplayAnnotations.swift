@@ -2,7 +2,7 @@ import UIKit
 
 class CChatDisplayAnnotations:CController
 {
-    weak var viewDetail:VChatDisplayDetail!
+    weak var viewAnnotations:VChatDisplayAnnotations!
     let imageRect:CGRect
     
     init(imageRect:CGRect)
@@ -21,8 +21,8 @@ class CChatDisplayAnnotations:CController
     
     override func loadView()
     {
-        let viewDetail:VChatDisplayDetail = VChatDisplayDetail(controller:self)
-        self.viewDetail = viewDetail
-        view = viewDetail
+        let viewAnnotations:VChatDisplayAnnotations = VChatDisplayAnnotations(controller:self)
+        self.viewAnnotations = viewAnnotations
+        view = viewAnnotations
     }
 }
