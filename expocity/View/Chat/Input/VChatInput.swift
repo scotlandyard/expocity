@@ -130,7 +130,13 @@ class VChatInput:UIView, UITextViewDelegate
         
         if !text.isEmpty
         {
-            controller.addTextMine(text)
+            var textValidating:String = text.stringByReplacingOccurrencesOfString(" ", withString:"")
+            textValidating = textValidating.stringByReplacingOccurrencesOfString("\n", withString:"")
+            
+            if !textValidating.isEmpty
+            {
+                controller.addTextMine(text)
+            }
             
             dispatch_async(dispatch_get_main_queue())
             { [weak self] in
