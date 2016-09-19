@@ -228,6 +228,6 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        controller.model.modelChat
+        controller.model.selectItem(indexPath.item)
     }
 }

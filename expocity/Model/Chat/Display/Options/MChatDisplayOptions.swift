@@ -39,6 +39,14 @@ class MChatDisplayOptions
     
     func selectItem(index:Int)
     {
-        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                self!.selected = index
+                self!.modelChat.displayOption = self!.items[index]
+            }
+        }
     }
 }
