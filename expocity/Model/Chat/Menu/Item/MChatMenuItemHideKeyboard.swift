@@ -1,8 +1,8 @@
 import UIKit
 
-class MChatMenuItemRemovePicture:MChatMenuItem
+class MChatMenuItemHideKeyboard:MChatMenuItem
 {
-    private let kIcon:String = "chatRemovePicture"
+    private let kIcon:String = "chatHideKeyboard"
     
     init()
     {
@@ -12,6 +12,5 @@ class MChatMenuItemRemovePicture:MChatMenuItem
     override func selected(controller:CChat)
     {
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
-        controller.viewChat.display.removeImage()
     }
 }

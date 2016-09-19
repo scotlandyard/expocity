@@ -178,7 +178,7 @@ class VChatInput:UIView, UITextViewDelegate
     
     func actionSend()
     {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in

@@ -11,7 +11,7 @@ class MChatMenuItemPicture:MChatMenuItem
     
     override func selected(controller:CChat)
     {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
         controller.viewChat.presentImagePicker()
     }
 }
