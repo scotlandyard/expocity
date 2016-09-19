@@ -15,7 +15,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.bold(13)
+        label.font = UIFont.bold(14)
         label.textAlignment = NSTextAlignment.Center
         self.label = label
         
@@ -46,7 +46,12 @@ class VChatDisplayOptionsCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[imageView(44)]-0-[label(15)]-10-|",
+            "V:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-59-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -84,8 +89,8 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         }
         else
         {
-            label.textColor = UIColor(white:0.7, alpha:1)
-            imageView.tintColor = UIColor(white:0.8, alpha:1)
+            label.textColor = UIColor(white:0.8, alpha:1)
+            imageView.tintColor = UIColor(white:0.7, alpha:1)
         }
     }
     
