@@ -27,7 +27,7 @@ class VChatDisplayDetailBar:UIView
         closeButton.imageView!.contentMode = UIViewContentMode.Center
         closeButton.imageView!.clipsToBounds = true
         closeButton.addTarget(self, action:#selector(self.actionClose(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        closeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 5, 40)
+        closeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 42)
         
         addSubview(closeButton)
         
