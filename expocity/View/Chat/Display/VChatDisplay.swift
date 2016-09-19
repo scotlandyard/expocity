@@ -29,7 +29,7 @@ class VChatDisplay:UIView
         button.addTarget(self, action:#selector(self.actionButton(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         let imageView:UIImageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = controller.model.displayOption.contentMode
         imageView.clipsToBounds = true
         imageView.userInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,6 +72,28 @@ class VChatDisplay:UIView
             options:[],
             metrics:metrics,
             views:views))
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(self.notifiedDisplayOptionChanged(sender:)),
+            name:NSNotification.NSNotificationName.ChatDisplayOptionChanged.rawValue,
+            object:nil)
+    }
+    
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    //MARK: notified
+    
+    func notifiedDisplayOptionChanged(sender notification:NSNotification)
+    {
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.updateDisplayOption()
+        }
     }
     
     //MARK: actions
@@ -79,6 +101,13 @@ class VChatDisplay:UIView
     func actionButton(sender button:UIButton)
     {
         controller.displayDetail(imageView)
+    }
+    
+    //MARK: private
+    
+    private func updateDisplayOption()
+    {
+        imageView.contentMode = controller.model.displayOption.contentMode
     }
     
     //MARK: public
