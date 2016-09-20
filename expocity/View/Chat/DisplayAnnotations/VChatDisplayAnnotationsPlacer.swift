@@ -30,4 +30,9 @@ class VChatDisplayAnnotationsPlacer:UIView
     {
         userInteractionEnabled = true
     }
+    
+    func cancelAnnotation()
+    {
+        userInteractionEnabled = false
+    }
 }

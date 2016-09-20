@@ -43,6 +43,6 @@ class CChatDisplayAnnotations:CController
     func cancelAnnotation()
     {
         controllerChat.model.annotations.items.removeLast()
-        viewAnnotations.tutorial.closeTutorial()
+        viewAnnotations.cancelAnnotation()
     }
 }
