@@ -12,6 +12,7 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
     private let kDelayLayout:UInt64 = 100
     private let kInterLineSpace:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
+    private let kCellHeight:CGFloat = 40
     
     convenience init(controller:CChatDisplayAnnotations)
     {
