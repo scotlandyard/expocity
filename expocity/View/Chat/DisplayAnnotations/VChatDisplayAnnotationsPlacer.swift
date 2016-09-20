@@ -3,6 +3,7 @@ import UIKit
 class VChatDisplayAnnotationsPlacer:UIView
 {
     weak var controller:CChatDisplayAnnotations!
+    weak var tapGesture:UITapGestureRecognizer!
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -10,34 +11,38 @@ class VChatDisplayAnnotationsPlacer:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clearColor()
         translatesAutoresizingMaskIntoConstraints = false
-        userInteractionEnabled = false
         self.controller = controller
         
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.actionTap(sender:)))
+        self.tapGesture = tapGesture
         addGestureRecognizer(tapGesture)
+        
+        reloadItems()
     }
     
     //MARK: actions
     
-    func actionTap(sender gesture:UITapGestureRecognizer)
+    func actionTap(sender tapGesture:UITapGestureRecognizer)
     {
-        print("gesture: \(gesture.locationInView(self))")
+        print("gesture: \(tapGesture.locationInView(self))")
     }
     
     //MARK: public
     
     func addAnnotation()
     {
-        userInteractionEnabled = true
+        tapGesture.enabled = true
     }
     
     func cancelAnnotation()
     {
-        userInteractionEnabled = false
+        tapGesture.enabled = false
     }
     
     func reloadItems()
     {
+        tapGesture.enabled = false
+        
         var count:Int = subviews.count - 1
         while count >= 0
         {

@@ -208,4 +208,10 @@ class VChatDisplayAnnotations:UIView
         tutorial.closeTutorial()
         placer.cancelAnnotation()
     }
+    
+    func confirmAnnotation()
+    {
+        list.userInteractionEnabled = true
+        tutorial.closeTutorial()
+    }
 }
