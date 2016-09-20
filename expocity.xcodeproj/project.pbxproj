@@ -87,6 +87,8 @@
 		DA8B1B961D7E25C1004D8457 /* VHomeCellCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */; };
 		DA8B1B981D7E25CE004D8457 /* VHomeCellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */; };
 		DA9739C01D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9739BF1D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift */; };
+		DA9739C31D90C9D700365D84 /* MChatDisplayAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9739C21D90C9D700365D84 /* MChatDisplayAnnotations.swift */; };
+		DA9739C51D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9739C41D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift */; };
 		DA9846061D89D61B0084A0A6 /* VChatDisplayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */; };
 		DA9846081D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */; };
 		DAE27C5A1D8AEB4A00E43F33 /* VChatDisplayOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C591D8AEB4A00E43F33 /* VChatDisplayOptions.swift */; };
@@ -193,6 +195,8 @@
 		DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellCreate.swift; sourceTree = "<group>"; };
 		DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellTitle.swift; sourceTree = "<group>"; };
 		DA9739BF1D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayAnnotationsBar.swift; sourceTree = "<group>"; };
+		DA9739C21D90C9D700365D84 /* MChatDisplayAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatDisplayAnnotations.swift; sourceTree = "<group>"; };
+		DA9739C41D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatDisplayAnnotationsItem.swift; sourceTree = "<group>"; };
 		DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetail.swift; sourceTree = "<group>"; };
 		DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetailBar.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -566,6 +570,8 @@
 		DA9739C11D90C9C100365D84 /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
+				DA9739C21D90C9D700365D84 /* MChatDisplayAnnotations.swift */,
+				DA9739C41D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -774,6 +780,7 @@
 				DAE27C6A1D8B122C00E43F33 /* MChatDisplayOptionsItemFill.swift in Sources */,
 				DA0DEE821D88C16400B52422 /* MChatMenuStatus.swift in Sources */,
 				DA4A200D1D906D3200BCDFCA /* MChatMenuItemEmoji.swift in Sources */,
+				DA9739C51D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift in Sources */,
 				DA4F81A51D7D062500CC8B39 /* CategoryNSNotification.swift in Sources */,
 				DAE27C5C1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift in Sources */,
 				DA4F81A61D7D062500CC8B39 /* CategoryUICollectionReusableView.swift in Sources */,
@@ -795,6 +802,7 @@
 				DA4F81A41D7D062500CC8B39 /* CategoryNSManagerdObject.swift in Sources */,
 				DA0DEE861D88C21000B52422 /* CChatDisplayDetail.swift in Sources */,
 				DA0DEE7A1D88C16400B52422 /* MChatItemText.swift in Sources */,
+				DA9739C31D90C9D700365D84 /* MChatDisplayAnnotations.swift in Sources */,
 				DA8B1B941D7E2575004D8457 /* VHomeCell.swift in Sources */,
 				DA4A200F1D90705800BCDFCA /* MChatMenuStatusStandbyImage.swift in Sources */,
 				DAE27C5A1D8AEB4A00E43F33 /* VChatDisplayOptions.swift in Sources */,
