@@ -196,6 +196,13 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
         layoutShadeBottomHeight.constant = bottomHeight
     }
     
+    private func modelAtIndex(index:NSIndexPath) -> MChatDisplayAnnotationsItem
+    {
+        let item:MChatDisplayAnnotationsItem = controller.controllerChat.model.annotations.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func animateShades()
@@ -225,7 +232,9 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int = controller.controllerChat.model.annotations.items.count
+        
+        return count
     }
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
