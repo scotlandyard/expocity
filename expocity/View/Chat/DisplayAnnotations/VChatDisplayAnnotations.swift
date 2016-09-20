@@ -1,14 +1,18 @@
 import UIKit
 
-class VChatDisplayAnnotations:UIView
+class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionViewDataSource
 {
     weak var controller:CChatDisplayAnnotations!
+    weak var collectionView:UICollectionView!
     weak var shadeTop:UIView!
     weak var shadeBottom:UIView!
     weak var layoutShadeTopHeight:NSLayoutConstraint!
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     private let kAnimateDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
+    private let kInterLineSpace:CGFloat = 1
+    private let kCollectionTop:CGFloat = 10
+    private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -29,7 +33,6 @@ class VChatDisplayAnnotations:UIView
         blurBottom.translatesAutoresizingMaskIntoConstraints = false
         
         let shadeTop:UIView = UIView()
-        shadeTop.userInteractionEnabled = false
         shadeTop.translatesAutoresizingMaskIntoConstraints = false
         shadeTop.clipsToBounds = true
         shadeTop.alpha = 0
@@ -42,7 +45,30 @@ class VChatDisplayAnnotations:UIView
         shadeBottom.alpha = 0
         self.shadeBottom = shadeBottom
         
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSizeZero
+        flow.footerReferenceSize = CGSizeZero
+        flow.minimumLineSpacing = kInterLineSpace
+        flow.minimumInteritemSpacing = 0
+        flow.sectionInset = UIEdgeInsetsMake(kCollectionTop, 0, kCollectionBottom, 0)
+        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clearColor()
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerClass(
+            VChatDisplayAnnotationsCell.self,
+            forCellWithReuseIdentifier:
+            VChatDisplayAnnotationsCell.reusableIdentifier())
+        self.collectionView = collectionView
+        
         shadeTop.addSubview(blurTop)
+        shadeTop.addSubview(collectionView)
         shadeBottom.addSubview(blurBottom)
         addSubview(shadeTop)
         addSubview(shadeBottom)
@@ -51,7 +77,8 @@ class VChatDisplayAnnotations:UIView
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
             "blurTop":blurTop,
-            "blurBottom":blurBottom]
+            "blurBottom":blurBottom,
+            "collectionView":collectionView]
         
         let metrics:[String:AnyObject] = [:]
         
