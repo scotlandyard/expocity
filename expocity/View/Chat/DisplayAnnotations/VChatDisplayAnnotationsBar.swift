@@ -1,6 +1,6 @@
 import UIKit
 
-class VChatDisplayAnnotationBar:UIView
+class VChatDisplayAnnotationsBar:UIView
 {
     weak var controller:CChatDisplayAnnotations!
     

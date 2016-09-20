@@ -21,6 +21,9 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let barHeight:CGFloat = controller.parent.viewParent.kBarHeight
+        let bar:VChatDisplayAnnotationsBar = VChatDisplayAnnotationsBar(controller:controller)
+        
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.Dark)
         
         let blurTop:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
@@ -67,6 +70,7 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
         self.collectionView = collectionView
         
         shadeTop.addSubview(blurTop)
+        shadeTop.addSubview(bar)
         shadeTop.addSubview(collectionView)
         shadeBottom.addSubview(blurBottom)
         addSubview(shadeTop)
@@ -77,9 +81,11 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
             "shadeBottom":shadeBottom,
             "blurTop":blurTop,
             "blurBottom":blurBottom,
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "bar":bar]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "barHeight":barHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[blurTop]-0-|",
@@ -102,6 +108,11 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[bar]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[blurTop]-0-|",
             options:[],
             metrics:metrics,
@@ -118,6 +129,11 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:[shadeBottom]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[bar(barHeight)]",
             options:[],
             metrics:metrics,
             views:views))
