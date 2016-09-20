@@ -1,6 +1,6 @@
 import UIKit
 
-class VChatDisplayAnnotationsCell:UICollectionViewCell
+class VChatDisplayAnnotationsListCell:UICollectionViewCell
 {
     
     //MARK: public
