@@ -35,4 +35,15 @@ class VChatDisplayAnnotationsPlacer:UIView
     {
         userInteractionEnabled = false
     }
+    
+    func reloadItems()
+    {
+        var count:Int = subviews.count - 1
+        while count >= 0
+        {
+            let subview:UIView = subviews[count]
+            subview.removeFromSuperview()
+            count -= 1
+        }
+    }
 }
