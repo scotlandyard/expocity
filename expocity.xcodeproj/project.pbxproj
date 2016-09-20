@@ -29,6 +29,7 @@
 		DA0DEE831D88C16400B52422 /* MChatMenuStatusStandby.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE771D88C16400B52422 /* MChatMenuStatusStandby.swift */; };
 		DA0DEE841D88C16400B52422 /* MChatMenuStatusTyping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE781D88C16400B52422 /* MChatMenuStatusTyping.swift */; };
 		DA0DEE861D88C21000B52422 /* CChatDisplayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE851D88C21000B52422 /* CChatDisplayDetail.swift */; };
+		DA21D1F31D9186E8009A149E /* VChatDisplayAnnotationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21D1F21D9186E8009A149E /* VChatDisplayAnnotationsList.swift */; };
 		DA32F8301D884F6D00108E96 /* MMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F82F1D884F6D00108E96 /* MMenuState.swift */; };
 		DA32F8321D88501800108E96 /* MMenuStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F8311D88501800108E96 /* MMenuStateOptions.swift */; };
 		DA32F8341D88502400108E96 /* MMenuStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32F8331D88502400108E96 /* MMenuStatePushed.swift */; };
@@ -136,6 +137,7 @@
 		DA0DEE771D88C16400B52422 /* MChatMenuStatusStandby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuStatusStandby.swift; sourceTree = "<group>"; };
 		DA0DEE781D88C16400B52422 /* MChatMenuStatusTyping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuStatusTyping.swift; sourceTree = "<group>"; };
 		DA0DEE851D88C21000B52422 /* CChatDisplayDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CChatDisplayDetail.swift; sourceTree = "<group>"; };
+		DA21D1F21D9186E8009A149E /* VChatDisplayAnnotationsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayAnnotationsList.swift; sourceTree = "<group>"; };
 		DA32F82F1D884F6D00108E96 /* MMenuState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuState.swift; sourceTree = "<group>"; };
 		DA32F8311D88501800108E96 /* MMenuStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuStateOptions.swift; sourceTree = "<group>"; };
 		DA32F8331D88502400108E96 /* MMenuStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuStatePushed.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				DA4A20171D9094B100BCDFCA /* VChatDisplayAnnotations.swift */,
 				DA9739BF1D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift */,
 				DA4A20191D90B16200BCDFCA /* VChatDisplayAnnotationsCell.swift */,
+				DA21D1F21D9186E8009A149E /* VChatDisplayAnnotationsList.swift */,
 			);
 			path = DisplayAnnotations;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */,
 				DA8B1B961D7E25C1004D8457 /* VHomeCellCreate.swift in Sources */,
 				DA9846081D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift in Sources */,
+				DA21D1F31D9186E8009A149E /* VChatDisplayAnnotationsList.swift in Sources */,
 				DA8B1B921D7E2548004D8457 /* MHomeItemTitle.swift in Sources */,
 				DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */,
 				DA0DEE801D88C16400B52422 /* MChatMenuItemSend.swift in Sources */,
