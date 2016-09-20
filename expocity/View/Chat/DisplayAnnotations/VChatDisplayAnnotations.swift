@@ -4,8 +4,8 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
 {
     weak var controller:CChatDisplayAnnotations!
     weak var collectionView:UICollectionView!
-    weak var shadeTop:UIView!
-    weak var shadeBottom:UIView!
+    weak var shadeTop:VChatDisplayAnnotationsShade!
+    weak var shadeBottom:VChatDisplayAnnotationsShade!
     weak var layoutShadeTopHeight:NSLayoutConstraint!
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     private let kAnimateDuration:NSTimeInterval = 0.3
