@@ -28,7 +28,7 @@ class VChatDisplayAnnotationsBar:UIView
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.bold(18)
+        label.font = UIFont.bold(16)
         label.textAlignment = NSTextAlignment.Center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.whiteColor()
