@@ -32,7 +32,7 @@ class VChatDisplayAnnotationsBar:UIView
         label.textAlignment = NSTextAlignment.Center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.whiteColor()
-        label.alpha = 0
+        label.text = NSLocalizedString("VChatDisplayAnnotationsBar_labelTitle", comment:"")
         
         addSubview(border)
         addSubview(label)
