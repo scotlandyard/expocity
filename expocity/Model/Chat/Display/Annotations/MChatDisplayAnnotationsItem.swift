@@ -19,4 +19,12 @@ class MChatDisplayAnnotationsItem
         self.xPos = xPos
         self.yPos = yPos
     }
+    
+    //MARK: public
+    
+    func moveToPoint(point:CGPoint)
+    {
+        xPos = point.x
+        yPos = point.y
+    }
 }
