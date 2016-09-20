@@ -199,5 +199,6 @@ class VChatDisplayAnnotations:UIView
     {
         list.userInteractionEnabled = false
         tutorial.tutorialPlaceMark()
+        placer.addAnnotation()
     }
 }

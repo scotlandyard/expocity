@@ -8,7 +8,7 @@ class VChatDisplayAnnotationsPlacer:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor(red:1, green: 0, blue: 0, alpha:0.2)
         translatesAutoresizingMaskIntoConstraints = false
         userInteractionEnabled = false
         self.controller = controller
