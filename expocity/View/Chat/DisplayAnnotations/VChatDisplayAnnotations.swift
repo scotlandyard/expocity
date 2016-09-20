@@ -161,4 +161,10 @@ class VChatDisplayAnnotations:UIView
             self?.shadeBottom.alpha = 1
         }
     }
+    
+    func addAnnotation()
+    {
+        list.userInteractionEnabled = false
+        tutorial.tutorialPlaceMark()
+    }
 }

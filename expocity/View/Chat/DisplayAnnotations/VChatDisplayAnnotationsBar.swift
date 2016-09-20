@@ -106,6 +106,6 @@ class VChatDisplayAnnotationsBar:UIView
     
     func actionAdd(sender button:UIButton)
     {
-        
+        controller.viewAnnotations.addAnnotation()
     }
 }
