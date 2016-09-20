@@ -45,5 +45,11 @@ class VChatDisplayAnnotationsPlacer:UIView
             subview.removeFromSuperview()
             count -= 1
         }
+        
+        for item:MChatDisplayAnnotationsItem in controller.controllerChat.model.annotations.items
+        {
+            let subview:VChatDisplayAnnotationsPlacerItem = VChatDisplayAnnotationsPlacerItem(model:item, controller:controller)
+            addSubview(subview)
+        }
     }
 }
