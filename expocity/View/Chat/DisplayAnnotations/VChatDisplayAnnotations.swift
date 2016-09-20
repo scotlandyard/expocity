@@ -7,8 +7,11 @@ class VChatDisplayAnnotations:UIView
     weak var shadeBottom:VChatDisplayAnnotationsShade!
     weak var list:VChatDisplayAnnotationsList!
     weak var tutorial:VChatDisplayAnnotationsTutorial!
+    weak var placer:VChatDisplayAnnotationsPlacer!
     weak var layoutShadeTopHeight:NSLayoutConstraint!
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
+    weak var layoutPlacerTop:NSLayoutConstraint!
+    weak var layoutPlacerBottom:NSLayoutConstraint!
     private let kAnimateDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
     
@@ -32,19 +35,29 @@ class VChatDisplayAnnotations:UIView
         let tutorial:VChatDisplayAnnotationsTutorial = VChatDisplayAnnotationsTutorial(controller:controller)
         self.tutorial = tutorial
         
+        let placer:VChatDisplayAnnotationsPlacer = VChatDisplayAnnotationsPlacer(controller:controller)
+        self.placer = placer
+        
         shadeTop.addSubview(list)
         shadeTop.addSubview(tutorial)
         addSubview(shadeTop)
         addSubview(shadeBottom)
+        addSubview(placer)
         
         let views:[String:AnyObject] = [
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
             "list":list,
-            "tutorial":tutorial]
+            "tutorial":tutorial,
+            "placer":placer]
         
         let metrics:[String:AnyObject] = [:]
         
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[placer]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[shadeTop]-0-|",
             options:[],
@@ -102,9 +115,27 @@ class VChatDisplayAnnotations:UIView
             attribute:NSLayoutAttribute.NotAnAttribute,
             multiplier:1,
             constant:0)
+        layoutPlacerTop = NSLayoutConstraint(
+            item:placer,
+            attribute:NSLayoutAttribute.Top,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Top,
+            multiplier:1,
+            constant:0)
+        layoutPlacerBottom = NSLayoutConstraint(
+            item:placer,
+            attribute:NSLayoutAttribute.Bottom,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Bottom,
+            multiplier:1,
+            constant:0)
         
         addConstraint(layoutShadeTopHeight)
         addConstraint(layoutShadeBottomHeight)
+        addConstraint(layoutPlacerTop)
+        addConstraint(layoutPlacerBottom)
         
         layoutShades()
     }
@@ -141,6 +172,8 @@ class VChatDisplayAnnotations:UIView
         
         layoutShadeTopHeight.constant = topHeight
         layoutShadeBottomHeight.constant = bottomHeight
+        layoutPlacerTop.constant = topHeight
+        layoutPlacerBottom.constant = -bottomHeight
     }
     
     private func modelAtIndex(index:NSIndexPath) -> MChatDisplayAnnotationsItem
