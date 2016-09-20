@@ -173,7 +173,7 @@ class VChatDisplayAnnotations:UIView
         layoutShadeTopHeight.constant = topHeight
         layoutShadeBottomHeight.constant = bottomHeight
         layoutPlacerTop.constant = topHeight
-        layoutPlacerHeight.constant = imageRect.maxY
+        layoutPlacerHeight.constant = imageRect.size.height
     }
     
     private func modelAtIndex(index:NSIndexPath) -> MChatDisplayAnnotationsItem
