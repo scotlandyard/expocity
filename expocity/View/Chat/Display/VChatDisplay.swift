@@ -5,10 +5,12 @@ class VChatDisplay:UIView
     weak var controller:CChat!
     weak var imageView:UIImageView!
     weak var layoutHeight:NSLayoutConstraint!
+    weak var layoutImageLeft:NSLayoutConstraint!
     let kMinHeight:CGFloat = 5
     private let kBorderHeight:CGFloat = 1
     private let kMaxHeight:CGFloat = 200
     private let kAnimationDuration:NSTimeInterval = 0.3
+    private let kImageWidth:CGFloat = 320
     
     convenience init(controller:CChat)
     {
@@ -45,7 +47,8 @@ class VChatDisplay:UIView
             "button":button]
         
         let metrics:[String:AnyObject] = [
-            "borderHeight":kBorderHeight]
+            "borderHeight":kBorderHeight,
+            "imageWidth":kImageWidth]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[border]-0-|",
@@ -53,7 +56,7 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[imageView]-0-|",
+            "H:[imageView(imageWidth)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,6 +76,17 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         
+        layoutImageLeft = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.Left,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Left,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutImageLeft)
+        
         NSNotificationCenter.defaultCenter().addObserver(
             self,
             selector:#selector(self.notifiedDisplayOptionChanged(sender:)),
@@ -83,6 +97,16 @@ class VChatDisplay:UIView
     deinit
     {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remain:CGFloat = width - kImageWidth
+        let margin:CGFloat = remain / 2.0
+        
+        layoutImageLeft.constant = margin
+        super.layoutSubviews()
     }
     
     //MARK: notified
