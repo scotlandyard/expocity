@@ -15,6 +15,20 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         self.model = model
         self.controller = controller
 
+        let removeButton:UIButton = UIButton()
+        removeButton.translatesAutoresizingMaskIntoConstraints = false
+        removeButton.setImage(UIImage(named:"genericClose"), forState:UIControlState.Normal)
+        removeButton.imageView!.clipsToBounds = true
+        removeButton.imageView!.contentMode = UIViewContentMode.Center
+        removeButton.addTarget(self, action:#selector(self.actionRemove(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        
+        let doneButton:UIButton = UIButton()
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.setImage(UIImage(named:"genericAdd"), forState:UIControlState.Normal)
+        doneButton.imageView!.clipsToBounds = true
+        doneButton.imageView!.contentMode = UIViewContentMode.Center
+        doneButton.addTarget(self, action:#selector(self.actionDone(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        
         let fieldBase:UIView = UIView()
         fieldBase.translatesAutoresizingMaskIntoConstraints = false
         fieldBase.clipsToBounds = true
@@ -78,6 +92,18 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: actions
+    
+    func actionRemove(sender button:UIButton)
+    {
+        
+    }
+    
+    func actionDone(sender button:UIButton)
+    {
+        
     }
     
     //MARK: field delegate
