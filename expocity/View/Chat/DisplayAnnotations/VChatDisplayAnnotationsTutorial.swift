@@ -22,7 +22,7 @@ class VChatDisplayAnnotationsTutorial:UIView
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.whiteColor()
-        label.font = UIFont.regular(16)
+        label.font = UIFont.regular(18)
         self.label = label
         
         let cancelButton:UIButton = UIButton()
@@ -37,7 +37,8 @@ class VChatDisplayAnnotationsTutorial:UIView
         addSubview(cancelButton)
         
         let views:[String:AnyObject] = [
-            "label":label]
+            "label":label,
+            "cancelButton":cancelButton]
         
         let metrics:[String:AnyObject] = [
             "buttonHeight":kButtonHeight]

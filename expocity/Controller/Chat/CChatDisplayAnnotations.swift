@@ -30,4 +30,11 @@ class CChatDisplayAnnotations:CController
         super.viewDidAppear(animated)
         viewAnnotations.animateShades()
     }
+    
+    //MARK: public
+    
+    func addAnnotation()
+    {
+        
+    }
 }

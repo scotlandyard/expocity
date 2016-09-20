@@ -8,4 +8,12 @@ class MChatDisplayAnnotations
     {
         items = []
     }
+    
+    //MARK: public
+    
+    func addAnnoation() -> MChatDisplayAnnotationsItem
+    {
+        let newItem:MChatDisplayAnnotationsItem = MChatDisplayAnnotationsItem()
+        
+    }
 }

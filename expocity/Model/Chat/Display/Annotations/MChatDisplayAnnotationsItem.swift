@@ -2,9 +2,16 @@ import UIKit
 
 class MChatDisplayAnnotationsItem
 {
-    let text:String
-    let xPos:CGFloat
-    let yPos:CGFloat
+    var text:String
+    var xPos:CGFloat
+    var yPos:CGFloat
+    
+    init()
+    {
+        text = ""
+        xPos = 0
+        yPos = 0
+    }
     
     init(text:String, xPos:CGFloat, yPos:CGFloat)
     {
