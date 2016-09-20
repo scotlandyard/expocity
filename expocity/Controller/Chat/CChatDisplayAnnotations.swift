@@ -4,6 +4,7 @@ class CChatDisplayAnnotations:CController
 {
     weak var viewAnnotations:VChatDisplayAnnotations!
     weak var controllerChat:CChat!
+    weak var addingAnnotation:MChatDisplayAnnotationsItem?
     
     init(controllerChat:CChat)
     {
@@ -35,6 +36,7 @@ class CChatDisplayAnnotations:CController
     
     func addAnnotation()
     {
-        
+        let item:MChatDisplayAnnotationsItem = controllerChat.model.annotations.addAnnoation()
+        viewAnnotations.addAnnotation()
     }
 }
