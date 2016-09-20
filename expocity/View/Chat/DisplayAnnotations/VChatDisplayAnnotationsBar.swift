@@ -22,8 +22,8 @@ class VChatDisplayAnnotationsBar:UIView
         backButton.setImage(UIImage(named:"genericClose"), forState:UIControlState.Normal)
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.Center
-        backButton.addTarget(self, action:#selector(self.actionBack(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
+        backButton.addTarget(self, action:#selector(self.actionBack(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false
@@ -40,6 +40,7 @@ class VChatDisplayAnnotationsBar:UIView
         addButton.imageView!.clipsToBounds = true
         addButton.imageView!.contentMode = UIViewContentMode.Center
         addButton.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
+        addButton.addTarget(self, action:#selector(self.actionAdd(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         addSubview(border)
         addSubview(label)
@@ -101,5 +102,10 @@ class VChatDisplayAnnotationsBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.parent.dismiss()
+    }
+    
+    func actionAdd(sender button:UIButton)
+    {
+        
     }
 }
