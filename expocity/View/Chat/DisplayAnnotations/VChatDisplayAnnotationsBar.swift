@@ -15,15 +15,14 @@ class VChatDisplayAnnotationsBar:UIView
         let border:UIView = UIView()
         border.userInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = UIColor(white:1, alpha:0.5)
+        border.backgroundColor = UIColor(white:1, alpha:0.2)
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named:"genericBack"), forState:UIControlState.Normal)
+        backButton.setImage(UIImage(named:"genericClose"), forState:UIControlState.Normal)
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.Center
         backButton.addTarget(self, action:#selector(self.actionBack(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        backButton.alpha = 0
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
         
         addSubview(border)
