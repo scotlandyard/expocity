@@ -12,3 +12,4 @@
 "VChatDisplayAnnotationsBar_labelTitle"="Annotations";
 "VChatDisplayAnnotationsTutorial_tutorialPlaceMark"="Tap on the picture to add an annotation";
 "VChatDisplayAnnotationsTutorial_cancelButton"="Cancel";
+"VChatDisplayAnnoationsEdit_placerholder"="Annotation text";
