@@ -102,6 +102,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     func actionRemove(sender button:UIButton)
     {
+        /*
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
         
         let alert:UIAlertController = UIAlertController(
@@ -132,7 +133,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         
         alert.addAction(actionDo)
         alert.addAction(actionCancel)
-        presentViewController(alert, animated:true, completion:nil)
+        presentViewController(alert, animated:true, completion:nil)*/
     }
     
     func actionDone(sender button:UIButton)
