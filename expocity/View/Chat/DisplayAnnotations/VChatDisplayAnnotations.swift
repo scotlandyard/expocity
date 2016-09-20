@@ -5,13 +5,11 @@ class VChatDisplayAnnotations:UIView
     weak var controller:CChatDisplayAnnotations!
     weak var shadeTop:VChatDisplayAnnotationsShade!
     weak var shadeBottom:VChatDisplayAnnotationsShade!
+    weak var list:VChatDisplayAnnotationsList!
     weak var layoutShadeTopHeight:NSLayoutConstraint!
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     private let kAnimateDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
-    private let kInterLineSpace:CGFloat = 1
-    private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 40
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -21,51 +19,25 @@ class VChatDisplayAnnotations:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let barHeight:CGFloat = controller.parent.viewParent.kBarHeight
-        
-        let bar:VChatDisplayAnnotationsBar = VChatDisplayAnnotationsBar(controller:controller)
-        
         let shadeTop:VChatDisplayAnnotationsShade = VChatDisplayAnnotationsShade()
         self.shadeTop = shadeTop
         
         let shadeBottom:VChatDisplayAnnotationsShade = VChatDisplayAnnotationsShade()
         self.shadeBottom = shadeBottom
         
-        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSizeZero
-        flow.footerReferenceSize = CGSizeZero
-        flow.minimumLineSpacing = kInterLineSpace
-        flow.minimumInteritemSpacing = 0
-        flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
+        let list:VChatDisplayAnnotationsList = VChatDisplayAnnotationsList(controller:controller)
+        self.list = list
         
-        let collectionView:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.clipsToBounds = true
-        collectionView.backgroundColor = UIColor.clearColor()
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.alwaysBounceVertical = true
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.registerClass(
-            VChatDisplayAnnotationsCell.self,
-            forCellWithReuseIdentifier:
-            VChatDisplayAnnotationsCell.reusableIdentifier())
-        self.collectionView = collectionView
-        
-        shadeTop.addSubview(bar)
-        shadeTop.addSubview(collectionView)
+        shadeTop.addSubview(list)
         addSubview(shadeTop)
         addSubview(shadeBottom)
         
         let views:[String:AnyObject] = [
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
-            "collectionView":collectionView,
-            "bar":bar]
+            "list":list]
         
-        let metrics:[String:AnyObject] = [
-            "barHeight":barHeight]
+        let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[shadeTop]-0-|",
@@ -78,7 +50,7 @@ class VChatDisplayAnnotations:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[bar]-0-|",
+            "H:|-0-[list]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -93,7 +65,7 @@ class VChatDisplayAnnotations:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[bar(barHeight)]",
+            "V:|-0-[list]-0-|",
             options:[],
             metrics:metrics,
             views:views))
