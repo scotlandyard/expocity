@@ -45,4 +45,9 @@ class CChatDisplayAnnotations:CController
         controllerChat.model.annotations.items.removeLast()
         viewAnnotations.cancelAnnotation()
     }
+    
+    func confirmAnnotation(point:CGPoint)
+    {
+        
+    }
 }
