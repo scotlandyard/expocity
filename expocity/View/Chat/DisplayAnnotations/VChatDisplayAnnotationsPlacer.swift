@@ -85,6 +85,20 @@ class VChatDisplayAnnotationsPlacer:UIView
     func reloadItems()
     {
         tapGesture.enabled = false
+        let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+        let imageWidth:CGFloat
+        let imageHeight:CGFloat
+        
+        if screenSize.width > screenSize.height
+        {
+            imageWidth = bounds.size.height
+            imageHeight = bounds.size.width
+        }
+        else
+        {
+            imageWidth = bounds.size.width
+            imageHeight = bounds.size.height
+        }
         
         var count:Int = itemContainer.subviews.count - 1
         while count >= 0
@@ -96,8 +110,12 @@ class VChatDisplayAnnotationsPlacer:UIView
         
         for item:MChatDisplayAnnotationsItem in controller.controllerChat.model.annotations.items
         {
-            let itemLeft:CGFloat = item.xPos - itemSize_2
-            let itemTop:CGFloat = item.yPos - itemSize_2
+            let percentX:CGFloat = item.xPercent
+            let percentY:CGFloat = item.yPercent
+            let centerX:CGFloat = percentX * imageWidth
+            let centerY:CGFloat = percentY * imageHeight
+            let itemLeft:CGFloat = centerX - itemSize_2
+            let itemTop:CGFloat = centerY - itemSize_2
             let subview:VChatDisplayAnnotationsPlacerItem = VChatDisplayAnnotationsPlacerItem(model:item, controller:controller)
             itemContainer.addSubview(subview)
             
