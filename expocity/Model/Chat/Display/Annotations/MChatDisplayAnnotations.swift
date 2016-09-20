@@ -14,6 +14,8 @@ class MChatDisplayAnnotations
     func addAnnoation() -> MChatDisplayAnnotationsItem
     {
         let newItem:MChatDisplayAnnotationsItem = MChatDisplayAnnotationsItem()
+        items.append(newItem)
         
+        return newItem
     }
 }
