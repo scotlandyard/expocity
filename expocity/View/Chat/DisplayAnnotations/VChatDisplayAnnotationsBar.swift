@@ -34,9 +34,17 @@ class VChatDisplayAnnotationsBar:UIView
         label.textColor = UIColor.whiteColor()
         label.text = NSLocalizedString("VChatDisplayAnnotationsBar_labelTitle", comment:"")
         
+        let addButton:UIButton = UIButton()
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.setImage(UIImage(named:"genericAdd"), forState:UIControlState.Normal)
+        addButton.imageView!.clipsToBounds = true
+        addButton.imageView!.contentMode = UIViewContentMode.Center
+        addButton.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
+        
         addSubview(border)
         addSubview(label)
         addSubview(backButton)
+        addSubview(addButton)
         
         let views:[String:AnyObject] = [
             "border":border,
