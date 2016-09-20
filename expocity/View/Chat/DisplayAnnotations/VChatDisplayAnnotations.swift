@@ -206,4 +206,26 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
             self?.shadeBottom.alpha = 1
         }
     }
+    
+    //MARK: col del
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        return 0
+    }
+    
+    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    {
+        let cell:VChatDisplayAnnotationsCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            VChatDisplayAnnotationsCell.reusableIdentifier(),
+            forIndexPath:
+            indexPath) as! VChatDisplayAnnotationsCell
+        
+        return cell
+    }
 }
