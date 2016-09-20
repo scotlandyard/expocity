@@ -86,6 +86,7 @@
 		DA8B1B941D7E2575004D8457 /* VHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B931D7E2575004D8457 /* VHomeCell.swift */; };
 		DA8B1B961D7E25C1004D8457 /* VHomeCellCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */; };
 		DA8B1B981D7E25CE004D8457 /* VHomeCellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */; };
+		DA9739C01D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9739BF1D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift */; };
 		DA9846061D89D61B0084A0A6 /* VChatDisplayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */; };
 		DA9846081D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */; };
 		DAE27C5A1D8AEB4A00E43F33 /* VChatDisplayOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C591D8AEB4A00E43F33 /* VChatDisplayOptions.swift */; };
@@ -191,6 +192,7 @@
 		DA8B1B931D7E2575004D8457 /* VHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCell.swift; sourceTree = "<group>"; };
 		DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellCreate.swift; sourceTree = "<group>"; };
 		DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellTitle.swift; sourceTree = "<group>"; };
+		DA9739BF1D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayAnnotationsBar.swift; sourceTree = "<group>"; };
 		DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetail.swift; sourceTree = "<group>"; };
 		DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetailBar.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -330,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				DA4A20171D9094B100BCDFCA /* VChatDisplayAnnotations.swift */,
+				DA9739BF1D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift */,
 				DA4A20191D90B16200BCDFCA /* VChatDisplayAnnotationsCell.swift */,
 			);
 			path = DisplayAnnotations;
@@ -809,6 +812,7 @@
 				DA0DEE7B1D88C16400B52422 /* MChatItemTextMine.swift in Sources */,
 				DA0DEE601D88C0C000B52422 /* VChatConversationCellText.swift in Sources */,
 				DA32F8341D88502400108E96 /* MMenuStatePushed.swift in Sources */,
+				DA9739C01D90C05C00365D84 /* VChatDisplayAnnotationsBar.swift in Sources */,
 				DA4F81AF1D7DBB4000CC8B39 /* VBar.swift in Sources */,
 				DA4A201A1D90B16200BCDFCA /* VChatDisplayAnnotationsCell.swift in Sources */,
 				DA8B1B6B1D7DEAFC004D8457 /* MMenuItemRooms.swift in Sources */,

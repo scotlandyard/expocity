@@ -11,7 +11,6 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
     private let kAnimateDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
     private let kInterLineSpace:CGFloat = 1
-    private let kCollectionTop:CGFloat = 10
     private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CChatDisplayAnnotations)
@@ -50,7 +49,7 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
         flow.footerReferenceSize = CGSizeZero
         flow.minimumLineSpacing = kInterLineSpace
         flow.minimumInteritemSpacing = 0
-        flow.sectionInset = UIEdgeInsetsMake(kCollectionTop, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
