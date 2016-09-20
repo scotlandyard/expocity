@@ -36,7 +36,13 @@ class CChatDisplayAnnotations:CController
     
     func addAnnotation()
     {
-        let item:MChatDisplayAnnotationsItem = controllerChat.model.annotations.addAnnoation()
+        addingAnnotation = controllerChat.model.annotations.addAnnoation()
         viewAnnotations.addAnnotation()
+    }
+    
+    func cancelAnnotation()
+    {
+        controllerChat.model.annotations.items.removeLast()
+        viewAnnotations.tutorial.closeTutorial()
     }
 }
