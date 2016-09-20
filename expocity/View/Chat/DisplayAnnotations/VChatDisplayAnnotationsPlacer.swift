@@ -57,6 +57,7 @@ class VChatDisplayAnnotationsPlacer:UIView
     
     func actionTap(sender tapGesture:UITapGestureRecognizer)
     {
+        tapGesture.enabled = false
         let point:CGPoint = tapGesture.locationInView(self)
         controller.confirmAnnotation(point)
     }
@@ -95,19 +96,19 @@ class VChatDisplayAnnotationsPlacer:UIView
             itemContainer.addSubview(subview)
             
             let views:[String:AnyObject] = [
-                "itemContainer":itemContainer]
+                "item":subview]
             
             let metrics:[String:AnyObject] = [
                 "itemSize":kItemSize,
                 "itemLeft":itemLeft,
                 "itemTop":itemTop]
             
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            itemContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
                 "H:|-(itemLeft)-[item(itemSize)]",
                 options:[],
                 metrics:metrics,
                 views:views))
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            itemContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
                 "V:|-(itemTop)-[item(itemSize)]",
                 options:[],
                 metrics:metrics,

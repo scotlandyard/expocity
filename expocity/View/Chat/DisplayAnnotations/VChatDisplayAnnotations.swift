@@ -11,7 +11,7 @@ class VChatDisplayAnnotations:UIView
     weak var layoutShadeTopHeight:NSLayoutConstraint!
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     weak var layoutPlacerTop:NSLayoutConstraint!
-    weak var layoutPlacerBottom:NSLayoutConstraint!
+    weak var layoutPlacerHeight:NSLayoutConstraint!
     private let kAnimateDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
     
@@ -123,19 +123,19 @@ class VChatDisplayAnnotations:UIView
             attribute:NSLayoutAttribute.Top,
             multiplier:1,
             constant:0)
-        layoutPlacerBottom = NSLayoutConstraint(
+        layoutPlacerHeight = NSLayoutConstraint(
             item:placer,
-            attribute:NSLayoutAttribute.Bottom,
+            attribute:NSLayoutAttribute.Height,
             relatedBy:NSLayoutRelation.Equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.Bottom,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
             multiplier:1,
             constant:0)
         
         addConstraint(layoutShadeTopHeight)
         addConstraint(layoutShadeBottomHeight)
         addConstraint(layoutPlacerTop)
-        addConstraint(layoutPlacerBottom)
+        addConstraint(layoutPlacerHeight)
         
         layoutShades()
     }
@@ -173,7 +173,7 @@ class VChatDisplayAnnotations:UIView
         layoutShadeTopHeight.constant = topHeight
         layoutShadeBottomHeight.constant = bottomHeight
         layoutPlacerTop.constant = topHeight
-        layoutPlacerBottom.constant = -bottomHeight
+        layoutPlacerHeight.constant = imageRect.maxY
     }
     
     private func modelAtIndex(index:NSIndexPath) -> MChatDisplayAnnotationsItem
@@ -212,6 +212,8 @@ class VChatDisplayAnnotations:UIView
     func confirmAnnotation()
     {
         list.userInteractionEnabled = true
+        list.collectionView.reloadData()
         tutorial.closeTutorial()
+        placer.reloadItems()
     }
 }

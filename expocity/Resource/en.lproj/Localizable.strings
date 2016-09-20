@@ -10,6 +10,6 @@
 "VHomeCellTitle_placeholder"="Room title";
 "VChatDisplayOptions_buttonDone"="Done";
 "VChatDisplayAnnotationsBar_labelTitle"="Annotations";
-"VChatDisplayAnnotationsTutorial_tutorialPlaceMark"="Tap on the picture to add an annotation";
+"VChatDisplayAnnotationsTutorial_tutorialPlaceMark"="Tap on the picture to add annotation";
 "VChatDisplayAnnotationsTutorial_cancelButton"="Cancel";
 "VChatDisplayAnnoationsEdit_placerholder"="Annotation text";

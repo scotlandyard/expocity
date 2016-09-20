@@ -31,7 +31,7 @@ class VChatDisplayAnnotationsTutorial:UIView
         cancelButton.setTitle(NSLocalizedString("VChatDisplayAnnotationsTutorial_cancelButton", comment:""), forState:UIControlState.Normal)
         cancelButton.setTitleColor(UIColor.whiteColor(), forState:UIControlState.Normal)
         cancelButton.setTitleColor(UIColor(white:1, alpha:0.2), forState:UIControlState.Highlighted)
-        cancelButton.titleLabel!.font = UIFont.bold(18)
+        cancelButton.titleLabel!.font = UIFont.bold(20)
         cancelButton.addTarget(self, action:#selector(self.actionCancel(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         addSubview(label)
@@ -50,7 +50,7 @@ class VChatDisplayAnnotationsTutorial:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[label]-10-|",
+            "H:|-20-[label]-20-|",
             options:[],
             metrics:metrics,
             views:views))

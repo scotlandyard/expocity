@@ -49,5 +49,6 @@ class CChatDisplayAnnotations:CController
     func confirmAnnotation(point:CGPoint)
     {
         addingAnnotation?.moveToPoint(point)
+        viewAnnotations.confirmAnnotation()
     }
 }
