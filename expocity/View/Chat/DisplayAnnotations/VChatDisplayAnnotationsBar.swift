@@ -40,12 +40,18 @@ class VChatDisplayAnnotationsBar:UIView
         
         let views:[String:AnyObject] = [
             "border":border,
-            "backButton":backButton]
+            "backButton":backButton,
+            "label":label]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[border]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -61,6 +67,11 @@ class VChatDisplayAnnotationsBar:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:[backButton(44)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[label(44)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
