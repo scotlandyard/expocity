@@ -86,18 +86,19 @@ class VChatDisplayAnnotationsPlacer:UIView
     {
         tapGesture.enabled = false
         let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+        let imageSize:CGSize = controller.controllerChat.viewChat.display.imageView.bounds.size
         let imageWidth:CGFloat
         let imageHeight:CGFloat
         
         if screenSize.width > screenSize.height
         {
-            imageWidth = bounds.size.height
-            imageHeight = bounds.size.width
+            imageWidth = imageSize.height
+            imageHeight = imageSize.width
         }
         else
         {
-            imageWidth = bounds.size.width
-            imageHeight = bounds.size.height
+            imageWidth = imageSize.width
+            imageHeight = imageSize.height
         }
         
         var count:Int = itemContainer.subviews.count - 1
