@@ -6,6 +6,7 @@ class VChatDisplay:UIView
     weak var imageView:UIImageView!
     weak var layoutHeight:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
+    weak var layoutBorderHeight:NSLayoutConstraint!
     let maxHeight:CGFloat
     let kMinHeight:CGFloat = 3
     private let kMaxHeightPercent:CGFloat = 0.8
@@ -79,12 +80,12 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[border(borderHeight)]-0-[imageView]-0-|",
+            "V:|-0-[border]-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-(borderHeight)-[button]-(borderHeight)-|",
+            "V:|-0-[button]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -97,8 +98,17 @@ class VChatDisplay:UIView
             attribute:NSLayoutAttribute.Left,
             multiplier:1,
             constant:0)
+        layoutBorderHeight = NSLayoutConstraint(
+            item:border,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:0)
         
         addConstraint(layoutImageLeft)
+        addConstraint(layoutBorderHeight)
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
@@ -153,6 +163,7 @@ class VChatDisplay:UIView
         if imageView.image == nil
         {
             layoutHeight.constant = kMinHeight
+            layoutBorderHeight.constant = kBorderHeight
         }
         else
         {
@@ -163,10 +174,12 @@ class VChatDisplay:UIView
             if screenWidth < screenHeight
             {
                 layoutHeight.constant = maxHeight
+                layoutBorderHeight.constant = kBorderHeight
             }
             else
             {
-                layoutHeight.constant = kMinHeight
+                layoutBorderHeight.constant = 0
+                layoutHeight.constant = 0
             }
         }
         
