@@ -7,7 +7,7 @@ class VChatDisplay:UIView
     weak var layoutHeight:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
     let maxHeight:CGFloat
-    let kMinHeight:CGFloat = 5
+    let kMinHeight:CGFloat = 3
     private let kMaxHeightPercent:CGFloat = 0.8
     private let kBorderHeight:CGFloat = 1
     private let kAnimationDuration:NSTimeInterval = 0.3
