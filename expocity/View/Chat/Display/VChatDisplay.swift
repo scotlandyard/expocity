@@ -8,7 +8,7 @@ class VChatDisplay:UIView
     weak var layoutImageLeft:NSLayoutConstraint!
     let maxHeight:CGFloat
     let kMinHeight:CGFloat = 5
-    private let kMaxHeightPercent:CGFloat = 0.7
+    private let kMaxHeightPercent:CGFloat = 0.8
     private let kBorderHeight:CGFloat = 1
     private let kAnimationDuration:NSTimeInterval = 0.3
     
@@ -27,7 +27,6 @@ class VChatDisplay:UIView
         }
         
         maxHeight = smallerSize * kMaxHeightPercent
-        print("maxHeight: \(maxHeight)")
         
         super.init(frame:CGRectZero)
         clipsToBounds = true
@@ -118,6 +117,12 @@ class VChatDisplay:UIView
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    override func layoutSubviews()
+    {
+        layoutImage()
+        super.layoutSubviews()
+    }
+    
     //MARK: notified
     
     func notifiedDisplayOptionChanged(sender notification:NSNotification)
@@ -143,39 +148,48 @@ class VChatDisplay:UIView
         imageView.contentMode = controller.model.displayOption.contentMode
     }
     
+    private func layoutImage()
+    {
+        if imageView.image == nil
+        {
+            layoutHeight.constant = kMinHeight
+        }
+        else
+        {
+            let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+            let screenWidth:CGFloat = screenSize.width
+            let screenHeight:CGFloat = screenSize.height
+            
+            if screenWidth < screenHeight
+            {
+                layoutHeight.constant = maxHeight
+            }
+            else
+            {
+                layoutHeight.constant = kMinHeight
+            }
+        }
+        
+        UIView.animateWithDuration(kAnimationDuration)
+        { [weak self] in
+                
+            self?.layoutIfNeeded()
+        }
+    }
+    
     //MARK: public
     
     func displayImage(image:UIImage?)
     {
         imageView.image = image
-        layoutHeight.constant = maxHeight
-        
-        UIView.animateWithDuration(kAnimationDuration, animations:
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-            
-        })
-        { [weak self] (done) in
-            
-            self?.controller.viewChat.input.updateStandbyMenu()
-        }
+        controller.viewChat.input.updateStandbyMenu()
+        layoutImage()
     }
     
     func removeImage()
     {
-        layoutHeight.constant = kMinHeight
-        
-        UIView.animateWithDuration(kAnimationDuration, animations:
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-            
-        })
-        { [weak self] (done) in
-            
-            self?.imageView.image = nil
-            self?.controller.viewChat.input.updateStandbyMenu()
-        }
+        imageView.image = nil
+        controller.viewChat.input.updateStandbyMenu()
+        layoutImage()
     }
 }
