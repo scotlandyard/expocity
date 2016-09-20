@@ -66,4 +66,47 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
             metrics:metrics,
             views:views))
     }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:NSIndexPath) -> MChatDisplayAnnotationsItem
+    {
+        let item:MChatDisplayAnnotationsItem = controller.controllerChat.model.annotations.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: col del
+    
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSizeMake(width, kCellHeight)
+        
+        return size
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.controllerChat.model.annotations.items.count
+        
+        return count
+    }
+    
+    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    {
+        let item:MChatDisplayAnnotationsItem = modelAtIndex(indexPath)
+        let cell:VChatDisplayAnnotationsListCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            VChatDisplayAnnotationsListCell.reusableIdentifier(),
+            forIndexPath:
+            indexPath) as! VChatDisplayAnnotationsListCell
+        cell.config(item)
+        
+        return cell
+    }
 }

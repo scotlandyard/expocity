@@ -145,38 +145,4 @@ class VChatDisplayAnnotations:UIView
             self?.shadeBottom.alpha = 1
         }
     }
-    
-    //MARK: col del
-    
-    func collectionView(collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
-    {
-        let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSizeMake(width, kCellHeight)
-        
-        return size
-    }
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
-    {
-        return 1
-    }
-    
-    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
-    {
-        let count:Int = controller.controllerChat.model.annotations.items.count
-        
-        return count
-    }
-    
-    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
-    {
-        let item:MChatDisplayAnnotationsItem = modelAtIndex(indexPath)
-        let cell:VChatDisplayAnnotationsCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            VChatDisplayAnnotationsCell.reusableIdentifier(),
-            forIndexPath:
-            indexPath) as! VChatDisplayAnnotationsCell
-        cell.config(item)
-        
-        return cell
-    }
 }
