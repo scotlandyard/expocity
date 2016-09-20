@@ -1,9 +1,8 @@
 import UIKit
 
-class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+class VChatDisplayAnnotations:UIView
 {
     weak var controller:CChatDisplayAnnotations!
-    weak var collectionView:UICollectionView!
     weak var shadeTop:VChatDisplayAnnotationsShade!
     weak var shadeBottom:VChatDisplayAnnotationsShade!
     weak var layoutShadeTopHeight:NSLayoutConstraint!
@@ -23,29 +22,13 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
         self.controller = controller
         
         let barHeight:CGFloat = controller.parent.viewParent.kBarHeight
+        
         let bar:VChatDisplayAnnotationsBar = VChatDisplayAnnotationsBar(controller:controller)
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.Dark)
-        
-        let blurTop:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
-        blurTop.userInteractionEnabled = false
-        blurTop.translatesAutoresizingMaskIntoConstraints = false
-        
-        let blurBottom:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
-        blurBottom.userInteractionEnabled = false
-        blurBottom.translatesAutoresizingMaskIntoConstraints = false
-        
-        let shadeTop:UIView = UIView()
-        shadeTop.translatesAutoresizingMaskIntoConstraints = false
-        shadeTop.clipsToBounds = true
-        shadeTop.alpha = 0
+        let shadeTop:VChatDisplayAnnotationsShade = VChatDisplayAnnotationsShade()
         self.shadeTop = shadeTop
         
-        let shadeBottom:UIView = UIView()
-        shadeBottom.userInteractionEnabled = false
-        shadeBottom.translatesAutoresizingMaskIntoConstraints = false
-        shadeBottom.clipsToBounds = true
-        shadeBottom.alpha = 0
+        let shadeBottom:VChatDisplayAnnotationsShade = VChatDisplayAnnotationsShade()
         self.shadeBottom = shadeBottom
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -70,34 +53,20 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
             VChatDisplayAnnotationsCell.reusableIdentifier())
         self.collectionView = collectionView
         
-        shadeTop.addSubview(blurTop)
         shadeTop.addSubview(bar)
         shadeTop.addSubview(collectionView)
-        shadeBottom.addSubview(blurBottom)
         addSubview(shadeTop)
         addSubview(shadeBottom)
         
         let views:[String:AnyObject] = [
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
-            "blurTop":blurTop,
-            "blurBottom":blurBottom,
             "collectionView":collectionView,
             "bar":bar]
         
         let metrics:[String:AnyObject] = [
             "barHeight":barHeight]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[blurTop]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[blurBottom]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[shadeTop]-0-|",
             options:[],
@@ -110,16 +79,6 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[bar]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[blurTop]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[blurBottom]-0-|",
             options:[],
             metrics:metrics,
             views:views))
