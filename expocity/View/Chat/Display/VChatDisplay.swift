@@ -6,15 +6,30 @@ class VChatDisplay:UIView
     weak var imageView:UIImageView!
     weak var layoutHeight:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
+    let maxHeight:CGFloat
     let kMinHeight:CGFloat = 5
+    private let kMaxHeightPercent:CGFloat = 0.7
     private let kBorderHeight:CGFloat = 1
-    private let kMaxHeight:CGFloat = 200
     private let kAnimationDuration:NSTimeInterval = 0.3
-    private let kImageWidth:CGFloat = 320
     
-    convenience init(controller:CChat)
+    init(controller:CChat)
     {
-        self.init()
+        let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+        let smallerSize:CGFloat
+        
+        if screenSize.width > screenSize.height
+        {
+            smallerSize = screenSize.height
+        }
+        else
+        {
+            smallerSize = screenSize.width
+        }
+        
+        maxHeight = smallerSize * kMaxHeightPercent
+        print("maxHeight: \(maxHeight)")
+        
+        super.init(frame:CGRectZero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.collectionBackground()
@@ -47,8 +62,7 @@ class VChatDisplay:UIView
             "button":button]
         
         let metrics:[String:AnyObject] = [
-            "borderHeight":kBorderHeight,
-            "imageWidth":kImageWidth]
+            "borderHeight":kBorderHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[border]-0-|",
@@ -56,7 +70,7 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[imageView(imageWidth)]",
+            "H:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -94,19 +108,14 @@ class VChatDisplay:UIView
             object:nil)
     }
     
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
     deinit
     {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
-    override func layoutSubviews()
-    {
-        let width:CGFloat = bounds.maxX
-        let remain:CGFloat = width - kImageWidth
-        let margin:CGFloat = remain / 2.0
-        
-        layoutImageLeft.constant = margin
-        super.layoutSubviews()
     }
     
     //MARK: notified
@@ -139,7 +148,7 @@ class VChatDisplay:UIView
     func displayImage(image:UIImage?)
     {
         imageView.image = image
-        layoutHeight.constant = kMaxHeight
+        layoutHeight.constant = maxHeight
         
         UIView.animateWithDuration(kAnimationDuration, animations:
         { [weak self] in
