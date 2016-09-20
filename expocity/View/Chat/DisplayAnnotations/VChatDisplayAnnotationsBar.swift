@@ -25,7 +25,17 @@ class VChatDisplayAnnotationsBar:UIView
         backButton.addTarget(self, action:#selector(self.actionBack(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
         
+        let label:UILabel = UILabel()
+        label.userInteractionEnabled = false
+        label.backgroundColor = UIColor.clearColor()
+        label.font = UIFont.bold(18)
+        label.textAlignment = NSTextAlignment.Center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.whiteColor()
+        label.alpha = 0
+        
         addSubview(border)
+        addSubview(label)
         addSubview(backButton)
         
         let views:[String:AnyObject] = [
