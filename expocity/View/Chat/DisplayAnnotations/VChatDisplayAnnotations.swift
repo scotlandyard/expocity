@@ -6,6 +6,7 @@ class VChatDisplayAnnotations:UIView
     weak var shadeTop:VChatDisplayAnnotationsShade!
     weak var shadeBottom:VChatDisplayAnnotationsShade!
     weak var list:VChatDisplayAnnotationsList!
+    weak var tutorial:VChatDisplayAnnotationsTutorial!
     weak var layoutShadeTopHeight:NSLayoutConstraint!
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     private let kAnimateDuration:NSTimeInterval = 0.3
@@ -28,14 +29,19 @@ class VChatDisplayAnnotations:UIView
         let list:VChatDisplayAnnotationsList = VChatDisplayAnnotationsList(controller:controller)
         self.list = list
         
+        let tutorial:VChatDisplayAnnotationsTutorial = VChatDisplayAnnotationsTutorial(controller:controller)
+        self.tutorial = tutorial
+        
         shadeTop.addSubview(list)
+        shadeTop.addSubview(tutorial)
         addSubview(shadeTop)
         addSubview(shadeBottom)
         
         let views:[String:AnyObject] = [
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
-            "list":list]
+            "list":list,
+            "tutorial":tutorial]
         
         let metrics:[String:AnyObject] = [:]
         
@@ -55,6 +61,11 @@ class VChatDisplayAnnotations:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[tutorial]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[shadeTop]",
             options:[],
             metrics:metrics,
@@ -66,6 +77,11 @@ class VChatDisplayAnnotations:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[list]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[tutorial]-0-|",
             options:[],
             metrics:metrics,
             views:views))
