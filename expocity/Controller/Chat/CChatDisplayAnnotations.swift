@@ -46,9 +46,9 @@ class CChatDisplayAnnotations:CController
         viewAnnotations.cancelAnnotation()
     }
     
-    func confirmAnnotation(point:CGPoint)
+    func confirmAnnotation(xPercent:CGFloat, yPercent:CGFloat)
     {
-        addingAnnotation?.moveToPoint(point)
+        addingAnnotation?.moveToPoint(xPercent, yPercent:yPercent)
         viewAnnotations.confirmAnnotation()
     }
 }

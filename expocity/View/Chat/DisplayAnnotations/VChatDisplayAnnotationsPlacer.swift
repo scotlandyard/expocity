@@ -59,7 +59,13 @@ class VChatDisplayAnnotationsPlacer:UIView
     {
         tapGesture.enabled = false
         let point:CGPoint = tapGesture.locationInView(self)
-        controller.confirmAnnotation(point)
+        let pointX:CGFloat = point.x
+        let pointY:CGFloat = point.y
+        let imageWidth:CGFloat = bounds.size.width
+        let imageHeight:CGFloat = bounds.size.height
+        let xPercent:CGFloat = pointX / imageWidth
+        let yPercent:CGFloat = pointY / imageHeight
+        controller.confirmAnnotation(xPercent, yPercent:yPercent)
     }
     
     //MARK: public
