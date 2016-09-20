@@ -3,28 +3,28 @@ import UIKit
 class MChatDisplayAnnotationsItem
 {
     var text:String
-    var xPos:CGFloat
-    var yPos:CGFloat
+    var xPercent:CGFloat
+    var yPercent:CGFloat
     
     init()
     {
         text = ""
-        xPos = 0
-        yPos = 0
+        xPercent = 0
+        yPercent = 0
     }
     
-    init(text:String, xPos:CGFloat, yPos:CGFloat)
+    init(text:String, xPercent:CGFloat, yPercent:CGFloat)
     {
         self.text = text
-        self.xPos = xPos
-        self.yPos = yPos
+        self.xPercent = xPercent
+        self.yPercent = yPercent
     }
     
     //MARK: public
     
-    func moveToPoint(point:CGPoint)
+    func moveToPoint(xPercent:CGFloat, yPercent:CGFloat)
     {
-        xPos = point.x
-        yPos = point.y
+        self.xPercent = xPercent
+        self.yPercent = yPercent
     }
 }
