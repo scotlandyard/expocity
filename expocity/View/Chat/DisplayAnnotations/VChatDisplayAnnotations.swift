@@ -1,6 +1,6 @@
 import UIKit
 
-class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionViewDataSource
+class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CChatDisplayAnnotations!
     weak var collectionView:UICollectionView!
@@ -209,6 +209,14 @@ class VChatDisplayAnnotations:UIView, UICollectionViewDelegate, UICollectionView
     }
     
     //MARK: col del
+    
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSizeMake(width, kCellHeight)
+        
+        return size
+    }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
     {
