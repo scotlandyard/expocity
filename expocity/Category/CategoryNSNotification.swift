@@ -2,7 +2,7 @@ import Foundation
 
 extension NSNotification
 {
-    enum NSNotificationName:String
+    enum Name:String
     {
         case ChatDisplayOptionChanged = "chatDisplayOptionChanged"
     }
