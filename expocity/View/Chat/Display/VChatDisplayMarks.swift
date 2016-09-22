@@ -7,7 +7,7 @@ class VChatDisplayAnnotations:UIView
     convenience init(controller:CChat)
     {
         self.init()
-        clipsToBounds = true
+        clipsToBounds = false
         backgroundColor = UIColor.clearColor()
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
