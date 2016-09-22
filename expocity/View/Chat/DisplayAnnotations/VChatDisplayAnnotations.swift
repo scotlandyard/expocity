@@ -14,7 +14,7 @@ class VChatDisplayAnnotations:UIView
     weak var layoutPlacerTop:NSLayoutConstraint!
     weak var layoutPlacerHeight:NSLayoutConstraint!
     weak var layoutEditTextBottom:NSLayoutConstraint!
-    private let kEditTextHeight:CGFloat = 55
+    private let kEditTextHeight:CGFloat = 45
     private let kAnimationDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
     
