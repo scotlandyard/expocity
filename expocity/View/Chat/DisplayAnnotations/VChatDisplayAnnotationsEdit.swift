@@ -98,8 +98,8 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     private func confirmText()
     {
-        UIApplication.sharedApplication().keyWindow!.endEditing(true)
         let text:String = textField.text!
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
         controller.confirmTextAnnotation(text)
     }
     

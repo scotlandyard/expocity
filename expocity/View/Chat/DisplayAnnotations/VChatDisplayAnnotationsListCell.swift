@@ -4,6 +4,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
 {
     weak var label:UILabel!
     weak var controller:CChatDisplayAnnotations!
+    weak var model:MChatDisplayAnnotationsItem!
     private let kButtonRemoveWidth:CGFloat = 55
     
     override init(frame:CGRect)
@@ -67,10 +68,11 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
     func actionRemove(sender button:UIButton)
     {
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        let text:String = model.text
         
         let alert:UIAlertController = UIAlertController(
             title:NSLocalizedString("VChatDisplayAnnotationsListCell_removeTitle", comment:""),
-            message:label.text,
+            message:text,
             preferredStyle:UIAlertControllerStyle.ActionSheet)
         
         let actionDo:UIAlertAction = UIAlertAction(
@@ -100,6 +102,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
     
     func config(model:MChatDisplayAnnotationsItem, controller:CChatDisplayAnnotations)
     {
+        self.model = model
         self.controller = controller
         label.text = model.text
     }

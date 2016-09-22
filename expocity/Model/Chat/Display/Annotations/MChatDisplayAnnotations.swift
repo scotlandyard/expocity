@@ -11,11 +11,16 @@ class MChatDisplayAnnotations
     
     //MARK: public
     
-    func addAnnoation() -> MChatDisplayAnnotationsItem
+    func addAnnotation() -> MChatDisplayAnnotationsItem
     {
         let newItem:MChatDisplayAnnotationsItem = MChatDisplayAnnotationsItem()
         items.append(newItem)
         
         return newItem
+    }
+    
+    func removeAnnotation(item:MChatDisplayAnnotationsItem)
+    {
+        
     }
 }

@@ -57,4 +57,9 @@ class CChatDisplayAnnotations:CController
         addingAnnotation?.text = text
         viewAnnotations.confirmTextAnnotation()
     }
+    
+    func removeAnnotation(item:MChatDisplayAnnotationsItem)
+    {
+        controllerChat.model.annotations.items
+    }
 }
