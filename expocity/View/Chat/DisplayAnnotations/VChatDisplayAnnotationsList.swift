@@ -24,6 +24,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
         flow.minimumLineSpacing = kInterLineSpace
         flow.minimumInteritemSpacing = 0
         flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
+        flow.scrollDirection = UICollectionViewScrollDirection.Vertical
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +79,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
     
     //MARK: col del
     
-    func collectionView(collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
         let size:CGSize = CGSizeMake(width, kCellHeight)
