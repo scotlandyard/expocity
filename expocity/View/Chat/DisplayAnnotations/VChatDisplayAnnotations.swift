@@ -279,7 +279,7 @@ class VChatDisplayAnnotations:UIView
     
     func confirmAnnotation()
     {
-        
+        editText.beginEditingText()
     }
     
     func confirmTextAnnotation()

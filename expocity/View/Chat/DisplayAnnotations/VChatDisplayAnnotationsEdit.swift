@@ -2,7 +2,6 @@ import UIKit
 
 class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
 {
-    weak var model:MChatDisplayAnnotationsItem?
     weak var controller:CChatDisplayAnnotations!
     weak var textField:UITextField!
     private let kBorderRadius:CGFloat = 4
@@ -139,6 +138,14 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     func actionDone(sender button:UIButton)
     {
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
+    }
+    
+    //MARK: public
+    
+    func beginEditingText()
+    {
+        hidden = false
+        textField.becomeFirstResponder()
     }
     
     //MARK: field delegate
