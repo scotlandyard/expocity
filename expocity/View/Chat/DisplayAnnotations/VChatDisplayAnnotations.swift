@@ -279,6 +279,11 @@ class VChatDisplayAnnotations:UIView
     
     func confirmAnnotation()
     {
+        
+    }
+    
+    func confirmTextAnnotation()
+    {
         list.userInteractionEnabled = true
         list.collectionView.reloadData()
         tutorial.closeTutorial()
