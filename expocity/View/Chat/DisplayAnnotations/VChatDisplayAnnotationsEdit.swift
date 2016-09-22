@@ -151,6 +151,13 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     //MARK: field delegate
     
+    func textFieldDidEndEditing(textField:UITextField)
+    {
+        let text:String = textField.text!
+        controller.addingAnnotation?.text = text
+        hidden = true
+    }
+    
     func textFieldShouldReturn(textField:UITextField) -> Bool
     {
         textField.resignFirstResponder()

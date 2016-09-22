@@ -65,6 +65,8 @@ class VChatDisplayAnnotationsTutorial:UIView
     
     func actionCancel(sender button:UIButton)
     {
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        
         userInteractionEnabled = false
         controller.cancelAnnotation()
     }

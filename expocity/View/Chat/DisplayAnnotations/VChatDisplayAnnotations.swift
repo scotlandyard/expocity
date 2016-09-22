@@ -279,6 +279,7 @@ class VChatDisplayAnnotations:UIView
     
     func confirmAnnotation()
     {
+        tutorial.tutorialText()
         editText.beginEditingText()
     }
     
