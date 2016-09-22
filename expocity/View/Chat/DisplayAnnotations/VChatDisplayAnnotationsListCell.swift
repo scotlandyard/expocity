@@ -11,6 +11,12 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         backgroundColor = UIColor.clearColor()
         
         let label:UILabel = UILabel()
+        label.userInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.regular(14)
+        label.textColor = UIColor(white:1, alpha:0.7)
+        label.backgroundColor = UIColor.clearColor()
+        self.label = label
         
         let buttonRemove:UIButton = UIButton()
         buttonRemove.setImage(UIImage(named:"chatAnnotationRemove"), forState:UIControlState.Normal)
@@ -18,6 +24,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         buttonRemove.imageView!.clipsToBounds = true
         buttonRemove.translatesAutoresizingMaskIntoConstraints = false
         
+        addSubview(label)
         addSubview(buttonRemove)
     }
     
