@@ -8,8 +8,8 @@ class MChatMenuStatusStandby:MChatMenuStatus
         let itemEmoji:MChatMenuItemEmoji = MChatMenuItemEmoji()
         
         let items:[MChatMenuItem] = [
-            itemPicture,
-            itemEmoji
+            itemEmoji,
+            itemPicture
         ]
         
         super.init(items:items)
