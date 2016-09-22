@@ -106,7 +106,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
             VChatDisplayAnnotationsListCell.reusableIdentifier(),
             forIndexPath:
             indexPath) as! VChatDisplayAnnotationsListCell
-        cell.config(item)
+        cell.config(item, controller:controller)
         
         return cell
     }
