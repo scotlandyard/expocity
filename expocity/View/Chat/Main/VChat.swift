@@ -89,7 +89,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         addConstraint(input.layoutHeight)
         addConstraint(display.layoutHeight)
         
-        listToKeyboard()
+        listenToKeyboard()
     }
     
     deinit

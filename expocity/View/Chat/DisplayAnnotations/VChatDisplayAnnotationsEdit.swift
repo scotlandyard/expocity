@@ -92,7 +92,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-4-[fieldBase]-4-|",
+            "V:|-6-[fieldBase]-6-|",
             options:[],
             metrics:metrics,
             views:views))

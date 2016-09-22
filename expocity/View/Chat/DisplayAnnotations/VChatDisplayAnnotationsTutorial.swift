@@ -23,7 +23,7 @@ class VChatDisplayAnnotationsTutorial:UIView
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.whiteColor()
-        label.font = UIFont.regular(18)
+        label.font = UIFont.regular(20)
         self.label = label
         
         let cancelButton:UIButton = UIButton()
@@ -81,5 +81,10 @@ class VChatDisplayAnnotationsTutorial:UIView
         alpha = 1
         userInteractionEnabled = true
         label.text = NSLocalizedString("VChatDisplayAnnotationsTutorial_tutorialPlaceMark", comment:"")
+    }
+    
+    func tutorialText()
+    {
+        label.text = NSLocalizedString("VChatDisplayAnnotationsTutorial_tutorialText", comment:"")
     }
 }

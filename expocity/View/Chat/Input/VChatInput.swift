@@ -150,7 +150,7 @@ class VChatInput:UIView, UITextViewDelegate
     private func heightForText()
     {
         let newHeight:CGFloat
-        let height:CGFloat = field.contentSize.height
+        let height:CGFloat = field.contentSize.height + kFieldMarginVr + kBorderHeight
         
         if height > kMaxHeight
         {
