@@ -13,6 +13,7 @@ class VChatDisplayAnnotations:UIView
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     weak var layoutPlacerTop:NSLayoutConstraint!
     weak var layoutPlacerHeight:NSLayoutConstraint!
+    private let kEditTextHeight:CGFloat = 55
     private let kAnimateDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
     
@@ -39,22 +40,26 @@ class VChatDisplayAnnotations:UIView
         let placer:VChatDisplayAnnotationsPlacer = VChatDisplayAnnotationsPlacer(controller:controller)
         self.placer = placer
         
-        let editText:VChatDisplayAnnoationsEdit = VChatDisplayAnnoationsEdit(model: <#T##MChatDisplayAnnotationsItem#>, controller: <#T##CChatDisplayAnnotations#>)
+        let editText:VChatDisplayAnnoationsEdit = VChatDisplayAnnoationsEdit(controller:controller)
+        self.editText = editText
         
         shadeTop.addSubview(list)
         shadeTop.addSubview(tutorial)
         addSubview(shadeTop)
         addSubview(shadeBottom)
         addSubview(placer)
+        addSubview(editText)
         
         let views:[String:AnyObject] = [
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
             "list":list,
             "tutorial":tutorial,
-            "placer":placer]
+            "placer":placer,
+            "editText":editText]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "editTextHeight":kEditTextHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[placer]-0-|",
@@ -82,6 +87,11 @@ class VChatDisplayAnnotations:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[editText]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[shadeTop]",
             options:[],
             metrics:metrics,
@@ -98,6 +108,11 @@ class VChatDisplayAnnotations:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[tutorial]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[editText(editTextHeight)]",
             options:[],
             metrics:metrics,
             views:views))
