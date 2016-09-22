@@ -13,6 +13,7 @@ class VChatDisplayAnnotations:UIView
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     weak var layoutPlacerTop:NSLayoutConstraint!
     weak var layoutPlacerHeight:NSLayoutConstraint!
+    weak var layoutEditTextBottom:NSLayoutConstraint!
     private let kEditTextHeight:CGFloat = 55
     private let kAnimateDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
@@ -154,6 +155,17 @@ class VChatDisplayAnnotations:UIView
         addConstraint(layoutShadeBottomHeight)
         addConstraint(layoutPlacerTop)
         addConstraint(layoutPlacerHeight)
+        
+        layoutEditTextBottom = NSLayoutConstraint(
+            item:editText,
+            attribute:NSLayoutAttribute.Bottom,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Bottom,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutEditTextBottom)
         
         layoutShades()
     }

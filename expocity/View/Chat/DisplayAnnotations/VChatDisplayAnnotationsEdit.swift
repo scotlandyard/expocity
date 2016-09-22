@@ -12,6 +12,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
+        hidden = true
         self.controller = controller
 
         let removeButton:UIButton = UIButton()
