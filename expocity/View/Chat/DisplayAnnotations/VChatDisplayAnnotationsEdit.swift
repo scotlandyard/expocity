@@ -2,17 +2,16 @@ import UIKit
 
 class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
 {
-    weak var model:MChatDisplayAnnotationsItem!
+    weak var model:MChatDisplayAnnotationsItem?
     weak var controller:CChatDisplayAnnotations!
     weak var textField:UITextField!
     private let kBorderRadius:CGFloat = 4
     
-    convenience init(model:MChatDisplayAnnotationsItem, controller:CChatDisplayAnnotations)
+    convenience init(controller:CChatDisplayAnnotations)
     {
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        self.model = model
         self.controller = controller
 
         let removeButton:UIButton = UIButton()

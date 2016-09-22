@@ -8,6 +8,7 @@ class VChatDisplayAnnotations:UIView
     weak var list:VChatDisplayAnnotationsList!
     weak var tutorial:VChatDisplayAnnotationsTutorial!
     weak var placer:VChatDisplayAnnotationsPlacer!
+    weak var editText:VChatDisplayAnnoationsEdit!
     weak var layoutShadeTopHeight:NSLayoutConstraint!
     weak var layoutShadeBottomHeight:NSLayoutConstraint!
     weak var layoutPlacerTop:NSLayoutConstraint!
@@ -37,6 +38,8 @@ class VChatDisplayAnnotations:UIView
         
         let placer:VChatDisplayAnnotationsPlacer = VChatDisplayAnnotationsPlacer(controller:controller)
         self.placer = placer
+        
+        let editText:VChatDisplayAnnoationsEdit = VChatDisplayAnnoationsEdit(model: <#T##MChatDisplayAnnotationsItem#>, controller: <#T##CChatDisplayAnnotations#>)
         
         shadeTop.addSubview(list)
         shadeTop.addSubview(tutorial)

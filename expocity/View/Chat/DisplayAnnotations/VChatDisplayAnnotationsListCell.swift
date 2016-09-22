@@ -14,7 +14,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.regular(14)
+        label.font = UIFont.regular(13)
         label.textColor = UIColor(white:1, alpha:0.7)
         label.backgroundColor = UIColor.clearColor()
         self.label = label
