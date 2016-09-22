@@ -9,7 +9,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.05)
+        backgroundColor = UIColor(white:1, alpha:0.1)
         
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false

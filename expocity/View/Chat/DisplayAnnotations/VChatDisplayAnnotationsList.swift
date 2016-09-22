@@ -6,7 +6,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
     weak var collectionView:UICollectionView!
     private let kInterLineSpace:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 40
+    private let kCellHeight:CGFloat = 45
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -87,7 +87,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
         return size
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
         return 1
     }
