@@ -15,3 +15,6 @@
 "VChatDisplayAnnotationsTutorial_cancelButton"="Cancel";
 "VChatDisplayAnnoationsEdit_placerholder"="Annotation";
 "VChatDisplayAnnoationsEdit_doneButton"="Done";
+"VChatDisplayAnnotationsListCell_removeTitle"="Remove annotation?";
+"VChatDisplayAnnotationsListCell_removeButton"="Remove";
+"VChatDisplayAnnotationsListCell_removeCancel"="Cancel";

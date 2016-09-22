@@ -69,33 +69,27 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
         
         let alert:UIAlertController = UIAlertController(
-            title:NSLocalizedString("CNotifications_title", comment:""),
-            message:
-            item.title,
+            title:NSLocalizedString("VChatDisplayAnnotationsListCell_removeTitle", comment:""),
+            message:label.text,
             preferredStyle:UIAlertControllerStyle.ActionSheet)
         
         let actionDo:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("CNotifications_actionDo", comment:""),
+            title:NSLocalizedString("VChatDisplayAnnotationsListCell_removeButton", comment:""),
             style:
             UIAlertActionStyle.Default)
         { [weak self] (action) in
             
-            if self != nil
-            {
-                item.executeAction(self!)
-            }
             
-            let titleDone:String = NSLocalizedString("CNotifications_actionDone", comment:"")
-            VMainAlert.Message(titleDone)
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("CNotifications_actionCancel", comment:""),
+            title:NSLocalizedString("VChatDisplayAnnotationsListCell_removeCancel", comment:""),
             style:UIAlertActionStyle.Cancel,
             handler:nil)
         
         alert.addAction(actionDo)
         alert.addAction(actionCancel)
+        
         controller.parent.presentViewController(
             alert,
             animated:true,
