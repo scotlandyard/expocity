@@ -53,14 +53,19 @@ class VChatDisplay:UIView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
+        let marks:VChatDisplayMarks = VChatDisplayMarks(controller:controller)
+        self.marks = marks
+        
         addSubview(border)
         addSubview(imageView)
         addSubview(button)
+        addSubview(marks)
         
         let views:[String:AnyObject] = [
             "border":border,
             "imageView":imageView,
-            "button":button]
+            "button":button,
+            "marks":marks]
         
         let metrics:[String:AnyObject] = [
             "borderHeight":kBorderHeight]

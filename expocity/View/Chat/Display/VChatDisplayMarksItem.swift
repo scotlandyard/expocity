@@ -1,6 +1,6 @@
 import UIKit
 
-class VChatDisplayAnnotationsItem:UIView
+class VChatDisplayMarksItem:UIView
 {
     
 }

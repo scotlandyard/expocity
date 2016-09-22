@@ -1,6 +1,6 @@
 import UIKit
 
-class VChatDisplayAnnotations:UIView
+class VChatDisplayMarks:UIView
 {
     weak var controller:CChat!
     
