@@ -14,13 +14,6 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         hidden = true
         backgroundColor = UIColor(white:0.9, alpha:1)
         self.controller = controller
-
-        let removeButton:UIButton = UIButton()
-        removeButton.translatesAutoresizingMaskIntoConstraints = false
-        removeButton.setImage(UIImage(named:"genericClose"), forState:UIControlState.Normal)
-        removeButton.imageView!.clipsToBounds = true
-        removeButton.imageView!.contentMode = UIViewContentMode.Center
-        removeButton.addTarget(self, action:#selector(self.actionRemove(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         let doneButton:UIButton = UIButton()
         doneButton.translatesAutoresizingMaskIntoConstraints = false
@@ -67,12 +60,12 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[fieldBase]-0-[removeButton]-0-[doneButton]-0-|",
+            "H:|-6-[fieldBase]-0-[doneButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-4-[textField]-0-|",
+            "H:|-5-[textField]-0-|",
             options:[],
             metrics:metrics,
             views:views))

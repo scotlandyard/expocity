@@ -150,12 +150,6 @@ class VChatDisplayAnnotations:UIView
             attribute:NSLayoutAttribute.NotAnAttribute,
             multiplier:1,
             constant:0)
-        
-        addConstraint(layoutShadeTopHeight)
-        addConstraint(layoutShadeBottomHeight)
-        addConstraint(layoutPlacerTop)
-        addConstraint(layoutPlacerHeight)
-        
         layoutEditTextBottom = NSLayoutConstraint(
             item:editText,
             attribute:NSLayoutAttribute.Bottom,
@@ -165,6 +159,10 @@ class VChatDisplayAnnotations:UIView
             multiplier:1,
             constant:0)
         
+        addConstraint(layoutShadeTopHeight)
+        addConstraint(layoutShadeBottomHeight)
+        addConstraint(layoutPlacerTop)
+        addConstraint(layoutPlacerHeight)
         addConstraint(layoutEditTextBottom)
         
         layoutShades()
