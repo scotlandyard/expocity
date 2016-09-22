@@ -101,6 +101,8 @@ class VChatDisplayAnnotationsBar:UIView
     
     func actionBack(sender button:UIButton)
     {
+        UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        controller.controllerChat.viewChat.listToKeyboard()
         controller.parent.dismiss()
     }
     

@@ -137,7 +137,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         controller.presentViewController(imagePicker, animated:true, completion:nil)
     }
     
-    func listToKeyboard()
+    func listenToKeyboard()
     {
         NSNotificationCenter.defaultCenter().addObserver(
             self,
