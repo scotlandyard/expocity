@@ -88,7 +88,11 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         addConstraint(layoutInputBottom)
         addConstraint(input.layoutHeight)
         addConstraint(display.layoutHeight)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedKeyboardChanged(sender:)), name:UIKeyboardWillChangeFrameNotification, object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(self.notifiedKeyboardChanged(sender:)),
+            name:UIKeyboardWillChangeFrameNotification,
+            object:nil)
     }
     
     deinit

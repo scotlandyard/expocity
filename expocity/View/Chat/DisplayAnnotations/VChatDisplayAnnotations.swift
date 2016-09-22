@@ -15,7 +15,7 @@ class VChatDisplayAnnotations:UIView
     weak var layoutPlacerHeight:NSLayoutConstraint!
     weak var layoutEditTextBottom:NSLayoutConstraint!
     private let kEditTextHeight:CGFloat = 55
-    private let kAnimateDuration:NSTimeInterval = 0.3
+    private let kAnimationDuration:NSTimeInterval = 0.3
     private let kDelayLayout:UInt64 = 100
     
     convenience init(controller:CChatDisplayAnnotations)
@@ -168,6 +168,17 @@ class VChatDisplayAnnotations:UIView
         addConstraint(layoutEditTextBottom)
         
         layoutShades()
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(self.notifiedKeyboardChanged(sender:)),
+            name:UIKeyboardWillChangeFrameNotification,
+            object:nil)
+    }
+    
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func layoutSubviews()
@@ -189,6 +200,33 @@ class VChatDisplayAnnotations:UIView
         }
         
         super.layoutSubviews()
+    }
+    
+    //MARK: notified
+    
+    func notifiedKeyboardChanged(sender notification:NSNotification)
+    {
+        let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
+        let yOrigin = keyRect.origin.y
+        let screenHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
+        let keyboardHeight:CGFloat
+        
+        if yOrigin < screenHeight
+        {
+            keyboardHeight = screenHeight - yOrigin
+        }
+        else
+        {
+            keyboardHeight = 0
+        }
+        
+        layoutEditTextBottom.constant = -keyboardHeight
+        
+        UIView.animateWithDuration(kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
     
     //MARK: private
@@ -217,7 +255,7 @@ class VChatDisplayAnnotations:UIView
     
     func animateShades()
     {
-        UIView.animateWithDuration(kAnimateDuration)
+        UIView.animateWithDuration(kAnimationDuration)
         { [weak self] in
             
             self?.shadeTop.alpha = 1
