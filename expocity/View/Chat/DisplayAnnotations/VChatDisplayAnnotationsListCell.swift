@@ -36,7 +36,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
             "buttonRemoveWidth":kButtonRemoveWidth]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[buttonRemove(buttonRemoveWidth)]-0-[label]-10-|",
+            "H:|-10-[label]-10-[buttonRemove(buttonRemoveWidth)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
