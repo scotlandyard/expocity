@@ -61,5 +61,7 @@ class CChatDisplayAnnotations:CController
     func removeAnnotation(item:MChatDisplayAnnotationsItem)
     {
         controllerChat.model.annotations.removeAnnotation(item)
+        viewAnnotations.list.collectionView.reloadData()
+        viewAnnotations.placer.reloadItems()
     }
 }

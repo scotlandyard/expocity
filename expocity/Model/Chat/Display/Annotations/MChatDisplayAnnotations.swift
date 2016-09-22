@@ -21,6 +21,20 @@ class MChatDisplayAnnotations
     
     func removeAnnotation(item:MChatDisplayAnnotationsItem)
     {
+        let countItems:Int = items.count
+        var indexToRemove:Int = 0
         
+        for index:Int in 0 ..< countItems
+        {
+            let currentAnnotation:MChatDisplayAnnotationsItem = items[index]
+            
+            if currentAnnotation === item
+            {
+                indexToRemove = index
+                break
+            }
+        }
+        
+        items.removeAtIndex(indexToRemove)
     }
 }
