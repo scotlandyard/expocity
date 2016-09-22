@@ -5,7 +5,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     weak var controller:CChatDisplayAnnotations!
     weak var textField:UITextField!
     private let kBorderRadius:CGFloat = 4
-    private let kDoneButtonWidth:CGFloat = 60
+    private let kDoneButtonWidth:CGFloat = 65
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -21,7 +21,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         doneButton.setTitle(NSLocalizedString("VChatDisplayAnnoationsEdit_doneButton", comment:""), forState:UIControlState.Normal)
         doneButton.setTitleColor(UIColor.main(), forState:UIControlState.Normal)
         doneButton.setTitleColor(UIColor.main().colorWithAlphaComponent(0.2), forState:UIControlState.Highlighted)
-        doneButton.titleLabel!.font = UIFont.bold(14)
+        doneButton.titleLabel!.font = UIFont.bold(15)
         doneButton.addTarget(self, action:#selector(self.actionDone(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         let fieldBase:UIView = UIView()
@@ -152,6 +152,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     func textFieldDidEndEditing(textField:UITextField)
     {
         hidden = true
+        textField.text = ""
     }
     
     func textFieldShouldReturn(textField:UITextField) -> Bool
