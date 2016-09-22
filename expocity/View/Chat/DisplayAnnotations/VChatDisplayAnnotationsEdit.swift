@@ -53,7 +53,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         self.textField = textField
         
         fieldBase.addSubview(textField)
-        addSubview(textField)
+        addSubview(fieldBase)
         addSubview(doneButton)
         addSubview(removeButton)
         
