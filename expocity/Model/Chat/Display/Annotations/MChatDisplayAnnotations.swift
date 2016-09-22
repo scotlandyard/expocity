@@ -31,6 +31,7 @@ class MChatDisplayAnnotations
             if currentAnnotation === item
             {
                 indexToRemove = index
+                
                 break
             }
         }
