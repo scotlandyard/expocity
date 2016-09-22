@@ -3,7 +3,7 @@ import UIKit
 class VChatDisplayAnnotationsListCell:UICollectionViewCell
 {
     weak var label:UILabel!
-    private let kButtonRemoveWidth:CGFloat = 50
+    private let kButtonRemoveWidth:CGFloat = 55
     
     override init(frame:CGRect)
     {
@@ -36,7 +36,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
             "buttonRemoveWidth":kButtonRemoveWidth]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[label]-10-[buttonRemove(buttonRemoveWidth)]-10-|",
+            "H:|-10-[label]-0-[buttonRemove(buttonRemoveWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

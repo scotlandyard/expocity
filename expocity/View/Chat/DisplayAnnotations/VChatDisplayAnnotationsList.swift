@@ -6,7 +6,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
     weak var collectionView:UICollectionView!
     private let kInterLineSpace:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 45
+    private let kCellHeight:CGFloat = 50
     
     convenience init(controller:CChatDisplayAnnotations)
     {
