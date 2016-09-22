@@ -5,6 +5,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     weak var controller:CChatDisplayAnnotations!
     weak var textField:UITextField!
     private let kBorderRadius:CGFloat = 4
+    private let kDoneButtonWidth:CGFloat = 60
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -17,9 +18,10 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         
         let doneButton:UIButton = UIButton()
         doneButton.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.setImage(UIImage(named:"genericAdd"), forState:UIControlState.Normal)
-        doneButton.imageView!.clipsToBounds = true
-        doneButton.imageView!.contentMode = UIViewContentMode.Center
+        doneButton.setTitle(NSLocalizedString("VChatDisplayAnnoationsEdit_doneButton", comment:""), forState:UIControlState.Normal)
+        doneButton.setTitleColor(UIColor.main(), forState:UIControlState.Normal)
+        doneButton.setTitleColor(UIColor.main().colorWithAlphaComponent(0.2), forState:UIControlState.Highlighted)
+        doneButton.titleLabel!.font = UIFont.bold(14)
         doneButton.addTarget(self, action:#selector(self.actionDone(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         
         let fieldBase:UIView = UIView()
@@ -49,18 +51,17 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         fieldBase.addSubview(textField)
         addSubview(fieldBase)
         addSubview(doneButton)
-        addSubview(removeButton)
         
         let views:[String:AnyObject] = [
             "textField":textField,
             "fieldBase":fieldBase,
-            "doneButton":doneButton,
-            "removeButton":removeButton]
+            "doneButton":doneButton]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "doneButtonWidth":kDoneButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-6-[fieldBase]-0-[doneButton]-0-|",
+            "H:|-6-[fieldBase]-0-[doneButton(doneButtonWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -71,11 +72,6 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[textField]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[removeButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))
