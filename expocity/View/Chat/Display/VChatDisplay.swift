@@ -3,7 +3,7 @@ import UIKit
 class VChatDisplay:UIView
 {
     weak var controller:CChat!
-    weak var annotations:vchatdios
+    weak var annotations:VChatDisplayAnnotations!
     weak var imageView:UIImageView!
     weak var layoutHeight:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
