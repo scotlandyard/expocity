@@ -128,6 +128,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     func actionDone(sender button:UIButton)
     {
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        controller.confirmAnnotation(<#T##xPercent: CGFloat##CGFloat#>, yPercent: <#T##CGFloat#>)
     }
     
     //MARK: public

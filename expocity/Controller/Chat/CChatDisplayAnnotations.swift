@@ -51,4 +51,10 @@ class CChatDisplayAnnotations:CController
         addingAnnotation?.moveToPoint(xPercent, yPercent:yPercent)
         viewAnnotations.confirmAnnotation()
     }
+    
+    func confirmTextAnnotation(text:String)
+    {
+        addingAnnotation?.text = text
+        viewAnnotations.confirmTextAnnotation()
+    }
 }
