@@ -37,6 +37,6 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
     
     func config(model:MChatDisplayAnnotationsItem)
     {
-        
+        label.text = model.text
     }
 }
