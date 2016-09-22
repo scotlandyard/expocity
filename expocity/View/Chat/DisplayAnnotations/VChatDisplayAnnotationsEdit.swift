@@ -35,7 +35,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         textField.clipsToBounds = true
         textField.backgroundColor = UIColor.clearColor()
         textField.borderStyle = UITextBorderStyle.None
-        textField.font = UIFont.regular(14)
+        textField.font = UIFont.regular(16)
         textField.textColor = UIColor.blackColor()
         textField.tintColor = UIColor.blackColor()
         textField.returnKeyType = UIReturnKeyType.Done
@@ -127,8 +127,16 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     func actionDone(sender button:UIButton)
     {
+        confirmText()
+    }
+    
+    //MARK: private
+    
+    private func confirmText()
+    {
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
-        controller.confirmAnnotation(<#T##xPercent: CGFloat##CGFloat#>, yPercent: <#T##CGFloat#>)
+        let text:String = textField.text!
+        controller.confirmTextAnnotation(text)
     }
     
     //MARK: public
@@ -143,14 +151,12 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     func textFieldDidEndEditing(textField:UITextField)
     {
-        let text:String = textField.text!
-        controller.addingAnnotation?.text = text
         hidden = true
     }
     
     func textFieldShouldReturn(textField:UITextField) -> Bool
     {
-        textField.resignFirstResponder()
+        confirmText()
         
         return true
     }
