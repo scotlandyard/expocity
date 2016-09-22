@@ -84,4 +84,10 @@ class CChat:CController
         let controllerAnnotations:CChatDisplayAnnotations = CChatDisplayAnnotations(controllerChat:self)
         parent.over(controllerAnnotations)
     }
+    
+    func removeImage()
+    {
+        model.annotations.items = []
+        viewChat.display.removeImage()
+    }
 }
