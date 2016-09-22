@@ -81,7 +81,10 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
             UIAlertActionStyle.Default)
         { [weak self] (action) in
             
-            
+            if self != nil
+            {
+                self!.controller.removeAnnotation(self!.model)
+            }
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(
