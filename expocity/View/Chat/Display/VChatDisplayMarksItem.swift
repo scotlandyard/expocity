@@ -5,7 +5,7 @@ class VChatDisplayMarksItem:UIButton
     weak var controller:CChat!
     weak var timer:NSTimer?
     weak var model:MChatDisplayAnnotationsItem!
-    private let kTimeInterval:NSTimeInterval = 5
+    private let kTimeInterval:NSTimeInterval = 3
     
     convenience init(controller:CChat, model:MChatDisplayAnnotationsItem)
     {

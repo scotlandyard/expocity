@@ -15,10 +15,11 @@ class VMainAlert:UIView
     private let kIconAnnotation:String = "alertAnnotation"
     private let kIconWarning:String = ""
     private let kIconError:String = ""
-    private let kImageViewWidth:CGFloat = 30
+    private let kImageViewWidth:CGFloat = 40
     private let kMarginTop:CGFloat = 20
     private let kAnimationDuration:NSTimeInterval = 0.2
     private let kAlertDuration:NSTimeInterval = 3
+    private let kBorderHeight:CGFloat = 1
     
     class func Show(message:String, type:VMainAlertType)
     {
@@ -71,6 +72,11 @@ class VMainAlert:UIView
         clipsToBounds = true
         backgroundColor = UIColor.complement()
         
+        let border:UIView = UIView()
+        border.userInteractionEnabled = false
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.backgroundColor = UIColor(white:0, alpha:0.1)
+        
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -89,17 +95,25 @@ class VMainAlert:UIView
         
         addSubview(imageView)
         addSubview(label)
+        addSubview(border)
         
         let views:[String:AnyObject] = [
             "imageView":imageView,
-            "label":label]
+            "label":label,
+            "border":border]
         
         let metrics:[String:AnyObject] = [
             "imageWidth":kImageViewWidth,
-            "marginTop":kMarginTop]
+            "marginTop":kMarginTop,
+            "borderHeight":kBorderHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[imageView(imageWidth)]-0-[label]-(imageWidth)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[border]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -110,6 +124,11 @@ class VMainAlert:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-(marginTop)-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[border(borderHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
