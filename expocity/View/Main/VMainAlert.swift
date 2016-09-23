@@ -11,12 +11,15 @@ class VMainAlert:UIView
     
     let kHeight:CGFloat = 80
     weak var layoutTop:NSLayoutConstraint!
+    weak var timer:NSTimer?
     private let kIconAnnotation:String = ""
     private let kIconWarning:String = ""
     private let kIconError:String = ""
     private let kImageViewWidth:CGFloat = 50
     private let kLabelMarginRight:CGFloat = 10
     private let kMarginTop:CGFloat = 20
+    private let kAnimationDuration:NSTimeInterval = 0.3
+    private let kAlertDuration:NSTimeInterval = 3
     
     class func Show(message:String, type:VMainAlertType)
     {
@@ -56,6 +59,8 @@ class VMainAlert:UIView
                 constant:alertInitialTop)
             
             mainView.addConstraint(alert.layoutTop)
+            mainView.setNeedsLayout()
+            alert.animateAlert()
         }
     }
     
@@ -114,6 +119,22 @@ class VMainAlert:UIView
     
     //MARK: private
     
+    func timeOut(sender timer:NSTimer)
+    {
+        timer.invalidate()
+        
+        layoutTop.constant = -kHeight
+        
+        UIView.animateWithDuration(kAnimationDuration, animations:
+        {
+            self.superview!.layoutIfNeeded()
+        })
+        { (done) in
+            
+            self.removeFromSuperview()
+        }
+    }
+    
     private func setIcon(imageView:UIImageView, type:VMainAlertType)
     {
         let imageName:String
@@ -140,5 +161,24 @@ class VMainAlert:UIView
         }
         
         imageView.image = UIImage(named:imageName)
+    }
+    
+    private func animateAlert()
+    {
+        layoutTop.constant = 0
+        
+        UIView.animateWithDuration(kAnimationDuration, animations:
+        {
+            self.superview!.layoutIfNeeded()
+        })
+        { (done) in
+            
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(
+                self.kAlertDuration,
+                target:self,
+                selector:#selector(self.timeOut(sender:)),
+                userInfo:nil,
+                repeats:false)
+        }
     }
 }
