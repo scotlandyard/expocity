@@ -13,7 +13,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         hidden = true
-        backgroundColor = UIColor(white:0.9, alpha:1)
+        backgroundColor = UIColor(white:0.96, alpha:1)
         self.controller = controller
         
         let doneButton:UIButton = UIButton()
