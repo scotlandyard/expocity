@@ -4,9 +4,10 @@ class VChatDisplayMarksItem:UIButton
 {
     weak var controller:CChat!
     weak var timer:NSTimer?
+    weak var model:MChatDisplayAnnotationsItem!
     private let kTimeInterval:NSTimeInterval = 5
     
-    convenience init(controller:CChat)
+    convenience init(controller:CChat, model:MChatDisplayAnnotationsItem)
     {
         self.init()
         clipsToBounds = true
@@ -16,6 +17,7 @@ class VChatDisplayMarksItem:UIButton
         imageView!.contentMode = UIViewContentMode.Center
         imageView!.clipsToBounds = true
         addTarget(self, action:#selector(self.actionButton(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        self.model = model
         self.controller = controller
     }
     
@@ -46,5 +48,9 @@ class VChatDisplayMarksItem:UIButton
     {
         timer.invalidate()
         selected = false
+        
+        let alertMessage:String = model.text
+        let alertType:VMainAlert.VMainAlertType = VMainAlert.VMainAlertType.Annotation
+        VMainAlert.Show(alertMessage, type:alertType)
     }
 }
