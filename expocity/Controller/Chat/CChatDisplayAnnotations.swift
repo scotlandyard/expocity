@@ -56,11 +56,13 @@ class CChatDisplayAnnotations:CController
     {
         addingAnnotation?.text = text
         viewAnnotations.confirmTextAnnotation()
+        controllerChat.viewChat.display.marks.addItems()
     }
     
     func removeAnnotation(item:MChatDisplayAnnotationsItem)
     {
         controllerChat.model.annotations.removeAnnotation(item)
+        controllerChat.viewChat.display.marks.addItems()
         viewAnnotations.list.collectionView.reloadData()
         viewAnnotations.placer.reloadItems()
     }
