@@ -35,15 +35,17 @@ class MChatMenuItemPicture:MChatMenuItem
         let actionChange:UIAlertAction = UIAlertAction(
             title:NSLocalizedString("MChatMenuItemPicture_alertChange", comment:""),
             style:UIAlertActionStyle.Default)
-        { [weak self] (action) in
+        { [weak controller] (action) in
             
+            controller?.viewChat.presentImagePicker()
         }
         
         let actionRemove:UIAlertAction = UIAlertAction(
             title:NSLocalizedString("MChatMenuItemPicture_alertRemove", comment:""),
             style:UIAlertActionStyle.Destructive)
-        { [weak self] (action) in
+        { [weak controller] (action) in
             
+            controller?.removeImage()
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(
