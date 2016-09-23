@@ -78,6 +78,7 @@ class VChatDisplayAnnotationsPlacer:UIView
     
     func cancelAnnotation()
     {
+        reloadItems()
         tapGesture.enabled = false
         itemContainer.userInteractionEnabled = true
     }

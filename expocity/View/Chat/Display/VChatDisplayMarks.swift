@@ -13,7 +13,7 @@ class VChatDisplayMarks:UIView
         
         super.init(frame:CGRectZero)
         clipsToBounds = false
-        backgroundColor = UIColor(red:1, green:0, blue:0, alpha:0.2)
+        backgroundColor = UIColor.clearColor()
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
