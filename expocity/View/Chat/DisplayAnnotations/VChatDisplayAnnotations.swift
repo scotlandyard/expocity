@@ -279,11 +279,12 @@ class VChatDisplayAnnotations:UIView
     {
         tutorial.tutorialText()
         editText.beginEditingText()
+        placer.reloadItems()
     }
     
     func confirmTextAnnotation()
     {
-        list.userInteractionEnabled = true
+        list.alpha = 1
         list.collectionView.reloadData()
         tutorial.closeTutorial()
         placer.reloadItems()
