@@ -12,11 +12,10 @@ class VMainAlert:UIView
     let kHeight:CGFloat = 90
     weak var layoutTop:NSLayoutConstraint!
     weak var timer:NSTimer?
-    private let kIconAnnotation:String = ""
+    private let kIconAnnotation:String = "alertAnnotation"
     private let kIconWarning:String = ""
     private let kIconError:String = ""
-    private let kImageViewWidth:CGFloat = 50
-    private let kLabelMarginRight:CGFloat = 10
+    private let kImageViewWidth:CGFloat = 30
     private let kMarginTop:CGFloat = 20
     private let kAnimationDuration:NSTimeInterval = 0.2
     private let kAlertDuration:NSTimeInterval = 3
@@ -97,11 +96,10 @@ class VMainAlert:UIView
         
         let metrics:[String:AnyObject] = [
             "imageWidth":kImageViewWidth,
-            "labelMarginRight":kLabelMarginRight,
             "marginTop":kMarginTop]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[imageView(imageWidth)]-0-[label]-(labelMarginRight)-|",
+            "H:|-0-[imageView(imageWidth)]-0-[label]-(imageWidth)-|",
             options:[],
             metrics:metrics,
             views:views))
