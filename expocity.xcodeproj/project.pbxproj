@@ -367,6 +367,29 @@
 			path = DisplayAnnotations;
 			sourceTree = "<group>";
 		};
+		DA4EB6991D95EEA700E15758 /* Emoji */ = {
+			isa = PBXGroup;
+			children = (
+				DA4EB69A1D95EEA700E15758 /* Chat */,
+				DA4EB69B1D95EEA700E15758 /* Keyboard */,
+			);
+			path = Emoji;
+			sourceTree = "<group>";
+		};
+		DA4EB69A1D95EEA700E15758 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		DA4EB69B1D95EEA700E15758 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
 		DA4F81791D7BB7FC00CC8B39 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +584,7 @@
 		DA8B1B841D7E22B9004D8457 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				DA4EB6991D95EEA700E15758 /* Emoji */,
 				DA4A20161D9094A200BCDFCA /* DisplayAnnotations */,
 				DAE27C581D8AEAD500E43F33 /* DisplayOptions */,
 				DA9846041D89D61B0084A0A6 /* DisplayDetail */,
