@@ -29,6 +29,8 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         fieldBase.clipsToBounds = true
         fieldBase.backgroundColor = UIColor.whiteColor()
         fieldBase.layer.cornerRadius = kBorderRadius
+        fieldBase.layer.borderWidth = 1
+        fieldBase.layer.borderColor = UIColor(white:0, alpha:0.1).CGColor
         
         let textField:UITextField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
