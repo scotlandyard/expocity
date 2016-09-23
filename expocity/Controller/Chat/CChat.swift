@@ -84,6 +84,7 @@ class CChat:CController
     {
         let controllerAnnotations:CChatDisplayAnnotations = CChatDisplayAnnotations(controllerChat:self)
         parent.over(controllerAnnotations)
+        viewChat.display.displayAnnotations()
         
         NSNotificationCenter.defaultCenter().removeObserver(viewChat)
     }

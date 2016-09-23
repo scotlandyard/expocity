@@ -103,6 +103,7 @@ class VChatDisplayAnnotationsBar:UIView
     {
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
         controller.controllerChat.viewChat.listenToKeyboard()
+        controller.controllerChat.viewChat.display.hideAnnotations()
         controller.parent.dismiss()
     }
     
