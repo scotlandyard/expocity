@@ -89,7 +89,7 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[border]-0-[marks]-0-|",
+            "V:[border]-0-[marks]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -201,5 +201,15 @@ class VChatDisplay:UIView
         imageView.image = nil
         controller.viewChat.input.updateStandbyMenu()
         layoutImage()
+    }
+    
+    func displayAnnotations()
+    {
+        marks.hidden = true
+    }
+    
+    func hideAnnotations()
+    {
+        marks.hidden = false
     }
 }
