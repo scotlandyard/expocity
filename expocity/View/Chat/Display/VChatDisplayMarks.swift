@@ -65,7 +65,7 @@ class VChatDisplayMarks:UIView
         
         for modelItem:MChatDisplayAnnotationsItem in controller.model.annotations.items
         {
-            let viewItem:VChatDisplayMarksItem = VChatDisplayMarksItem(controller:controller)
+            let viewItem:VChatDisplayMarksItem = VChatDisplayMarksItem(controller:controller, model:modelItem)
             button.addSubview(viewItem)
             
             let percentX:CGFloat = modelItem.xPercent * imageWidth
