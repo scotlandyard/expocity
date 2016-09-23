@@ -263,14 +263,14 @@ class VChatDisplayAnnotations:UIView
     
     func addAnnotation()
     {
-        list.userInteractionEnabled = false
+        list.alpha = 0
         tutorial.tutorialPlaceMark()
         placer.addAnnotation()
     }
     
     func cancelAnnotation()
     {
-        list.userInteractionEnabled = true
+        list.alpha = 1
         tutorial.closeTutorial()
         placer.cancelAnnotation()
     }
