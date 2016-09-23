@@ -12,39 +12,47 @@ class MChatMenuItemPicture:MChatMenuItem
     override func selected(controller:CChat)
     {
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
-        controller.viewChat.presentImagePicker()
+        
+        if controller.viewChat.display.imageView.image == nil
+        {
+            controller.viewChat.presentImagePicker()
+        }
+        else
+        {
+            showAlert(controller)
+        }
     }
     
     //MARK: private
     
-    private func showAlert()
+    private func showAlert(controller:CChat)
     {
-        UIApplication.sharedApplication().keyWindow!.endEditing(true)
-        let text:String = model.text
-        
         let alert:UIAlertController = UIAlertController(
-            title:NSLocalizedString("VChatDisplayAnnotationsListCell_removeTitle", comment:""),
-            message:text,
+            title:NSLocalizedString("MChatMenuItemPicture_alertTitle", comment:""),
+            message:nil,
             preferredStyle:UIAlertControllerStyle.ActionSheet)
         
-        let actionDo:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("VChatDisplayAnnotationsListCell_removeButton", comment:""),
-            style:
-            UIAlertActionStyle.Default)
+        let actionChange:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MChatMenuItemPicture_alertChange", comment:""),
+            style:UIAlertActionStyle.Default)
         { [weak self] (action) in
             
-            if self != nil
-            {
-                self!.controller.removeAnnotation(self!.model)
-            }
+        }
+        
+        let actionRemove:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MChatMenuItemPicture_alertRemove", comment:""),
+            style:UIAlertActionStyle.Destructive)
+        { [weak self] (action) in
+            
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("VChatDisplayAnnotationsListCell_removeCancel", comment:""),
+            title:NSLocalizedString("MChatMenuItemPicture_alertCancel", comment:""),
             style:UIAlertActionStyle.Cancel,
             handler:nil)
         
-        alert.addAction(actionDo)
+        alert.addAction(actionChange)
+        alert.addAction(actionRemove)
         alert.addAction(actionCancel)
         
         controller.parent.presentViewController(
