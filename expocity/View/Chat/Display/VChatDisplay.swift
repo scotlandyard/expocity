@@ -194,6 +194,7 @@ class VChatDisplay:UIView
         imageView.image = image
         controller.viewChat.input.updateStandbyMenu()
         layoutImage()
+        marks.addItems()
     }
     
     func removeImage()
