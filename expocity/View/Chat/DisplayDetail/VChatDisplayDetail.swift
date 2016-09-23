@@ -142,11 +142,11 @@ class VChatDisplayDetail:UIView
         layoutImageRight.constant = 0
         
         UIView.animateWithDuration(animationDuration, animations:
-            { [weak self] in
-                
-                self?.layoutIfNeeded()
-                self?.blur.alpha = 1
-            })
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+            self?.blur.alpha = 1
+        })
         { (done) in
             
             UIView.animateWithDuration(animationDuration)

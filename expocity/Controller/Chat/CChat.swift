@@ -46,6 +46,14 @@ class CChat:CController
     
     //MARK: public
     
+    func displayImageRect() -> CGRect
+    {
+        let imageView:UIImageView = viewChat.display.imageView
+        let rect:CGRect = imageView.superview!.convertRect(imageView.frame, toView:parent.viewParent)
+        
+        return rect
+    }
+    
     func addTextMine(text:String)
     {
         let chatItem:MChatItemTextMine = MChatItemTextMine(text:text)
@@ -56,8 +64,9 @@ class CChat:CController
         viewChat.conversation.didAddChatItem(indexes)
     }
     
-    func displayDetail(imageView:UIImageView)
+    func displayDetail()
     {
+        let imageView:UIImageView = viewChat.display.imageView
         let image:UIImage? = imageView.image
         let rect:CGRect = imageView.superview!.convertRect(imageView.frame, toView:parent.viewParent)
         let displayOption:MChatDisplayOptionsItem = model.displayOption
@@ -69,5 +78,20 @@ class CChat:CController
     {
         let controllerOptions:CChatDisplayOptions = CChatDisplayOptions(modelChat:model)
         parent.over(controllerOptions)
+    }
+    
+    func displayAnnotations()
+    {
+        let controllerAnnotations:CChatDisplayAnnotations = CChatDisplayAnnotations(controllerChat:self)
+        parent.over(controllerAnnotations)
+        viewChat.display.displayAnnotations()
+        
+        NSNotificationCenter.defaultCenter().removeObserver(viewChat)
+    }
+    
+    func removeImage()
+    {
+        model.annotations.items = []
+        viewChat.display.removeImage()
     }
 }
