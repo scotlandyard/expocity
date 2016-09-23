@@ -26,10 +26,10 @@ class VChatDisplayAnnotations:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let shadeTop:VChatDisplayAnnotationsShade = VChatDisplayAnnotationsShade()
+        let shadeTop:VChatDisplayAnnotationsShade = VChatDisplayAnnotationsShade(borderTop:false, borderBottom:true)
         self.shadeTop = shadeTop
         
-        let shadeBottom:VChatDisplayAnnotationsShade = VChatDisplayAnnotationsShade()
+        let shadeBottom:VChatDisplayAnnotationsShade = VChatDisplayAnnotationsShade(borderTop:true, borderBottom:false)
         self.shadeBottom = shadeBottom
         
         let list:VChatDisplayAnnotationsList = VChatDisplayAnnotationsList(controller:controller)
