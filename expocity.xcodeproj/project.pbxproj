@@ -370,17 +370,10 @@
 		DA4EB6991D95EEA700E15758 /* Emoji */ = {
 			isa = PBXGroup;
 			children = (
-				DA4EB69A1D95EEA700E15758 /* Chat */,
+				DA4EB69F1D95EF2300E15758 /* Conversation */,
 				DA4EB69B1D95EEA700E15758 /* Keyboard */,
 			);
 			path = Emoji;
-			sourceTree = "<group>";
-		};
-		DA4EB69A1D95EEA700E15758 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Chat;
 			sourceTree = "<group>";
 		};
 		DA4EB69B1D95EEA700E15758 /* Keyboard */ = {
@@ -411,6 +404,13 @@
 			children = (
 			);
 			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		DA4EB69F1D95EF2300E15758 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Conversation;
 			sourceTree = "<group>";
 		};
 		DA4F81791D7BB7FC00CC8B39 /* Data */ = {
