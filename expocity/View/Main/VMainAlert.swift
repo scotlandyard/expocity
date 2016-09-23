@@ -9,7 +9,7 @@ class VMainAlert:UIView
         case Error
     }
     
-    let kHeight:CGFloat = 80
+    let kHeight:CGFloat = 90
     weak var layoutTop:NSLayoutConstraint!
     weak var timer:NSTimer?
     private let kIconAnnotation:String = ""
@@ -18,7 +18,7 @@ class VMainAlert:UIView
     private let kImageViewWidth:CGFloat = 50
     private let kLabelMarginRight:CGFloat = 10
     private let kMarginTop:CGFloat = 20
-    private let kAnimationDuration:NSTimeInterval = 0.3
+    private let kAnimationDuration:NSTimeInterval = 0.2
     private let kAlertDuration:NSTimeInterval = 3
     
     class func Show(message:String, type:VMainAlertType)
@@ -59,7 +59,7 @@ class VMainAlert:UIView
                 constant:alertInitialTop)
             
             mainView.addConstraint(alert.layoutTop)
-            mainView.setNeedsLayout()
+            mainView.layoutIfNeeded()
             alert.animateAlert()
         }
     }
@@ -77,7 +77,7 @@ class VMainAlert:UIView
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.Center
-        label.font = UIFont.regular(16)
+        label.font = UIFont.bold(17)
         label.textColor = UIColor.whiteColor()
         label.text = message
         

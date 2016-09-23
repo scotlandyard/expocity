@@ -42,15 +42,15 @@ class VChatDisplayMarksItem:UIButton
             selector:#selector(self.timeOut(sender:)),
             userInfo:nil,
             repeats:false)
+        
+        let alertMessage:String = model.text
+        let alertType:VMainAlert.VMainAlertType = VMainAlert.VMainAlertType.Annotation
+        VMainAlert.Show(alertMessage, type:alertType)
     }
     
     func timeOut(sender timer:NSTimer)
     {
         timer.invalidate()
         selected = false
-        
-        let alertMessage:String = model.text
-        let alertType:VMainAlert.VMainAlertType = VMainAlert.VMainAlertType.Annotation
-        VMainAlert.Show(alertMessage, type:alertType)
     }
 }

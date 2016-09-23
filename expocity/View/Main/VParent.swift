@@ -96,10 +96,10 @@ class VParent:UIView
         
         UIView.animateWithDuration(
             kAnimationDurantion,
-            animations:
-            {
-                self.layoutIfNeeded()
-            })
+        animations:
+        {
+            self.layoutIfNeeded()
+        })
         { (done) in
             
             completion()
