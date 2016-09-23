@@ -10,10 +10,10 @@ class MChatMenuStatusStandbyImage:MChatMenuStatus
         let itemEmoji:MChatMenuItemEmoji = MChatMenuItemEmoji()
         
         let items:[MChatMenuItem] = [
-            itemPicture,
+            itemEmoji,
             itemOptions,
             itemAnnotate,
-            itemEmoji
+            itemPicture
         ]
         
         super.init(items:items)
