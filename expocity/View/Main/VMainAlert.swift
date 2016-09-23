@@ -77,7 +77,7 @@ class VMainAlert:UIView
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.Center
-        label.font = UIFont.bold(17)
+        label.font = UIFont.bold(18)
         label.textColor = UIColor.whiteColor()
         label.text = message
         
