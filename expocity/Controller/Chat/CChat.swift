@@ -64,8 +64,9 @@ class CChat:CController
         viewChat.conversation.didAddChatItem(indexes)
     }
     
-    func displayDetail(imageView:UIImageView)
+    func displayDetail()
     {
+        let imageView:UIImageView = viewChat.display.imageView
         let image:UIImage? = imageView.image
         let rect:CGRect = imageView.superview!.convertRect(imageView.frame, toView:parent.viewParent)
         let displayOption:MChatDisplayOptionsItem = model.displayOption
