@@ -68,6 +68,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
     func actionRemove(sender button:UIButton)
     {
         UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        
         let text:String = model.text
         
         let alert:UIAlertController = UIAlertController(
@@ -77,8 +78,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         
         let actionDo:UIAlertAction = UIAlertAction(
             title:NSLocalizedString("VChatDisplayAnnotationsListCell_removeButton", comment:""),
-            style:
-            UIAlertActionStyle.Default)
+            style:UIAlertActionStyle.Default)
         { [weak self] (action) in
             
             if self != nil

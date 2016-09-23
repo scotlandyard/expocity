@@ -5,6 +5,10 @@
 "MChatDisplayOptionsItemFit_title"="Fit";
 "MChatDisplayOptionsItemFill_title"="Fill";
 "MChatDisplayOptionsItemCenter_title"="Center";
+"MChatMenuItemPicture_alertTitle"="Display picture";
+"MChatMenuItemPicture_alertChange"="Change";
+"MChatMenuItemPicture_alertRemove"="Remove";
+"MChatMenuItemPicture_alertCancel"="Cancel";
 
 "VHomeCellCreate_label"="Create";
 "VHomeCellTitle_placeholder"="Room title";
