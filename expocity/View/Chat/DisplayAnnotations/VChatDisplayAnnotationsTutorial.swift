@@ -11,7 +11,6 @@ class VChatDisplayAnnotationsTutorial:UIView
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor(white:0, alpha:0.9)
         userInteractionEnabled = false
         alpha = 0
         self.controller = controller
