@@ -39,7 +39,7 @@ class VChatDisplayMarks:UIView
         let imageHeight:CGFloat = bounds.maxY
         
         let button:UIButton = UIButton()
-        button.backgroundColor = UIColor(red:1, green:0, blue:0, alpha:0.2)
+        button.backgroundColor = UIColor.clearColor()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
         button.addTarget(self, action:#selector(self.actionButton(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
