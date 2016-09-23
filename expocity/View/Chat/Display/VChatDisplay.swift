@@ -81,6 +81,11 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[marks]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[button]-0-|",
             options:[],
             metrics:metrics,
@@ -91,7 +96,12 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[button]-0-|",
+            "H:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:[border]-0-[marks]-0-|",
             options:[],
             metrics:metrics,
             views:views))

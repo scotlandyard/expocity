@@ -13,8 +13,15 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         hidden = true
-        backgroundColor = UIColor(white:0.95, alpha:1)
+        backgroundColor = UIColor(white:0.96, alpha:1)
         self.controller = controller
+        
+        let borderColor:UIColor = UIColor(white:0, alpha:0.1)
+        
+        let topBorder:UIView = UIView()
+        topBorder.userInteractionEnabled = false
+        topBorder.translatesAutoresizingMaskIntoConstraints = false
+        topBorder.backgroundColor = borderColor
         
         let doneButton:UIButton = UIButton()
         doneButton.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +37,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         fieldBase.backgroundColor = UIColor.whiteColor()
         fieldBase.layer.cornerRadius = kBorderRadius
         fieldBase.layer.borderWidth = 1
-        fieldBase.layer.borderColor = UIColor(white:0, alpha:0.1).CGColor
+        fieldBase.layer.borderColor = borderColor.CGColor
         
         let textField:UITextField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -51,13 +58,15 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         self.textField = textField
         
         fieldBase.addSubview(textField)
+        addSubview(topBorder)
         addSubview(fieldBase)
         addSubview(doneButton)
         
         let views:[String:AnyObject] = [
             "textField":textField,
             "fieldBase":fieldBase,
-            "doneButton":doneButton]
+            "doneButton":doneButton,
+            "topBorder":topBorder]
         
         let metrics:[String:AnyObject] = [
             "doneButtonWidth":kDoneButtonWidth]
@@ -68,7 +77,12 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-5-[textField]-0-|",
+            "H:|-7-[textField]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[topBorder]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -84,6 +98,11 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-6-[fieldBase]-6-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[topBorder(1)]",
             options:[],
             metrics:metrics,
             views:views))
