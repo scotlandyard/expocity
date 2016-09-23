@@ -5,7 +5,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     weak var controller:CChat!
     weak var collection:UICollectionView!
     let model:MChatMenu
-    private let kCellWidth:CGFloat = 45
+    private let kCellWidth:CGFloat = 50
     
     init(controller:CChat)
     {
