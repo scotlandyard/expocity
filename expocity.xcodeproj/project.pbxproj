@@ -390,6 +390,29 @@
 			path = Keyboard;
 			sourceTree = "<group>";
 		};
+		DA4EB69C1D95EEF900E15758 /* Emoji */ = {
+			isa = PBXGroup;
+			children = (
+				DA4EB69D1D95EEF900E15758 /* Conversation */,
+				DA4EB69E1D95EEF900E15758 /* Keyboard */,
+			);
+			path = Emoji;
+			sourceTree = "<group>";
+		};
+		DA4EB69D1D95EEF900E15758 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		DA4EB69E1D95EEF900E15758 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
 		DA4F81791D7BB7FC00CC8B39 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +622,7 @@
 		DA8B1B871D7E23AB004D8457 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				DA4EB69C1D95EEF900E15758 /* Emoji */,
 				DAE27C611D8B116600E43F33 /* Display */,
 				DA0DEE671D88C16400B52422 /* Item */,
 				DA0DEE6B1D88C16400B52422 /* Main */,
