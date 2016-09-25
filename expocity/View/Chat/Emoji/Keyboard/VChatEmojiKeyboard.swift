@@ -4,11 +4,11 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
 {
     weak var controller:CChat!
     weak var collectionView:UICollectionView!
-    let model:MChatEmojiKeyboardItem
+    let model:MChatEmojiKeyboard
     
     init(controller:CChat)
     {
-        model = MChatEmojiKeyboardItem()
+        model = MChatEmojiKeyboard()
         
         super.init(frame:CGRectZero)
         clipsToBounds = true
@@ -27,16 +27,27 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:NSIndexPath) -> MChatEmojiKeyboardItem
+    {
+        let item:MChatEmojiKeyboardItem = model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collection del
     
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
-        return 0
+        return 1
     }
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int = model.items.count
+        
+        return count
     }
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
