@@ -4,9 +4,12 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
 {
     weak var controller:CChat!
     weak var collectionView:UICollectionView!
+    let model:MChatEmojiKeyboardItem
     
     init(controller:CChat)
     {
+        model = MChatEmojiKeyboardItem()
+        
         super.init(frame:CGRectZero)
         clipsToBounds = true
         backgroundColor = UIColor.whiteColor()
