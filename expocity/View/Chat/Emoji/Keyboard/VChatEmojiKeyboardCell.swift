@@ -13,4 +13,10 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MChatEmojiKeyboardItem)
+    {
+    }
 }

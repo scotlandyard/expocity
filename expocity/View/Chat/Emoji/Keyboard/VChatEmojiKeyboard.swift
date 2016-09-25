@@ -57,6 +57,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
             VChatEmojiKeyboardCell.reusableIdentifier(),
             forIndexPath:
             indexPath) as! VChatEmojiKeyboardCell
+        cell.config(item)
         
         return cell
     }
