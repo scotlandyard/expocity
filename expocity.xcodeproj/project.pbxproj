@@ -101,6 +101,7 @@
 		DA9846061D89D61B0084A0A6 /* VChatDisplayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */; };
 		DA9846081D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */; };
 		DAAA070E1D974D4400B9D67A /* VChatEmojiKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAA070D1D974D4400B9D67A /* VChatEmojiKeyboard.swift */; };
+		DAAA07101D974DEB00B9D67A /* VChatEmojiKeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAA070F1D974DEB00B9D67A /* VChatEmojiKeyboardCell.swift */; };
 		DAE27C5A1D8AEB4A00E43F33 /* VChatDisplayOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C591D8AEB4A00E43F33 /* VChatDisplayOptions.swift */; };
 		DAE27C5C1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C5B1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift */; };
 		DAE27C5E1D8AEDCE00E43F33 /* CChatDisplayOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE27C5D1D8AEDCE00E43F33 /* CChatDisplayOptions.swift */; };
@@ -219,6 +220,7 @@
 		DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetail.swift; sourceTree = "<group>"; };
 		DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetailBar.swift; sourceTree = "<group>"; };
 		DAAA070D1D974D4400B9D67A /* VChatEmojiKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatEmojiKeyboard.swift; sourceTree = "<group>"; };
+		DAAA070F1D974DEB00B9D67A /* VChatEmojiKeyboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatEmojiKeyboardCell.swift; sourceTree = "<group>"; };
 		DAC3CAE81D7BB5C60090ECCD /* expocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC3CAFA1D7BB5C60090ECCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC3CAFF1D7BB5C60090ECCD /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				DAAA070D1D974D4400B9D67A /* VChatEmojiKeyboard.swift */,
+				DAAA070F1D974DEB00B9D67A /* VChatEmojiKeyboardCell.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				DA8B1B7B1D7E072E004D8457 /* CRooms.swift in Sources */,
 				DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */,
 				DA8B1B961D7E25C1004D8457 /* VHomeCellCreate.swift in Sources */,
+				DAAA07101D974DEB00B9D67A /* VChatEmojiKeyboardCell.swift in Sources */,
 				DA9846081D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift in Sources */,
 				DA21D1F31D9186E8009A149E /* VChatDisplayAnnotationsList.swift in Sources */,
 				DA8B1B921D7E2548004D8457 /* MHomeItemTitle.swift in Sources */,
