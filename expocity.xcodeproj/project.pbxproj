@@ -58,7 +58,7 @@
 		DA4F81931D7BBA6A00CC8B39 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817E1D7BB7FC00CC8B39 /* test.swift */; };
 		DA4F81A11D7D062500CC8B39 /* CategoryMKAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */; };
 		DA4F81A21D7D062500CC8B39 /* CategoryDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81981D7D062500CC8B39 /* CategoryDate.swift */; };
-		DA4F81A31D7D062500CC8B39 /* CategoryNSFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */; };
+		DA4F81A31D7D062500CC8B39 /* CategoryFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81991D7D062500CC8B39 /* CategoryFileManager.swift */; };
 		DA4F81A41D7D062500CC8B39 /* CategoryNSManagerdObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */; };
 		DA4F81A51D7D062500CC8B39 /* CategoryNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819B1D7D062500CC8B39 /* CategoryNotification.swift */; };
 		DA4F81A61D7D062500CC8B39 /* CategoryUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */; };
@@ -179,7 +179,7 @@
 		DA4F818C1D7BB97B00CC8B39 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryMKAnnotationView.swift; sourceTree = "<group>"; };
 		DA4F81981D7D062500CC8B39 /* CategoryDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDate.swift; sourceTree = "<group>"; };
-		DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSFileManager.swift; sourceTree = "<group>"; };
+		DA4F81991D7D062500CC8B39 /* CategoryFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFileManager.swift; sourceTree = "<group>"; };
 		DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSManagerdObject.swift; sourceTree = "<group>"; };
 		DA4F819B1D7D062500CC8B39 /* CategoryNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNotification.swift; sourceTree = "<group>"; };
 		DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUICollectionReusableView.swift; sourceTree = "<group>"; };
@@ -521,7 +521,7 @@
 			children = (
 				DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */,
 				DA4F81981D7D062500CC8B39 /* CategoryDate.swift */,
-				DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */,
+				DA4F81991D7D062500CC8B39 /* CategoryFileManager.swift */,
 				DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */,
 				DA4F819B1D7D062500CC8B39 /* CategoryNotification.swift */,
 				DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */,
@@ -865,7 +865,7 @@
 				DA0DEE7E1D88C16400B52422 /* MChatMenuItemAnnotate.swift in Sources */,
 				DA8B1B981D7E25CE004D8457 /* VHomeCellTitle.swift in Sources */,
 				DA0DEE5F1D88C0C000B52422 /* VChatConversationCell.swift in Sources */,
-				DA4F81A31D7D062500CC8B39 /* CategoryNSFileManager.swift in Sources */,
+				DA4F81A31D7D062500CC8B39 /* CategoryFileManager.swift in Sources */,
 				DA0DEE611D88C0C000B52422 /* VChatConversationCellTextMine.swift in Sources */,
 				DA0DEE841D88C16400B52422 /* MChatMenuStatusTyping.swift in Sources */,
 				DA0DEE661D88C0C000B52422 /* VChat.swift in Sources */,
