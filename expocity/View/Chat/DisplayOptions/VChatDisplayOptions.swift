@@ -11,7 +11,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     private let kBaseMarginVertical:CGFloat = 40
     private let kBaseMarginHorizontal:CGFloat = 10
     private let kButtonDoneHeight:CGFloat = 40
-    private let kWaitingSelected:UInt64 = 150
+    private let kWaitingTime:Double = 0.15
     
     convenience init(controller:CChatDisplayOptions)
     {
@@ -138,7 +138,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         
         let selected:IndexPath = IndexPath(item:controller.model.selected, section:0)
         
-        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_MSEC * kWaitingSelected))
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         { [weak self] in
             
             self?.collectionView.selectItem(

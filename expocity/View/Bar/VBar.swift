@@ -12,6 +12,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private let model:MMenu
     private let kCellWidth:CGFloat = 80
     private let kAnimationDuration:TimeInterval = 0.3
+    private let kWaitingTime:Double = 1
     
     init(parent:CParent, barHeight:CGFloat, barDelta:CGFloat)
     {
@@ -116,7 +117,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             metrics:metrics,
             views:views))
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(NSEC_PER_SEC))
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         {
             let indexPath:IndexPath = IndexPath(item:self.model.current.index, section:0)
             self.collection.selectItem(

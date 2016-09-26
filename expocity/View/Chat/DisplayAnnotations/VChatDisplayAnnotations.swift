@@ -16,7 +16,7 @@ class VChatDisplayAnnotations:UIView
     weak var layoutEditTextBottom:NSLayoutConstraint!
     private let kEditTextHeight:CGFloat = 45
     private let kAnimationDuration:TimeInterval = 0.3
-    private let kDelayLayout:UInt64 = 100
+    private let kWaitingTime:Double = 0.1
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -181,7 +181,7 @@ class VChatDisplayAnnotations:UIView
     
     override func layoutSubviews()
     {
-        let delayLayout:UInt64 = self.kDelayLayout
+        let delayLayout:Double = kWaitingTime
         
         DispatchQueue.main.async
         { [weak self] in
@@ -189,7 +189,7 @@ class VChatDisplayAnnotations:UIView
             self?.shadeTop.alpha = 0
             self?.shadeBottom.alpha = 0
             
-            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_MSEC * delayLayout))
+            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + delayLayout)
             { [weak self] in
                 
                 self?.layoutShades()

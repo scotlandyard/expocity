@@ -6,6 +6,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     weak var collection:UICollectionView!
     let model:MChatMenu
     private let kCellWidth:CGFloat = 50
+    private let kWaitingTime:Double = 1
     
     init(controller:CChat)
     {
@@ -181,7 +182,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         let item:MChatMenuItem = modelAtIndex(index:indexPath)
         item.selected(controller:controller)
         
-        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_SEC))
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         { [weak collectionView] in
             
             collectionView?.selectItem(
