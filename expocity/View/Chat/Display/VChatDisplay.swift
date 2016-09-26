@@ -117,7 +117,7 @@ class VChatDisplay:UIView
         NotificationCenter.default.addObserver(
             self,
             selector:#selector(self.notifiedDisplayOptionChanged(sender:)),
-            name:Notification.Name.ChatDisplayOptionChanged.rawValue,
+            name:NSNotification.NotificationName.ChatDisplayOptionChanged,
             object:nil)
     }
     

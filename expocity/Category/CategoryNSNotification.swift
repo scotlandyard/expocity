@@ -2,7 +2,7 @@ import Foundation
 
 extension Notification
 {
-    enum Name:String
+    enum NotificationName:String
     {
         case ChatDisplayOptionChanged = "chatDisplayOptionChanged"
     }
