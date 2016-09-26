@@ -29,9 +29,9 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     
     //MARK: private
     
-    fileprivate func modelAtIndex(_ index:IndexPath) -> MChatEmojiKeyboardItem
+    private func modelAtIndex(index:IndexPath) -> MChatEmojiKeyboardItem
     {
-        let item:MChatEmojiKeyboardItem = model.items[(index as NSIndexPath).item]
+        let item:MChatEmojiKeyboardItem = model.items[index.item]
         
         return item
     }
