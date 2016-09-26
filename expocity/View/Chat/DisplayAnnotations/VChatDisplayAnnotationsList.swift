@@ -48,21 +48,21 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
             "collectionView":collectionView,
             "bar":bar]
         
-        let metrics:[String:AnyObject] = [
-            "barHeight":barHeight as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "barHeight":barHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[collectionView]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[bar]-0-|",
+            withVisualFormat:"H:|-0-[bar]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[bar(barHeight)]-0-[collectionView]-0-|",
+            withVisualFormat:"V:|-0-[bar(barHeight)]-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -70,9 +70,9 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
     
     //MARK: private
     
-    fileprivate func modelAtIndex(_ index:IndexPath) -> MChatDisplayAnnotationsItem
+    private func modelAtIndex(index:IndexPath) -> MChatDisplayAnnotationsItem
     {
-        let item:MChatDisplayAnnotationsItem = controller.controllerChat.model.annotations.items[(index as NSIndexPath).item]
+        let item:MChatDisplayAnnotationsItem = controller.controllerChat.model.annotations.items[index.item]
         
         return item
     }
@@ -103,9 +103,8 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
     {
         let item:MChatDisplayAnnotationsItem = modelAtIndex(indexPath)
         let cell:VChatDisplayAnnotationsListCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: VChatDisplayAnnotationsListCell.reusableIdentifier(),
-            for:
-            indexPath) as! VChatDisplayAnnotationsListCell
+            withReuseIdentifier:VChatDisplayAnnotationsListCell.reusableIdentifier(),
+            for:indexPath) as! VChatDisplayAnnotationsListCell
         cell.config(item, controller:controller)
         
         return cell

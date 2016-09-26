@@ -37,35 +37,35 @@ class VChatDisplayAnnotationsShade:UIView
             "topBorder":topBorder,
             "bottomBorder":bottomBorder]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[blurView]-0-|",
+            withVisualFormat:"H:|-0-[blurView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[topBorder]-0-|",
+            withVisualFormat:"H:|-0-[topBorder]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[bottomBorder]-0-|",
+            withVisualFormat:"H:|-0-[bottomBorder]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[blurView]-0-|",
+            withVisualFormat:"V:|-0-[blurView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[topBorder(1)]",
+            withVisualFormat:"V:|-0-[topBorder(1)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[bottomBorder(1)]-0-|",
+            withVisualFormat:"V:[bottomBorder(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

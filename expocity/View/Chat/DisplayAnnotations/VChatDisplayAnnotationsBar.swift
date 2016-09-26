@@ -23,7 +23,10 @@ class VChatDisplayAnnotationsBar:UIView
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
-        backButton.addTarget(self, action:#selector(self.actionBack(sender:)), for:UIControlEvents.touchUpInside)
+        backButton.addTarget(
+            self,
+            action:#selector(self.actionBack(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -40,7 +43,10 @@ class VChatDisplayAnnotationsBar:UIView
         addButton.imageView!.clipsToBounds = true
         addButton.imageView!.contentMode = UIViewContentMode.center
         addButton.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
-        addButton.addTarget(self, action:#selector(self.actionAdd(sender:)), for:UIControlEvents.touchUpInside)
+        addButton.addTarget(
+            self,
+            action:#selector(self.actionAdd(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(label)
@@ -53,45 +59,45 @@ class VChatDisplayAnnotationsBar:UIView
             "label":label,
             "addButton":addButton]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[border]-0-|",
+            withVisualFormat:"H:|-0-[border]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[label]-0-|",
+            withVisualFormat:"H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[backButton(60)]",
+            withVisualFormat:"H:|-0-[backButton(60)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:[addButton(60)]-0-|",
+            withVisualFormat:"H:[addButton(60)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[border(1)]-0-|",
+            withVisualFormat:"V:[border(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[backButton(44)]-0-|",
+            withVisualFormat:"V:[backButton(44)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[label(44)]-0-|",
+            withVisualFormat:"V:[label(44)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[addButton(44)]-0-|",
+            withVisualFormat:"V:[addButton(44)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
