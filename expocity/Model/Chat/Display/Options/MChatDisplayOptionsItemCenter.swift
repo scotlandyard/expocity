@@ -2,8 +2,8 @@ import UIKit
 
 class MChatDisplayOptionsItemCenter:MChatDisplayOptionsItem
 {
-    fileprivate let kContentMode:UIViewContentMode = UIViewContentMode.center
-    fileprivate let kIcon:String = "chatDisplayCenter"
+    private let kContentMode:UIViewContentMode = UIViewContentMode.center
+    private let kIcon:String = "chatDisplayCenter"
     
     init()
     {

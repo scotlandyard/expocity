@@ -20,7 +20,7 @@ extension UILocalNotification
     
     //MARK: private
     
-    fileprivate class func Remainder() -> UILocalNotification
+    private class func Remainder() -> UILocalNotification
     {
         let kRemainderMinHour:TimeInterval = 7
         let kRemainderMaxHour:TimeInterval = 21

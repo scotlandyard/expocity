@@ -2,8 +2,8 @@ import UIKit
 
 class MHomeItemCreate:MHomeItem
 {
-    fileprivate let kCellHeight:CGFloat = 50
-    fileprivate let kSelectable:Bool = true
+    private let kCellHeight:CGFloat = 50
+    private let kSelectable:Bool = true
     
     init()
     {

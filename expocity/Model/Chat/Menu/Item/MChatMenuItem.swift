@@ -11,7 +11,7 @@ class MChatMenuItem
     
     //MARK: public
     
-    func selected(_ controller:CChat)
+    func selected(controller:CChat)
     {
         
     }

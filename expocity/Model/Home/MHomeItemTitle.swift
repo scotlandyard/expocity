@@ -2,8 +2,8 @@ import UIKit
 
 class MHomeItemTitle:MHomeItem
 {
-    fileprivate let kCellHeight:CGFloat = 65
-    fileprivate let kSelectable:Bool = false
+    private let kCellHeight:CGFloat = 65
+    private let kSelectable:Bool = false
     var title:String
     
     init()

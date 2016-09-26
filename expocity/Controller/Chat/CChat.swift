@@ -54,7 +54,7 @@ class CChat:CController
         return rect
     }
     
-    func addTextMine(_ text:String)
+    func addTextMine(text:String)
     {
         let chatItem:MChatItemTextMine = MChatItemTextMine(text:text)
         let index:Int = model.items.count

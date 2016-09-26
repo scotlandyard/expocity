@@ -2,14 +2,14 @@ import UIKit
 
 class MChatMenuItemPicture:MChatMenuItem
 {
-    fileprivate let kIcon:String = "chatPicture"
+    private let kIcon:String = "chatPicture"
     
     init()
     {
         super.init(icon:kIcon)
     }
     
-    override func selected(_ controller:CChat)
+    override func selected(controller:CChat)
     {
         UIApplication.shared.keyWindow!.endEditing(true)
         
@@ -25,7 +25,7 @@ class MChatMenuItemPicture:MChatMenuItem
     
     //MARK: private
     
-    fileprivate func showAlert(_ controller:CChat)
+    private func showAlert(controller:CChat)
     {
         let alert:UIAlertController = UIAlertController(
             title:NSLocalizedString("MChatMenuItemPicture_alertTitle", comment:""),

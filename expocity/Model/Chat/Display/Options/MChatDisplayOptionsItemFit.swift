@@ -2,8 +2,8 @@ import UIKit
 
 class MChatDisplayOptionsItemFit:MChatDisplayOptionsItem
 {
-    fileprivate let kContentMode:UIViewContentMode = UIViewContentMode.scaleAspectFit
-    fileprivate let kIcon:String = "chatDisplayFit"
+    private let kContentMode:UIViewContentMode = UIViewContentMode.scaleAspectFit
+    private let kIcon:String = "chatDisplayFit"
     
     init()
     {

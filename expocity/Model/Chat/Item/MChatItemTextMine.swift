@@ -2,11 +2,11 @@ import UIKit
 
 class MChatItemTextMine:MChatItemText
 {
-    fileprivate let kFontSize:CGFloat = 15
-    fileprivate let kMarginLeft:CGFloat = 100
-    fileprivate let kMarginRight:CGFloat = 12
-    fileprivate let kMarginTop:CGFloat = 7
-    fileprivate let kMarginBottom:CGFloat = 7
+    private let kFontSize:CGFloat = 15
+    private let kMarginLeft:CGFloat = 100
+    private let kMarginRight:CGFloat = 12
+    private let kMarginTop:CGFloat = 7
+    private let kMarginBottom:CGFloat = 7
     
     init(text:String)
     {

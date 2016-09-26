@@ -43,7 +43,7 @@ class MChatItemText:MChatItem
         let totalMarginHr:CGFloat = marginLeft + marginRight
         let totalMarginVr:CGFloat = marginTop + marginBottom
         let remainWidth:CGFloat = cellWidth - totalMarginHr
-        let maxSize:CGSize = CGSize(width: remainWidth, height: kMaxHeight)
+        let maxSize:CGSize = CGSize(width:remainWidth, height:kMaxHeight)
         let rect:CGRect = attributedString.boundingRect(
             with: maxSize,
             options:stringDrawingOptions,

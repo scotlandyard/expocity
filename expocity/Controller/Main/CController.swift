@@ -15,12 +15,12 @@ class CController:UIViewController
         automaticallyAdjustsScrollViewInsets = false
     }
     
-    override var preferredStatusBarStyle : UIStatusBarStyle
+    override var preferredStatusBarStyle:UIStatusBarStyle
     {
         return UIStatusBarStyle.lightContent
     }
     
-    override var prefersStatusBarHidden : Bool
+    override var prefersStatusBarHidden:Bool
     {
         return false
     }
@@ -40,16 +40,16 @@ class CController:UIViewController
         let metrics:[String:AnyObject] = [:]
         
         view.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[shadow]-0-|",
+            withVisualFormat:"H:|-0-[shadow]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         view.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[shadow]-0-|",
+            withVisualFormat:"V:|-0-[shadow]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         
-        shadow.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
 }

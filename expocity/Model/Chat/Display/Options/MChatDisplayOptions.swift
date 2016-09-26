@@ -37,7 +37,7 @@ class MChatDisplayOptions
     
     //MARK: public
     
-    func selectItem(_ index:Int)
+    func selectItem(index:Int)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in

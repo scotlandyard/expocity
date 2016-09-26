@@ -46,20 +46,20 @@ class CChatDisplayAnnotations:CController
         viewAnnotations.cancelAnnotation()
     }
     
-    func confirmAnnotation(_ xPercent:CGFloat, yPercent:CGFloat)
+    func confirmAnnotation(xPercent:CGFloat, yPercent:CGFloat)
     {
         addingAnnotation?.moveToPoint(xPercent, yPercent:yPercent)
         viewAnnotations.confirmAnnotation()
     }
     
-    func confirmTextAnnotation(_ text:String)
+    func confirmTextAnnotation(text:String)
     {
         addingAnnotation?.text = text
         viewAnnotations.confirmTextAnnotation()
         controllerChat.viewChat.display.marks.addItems()
     }
     
-    func removeAnnotation(_ item:MChatDisplayAnnotationsItem)
+    func removeAnnotation(item:MChatDisplayAnnotationsItem)
     {
         controllerChat.model.annotations.removeAnnotation(item)
         controllerChat.viewChat.display.marks.addItems()
