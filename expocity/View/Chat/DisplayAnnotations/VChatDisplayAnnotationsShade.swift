@@ -32,7 +32,7 @@ class VChatDisplayAnnotationsShade:UIView
         addSubview(topBorder)
         addSubview(bottomBorder)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "blurView":blurView,
             "topBorder":topBorder,
             "bottomBorder":bottomBorder]

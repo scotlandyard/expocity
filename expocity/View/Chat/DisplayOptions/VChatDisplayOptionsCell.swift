@@ -29,7 +29,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         addSubview(label)
         addSubview(imageView)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "imageView":imageView,
             "label":label]
         

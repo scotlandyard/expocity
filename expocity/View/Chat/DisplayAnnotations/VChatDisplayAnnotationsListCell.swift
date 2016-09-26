@@ -34,7 +34,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         addSubview(label)
         addSubview(buttonRemove)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "label":label,
             "buttonRemove":buttonRemove]
         

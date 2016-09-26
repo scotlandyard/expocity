@@ -29,7 +29,7 @@ class VChatDisplayAnnotationsPlacer:UIView
         addGestureRecognizer(tapGesture)
         addSubview(itemContainer)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "itemContainer":itemContainer]
         
         let metrics:[String:CGFloat] = [:]
@@ -119,7 +119,7 @@ class VChatDisplayAnnotationsPlacer:UIView
             let subview:VChatDisplayAnnotationsPlacerItem = VChatDisplayAnnotationsPlacerItem(model:item, controller:controller)
             itemContainer.addSubview(subview)
             
-            let views:[String:AnyObject] = [
+            let views:[String:UIView] = [
                 "item":subview]
             
             let metrics:[String:CGFloat] = [

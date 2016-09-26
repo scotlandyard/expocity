@@ -9,8 +9,8 @@ class VChatDisplayDetail:UIView
     weak var layoutImageBottom:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
     weak var layoutImageRight:NSLayoutConstraint!
-    fileprivate let kBarHeight:CGFloat = 64
-    fileprivate let kAnimateDuration:TimeInterval = 0.3
+    private let kBarHeight:CGFloat = 64
+    private let kAnimateDuration:TimeInterval = 0.3
     
     convenience init(controller:CChatDisplayDetail)
     {
@@ -58,36 +58,36 @@ class VChatDisplayDetail:UIView
             "blur":blur,
             "visualEffect":visualEffect]
         
-        let metrics:[String:AnyObject] = [
-            "barHeight":kBarHeight as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "barHeight":kBarHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[blur]-0-|",
+            withVisualFormat:"H:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[visualEffect]-0-|",
+            withVisualFormat:"H:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[bar]-0-|",
+            withVisualFormat:"H:|-0-[bar]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[blur]-0-|",
+            withVisualFormat:"V:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[visualEffect]-0-|",
+            withVisualFormat:"V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[bar(barHeight)]",
+            withVisualFormat:"V:|-0-[bar(barHeight)]",
             options:[],
             metrics:metrics,
             views:views))

@@ -51,7 +51,7 @@ class VChatDisplayAnnotations:UIView
         addSubview(placer)
         addSubview(editText)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
             "list":list,

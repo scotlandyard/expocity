@@ -53,7 +53,7 @@ class VChatDisplayAnnotationsBar:UIView
         addSubview(backButton)
         addSubview(addButton)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "border":border,
             "backButton":backButton,
             "label":label,

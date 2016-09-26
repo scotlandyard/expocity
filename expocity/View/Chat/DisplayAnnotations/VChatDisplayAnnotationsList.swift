@@ -4,9 +4,9 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
 {
     weak var controller:CChatDisplayAnnotations!
     weak var collectionView:UICollectionView!
-    fileprivate let kInterLineSpace:CGFloat = 1
-    fileprivate let kCollectionBottom:CGFloat = 20
-    fileprivate let kCellHeight:CGFloat = 50
+    private let kInterLineSpace:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 20
+    private let kCellHeight:CGFloat = 50
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -44,7 +44,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
         addSubview(bar)
         addSubview(collectionView)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "collectionView":collectionView,
             "bar":bar]
         

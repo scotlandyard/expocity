@@ -78,7 +78,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         base.addSubview(collectionView)
         addSubview(blur)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "visualEffect":visualEffect,
             "blur":blur,
             "base":base,

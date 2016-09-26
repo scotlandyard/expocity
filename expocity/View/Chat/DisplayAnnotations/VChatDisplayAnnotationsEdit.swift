@@ -65,7 +65,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         addSubview(fieldBase)
         addSubview(doneButton)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "textField":textField,
             "fieldBase":fieldBase,
             "doneButton":doneButton,

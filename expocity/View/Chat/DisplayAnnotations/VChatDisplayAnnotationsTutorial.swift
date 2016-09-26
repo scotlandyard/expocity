@@ -39,7 +39,7 @@ class VChatDisplayAnnotationsTutorial:UIView
         addSubview(label)
         addSubview(cancelButton)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "label":label,
             "cancelButton":cancelButton]
         
