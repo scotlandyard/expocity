@@ -155,7 +155,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     
     func actionDone(sender button:UIButton)
     {
-        controller.parent.dismiss()
+        controller.parentController.dismiss()
     }
     
     //MARK: private
