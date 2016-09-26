@@ -104,7 +104,7 @@ class VChatDisplayAnnotationsBar:UIView
         UIApplication.shared.keyWindow!.endEditing(true)
         controller.controllerChat.viewChat.listenToKeyboard()
         controller.controllerChat.viewChat.display.hideAnnotations()
-        controller.parent.dismiss()
+        controller.parentController.dismiss()
     }
     
     func actionAdd(sender button:UIButton)

@@ -23,7 +23,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
-        flow.sectionInset = UIEdgeInsetsMake(controller.parent.viewParent.kBarHeight, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsMake(controller.parentController.viewParent.kBarHeight, 0, kCollectionBottom, 0)
         
         let collection:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collection.clipsToBounds = true
@@ -103,7 +103,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        controller.parent.viewParent.scrollDidScroll(scrollView)
+        controller.parentController.viewParent.scrollDidScroll(scrollView)
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize

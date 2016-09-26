@@ -14,7 +14,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let collectionTop:CGFloat = controller.parent.viewParent.kBarHeight
+        let collectionTop:CGFloat = controller.parentController.viewParent.kBarHeight
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
@@ -94,7 +94,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        controller.parent.viewParent.scrollDidScroll(scrollView)
+        controller.parentController.viewParent.scrollDidScroll(scrollView)
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize

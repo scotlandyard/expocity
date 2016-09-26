@@ -2,7 +2,7 @@ import UIKit
 
 extension UIViewController
 {
-    override var parentController:CParent
+    var parentController:CParent
     {
         get
         {

@@ -64,6 +64,6 @@ class VHomeCellCreate:VHomeCell
         
         let model:MChat = controller.model.chat()
         let chat:CChat = CChat(model:model)
-        controller.parent.push(chat)
+        controller.parentController.push(chat)
     }
 }

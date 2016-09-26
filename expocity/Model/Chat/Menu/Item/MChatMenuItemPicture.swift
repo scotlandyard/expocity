@@ -57,7 +57,7 @@ class MChatMenuItemPicture:MChatMenuItem
         alert.addAction(actionRemove)
         alert.addAction(actionCancel)
         
-        controller.parent.present(
+        controller.parentController.present(
             alert,
             animated:true,
             completion:nil)

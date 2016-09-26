@@ -95,7 +95,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         alert.addAction(actionDo)
         alert.addAction(actionCancel)
         
-        controller.parent.present(
+        controller.parentController.present(
             alert,
             animated:true,
             completion:nil)

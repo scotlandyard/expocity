@@ -49,7 +49,7 @@ class CChat:CController
     func displayImageRect() -> CGRect
     {
         let imageView:UIImageView = viewChat.display.imageView
-        let rect:CGRect = imageView.superview!.convert(imageView.frame, to:parent.viewParent)
+        let rect:CGRect = imageView.superview!.convert(imageView.frame, to:parentController.viewParent)
         
         return rect
     }
@@ -68,22 +68,22 @@ class CChat:CController
     {
         let imageView:UIImageView = viewChat.display.imageView
         let image:UIImage? = imageView.image
-        let rect:CGRect = imageView.superview!.convert(imageView.frame, to:parent.viewParent)
+        let rect:CGRect = imageView.superview!.convert(imageView.frame, to:parentController.viewParent)
         let displayOption:MChatDisplayOptionsItem = model.displayOption
         let controllerDetail:CChatDisplayDetail = CChatDisplayDetail(image:image, imageRect:rect, displayOption:displayOption)
-        parent.over(controllerDetail)
+        parentController.over(controllerDetail)
     }
     
     func displayOptions()
     {
         let controllerOptions:CChatDisplayOptions = CChatDisplayOptions(modelChat:model)
-        parent.over(controllerOptions)
+        parentController.over(controllerOptions)
     }
     
     func displayAnnotations()
     {
         let controllerAnnotations:CChatDisplayAnnotations = CChatDisplayAnnotations(controllerChat:self)
-        parent.over(controllerAnnotations)
+        parentController.over(controllerAnnotations)
         viewChat.display.displayAnnotations()
         
         NotificationCenter.default.removeObserver(viewChat)

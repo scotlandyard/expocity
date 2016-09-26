@@ -15,7 +15,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let barHeight:CGFloat = controller.parent.viewParent.kBarHeight
+        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         let bar:VChatDisplayAnnotationsBar = VChatDisplayAnnotationsBar(controller:controller)
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
