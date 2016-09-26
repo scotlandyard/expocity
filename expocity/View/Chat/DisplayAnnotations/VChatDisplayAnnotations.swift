@@ -14,9 +14,9 @@ class VChatDisplayAnnotations:UIView
     weak var layoutPlacerTop:NSLayoutConstraint!
     weak var layoutPlacerHeight:NSLayoutConstraint!
     weak var layoutEditTextBottom:NSLayoutConstraint!
-    fileprivate let kEditTextHeight:CGFloat = 45
-    fileprivate let kAnimationDuration:TimeInterval = 0.3
-    fileprivate let kDelayLayout:UInt64 = 100
+    private let kEditTextHeight:CGFloat = 45
+    private let kAnimationDuration:TimeInterval = 0.3
+    private let kDelayLayout:UInt64 = 100
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -59,61 +59,61 @@ class VChatDisplayAnnotations:UIView
             "placer":placer,
             "editText":editText]
         
-        let metrics:[String:AnyObject] = [
-            "editTextHeight":kEditTextHeight as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "editTextHeight":kEditTextHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[placer]-0-|",
+            withVisualFormat:"H:|-0-[placer]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[shadeTop]-0-|",
+            withVisualFormat:"H:|-0-[shadeTop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[shadeBottom]-0-|",
+            withVisualFormat:"H:|-0-[shadeBottom]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[list]-0-|",
+            withVisualFormat:"H:|-0-[list]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[tutorial]-0-|",
+            withVisualFormat:"H:|-0-[tutorial]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[editText]-0-|",
+            withVisualFormat:"H:|-0-[editText]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[shadeTop]",
+            withVisualFormat:"V:|-0-[shadeTop]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[shadeBottom]-0-|",
+            withVisualFormat:"V:[shadeBottom]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[list]-0-|",
+            withVisualFormat:"V:|-0-[list]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[tutorial]-0-|",
+            withVisualFormat:"V:|-0-[tutorial]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[editText(editTextHeight)]",
+            withVisualFormat:"V:[editText(editTextHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -189,7 +189,7 @@ class VChatDisplayAnnotations:UIView
             self?.shadeTop.alpha = 0
             self?.shadeBottom.alpha = 0
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_MSEC * delayLayout)) / Double(NSEC_PER_SEC))
+            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_MSEC * delayLayout))
             { [weak self] in
                 
                 self?.layoutShades()
@@ -204,7 +204,7 @@ class VChatDisplayAnnotations:UIView
     
     func notifiedKeyboardChanged(sender notification:Notification)
     {
-        let keyRect:CGRect = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue
+        let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]! as! CGRect
         let yOrigin = keyRect.origin.y
         let screenHeight:CGFloat = UIScreen.main.bounds.size.height
         let keyboardHeight:CGFloat
@@ -220,16 +220,16 @@ class VChatDisplayAnnotations:UIView
         
         layoutEditTextBottom.constant = -keyboardHeight
         
-        UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
             
             self?.layoutIfNeeded()
-        })
-        
+        }
     }
     
     //MARK: private
     
-    fileprivate func layoutShades()
+    private func layoutShades()
     {
         let imageRect:CGRect = controller.controllerChat.displayImageRect()
         let screenRect:CGRect = UIScreen.main.bounds
@@ -242,9 +242,9 @@ class VChatDisplayAnnotations:UIView
         layoutPlacerHeight.constant = imageRect.size.height
     }
     
-    fileprivate func modelAtIndex(_ index:IndexPath) -> MChatDisplayAnnotationsItem
+    private func modelAtIndex(index:IndexPath) -> MChatDisplayAnnotationsItem
     {
-        let item:MChatDisplayAnnotationsItem = controller.controllerChat.model.annotations.items[(index as NSIndexPath).item]
+        let item:MChatDisplayAnnotationsItem = controller.controllerChat.model.annotations.items[index.item]
         
         return item
     }
@@ -253,12 +253,12 @@ class VChatDisplayAnnotations:UIView
     
     func animateShades()
     {
-        UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
             
             self?.shadeTop.alpha = 1
             self?.shadeBottom.alpha = 1
-        })
-        
+        }
     }
     
     func addAnnotation()

@@ -16,7 +16,7 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(_ model:MChatEmojiKeyboardItem)
+    func config(model:MChatEmojiKeyboardItem)
     {
     }
 }
