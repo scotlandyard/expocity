@@ -4,7 +4,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
 {
     weak var controller:CChat!
     weak var collection:UICollectionView!
-    fileprivate let kCollectionBottom:CGFloat = 10
+    private let kCollectionBottom:CGFloat = 10
     
     convenience init(controller:CChat)
     {
@@ -40,18 +40,18 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         
         addSubview(collection)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "collection":collection]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[collection]-0-|",
+            withVisualFormat:"H:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[collection]-0-|",
+            withVisualFormat:"V:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -59,16 +59,16 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     //MARK: private
     
-    fileprivate func modelAtIndex(_ index:IndexPath) -> MChatItem
+    private func modelAtIndex(index:IndexPath) -> MChatItem
     {
-        let item:MChatItem = controller.model.items[(index as NSIndexPath).item]
+        let item:MChatItem = controller.model.items[index.item]
         
         return item
     }
     
     //MARK: public
     
-    func didAddChatItem(_ indexes:[IndexPath])
+    func didAddChatItem(indexes:[IndexPath])
     {
         DispatchQueue.main.async
         { [weak self] in
@@ -86,7 +86,10 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         {
             let lastItem:Int = count - 1
             let indexPath:IndexPath = IndexPath(item:lastItem, section:0)
-            collection.scrollToItem(at: indexPath, at:UICollectionViewScrollPosition.top, animated:true)
+            collection.scrollToItem(
+                at:indexPath,
+                at:UICollectionViewScrollPosition.top,
+                animated:true)
         }
     }
     
@@ -102,7 +105,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         let item:MChatItem = modelAtIndex(indexPath)
         let width:CGFloat = collectionView.bounds.maxX
         let height:CGFloat = item.heightForCollection(width)
-        let size:CGSize = CGSize(width: width, height: height)
+        let size:CGSize = CGSize(width:width, height:height)
         
         return size
     }
@@ -124,8 +127,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         let item:MChatItem = modelAtIndex(indexPath)
         let cell:VChatConversationCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: item.reusableIdentifier,
-            for:
-            indexPath) as! VChatConversationCell
+            for:indexPath) as! VChatConversationCell
         cell.config(item, controller:controller)
         
         return cell

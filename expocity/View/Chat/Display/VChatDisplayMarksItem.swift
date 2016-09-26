@@ -5,7 +5,7 @@ class VChatDisplayMarksItem:UIButton
     weak var controller:CChat!
     weak var timer:Timer?
     weak var model:MChatDisplayAnnotationsItem!
-    fileprivate let kTimeInterval:TimeInterval = 3
+    private let kTimeInterval:TimeInterval = 3
     
     convenience init(controller:CChat, model:MChatDisplayAnnotationsItem)
     {
@@ -16,7 +16,10 @@ class VChatDisplayMarksItem:UIButton
         setImage(UIImage(named:"chatAnnotationSelected"), for:UIControlState.selected)
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
-        addTarget(self, action:#selector(self.actionButton(sender:)), for:UIControlEvents.touchUpInside)
+        addTarget(
+            self,
+            action:#selector(self.actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.model = model
         self.controller = controller
     }
@@ -34,10 +37,10 @@ class VChatDisplayMarksItem:UIButton
     
     //MARK: private
     
-    fileprivate func showMessage()
+    private func showMessage()
     {
         timer = Timer.scheduledTimer(
-            timeInterval: kTimeInterval,
+            timeInterval:kTimeInterval,
             target:self,
             selector:#selector(self.timeOut(sender:)),
             userInfo:nil,
