@@ -6,6 +6,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     weak var collection:UICollectionView!
     weak var loader:VMainLoader!
     private let kCollectionBottom:CGFloat = 40
+    private let kWaitingTime:Double = 1
     
     convenience init(controller:CHome)
     {
@@ -159,7 +160,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let cell:VHomeCell = collectionView.cellForItem(at:indexPath) as! VHomeCell
         cell.selected(controller:controller)
         
-        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_SEC))
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         { [weak collectionView] in
             
             collectionView?.selectItem(
