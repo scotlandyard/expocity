@@ -47,11 +47,7 @@ class MChatDisplayOptions
                 self!.selected = index
                 self!.modelChat.displayOption = self!.items[index]
                 
-                NotificationCenter.default.post(name: Notification.NotificationName.ChatDisplayOptionChanged, object: nil)
-                
-                NotificationCenter.default.post(
-                    name: Notification.Name(rawValue: Notification.Name.ChatDisplayOptionChanged.rawValue),
-                    object:nil)
+                NotificationCenter.default.post(name:NSNotification.Name(rawValue: Notification.NotificationName.ChatDisplayOptionChanged.rawValue), object:nil)
             }
         }
     }
