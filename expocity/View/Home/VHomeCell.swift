@@ -13,7 +13,7 @@ class VHomeCell:UICollectionViewCell
         fatalError()
     }
     
-    override var selected:Bool
+    override var isSelected:Bool
     {
         didSet
         {
@@ -21,7 +21,7 @@ class VHomeCell:UICollectionViewCell
         }
     }
     
-    override var highlighted:Bool
+    override var isHighlighted:Bool
     {
         didSet
         {
@@ -31,9 +31,9 @@ class VHomeCell:UICollectionViewCell
     
     //MARK: private
     
-    private func hover()
+    fileprivate func hover()
     {
-        if selected || highlighted
+        if isSelected || isHighlighted
         {
             alpha = 0.2
         }
@@ -45,12 +45,12 @@ class VHomeCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MHomeItem)
+    func config(_ model:MHomeItem)
     {
         hover()
     }
     
-    func selected(controller:CHome)
+    func selected(_ controller:CHome)
     {
     }
 }

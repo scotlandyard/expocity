@@ -7,13 +7,13 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     weak var display:VChatDisplay!
     weak var conversation:VChatConversation!
     weak var layoutInputBottom:NSLayoutConstraint!
-    private let kAnimationDuration:NSTimeInterval = 0.4
+    fileprivate let kAnimationDuration:TimeInterval = 0.4
     
     convenience init(controller:CChat)
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -37,51 +37,51 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[input]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[input]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[display]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[display]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[conversation]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[conversation]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[conversation]-0-[display]-0-[input]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[conversation]-0-[display]-0-[input]",
             options:[],
             metrics:metrics,
             views:views))
         
         layoutInputBottom = NSLayoutConstraint(
             item:input,
-            attribute:NSLayoutAttribute.Bottom,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Bottom,
+            attribute:NSLayoutAttribute.bottom,
             multiplier:1,
             constant:0)
         
         input.layoutHeight = NSLayoutConstraint(
             item:input,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:input.kMinHeight)
         
         display.layoutHeight = NSLayoutConstraint(
             item:display,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:display.kMinHeight)
         
@@ -94,16 +94,16 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     
     deinit
     {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: notified
     
-    func notifiedKeyboardChanged(sender notification:NSNotification)
+    func notifiedKeyboardChanged(sender notification:Notification)
     {
-        let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
+        let keyRect:CGRect = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue
         let yOrigin = keyRect.origin.y
-        let screenHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
+        let screenHeight:CGFloat = UIScreen.main.bounds.size.height
         let currentOffset:CGPoint = conversation.collection.contentOffset
         let keyboardHeight:CGFloat
         
@@ -117,13 +117,13 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         }
         
         layoutInputBottom.constant = -keyboardHeight
-        conversation.collection.contentOffset = CGPointMake(0, currentOffset.y + keyboardHeight)
+        conversation.collection.contentOffset = CGPoint(x: 0, y: currentOffset.y + keyboardHeight)
         
-        UIView.animateWithDuration(kAnimationDuration)
-        { [weak self] in
+        UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
             
             self?.layoutIfNeeded()
-        }
+        })
+        
     }
     
     //MARK: public
@@ -131,28 +131,28 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     func presentImagePicker()
     {
         let imagePicker:UIImagePickerController = UIImagePickerController()
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.delegate = self
         
-        controller.presentViewController(imagePicker, animated:true, completion:nil)
+        controller.present(imagePicker, animated:true, completion:nil)
     }
     
     func listenToKeyboard()
     {
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector:#selector(self.notifiedKeyboardChanged(sender:)),
-            name:UIKeyboardWillChangeFrameNotification,
+            name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
     }
     
     //MARK: imagePicker delegate
     
-    func imagePickerController(picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:AnyObject])
+    func imagePickerController(_ picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:Any])
     {
         let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        controller.dismissViewControllerAnimated(true)
+        controller.dismiss(animated: true)
         { [weak self] in
             
             self?.display.displayImage(image)

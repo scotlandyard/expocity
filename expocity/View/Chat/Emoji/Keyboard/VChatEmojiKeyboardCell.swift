@@ -6,7 +6,7 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
     }
     
     required init?(coder:NSCoder)
@@ -16,7 +16,7 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MChatEmojiKeyboardItem)
+    func config(_ model:MChatEmojiKeyboardItem)
     {
     }
 }

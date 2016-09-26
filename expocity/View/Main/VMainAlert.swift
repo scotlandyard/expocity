@@ -4,28 +4,28 @@ class VMainAlert:UIView
 {
     enum VMainAlertType
     {
-        case Annotation
-        case Warning
-        case Error
+        case annotation
+        case warning
+        case error
     }
     
     let kHeight:CGFloat = 90
     weak var layoutTop:NSLayoutConstraint!
-    weak var timer:NSTimer?
-    private let kIconAnnotation:String = "alertAnnotation"
-    private let kIconWarning:String = ""
-    private let kIconError:String = ""
-    private let kImageViewWidth:CGFloat = 40
-    private let kMarginTop:CGFloat = 20
-    private let kAnimationDuration:NSTimeInterval = 0.2
-    private let kAlertDuration:NSTimeInterval = 3
-    private let kBorderHeight:CGFloat = 1
+    weak var timer:Timer?
+    fileprivate let kIconAnnotation:String = "alertAnnotation"
+    fileprivate let kIconWarning:String = ""
+    fileprivate let kIconError:String = ""
+    fileprivate let kImageViewWidth:CGFloat = 40
+    fileprivate let kMarginTop:CGFloat = 20
+    fileprivate let kAnimationDuration:TimeInterval = 0.2
+    fileprivate let kAlertDuration:TimeInterval = 3
+    fileprivate let kBorderHeight:CGFloat = 1
     
-    class func Show(message:String, type:VMainAlertType)
+    class func Show(_ message:String, type:VMainAlertType)
     {
-        dispatch_async(dispatch_get_main_queue())
+        DispatchQueue.main.async
         {
-            let mainView:UIView = UIApplication.sharedApplication().keyWindow!.rootViewController!.view
+            let mainView:UIView = UIApplication.shared.keyWindow!.rootViewController!.view
             let alert:VMainAlert = VMainAlert(message:message, type:type)
             
             mainView.addSubview(alert)
@@ -34,15 +34,15 @@ class VMainAlert:UIView
                 "alert":alert]
             
             let metrics:[String:AnyObject] = [
-                "alertHeight":alert.kHeight]
+                "alertHeight":alert.kHeight as AnyObject]
             
-            mainView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-0-[alert]-0-|",
+            mainView.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[alert]-0-|",
                 options:[],
                 metrics:metrics,
                 views:views))
-            mainView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:[alert(alertHeight)]",
+            mainView.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "V:[alert(alertHeight)]",
                 options:[],
                 metrics:metrics,
                 views:views))
@@ -51,10 +51,10 @@ class VMainAlert:UIView
             
             alert.layoutTop = NSLayoutConstraint(
                 item:alert,
-                attribute:NSLayoutAttribute.Top,
-                relatedBy:NSLayoutRelation.Equal,
+                attribute:NSLayoutAttribute.top,
+                relatedBy:NSLayoutRelation.equal,
                 toItem:mainView,
-                attribute:NSLayoutAttribute.Top,
+                attribute:NSLayoutAttribute.top,
                 multiplier:1,
                 constant:alertInitialTop)
             
@@ -67,30 +67,30 @@ class VMainAlert:UIView
     convenience init(message:String, type:VMainAlertType)
     {
         self.init()
-        userInteractionEnabled = false
+        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         backgroundColor = UIColor.complement()
         
         let border:UIView = UIView()
-        border.userInteractionEnabled = false
+        border.isUserInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
         border.backgroundColor = UIColor(white:0, alpha:0.1)
         
         let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
+        label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         label.font = UIFont.bold(18)
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         label.text = message
         
         let imageView:UIImageView = UIImageView()
-        imageView.userInteractionEnabled = false
+        imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.Center
+        imageView.contentMode = UIViewContentMode.center
         setIcon(imageView, type:type)
         
         addSubview(imageView)
@@ -103,32 +103,32 @@ class VMainAlert:UIView
             "border":border]
         
         let metrics:[String:AnyObject] = [
-            "imageWidth":kImageViewWidth,
-            "marginTop":kMarginTop,
-            "borderHeight":kBorderHeight]
+            "imageWidth":kImageViewWidth as AnyObject,
+            "marginTop":kMarginTop as AnyObject,
+            "borderHeight":kBorderHeight as AnyObject]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[imageView(imageWidth)]-0-[label]-(imageWidth)-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[imageView(imageWidth)]-0-[label]-(imageWidth)-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[border]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[border]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-(marginTop)-[imageView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-(marginTop)-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-(marginTop)-[label]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-(marginTop)-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[border(borderHeight)]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:[border(borderHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -136,41 +136,41 @@ class VMainAlert:UIView
     
     //MARK: private
     
-    func timeOut(sender timer:NSTimer)
+    func timeOut(sender timer:Timer)
     {
         timer.invalidate()
         
         layoutTop.constant = -kHeight
         
-        UIView.animateWithDuration(kAnimationDuration, animations:
+        UIView.animate(withDuration: kAnimationDuration, animations:
         {
             self.superview!.layoutIfNeeded()
-        })
-        { (done) in
+        }, completion: { (done) in
             
             self.removeFromSuperview()
-        }
+        })
+        
     }
     
-    private func setIcon(imageView:UIImageView, type:VMainAlertType)
+    fileprivate func setIcon(_ imageView:UIImageView, type:VMainAlertType)
     {
         let imageName:String
         
         switch type
         {
-            case VMainAlertType.Annotation:
+            case VMainAlertType.annotation:
             
                 imageName = kIconAnnotation
                 
                 break
             
-            case VMainAlertType.Warning:
+            case VMainAlertType.warning:
                 
                 imageName = kIconWarning
                 
                 break
             
-            case VMainAlertType.Error:
+            case VMainAlertType.error:
             
                 imageName = kIconError
                 
@@ -180,22 +180,22 @@ class VMainAlert:UIView
         imageView.image = UIImage(named:imageName)
     }
     
-    private func animateAlert()
+    fileprivate func animateAlert()
     {
         layoutTop.constant = 0
         
-        UIView.animateWithDuration(kAnimationDuration, animations:
+        UIView.animate(withDuration: kAnimationDuration, animations:
         {
             self.superview!.layoutIfNeeded()
-        })
-        { (done) in
+        }, completion: { (done) in
             
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(
-                self.kAlertDuration,
+            self.timer = Timer.scheduledTimer(
+                timeInterval: self.kAlertDuration,
                 target:self,
                 selector:#selector(self.timeOut(sender:)),
                 userInfo:nil,
                 repeats:false)
-        }
+        })
+        
     }
 }

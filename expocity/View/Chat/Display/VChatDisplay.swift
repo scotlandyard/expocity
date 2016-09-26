@@ -10,13 +10,13 @@ class VChatDisplay:UIView
     weak var layoutBorderHeight:NSLayoutConstraint!
     let maxHeight:CGFloat
     let kMinHeight:CGFloat = 3
-    private let kMaxHeightPercent:CGFloat = 0.8
-    private let kBorderHeight:CGFloat = 1
-    private let kAnimationDuration:NSTimeInterval = 0.3
+    fileprivate let kMaxHeightPercent:CGFloat = 0.8
+    fileprivate let kBorderHeight:CGFloat = 1
+    fileprivate let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CChat)
     {
-        let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+        let screenSize:CGSize = UIScreen.main.bounds.size
         let smallerSize:CGFloat
         
         if screenSize.width > screenSize.height
@@ -30,7 +30,7 @@ class VChatDisplay:UIView
         
         maxHeight = smallerSize * kMaxHeightPercent
         
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.collectionBackground()
@@ -38,14 +38,14 @@ class VChatDisplay:UIView
         self.controller = controller
         
         let border:UIView = UIView()
-        border.userInteractionEnabled = false
+        border.isUserInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
         border.backgroundColor = UIColor.bubbleMine()
         
         let imageView:UIImageView = UIImageView()
         imageView.contentMode = controller.model.displayOption.contentMode
         imageView.clipsToBounds = true
-        imageView.userInteractionEnabled = false
+        imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
@@ -63,61 +63,61 @@ class VChatDisplay:UIView
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[border]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[border]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[imageView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[marks]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[marks]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[border]-0-[imageView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[border]-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[imageView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[border]-0-[marks]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:[border]-0-[marks]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         
         layoutImageLeft = NSLayoutConstraint(
             item:imageView,
-            attribute:NSLayoutAttribute.Left,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Left,
+            attribute:NSLayoutAttribute.left,
             multiplier:1,
             constant:0)
         layoutBorderHeight = NSLayoutConstraint(
             item:border,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:0)
         
         addConstraint(layoutImageLeft)
         addConstraint(layoutBorderHeight)
         
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector:#selector(self.notifiedDisplayOptionChanged(sender:)),
-            name:NSNotification.Name.ChatDisplayOptionChanged.rawValue,
+            name:Notification.Name.ChatDisplayOptionChanged.rawValue,
             object:nil)
     }
     
@@ -128,7 +128,7 @@ class VChatDisplay:UIView
     
     deinit
     {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func layoutSubviews()
@@ -139,9 +139,9 @@ class VChatDisplay:UIView
     
     //MARK: notified
     
-    func notifiedDisplayOptionChanged(sender notification:NSNotification)
+    func notifiedDisplayOptionChanged(sender notification:Notification)
     {
-        dispatch_async(dispatch_get_main_queue())
+        DispatchQueue.main.async
         { [weak self] in
             
             self?.updateDisplayOption()
@@ -150,12 +150,12 @@ class VChatDisplay:UIView
     
     //MARK: private
     
-    private func updateDisplayOption()
+    fileprivate func updateDisplayOption()
     {
         imageView.contentMode = controller.model.displayOption.contentMode
     }
     
-    private func layoutImage()
+    fileprivate func layoutImage()
     {
         if imageView.image == nil
         {
@@ -164,7 +164,7 @@ class VChatDisplay:UIView
         }
         else
         {
-            let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+            let screenSize:CGSize = UIScreen.main.bounds.size
             let screenWidth:CGFloat = screenSize.width
             let screenHeight:CGFloat = screenSize.height
             
@@ -180,16 +180,16 @@ class VChatDisplay:UIView
             }
         }
         
-        UIView.animateWithDuration(kAnimationDuration)
-        { [weak self] in
+        UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
                 
             self?.layoutIfNeeded()
-        }
+        })
+        
     }
     
     //MARK: public
     
-    func displayImage(image:UIImage?)
+    func displayImage(_ image:UIImage?)
     {
         imageView.image = image
         controller.viewChat.input.updateStandbyMenu()
@@ -206,11 +206,11 @@ class VChatDisplay:UIView
     
     func displayAnnotations()
     {
-        marks.hidden = true
+        marks.isHidden = true
     }
     
     func hideAnnotations()
     {
-        marks.hidden = false
+        marks.isHidden = false
     }
 }

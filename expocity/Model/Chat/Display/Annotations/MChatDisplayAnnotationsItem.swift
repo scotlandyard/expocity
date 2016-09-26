@@ -22,7 +22,7 @@ class MChatDisplayAnnotationsItem
     
     //MARK: public
     
-    func moveToPoint(xPercent:CGFloat, yPercent:CGFloat)
+    func moveToPoint(_ xPercent:CGFloat, yPercent:CGFloat)
     {
         self.xPercent = xPercent
         self.yPercent = yPercent

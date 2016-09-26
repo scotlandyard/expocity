@@ -2,7 +2,7 @@ import UIKit
 
 class MMenuItemHome:MMenuItem
 {
-    private let kIconImage:String = "menuHome"
+    fileprivate let kIconImage:String = "menuHome"
     
     init(index:Int)
     {

@@ -2,15 +2,15 @@ import UIKit
 
 class VMainShadow:UIView
 {
-    private let kMaxAlpha:CGFloat = 0.5
+    fileprivate let kMaxAlpha:CGFloat = 0.5
     
     init()
     {
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
-        userInteractionEnabled = false
+        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.blackColor()
+        backgroundColor = UIColor.black
         
         minAlpha()
     }

@@ -4,16 +4,16 @@ class VChatDisplayMarks:UIView
 {
     weak var controller:CChat!
     weak var button:UIButton?
-    private let kItemSize:CGFloat = 50
-    private let itemSize_2:CGFloat
+    fileprivate let kItemSize:CGFloat = 50
+    fileprivate let itemSize_2:CGFloat
     
     init(controller:CChat)
     {
         itemSize_2 = kItemSize / 2.0
         
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
     }
@@ -39,10 +39,10 @@ class VChatDisplayMarks:UIView
         let imageHeight:CGFloat = bounds.maxY
         
         let button:UIButton = UIButton()
-        button.backgroundColor = UIColor.clearColor()
+        button.backgroundColor = UIColor.clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
-        button.addTarget(self, action:#selector(self.actionButton(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        button.addTarget(self, action:#selector(self.actionButton(sender:)), for:UIControlEvents.touchUpInside)
         self.button = button
         
         addSubview(button)
@@ -52,13 +52,13 @@ class VChatDisplayMarks:UIView
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[button]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[button]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[button]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[button]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -77,17 +77,17 @@ class VChatDisplayMarks:UIView
                 "viewItem":viewItem]
             
             let itemMetrics:[String:AnyObject] = [
-                "itemSize":kItemSize,
-                "itemLeft":itemLeft,
-                "itemTop":itemTop]
+                "itemSize":kItemSize as AnyObject,
+                "itemLeft":itemLeft as AnyObject,
+                "itemTop":itemTop as AnyObject]
             
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-(itemLeft)-[viewItem(itemSize)]",
+            addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-(itemLeft)-[viewItem(itemSize)]",
                 options:[],
                 metrics:itemMetrics,
                 views:itemViews))
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-(itemTop)-[viewItem(itemSize)]",
+            addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-(itemTop)-[viewItem(itemSize)]",
                 options:[],
                 metrics:itemMetrics,
                 views:itemViews))

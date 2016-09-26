@@ -30,14 +30,14 @@ class CChat:CController
         view = viewChat
     }
     
-    override func viewWillTransitionToSize(size:CGSize, withTransitionCoordinator coordinator:UIViewControllerTransitionCoordinator)
+    override func viewWillTransition(to size:CGSize, with coordinator:UIViewControllerTransitionCoordinator)
     {
-        UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        UIApplication.shared.keyWindow!.endEditing(true)
         
-        super.viewWillTransitionToSize(size, withTransitionCoordinator:coordinator)
+        super.viewWillTransition(to: size, with:coordinator)
         viewChat.conversation.collection.collectionViewLayout.invalidateLayout()
         
-        dispatch_async(dispatch_get_main_queue())
+        DispatchQueue.main.async
         { [weak self] in
             
             self?.viewChat.conversation.scrollToBottom()
@@ -49,17 +49,17 @@ class CChat:CController
     func displayImageRect() -> CGRect
     {
         let imageView:UIImageView = viewChat.display.imageView
-        let rect:CGRect = imageView.superview!.convertRect(imageView.frame, toView:parent.viewParent)
+        let rect:CGRect = imageView.superview!.convert(imageView.frame, to:parent.viewParent)
         
         return rect
     }
     
-    func addTextMine(text:String)
+    func addTextMine(_ text:String)
     {
         let chatItem:MChatItemTextMine = MChatItemTextMine(text:text)
         let index:Int = model.items.count
-        let indexPath:NSIndexPath = NSIndexPath(forItem:index, inSection:0)
-        let indexes:[NSIndexPath] = [indexPath]
+        let indexPath:IndexPath = IndexPath(item:index, section:0)
+        let indexes:[IndexPath] = [indexPath]
         model.items.append(chatItem)
         viewChat.conversation.didAddChatItem(indexes)
     }
@@ -68,7 +68,7 @@ class CChat:CController
     {
         let imageView:UIImageView = viewChat.display.imageView
         let image:UIImage? = imageView.image
-        let rect:CGRect = imageView.superview!.convertRect(imageView.frame, toView:parent.viewParent)
+        let rect:CGRect = imageView.superview!.convert(imageView.frame, to:parent.viewParent)
         let displayOption:MChatDisplayOptionsItem = model.displayOption
         let controllerDetail:CChatDisplayDetail = CChatDisplayDetail(image:image, imageRect:rect, displayOption:displayOption)
         parent.over(controllerDetail)
@@ -86,7 +86,7 @@ class CChat:CController
         parent.over(controllerAnnotations)
         viewChat.display.displayAnnotations()
         
-        NSNotificationCenter.defaultCenter().removeObserver(viewChat)
+        NotificationCenter.default.removeObserver(viewChat)
     }
     
     func removeImage()

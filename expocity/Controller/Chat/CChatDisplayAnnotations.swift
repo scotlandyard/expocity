@@ -10,8 +10,8 @@ class CChatDisplayAnnotations:CController
     {
         self.controllerChat = controllerChat
         super.init(nibName:nil, bundle:nil)
-        modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        modalTransitionStyle = UIModalTransitionStyle.crossDissolve
     }
     
     required init?(coder:NSCoder)
@@ -26,7 +26,7 @@ class CChatDisplayAnnotations:CController
         view = viewAnnotations
     }
     
-    override func viewDidAppear(animated:Bool)
+    override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
         viewAnnotations.animateShades()
@@ -46,20 +46,20 @@ class CChatDisplayAnnotations:CController
         viewAnnotations.cancelAnnotation()
     }
     
-    func confirmAnnotation(xPercent:CGFloat, yPercent:CGFloat)
+    func confirmAnnotation(_ xPercent:CGFloat, yPercent:CGFloat)
     {
         addingAnnotation?.moveToPoint(xPercent, yPercent:yPercent)
         viewAnnotations.confirmAnnotation()
     }
     
-    func confirmTextAnnotation(text:String)
+    func confirmTextAnnotation(_ text:String)
     {
         addingAnnotation?.text = text
         viewAnnotations.confirmTextAnnotation()
         controllerChat.viewChat.display.marks.addItems()
     }
     
-    func removeAnnotation(item:MChatDisplayAnnotationsItem)
+    func removeAnnotation(_ item:MChatDisplayAnnotationsItem)
     {
         controllerChat.model.annotations.removeAnnotation(item)
         controllerChat.viewChat.display.marks.addItems()

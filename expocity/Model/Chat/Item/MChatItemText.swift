@@ -29,8 +29,8 @@ class MChatItemText:MChatItem
             string:text,
             attributes:attributes)
         stringDrawingOptions = NSStringDrawingOptions([
-            NSStringDrawingOptions.UsesLineFragmentOrigin,
-            NSStringDrawingOptions.UsesFontLeading
+            NSStringDrawingOptions.usesLineFragmentOrigin,
+            NSStringDrawingOptions.usesFontLeading
         ])
         
         super.init(reusableIdentifier:reusableIdentifier)
@@ -43,9 +43,9 @@ class MChatItemText:MChatItem
         let totalMarginHr:CGFloat = marginLeft + marginRight
         let totalMarginVr:CGFloat = marginTop + marginBottom
         let remainWidth:CGFloat = cellWidth - totalMarginHr
-        let maxSize:CGSize = CGSizeMake(remainWidth, kMaxHeight)
-        let rect:CGRect = attributedString.boundingRectWithSize(
-            maxSize,
+        let maxSize:CGSize = CGSize(width: remainWidth, height: kMaxHeight)
+        let rect:CGRect = attributedString.boundingRect(
+            with: maxSize,
             options:stringDrawingOptions,
             context:nil)
         let size:CGSize = rect.size

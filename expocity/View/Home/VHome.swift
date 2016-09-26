@@ -5,12 +5,12 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     weak var controller:CHome!
     weak var collection:UICollectionView!
     weak var loader:VMainLoader!
-    private let kCollectionBottom:CGFloat = 40
+    fileprivate let kCollectionBottom:CGFloat = 40
     
     convenience init(controller:CHome)
     {
         self.init()
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -18,28 +18,28 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         self.loader = loader
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSizeZero
-        flow.footerReferenceSize = CGSizeZero
-        flow.scrollDirection = UICollectionViewScrollDirection.Vertical
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
         flow.sectionInset = UIEdgeInsetsMake(controller.parent.viewParent.kBarHeight, 0, kCollectionBottom, 0)
         
-        let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        let collection:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collection.clipsToBounds = true
-        collection.backgroundColor = UIColor.clearColor()
+        collection.backgroundColor = UIColor.clear
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
         collection.alwaysBounceVertical = true
         collection.delegate = self
         collection.dataSource = self
-        collection.hidden = true
-        collection.registerClass(
+        collection.isHidden = true
+        collection.register(
             VHomeCellTitle.self,
             forCellWithReuseIdentifier:
             VHomeCellTitle.reusableIdentifier())
-        collection.registerClass(
+        collection.register(
             VHomeCellCreate.self,
             forCellWithReuseIdentifier:
             VHomeCellCreate.reusableIdentifier())
@@ -54,23 +54,23 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[loader]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[loader]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[loader]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[loader]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[collection]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[collection]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -84,9 +84,9 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     //MARK: private
     
-    private func modelAtIndex(index:NSIndexPath) -> MHomeItem
+    fileprivate func modelAtIndex(_ index:IndexPath) -> MHomeItem
     {
-        let item:MHomeItem = controller.model.items[index.item]
+        let item:MHomeItem = controller.model.items[(index as NSIndexPath).item]
         
         return item
     }
@@ -96,50 +96,50 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func sessionLoaded()
     {
         loader.stopAnimating()
-        collection.hidden = false
+        collection.isHidden = false
     }
     
     //MARK: col del
     
-    func scrollViewDidScroll(scrollView:UIScrollView)
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
         controller.parent.viewParent.scrollDidScroll(scrollView)
     }
     
-    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let item:MHomeItem = modelAtIndex(indexPath)
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSizeMake(width, item.cellHeight)
+        let size:CGSize = CGSize(width: width, height: item.cellHeight)
         
         return size
     }
     
-    func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
     
-    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
         let count:Int = controller.model.items.count
         
         return count
     }
     
-    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MHomeItem = modelAtIndex(indexPath)
-        let cell:VHomeCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            item.reusableIdentifier,
-            forIndexPath:
+        let cell:VHomeCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: item.reusableIdentifier,
+            for:
             indexPath) as! VHomeCell
         cell.config(item)
         
         return cell
     }
     
-    func collectionView(collectionView:UICollectionView, shouldHighlightItemAtIndexPath indexPath:NSIndexPath) -> Bool
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
     {
         let item:MHomeItem = modelAtIndex(indexPath)
         let highlightable:Bool = item.selectable
@@ -147,7 +147,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         return highlightable
     }
     
-    func collectionView(collectionView:UICollectionView, shouldSelectItemAtIndexPath indexPath:NSIndexPath) -> Bool
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
     {
         let item:MHomeItem = modelAtIndex(indexPath)
         let selectable:Bool = item.selectable
@@ -155,15 +155,15 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         return selectable
     }
     
-    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let cell:VHomeCell = collectionView.cellForItemAtIndexPath(indexPath) as! VHomeCell
+        let cell:VHomeCell = collectionView.cellForItem(at: indexPath) as! VHomeCell
         cell.selected(controller)
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC))
         { [weak collectionView] in
             
-            collectionView?.selectItemAtIndexPath(nil, animated:false, scrollPosition:UICollectionViewScrollPosition.None)
+            collectionView?.selectItem(at: nil, animated:false, scrollPosition:UICollectionViewScrollPosition())
         }
     }
 }

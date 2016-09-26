@@ -1,6 +1,6 @@
 import Foundation
 
-extension NSNotification
+extension Notification
 {
     enum Name:String
     {

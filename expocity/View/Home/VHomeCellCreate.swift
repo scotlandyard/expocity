@@ -5,21 +5,21 @@ class VHomeCellCreate:VHomeCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         
         let base:UIView = UIView()
-        base.userInteractionEnabled = false
+        base.isUserInteractionEnabled = false
         base.translatesAutoresizingMaskIntoConstraints = false
         base.backgroundColor = UIColor.complement()
         base.layer.cornerRadius = 4
         
         let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
+        label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clearColor()
-        label.textAlignment = NSTextAlignment.Center
+        label.backgroundColor = UIColor.clear
+        label.textAlignment = NSTextAlignment.center
         label.font = UIFont.bold(16)
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         label.text = NSLocalizedString("VHomeCellCreate_label", comment:"")
         
         addSubview(base)
@@ -31,23 +31,23 @@ class VHomeCellCreate:VHomeCell
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[label]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[label]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[base]-10-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-10-[base]-10-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-5-[base]-5-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-5-[base]-5-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -58,9 +58,9 @@ class VHomeCellCreate:VHomeCell
         fatalError()
     }
     
-    override func selected(controller:CHome)
+    override func selected(_ controller:CHome)
     {
-        UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        UIApplication.shared.keyWindow!.endEditing(true)
         
         let model:MChat = controller.model.chat()
         let chat:CChat = CChat(model:model)

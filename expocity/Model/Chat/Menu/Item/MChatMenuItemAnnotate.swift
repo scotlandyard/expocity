@@ -2,16 +2,16 @@ import UIKit
 
 class MChatMenuItemAnnotate:MChatMenuItem
 {
-    private let kIcon:String = "chatAnnotate"
+    fileprivate let kIcon:String = "chatAnnotate"
     
     init()
     {
         super.init(icon:kIcon)
     }
     
-    override func selected(controller:CChat)
+    override func selected(_ controller:CChat)
     {
-        UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        UIApplication.shared.keyWindow!.endEditing(true)
         controller.displayAnnotations()
     }
 }

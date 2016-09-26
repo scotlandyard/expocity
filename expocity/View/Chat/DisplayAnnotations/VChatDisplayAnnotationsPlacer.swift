@@ -5,16 +5,16 @@ class VChatDisplayAnnotationsPlacer:UIView
     weak var controller:CChatDisplayAnnotations!
     weak var tapGesture:UITapGestureRecognizer!
     weak var itemContainer:UIView!
-    private let kItemSize:CGFloat = 40
-    private let itemSize_2:CGFloat
+    fileprivate let kItemSize:CGFloat = 40
+    fileprivate let itemSize_2:CGFloat
     
     init(controller:CChatDisplayAnnotations)
     {
         itemSize_2 = kItemSize / 2.0
         
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -34,13 +34,13 @@ class VChatDisplayAnnotationsPlacer:UIView
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[itemContainer]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[itemContainer]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[itemContainer]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[itemContainer]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -57,8 +57,8 @@ class VChatDisplayAnnotationsPlacer:UIView
     
     func actionTap(sender tapGesture:UITapGestureRecognizer)
     {
-        tapGesture.enabled = false
-        let point:CGPoint = tapGesture.locationInView(self)
+        tapGesture.isEnabled = false
+        let point:CGPoint = tapGesture.location(in: self)
         let pointX:CGFloat = point.x
         let pointY:CGFloat = point.y
         let imageWidth:CGFloat = bounds.size.width
@@ -72,21 +72,21 @@ class VChatDisplayAnnotationsPlacer:UIView
     
     func addAnnotation()
     {
-        tapGesture.enabled = true
-        itemContainer.userInteractionEnabled = false
+        tapGesture.isEnabled = true
+        itemContainer.isUserInteractionEnabled = false
     }
     
     func cancelAnnotation()
     {
         reloadItems()
-        tapGesture.enabled = false
-        itemContainer.userInteractionEnabled = true
+        tapGesture.isEnabled = false
+        itemContainer.isUserInteractionEnabled = true
     }
     
     func reloadItems()
     {
-        tapGesture.enabled = false
-        let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+        tapGesture.isEnabled = false
+        let screenSize:CGSize = UIScreen.main.bounds.size
         let imageHeight:CGFloat = controller.controllerChat.viewChat.display.maxHeight
         let imageWidth:CGFloat
         
@@ -122,17 +122,17 @@ class VChatDisplayAnnotationsPlacer:UIView
                 "item":subview]
             
             let metrics:[String:AnyObject] = [
-                "itemSize":kItemSize,
-                "itemLeft":itemLeft,
-                "itemTop":itemTop]
+                "itemSize":kItemSize as AnyObject,
+                "itemLeft":itemLeft as AnyObject,
+                "itemTop":itemTop as AnyObject]
             
-            itemContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-(itemLeft)-[item(itemSize)]",
+            itemContainer.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-(itemLeft)-[item(itemSize)]",
                 options:[],
                 metrics:metrics,
                 views:views))
-            itemContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-(itemTop)-[item(itemSize)]",
+            itemContainer.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-(itemTop)-[item(itemSize)]",
                 options:[],
                 metrics:metrics,
                 views:views))

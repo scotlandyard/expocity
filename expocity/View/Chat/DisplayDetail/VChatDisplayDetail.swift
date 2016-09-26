@@ -9,40 +9,40 @@ class VChatDisplayDetail:UIView
     weak var layoutImageBottom:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
     weak var layoutImageRight:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 64
-    private let kAnimateDuration:NSTimeInterval = 0.3
+    fileprivate let kBarHeight:CGFloat = 64
+    fileprivate let kAnimateDuration:TimeInterval = 0.3
     
     convenience init(controller:CChatDisplayDetail)
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
         let bar:VChatDisplayDetailBar = VChatDisplayDetailBar(controller:controller)
         self.bar = bar
         
-        let blurEffect:UIVisualEffect = UIBlurEffect(style:UIBlurEffectStyle.Dark)
+        let blurEffect:UIVisualEffect = UIBlurEffect(style:UIBlurEffectStyle.dark)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
-        visualEffect.userInteractionEnabled = false
+        visualEffect.isUserInteractionEnabled = false
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         
         let blur:UIView = UIView()
-        blur.userInteractionEnabled = false
+        blur.isUserInteractionEnabled = false
         blur.translatesAutoresizingMaskIntoConstraints = false
-        blur.backgroundColor = UIColor.clearColor()
+        blur.backgroundColor = UIColor.clear
         blur.alpha = 0
         self.blur = blur
         
         let imageView:UIImageView = UIImageView()
-        imageView.userInteractionEnabled = false
+        imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = controller.displayOption.contentMode
         imageView.clipsToBounds = true
         imageView.image = controller.image
         
-        let screenRect:CGRect = UIScreen.mainScreen().bounds
+        let screenRect:CGRect = UIScreen.main.bounds
         let topMargin:CGFloat = controller.imageRect.minY
         let leftMargin:CGFloat = controller.imageRect.minX
         let rightMargin:CGFloat = controller.imageRect.maxX - screenRect.maxX
@@ -59,69 +59,69 @@ class VChatDisplayDetail:UIView
             "visualEffect":visualEffect]
         
         let metrics:[String:AnyObject] = [
-            "barHeight":kBarHeight]
+            "barHeight":kBarHeight as AnyObject]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[blur]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[visualEffect]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[bar]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[bar]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[blur]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[visualEffect]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[bar(barHeight)]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[bar(barHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         
         layoutImageTop = NSLayoutConstraint(
             item:imageView,
-            attribute:NSLayoutAttribute.Top,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Top,
+            attribute:NSLayoutAttribute.top,
             multiplier:1,
             constant:topMargin)
         layoutImageBottom = NSLayoutConstraint(
             item:imageView,
-            attribute:NSLayoutAttribute.Bottom,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Bottom,
+            attribute:NSLayoutAttribute.bottom,
             multiplier:1,
             constant:bottomMargin)
         layoutImageLeft = NSLayoutConstraint(
             item:imageView,
-            attribute:NSLayoutAttribute.Left,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Left,
+            attribute:NSLayoutAttribute.left,
             multiplier:1,
             constant:leftMargin)
         layoutImageRight = NSLayoutConstraint(
             item:imageView,
-            attribute:NSLayoutAttribute.Right,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.right,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Right,
+            attribute:NSLayoutAttribute.right,
             multiplier:1,
             constant:rightMargin)
         
@@ -135,25 +135,25 @@ class VChatDisplayDetail:UIView
     
     func animateImage()
     {
-        let animationDuration:NSTimeInterval = kAnimateDuration
+        let animationDuration:TimeInterval = kAnimateDuration
         layoutImageTop.constant = 0
         layoutImageBottom.constant = 0
         layoutImageLeft.constant = 0
         layoutImageRight.constant = 0
         
-        UIView.animateWithDuration(animationDuration, animations:
+        UIView.animate(withDuration: animationDuration, animations:
         { [weak self] in
             
             self?.layoutIfNeeded()
             self?.blur.alpha = 1
-        })
-        { (done) in
+        }, completion: { (done) in
             
-            UIView.animateWithDuration(animationDuration)
-            { [weak self] in
+            UIView.animate(withDuration: animationDuration, animations: { [weak self] in
                 
                 self?.bar.alpha = 1
-            }
-        }
+            })
+            
+        })
+        
     }
 }

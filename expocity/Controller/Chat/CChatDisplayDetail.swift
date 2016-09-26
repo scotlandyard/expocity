@@ -14,8 +14,8 @@ class CChatDisplayDetail:CController
         self.displayOption = displayOption
         
         super.init(nibName:nil, bundle:nil)
-        modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        modalTransitionStyle = UIModalTransitionStyle.crossDissolve
     }
     
     required init?(coder:NSCoder)
@@ -30,7 +30,7 @@ class CChatDisplayDetail:CController
         view = viewDetail
     }
     
-    override func viewDidAppear(animated:Bool)
+    override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
         viewDetail.animateImage()

@@ -19,7 +19,7 @@ class MChatDisplayAnnotations
         return newItem
     }
     
-    func removeAnnotation(item:MChatDisplayAnnotationsItem)
+    func removeAnnotation(_ item:MChatDisplayAnnotationsItem)
     {
         let countItems:Int = items.count
         var indexToRemove:Int = 0
@@ -36,6 +36,6 @@ class MChatDisplayAnnotations
             }
         }
         
-        items.removeAtIndex(indexToRemove)
+        items.remove(at: indexToRemove)
     }
 }

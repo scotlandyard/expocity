@@ -5,36 +5,36 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     weak var controller:CChat!
     weak var collection:UICollectionView!
     let model:MChatMenu
-    private let kCellWidth:CGFloat = 50
+    fileprivate let kCellWidth:CGFloat = 50
     
     init(controller:CChat)
     {
         model = MChatMenu()
         
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSizeZero
-        flow.footerReferenceSize = CGSizeZero
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
-        flow.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         
-        let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        let collection:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collection.clipsToBounds = true
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.showsHorizontalScrollIndicator = false
         collection.showsVerticalScrollIndicator = false
-        collection.scrollEnabled = false
+        collection.isScrollEnabled = false
         collection.bounces = false
-        collection.backgroundColor = UIColor.clearColor()
+        collection.backgroundColor = UIColor.clear
         collection.dataSource = self
         collection.delegate = self
-        collection.registerClass(
+        collection.register(
             VChatInputMenuCell.self,
             forCellWithReuseIdentifier:
             VChatInputMenuCell.reusableIdentifier())
@@ -47,13 +47,13 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[collection]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[collection]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -72,9 +72,9 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     //MARK: private
     
-    private func modelAtIndex(index:NSIndexPath) -> MChatMenuItem
+    fileprivate func modelAtIndex(_ index:IndexPath) -> MChatMenuItem
     {
-        let item:MChatMenuItem = model.status.items[index.item]
+        let item:MChatMenuItem = model.status.items[(index as NSIndexPath).item]
         
         return item
     }
@@ -135,7 +135,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     //MARK: col del
     
-    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAtIndex section:Int) -> UIEdgeInsets
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
     {
         let totalWidth:CGFloat = collectionView.bounds.maxX
         let margin:CGFloat = rightMargin()
@@ -145,50 +145,50 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         return insets
     }
     
-    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let height:CGFloat = collectionView.bounds.maxY
-        let size:CGSize = CGSizeMake(kCellWidth, height)
+        let size:CGSize = CGSize(width: kCellWidth, height: height)
         
         return size
     }
     
-    func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
     
-    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
         let count:Int = model.status.items.count
         
         return count
     }
     
-    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MChatMenuItem = modelAtIndex(indexPath)
-        let cell:VChatInputMenuCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            VChatInputMenuCell.reusableIdentifier(),
-            forIndexPath:
+        let cell:VChatInputMenuCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: VChatInputMenuCell.reusableIdentifier(),
+            for:
             indexPath) as! VChatInputMenuCell
         cell.config(item)
         
         return cell
     }
     
-    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MChatMenuItem = modelAtIndex(indexPath)
         item.selected(controller)
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC))
         { [weak collectionView] in
             
-            collectionView?.selectItemAtIndexPath(
-                nil,
+            collectionView?.selectItem(
+                at: nil,
                 animated:false,
-                scrollPosition:UICollectionViewScrollPosition.None)
+                scrollPosition:UICollectionViewScrollPosition())
         }
     }
 }

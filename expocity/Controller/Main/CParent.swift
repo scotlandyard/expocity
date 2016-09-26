@@ -4,8 +4,8 @@ class CParent:UIViewController
 {
     weak var viewParent:VParent!
     var controllers:[CController]
-    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
-    private let kAnimationDuration:NSTimeInterval = 0.3
+    fileprivate var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.lightContent
+    fileprivate let kAnimationDuration:TimeInterval = 0.3
     
     init()
     {
@@ -33,12 +33,12 @@ class CParent:UIViewController
         view = viewParent
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle
+    override var preferredStatusBarStyle : UIStatusBarStyle
     {
         return statusBarStyle
     }
     
-    override func prefersStatusBarHidden() -> Bool
+    override var prefersStatusBarHidden : Bool
     {
         return false
     }
@@ -47,41 +47,41 @@ class CParent:UIViewController
     
     func statusBarLight()
     {
-        statusBarStyle = UIStatusBarStyle.LightContent
+        statusBarStyle = UIStatusBarStyle.lightContent
         setNeedsStatusBarAppearanceUpdate()
     }
     
     func statusBarDefault()
     {
-        statusBarStyle = UIStatusBarStyle.Default
+        statusBarStyle = UIStatusBarStyle.default
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    func push(controller:CController)
+    func push(_ controller:CController)
     {
         addChildViewController(controller)
         
         viewParent.push(controller)
         {
             self.controllers.append(controller)
-            controller.didMoveToParentViewController(self)
+            controller.didMove(toParentViewController: self)
         }
     }
     
-    func center(controller:CController)
+    func center(_ controller:CController)
     {
         addChildViewController(controller)
         viewParent.over(controller, underBar:true)
         controllers.append(controller)
-        controller.didMoveToParentViewController(self)
+        controller.didMove(toParentViewController: self)
     }
     
-    func over(controller:CController)
+    func over(_ controller:CController)
     {
         addChildViewController(controller)
         viewParent.over(controller, underBar:false)
         controllers.append(controller)
-        controller.didMoveToParentViewController(self)
+        controller.didMove(toParentViewController: self)
     }
     
     func pop()
@@ -104,10 +104,10 @@ class CParent:UIViewController
         }
     }
     
-    func scrollLeft(controller:CController)
+    func scrollLeft(_ controller:CController)
     {
         addChildViewController(controller)
-        controllers.last?.willMoveToParentViewController(nil)
+        controllers.last?.willMove(toParentViewController: nil)
         
         viewParent.fromLeft(controller)
         {
@@ -115,14 +115,14 @@ class CParent:UIViewController
             lastController?.view.removeFromSuperview()
             lastController?.removeFromParentViewController()
             self.controllers.append(controller)
-            controller.didMoveToParentViewController(self)
+            controller.didMove(toParentViewController: self)
         }
     }
     
-    func scrollRight(controller:CController)
+    func scrollRight(_ controller:CController)
     {
         addChildViewController(controller)
-        controllers.last?.willMoveToParentViewController(nil)
+        controllers.last?.willMove(toParentViewController: nil)
         
         viewParent.fromRight(controller)
         {
@@ -130,7 +130,7 @@ class CParent:UIViewController
             lastController?.view.removeFromSuperview()
             lastController?.removeFromParentViewController()
             self.controllers.append(controller)
-            controller.didMoveToParentViewController(self)
+            controller.didMove(toParentViewController: self)
         }
     }
 }

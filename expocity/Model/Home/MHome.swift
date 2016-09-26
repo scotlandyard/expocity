@@ -3,7 +3,7 @@ import Foundation
 class MHome
 {
     let items:[MHomeItem]
-    private weak var itemTitle:MHomeItemTitle!
+    fileprivate weak var itemTitle:MHomeItemTitle!
     
     init()
     {

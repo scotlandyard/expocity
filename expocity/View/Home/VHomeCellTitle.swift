@@ -4,15 +4,15 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
 {
     weak var field:UITextField!
     weak var modelTitle:MHomeItemTitle!
-    private let kCornerRadius:CGFloat = 4
+    fileprivate let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         
         let base:UIView = UIView()
-        base.userInteractionEnabled = false
+        base.isUserInteractionEnabled = false
         base.translatesAutoresizingMaskIntoConstraints = false
         base.backgroundColor = UIColor.collectionBackground()
         base.clipsToBounds = true
@@ -21,17 +21,17 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         let field:UITextField = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.clipsToBounds = true
-        field.backgroundColor = UIColor.clearColor()
-        field.borderStyle = UITextBorderStyle.None
+        field.backgroundColor = UIColor.clear
+        field.borderStyle = UITextBorderStyle.none
         field.font = UIFont.bold(16)
-        field.textColor = UIColor.blackColor()
-        field.tintColor = UIColor.blackColor()
-        field.returnKeyType = UIReturnKeyType.Done
-        field.keyboardAppearance = UIKeyboardAppearance.Light
-        field.autocorrectionType = UITextAutocorrectionType.No
-        field.spellCheckingType = UITextSpellCheckingType.No
-        field.autocapitalizationType = UITextAutocapitalizationType.Words
-        field.clearButtonMode = UITextFieldViewMode.Never
+        field.textColor = UIColor.black
+        field.tintColor = UIColor.black
+        field.returnKeyType = UIReturnKeyType.done
+        field.keyboardAppearance = UIKeyboardAppearance.light
+        field.autocorrectionType = UITextAutocorrectionType.no
+        field.spellCheckingType = UITextSpellCheckingType.no
+        field.autocapitalizationType = UITextAutocapitalizationType.words
+        field.clearButtonMode = UITextFieldViewMode.never
         field.placeholder = NSLocalizedString("VHomeCellTitle_placeholder", comment:"")
         field.delegate = self
         self.field = field
@@ -45,23 +45,23 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-16-[field]-12-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-16-[field]-12-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[field]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[field]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[base]-10-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-10-[base]-10-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-14-[base]-14-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-14-[base]-14-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -72,7 +72,7 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         fatalError()
     }
     
-    override func config(model:MHomeItem)
+    override func config(_ model:MHomeItem)
     {
         modelTitle = model as! MHomeItemTitle
         field.text = modelTitle.title
@@ -80,12 +80,12 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
     
     //MARK: field del
     
-    func textFieldDidEndEditing(textField:UITextField)
+    func textFieldDidEndEditing(_ textField:UITextField)
     {
         modelTitle.title = textField.text!
     }
     
-    func textFieldShouldReturn(textField:UITextField) -> Bool
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool
     {
         textField.resignFirstResponder()
         

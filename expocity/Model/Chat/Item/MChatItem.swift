@@ -21,7 +21,7 @@ class MChatItem
         return 0
     }
     
-    func heightForCollection(width:CGFloat) -> CGFloat
+    func heightForCollection(_ width:CGFloat) -> CGFloat
     {
         if width != cellWidth
         {

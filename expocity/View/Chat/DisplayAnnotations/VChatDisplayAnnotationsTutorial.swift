@@ -4,34 +4,34 @@ class VChatDisplayAnnotationsTutorial:UIView
 {
     weak var controller:CChatDisplayAnnotations!
     weak var label:UILabel!
-    private let kButtonHeight:CGFloat = 50
+    fileprivate let kButtonHeight:CGFloat = 50
     
     convenience init(controller:CChatDisplayAnnotations)
     {
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        userInteractionEnabled = false
+        isUserInteractionEnabled = false
         alpha = 0
         self.controller = controller
         
         let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
+        label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clearColor()
+        label.backgroundColor = UIColor.clear
         label.numberOfLines = 0
-        label.textAlignment = NSTextAlignment.Center
-        label.textColor = UIColor.whiteColor()
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = UIColor.white
         label.font = UIFont.regular(20)
         self.label = label
         
         let cancelButton:UIButton = UIButton()
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.setTitle(NSLocalizedString("VChatDisplayAnnotationsTutorial_cancelButton", comment:""), forState:UIControlState.Normal)
-        cancelButton.setTitleColor(UIColor.whiteColor(), forState:UIControlState.Normal)
-        cancelButton.setTitleColor(UIColor(white:1, alpha:0.2), forState:UIControlState.Highlighted)
+        cancelButton.setTitle(NSLocalizedString("VChatDisplayAnnotationsTutorial_cancelButton", comment:""), for:UIControlState())
+        cancelButton.setTitleColor(UIColor.white, for:UIControlState())
+        cancelButton.setTitleColor(UIColor(white:1, alpha:0.2), for:UIControlState.highlighted)
         cancelButton.titleLabel!.font = UIFont.bold(20)
-        cancelButton.addTarget(self, action:#selector(self.actionCancel(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        cancelButton.addTarget(self, action:#selector(self.actionCancel(sender:)), for:UIControlEvents.touchUpInside)
         
         addSubview(label)
         addSubview(cancelButton)
@@ -41,20 +41,20 @@ class VChatDisplayAnnotationsTutorial:UIView
             "cancelButton":cancelButton]
         
         let metrics:[String:AnyObject] = [
-            "buttonHeight":kButtonHeight]
+            "buttonHeight":kButtonHeight as AnyObject]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[cancelButton]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[cancelButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-20-[label]-20-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-20-[label]-20-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-20-[cancelButton(buttonHeight)]-0-[label]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-20-[cancelButton(buttonHeight)]-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -64,9 +64,9 @@ class VChatDisplayAnnotationsTutorial:UIView
     
     func actionCancel(sender button:UIButton)
     {
-        UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        UIApplication.shared.keyWindow!.endEditing(true)
         
-        userInteractionEnabled = false
+        isUserInteractionEnabled = false
         controller.cancelAnnotation()
     }
     
@@ -80,7 +80,7 @@ class VChatDisplayAnnotationsTutorial:UIView
     func tutorialPlaceMark()
     {
         alpha = 1
-        userInteractionEnabled = true
+        isUserInteractionEnabled = true
         label.text = NSLocalizedString("VChatDisplayAnnotationsTutorial_tutorialPlaceMark", comment:"")
     }
     

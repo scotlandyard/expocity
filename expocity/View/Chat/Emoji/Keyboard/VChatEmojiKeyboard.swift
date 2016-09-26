@@ -10,14 +10,14 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     {
         model = MChatEmojiKeyboard()
         
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
-        let collectionView:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         
         addSubview(collectionView)
     }
@@ -29,33 +29,33 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     
     //MARK: private
     
-    private func modelAtIndex(index:NSIndexPath) -> MChatEmojiKeyboardItem
+    fileprivate func modelAtIndex(_ index:IndexPath) -> MChatEmojiKeyboardItem
     {
-        let item:MChatEmojiKeyboardItem = model.items[index.item]
+        let item:MChatEmojiKeyboardItem = model.items[(index as NSIndexPath).item]
         
         return item
     }
     
     //MARK: collection del
     
-    func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
     
-    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
         let count:Int = model.items.count
         
         return count
     }
     
-    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MChatEmojiKeyboardItem = modelAtIndex(indexPath)
-        let cell:VChatEmojiKeyboardCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            VChatEmojiKeyboardCell.reusableIdentifier(),
-            forIndexPath:
+        let cell:VChatEmojiKeyboardCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: VChatEmojiKeyboardCell.reusableIdentifier(),
+            for:
             indexPath) as! VChatEmojiKeyboardCell
         cell.config(item)
         

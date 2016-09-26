@@ -10,19 +10,19 @@ class VBarCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         
         let icon:UIImageView = UIImageView()
-        icon.userInteractionEnabled = false
+        icon.isUserInteractionEnabled = false
         icon.clipsToBounds = true
         icon.translatesAutoresizingMaskIntoConstraints = false
-        icon.contentMode = UIViewContentMode.Center
+        icon.contentMode = UIViewContentMode.center
         self.icon = icon
         
         let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
-        label.textAlignment = NSTextAlignment.Center
-        label.backgroundColor = UIColor.clearColor()
+        label.isUserInteractionEnabled = false
+        label.textAlignment = NSTextAlignment.center
+        label.backgroundColor = UIColor.clear
         label.font = UIFont.regular(12)
         label.translatesAutoresizingMaskIntoConstraints = false
         self.label = label
@@ -36,23 +36,23 @@ class VBarCell:UICollectionViewCell
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[icon]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[icon]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[label]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-29-[icon]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-29-[icon]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-16-[label(20)]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-16-[label(20)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -63,7 +63,7 @@ class VBarCell:UICollectionViewCell
         fatalError()
     }
     
-    override var selected:Bool
+    override var isSelected:Bool
     {
         didSet
         {
@@ -71,7 +71,7 @@ class VBarCell:UICollectionViewCell
         }
     }
     
-    override var highlighted:Bool
+    override var isHighlighted:Bool
     {
         didSet
         {
@@ -81,12 +81,12 @@ class VBarCell:UICollectionViewCell
     
     //MARK: private
     
-    private func hover()
+    fileprivate func hover()
     {
-        if selected || highlighted
+        if isSelected || isHighlighted
         {
             icon.image = UIImage(named:model.iconImageOn)
-            label.textColor = UIColor.whiteColor()
+            label.textColor = UIColor.white
         }
         else
         {
@@ -97,7 +97,7 @@ class VBarCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MMenuItem)
+    func config(_ model:MMenuItem)
     {
         self.model = model
         label.text = model.title
