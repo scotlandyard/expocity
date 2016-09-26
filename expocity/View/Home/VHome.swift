@@ -5,7 +5,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     weak var controller:CHome!
     weak var collection:UICollectionView!
     weak var loader:VMainLoader!
-    fileprivate let kCollectionBottom:CGFloat = 40
+    private let kCollectionBottom:CGFloat = 40
     
     convenience init(controller:CHome)
     {
@@ -48,29 +48,29 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         addSubview(collection)
         addSubview(loader)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "loader":loader,
             "collection":collection]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[loader]-0-|",
+            withVisualFormat:"H:|-0-[loader]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[loader]-0-|",
+            withVisualFormat:"V:|-0-[loader]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[collection]-0-|",
+            withVisualFormat:"H:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[collection]-0-|",
+            withVisualFormat:"V:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -84,9 +84,9 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     //MARK: private
     
-    fileprivate func modelAtIndex(_ index:IndexPath) -> MHomeItem
+    private func modelAtIndex(index:IndexPath) -> MHomeItem
     {
-        let item:MHomeItem = controller.model.items[(index as NSIndexPath).item]
+        let item:MHomeItem = controller.model.items[index.item]
         
         return item
     }
@@ -110,7 +110,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         let item:MHomeItem = modelAtIndex(indexPath)
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSize(width: width, height: item.cellHeight)
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
         
         return size
     }
@@ -131,9 +131,8 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         let item:MHomeItem = modelAtIndex(indexPath)
         let cell:VHomeCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: item.reusableIdentifier,
-            for:
-            indexPath) as! VHomeCell
+            withReuseIdentifier:item.reusableIdentifier,
+            for:indexPath) as! VHomeCell
         cell.config(item)
         
         return cell
@@ -157,13 +156,16 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let cell:VHomeCell = collectionView.cellForItem(at: indexPath) as! VHomeCell
+        let cell:VHomeCell = collectionView.cellForItem(at:indexPath) as! VHomeCell
         cell.selected(controller)
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC))
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_SEC))
         { [weak collectionView] in
             
-            collectionView?.selectItem(at: nil, animated:false, scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
         }
     }
 }

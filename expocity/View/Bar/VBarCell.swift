@@ -30,29 +30,29 @@ class VBarCell:UICollectionViewCell
         addSubview(icon)
         addSubview(label)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "icon":icon,
             "label":label]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[icon]-0-|",
+            withVisualFormat:"H:|-0-[icon]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[label]-0-|",
+            withVisualFormat:"H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-29-[icon]-0-|",
+            withVisualFormat:"V:|-29-[icon]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-16-[label(20)]",
+            withVisualFormat:"V:|-16-[label(20)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -81,7 +81,7 @@ class VBarCell:UICollectionViewCell
     
     //MARK: private
     
-    fileprivate func hover()
+    private func hover()
     {
         if isSelected || isHighlighted
         {
@@ -97,7 +97,7 @@ class VBarCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(_ model:MMenuItem)
+    func config(model:MMenuItem)
     {
         self.model = model
         label.text = model.title
