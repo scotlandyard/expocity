@@ -33,25 +33,25 @@ class VChatDisplayOptionsCell:UICollectionViewCell
             "imageView":imageView,
             "label":label]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[imageView]-0-|",
+            withVisualFormat:"H:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[label]-0-|",
+            withVisualFormat:"H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[imageView]-0-|",
+            withVisualFormat:"V:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-59-[label]-0-|",
+            withVisualFormat:"V:|-59-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -80,7 +80,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
     
     //MARK: private
     
-    fileprivate func hover()
+    private func hover()
     {
         if isSelected || isHighlighted
         {
@@ -96,7 +96,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(_ model:MChatDisplayOptionsItem)
+    func config(model:MChatDisplayOptionsItem)
     {
         label.text = model.title
         imageView.image = UIImage(named:model.icon)!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)

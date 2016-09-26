@@ -13,7 +13,10 @@ class VChatDisplayAnnotationsPlacerItem:UIButton
         setImage(UIImage(named:"chatAnnotation"), for:UIControlState())
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
-        addTarget(self, action:#selector(self.actionSelect(sender:)), for:UIControlEvents.touchUpInside)
+        addTarget(
+            self,
+            action:#selector(self.actionSelect(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.model = model
         self.controller = controller
     }

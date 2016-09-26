@@ -5,7 +5,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
     weak var label:UILabel!
     weak var controller:CChatDisplayAnnotations!
     weak var model:MChatDisplayAnnotationsItem!
-    fileprivate let kButtonRemoveWidth:CGFloat = 55
+    private let kButtonRemoveWidth:CGFloat = 55
     
     override init(frame:CGRect)
     {
@@ -38,21 +38,21 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
             "label":label,
             "buttonRemove":buttonRemove]
         
-        let metrics:[String:AnyObject] = [
-            "buttonRemoveWidth":kButtonRemoveWidth as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "buttonRemoveWidth":kButtonRemoveWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-10-[label]-0-[buttonRemove(buttonRemoveWidth)]-0-|",
+            withVisualFormat:"H:|-10-[label]-0-[buttonRemove(buttonRemoveWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[label]-0-|",
+            withVisualFormat:"V:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[buttonRemove]-0-|",
+            withVisualFormat:"V:|-0-[buttonRemove]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -103,7 +103,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(_ model:MChatDisplayAnnotationsItem, controller:CChatDisplayAnnotations)
+    func config(model:MChatDisplayAnnotationsItem, controller:CChatDisplayAnnotations)
     {
         self.model = model
         self.controller = controller

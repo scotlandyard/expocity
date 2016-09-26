@@ -5,8 +5,8 @@ class VChatDisplayAnnotationsPlacer:UIView
     weak var controller:CChatDisplayAnnotations!
     weak var tapGesture:UITapGestureRecognizer!
     weak var itemContainer:UIView!
-    fileprivate let kItemSize:CGFloat = 40
-    fileprivate let itemSize_2:CGFloat
+    private let kItemSize:CGFloat = 40
+    private let itemSize_2:CGFloat
     
     init(controller:CChatDisplayAnnotations)
     {
@@ -32,15 +32,15 @@ class VChatDisplayAnnotationsPlacer:UIView
         let views:[String:AnyObject] = [
             "itemContainer":itemContainer]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[itemContainer]-0-|",
+            withVisualFormat:"H:|-0-[itemContainer]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[itemContainer]-0-|",
+            withVisualFormat:"V:|-0-[itemContainer]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -100,6 +100,7 @@ class VChatDisplayAnnotationsPlacer:UIView
         }
         
         var count:Int = itemContainer.subviews.count - 1
+        
         while count >= 0
         {
             let subview:UIView = itemContainer.subviews[count]
@@ -121,18 +122,18 @@ class VChatDisplayAnnotationsPlacer:UIView
             let views:[String:AnyObject] = [
                 "item":subview]
             
-            let metrics:[String:AnyObject] = [
-                "itemSize":kItemSize as AnyObject,
-                "itemLeft":itemLeft as AnyObject,
-                "itemTop":itemTop as AnyObject]
+            let metrics:[String:CGFloat] = [
+                "itemSize":kItemSize,
+                "itemLeft":itemLeft,
+                "itemTop":itemTop]
             
             itemContainer.addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-(itemLeft)-[item(itemSize)]",
+                withVisualFormat:"H:|-(itemLeft)-[item(itemSize)]",
                 options:[],
                 metrics:metrics,
                 views:views))
             itemContainer.addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-(itemTop)-[item(itemSize)]",
+                withVisualFormat:"V:|-(itemTop)-[item(itemSize)]",
                 options:[],
                 metrics:metrics,
                 views:views))

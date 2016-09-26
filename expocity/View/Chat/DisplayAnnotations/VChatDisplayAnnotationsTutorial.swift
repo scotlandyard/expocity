@@ -4,7 +4,7 @@ class VChatDisplayAnnotationsTutorial:UIView
 {
     weak var controller:CChatDisplayAnnotations!
     weak var label:UILabel!
-    fileprivate let kButtonHeight:CGFloat = 50
+    private let kButtonHeight:CGFloat = 50
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -31,7 +31,10 @@ class VChatDisplayAnnotationsTutorial:UIView
         cancelButton.setTitleColor(UIColor.white, for:UIControlState())
         cancelButton.setTitleColor(UIColor(white:1, alpha:0.2), for:UIControlState.highlighted)
         cancelButton.titleLabel!.font = UIFont.bold(20)
-        cancelButton.addTarget(self, action:#selector(self.actionCancel(sender:)), for:UIControlEvents.touchUpInside)
+        cancelButton.addTarget(
+            self,
+            action:#selector(self.actionCancel(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(label)
         addSubview(cancelButton)
@@ -40,21 +43,21 @@ class VChatDisplayAnnotationsTutorial:UIView
             "label":label,
             "cancelButton":cancelButton]
         
-        let metrics:[String:AnyObject] = [
-            "buttonHeight":kButtonHeight as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "buttonHeight":kButtonHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[cancelButton]-0-|",
+            withVisualFormat:"H:|-0-[cancelButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-20-[label]-20-|",
+            withVisualFormat:"H:|-20-[label]-20-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-20-[cancelButton(buttonHeight)]-0-[label]-0-|",
+            withVisualFormat:"V:|-20-[cancelButton(buttonHeight)]-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))

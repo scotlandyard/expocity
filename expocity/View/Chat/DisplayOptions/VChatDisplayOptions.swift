@@ -6,12 +6,12 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     weak var collectionView:UICollectionView!
     weak var blur:UIView!
     weak var base:UIView!
-    fileprivate let kAnimationDuration:TimeInterval = 0.3
-    fileprivate let kCornerRadius:CGFloat = 4
-    fileprivate let kBaseMarginVertical:CGFloat = 40
-    fileprivate let kBaseMarginHorizontal:CGFloat = 10
-    fileprivate let kButtonDoneHeight:CGFloat = 40
-    fileprivate let kWaitingSelected:UInt64 = 150
+    private let kAnimationDuration:TimeInterval = 0.3
+    private let kCornerRadius:CGFloat = 4
+    private let kBaseMarginVertical:CGFloat = 40
+    private let kBaseMarginHorizontal:CGFloat = 10
+    private let kButtonDoneHeight:CGFloat = 40
+    private let kWaitingSelected:UInt64 = 150
     
     convenience init(controller:CChatDisplayOptions)
     {
@@ -85,63 +85,66 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
             "buttonDone":buttonDone,
             "collectionView":collectionView]
         
-        let metrics:[String:AnyObject] = [
-            "baseMarginVertical":kBaseMarginVertical as AnyObject,
-            "baseMarginHorizontal":kBaseMarginHorizontal as AnyObject,
-            "buttonDoneHeight":kButtonDoneHeight as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "baseMarginVertical":kBaseMarginVertical,
+            "baseMarginHorizontal":kBaseMarginHorizontal,
+            "buttonDoneHeight":kButtonDoneHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[visualEffect]-0-|",
+            withVisualFormat:"H:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[blur]-0-|",
+            withVisualFormat:"H:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-(baseMarginHorizontal)-[base]-(baseMarginHorizontal)-|",
+            withVisualFormat:"H:|-(baseMarginHorizontal)-[base]-(baseMarginHorizontal)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[buttonDone]-0-|",
+            withVisualFormat:"H:|-0-[buttonDone]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[collectionView]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[visualEffect]-0-|",
+            withVisualFormat:"V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[blur]-0-|",
+            withVisualFormat:"V:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-(baseMarginVertical)-[base]-(baseMarginVertical)-|",
+            withVisualFormat:"V:|-(baseMarginVertical)-[base]-(baseMarginVertical)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[collectionView]-0-[buttonDone(buttonDoneHeight)]-0-|",
+            withVisualFormat:"V:|-0-[collectionView]-0-[buttonDone(buttonDoneHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         
         let selected:IndexPath = IndexPath(item:controller.model.selected, section:0)
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_MSEC * kWaitingSelected)) / Double(NSEC_PER_SEC))
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_MSEC * kWaitingSelected))
         { [weak self] in
             
-            self?.collectionView.selectItem(at: selected, animated:false, scrollPosition:UICollectionViewScrollPosition())
+            self?.collectionView.selectItem(
+                at:selected,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
         }
     }
     
@@ -160,9 +163,9 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     
     //MARK: private
     
-    fileprivate func modelAtIndex(_ index:IndexPath) -> MChatDisplayOptionsItem
+    private func modelAtIndex(index:IndexPath) -> MChatDisplayOptionsItem
     {
-        let item:MChatDisplayOptionsItem = controller.model.items[(index as NSIndexPath).item]
+        let item:MChatDisplayOptionsItem = controller.model.items[index.item]
         
         return item
     }
@@ -171,11 +174,11 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     
     func animateBlur()
     {
-        UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
             
             self?.blur.alpha = 1
-        })
-        
+        }
     }
     
     //MARK: collection del
@@ -191,12 +194,12 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         if width > height
         {
             let cellWidth:CGFloat = width / countFloat
-            size = CGSize(width: cellWidth, height: height)
+            size = CGSize(width:cellWidth, height:height)
         }
         else
         {
             let cellHeight:CGFloat = height / countFloat
-            size = CGSize(width: width, height: cellHeight)
+            size = CGSize(width:width, height:cellHeight)
         }
         
         return size
@@ -219,8 +222,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         let item:MChatDisplayOptionsItem = modelAtIndex(indexPath)
         let cell:VChatDisplayOptionsCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: VChatDisplayOptionsCell.reusableIdentifier(),
-            for:
-            indexPath) as! VChatDisplayOptionsCell
+            for:indexPath) as! VChatDisplayOptionsCell
         cell.config(item)
         
         return cell
@@ -228,6 +230,6 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        controller.model.selectItem((indexPath as NSIndexPath).item)
+        controller.model.selectItem(index.item)
     }
 }

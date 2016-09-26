@@ -4,8 +4,8 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
 {
     weak var controller:CChatDisplayAnnotations!
     weak var textField:UITextField!
-    fileprivate let kBorderRadius:CGFloat = 4
-    fileprivate let kDoneButtonWidth:CGFloat = 65
+    private let kBorderRadius:CGFloat = 4
+    private let kDoneButtonWidth:CGFloat = 65
     
     convenience init(controller:CChatDisplayAnnotations)
     {
@@ -29,7 +29,10 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         doneButton.setTitleColor(UIColor.main(), for:UIControlState())
         doneButton.setTitleColor(UIColor.main().withAlphaComponent(0.2), for:UIControlState.highlighted)
         doneButton.titleLabel!.font = UIFont.bold(15)
-        doneButton.addTarget(self, action:#selector(self.actionDone(sender:)), for:UIControlEvents.touchUpInside)
+        doneButton.addTarget(
+            self,
+            action:#selector(self.actionDone(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let fieldBase:UIView = UIView()
         fieldBase.translatesAutoresizingMaskIntoConstraints = false
@@ -68,41 +71,41 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
             "doneButton":doneButton,
             "topBorder":topBorder]
         
-        let metrics:[String:AnyObject] = [
-            "doneButtonWidth":kDoneButtonWidth as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "doneButtonWidth":kDoneButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-6-[fieldBase]-0-[doneButton(doneButtonWidth)]-0-|",
+            withVisualFormat:"H:|-6-[fieldBase]-0-[doneButton(doneButtonWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-7-[textField]-0-|",
+            withVisualFormat:"H:|-7-[textField]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[topBorder]-0-|",
+            withVisualFormat:"H:|-0-[topBorder]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[textField]-0-|",
+            withVisualFormat:"V:|-0-[textField]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[doneButton]-0-|",
+            withVisualFormat:"V:|-0-[doneButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-6-[fieldBase]-6-|",
+            withVisualFormat:"V:|-6-[fieldBase]-6-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[topBorder(1)]",
+            withVisualFormat:"V:|-0-[topBorder(1)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -117,7 +120,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     //MARK: private
     
-    fileprivate func confirmText()
+    private func confirmText()
     {
         let text:String = textField.text!
         UIApplication.shared.keyWindow!.endEditing(true)
