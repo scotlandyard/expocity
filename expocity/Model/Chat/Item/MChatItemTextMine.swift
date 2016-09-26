@@ -11,7 +11,7 @@ class MChatItemTextMine:MChatItemText
     init(text:String)
     {
         let reusableIdentifier:String = VChatConversationCellTextMine.reusableIdentifier()
-        let font:UIFont = UIFont.medium(kFontSize)
+        let font:UIFont = UIFont.medium(size:kFontSize)
         super.init(reusableIdentifier:reusableIdentifier, text:text, font:font, marginLeft:kMarginLeft, marginRight:kMarginRight, marginTop:kMarginTop, marginBottom:kMarginBottom)
     }
     

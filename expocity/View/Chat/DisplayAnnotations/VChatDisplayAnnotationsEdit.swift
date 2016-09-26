@@ -28,7 +28,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         doneButton.setTitle(NSLocalizedString("VChatDisplayAnnoationsEdit_doneButton", comment:""), for:UIControlState())
         doneButton.setTitleColor(UIColor.main(), for:UIControlState())
         doneButton.setTitleColor(UIColor.main().withAlphaComponent(0.2), for:UIControlState.highlighted)
-        doneButton.titleLabel!.font = UIFont.bold(15)
+        doneButton.titleLabel!.font = UIFont.bold(size:15)
         doneButton.addTarget(
             self,
             action:#selector(self.actionDone(sender:)),
@@ -47,7 +47,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         textField.clipsToBounds = true
         textField.backgroundColor = UIColor.clear
         textField.borderStyle = UITextBorderStyle.none
-        textField.font = UIFont.regular(16)
+        textField.font = UIFont.regular(size:16)
         textField.textColor = UIColor.black
         textField.tintColor = UIColor.black
         textField.returnKeyType = UIReturnKeyType.done
@@ -124,7 +124,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     {
         let text:String = textField.text!
         UIApplication.shared.keyWindow!.endEditing(true)
-        controller.confirmTextAnnotation(text)
+        controller.confirmTextAnnotation(text:text)
     }
     
     //MARK: public

@@ -104,7 +104,7 @@ class VChatConversationCellText:VChatConversationCell
     
     override func config(model:MChatItem, controller:CChat)
     {
-        super.config(model, controller:controller)
+        super.config(model:model, controller:controller)
         modelText = model as! MChatItemText
         labelContent.attributedText = modelText.attributedString
         layoutConstraints()

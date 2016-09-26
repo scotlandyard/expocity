@@ -82,7 +82,7 @@ class VMainAlert:UIView
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.bold(18)
+        label.font = UIFont.bold(size:18)
         label.textColor = UIColor.white
         label.text = message
         
@@ -91,7 +91,7 @@ class VMainAlert:UIView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
-        setIcon(imageView, type:type)
+        setIcon(imageView:imageView, type:type)
         
         addSubview(imageView)
         addSubview(label)

@@ -167,19 +167,19 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MChatMenuItem = modelAtIndex(indexPath)
+        let item:MChatMenuItem = modelAtIndex(index:indexPath)
         let cell:VChatInputMenuCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VChatInputMenuCell.reusableIdentifier(),
             for:indexPath) as! VChatInputMenuCell
-        cell.config(item)
+        cell.config(model:item)
         
         return cell
     }
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MChatMenuItem = modelAtIndex(indexPath)
-        item.selected(controller)
+        let item:MChatMenuItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
         
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_SEC))
         { [weak collectionView] in

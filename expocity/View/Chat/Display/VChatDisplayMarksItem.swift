@@ -48,7 +48,7 @@ class VChatDisplayMarksItem:UIButton
         
         let alertMessage:String = model.text
         let alertType:VMainAlert.VMainAlertType = VMainAlert.VMainAlertType.annotation
-        VMainAlert.Show(alertMessage, type:alertType)
+        VMainAlert.Show(message:alertMessage, type:alertType)
     }
     
     func timeOut(sender timer:Timer)

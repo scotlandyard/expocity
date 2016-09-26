@@ -45,7 +45,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         buttonDone.setTitleColor(UIColor.white, for:UIControlState())
         buttonDone.setTitleColor(UIColor(white:1, alpha:0.2), for:UIControlState.highlighted)
         buttonDone.setTitle(NSLocalizedString("VChatDisplayOptions_buttonDone", comment:""), for:UIControlState())
-        buttonDone.titleLabel!.font = UIFont.bold(14)
+        buttonDone.titleLabel!.font = UIFont.bold(size:14)
         buttonDone.addTarget(self, action:#selector(self.actionDone(sender:)), for:UIControlEvents.touchUpInside)
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -219,17 +219,17 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MChatDisplayOptionsItem = modelAtIndex(indexPath)
+        let item:MChatDisplayOptionsItem = modelAtIndex(index:indexPath)
         let cell:VChatDisplayOptionsCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: VChatDisplayOptionsCell.reusableIdentifier(),
             for:indexPath) as! VChatDisplayOptionsCell
-        cell.config(item)
+        cell.config(model:item)
         
         return cell
     }
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        controller.model.selectItem(index.item)
+        controller.model.selectItem(index:index.item)
     }
 }

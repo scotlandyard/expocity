@@ -16,7 +16,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.regular(16)
+        label.font = UIFont.regular(size:16)
         label.textColor = UIColor(white:1, alpha:0.9)
         label.backgroundColor = UIColor.clear
         self.label = label
@@ -83,7 +83,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
             
             if self != nil
             {
-                self!.controller.removeAnnotation(self!.model)
+                self!.controller.removeAnnotation(item:self!.model)
             }
         }
         

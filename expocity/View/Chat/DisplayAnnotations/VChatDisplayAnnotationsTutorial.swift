@@ -22,7 +22,7 @@ class VChatDisplayAnnotationsTutorial:UIView
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.center
         label.textColor = UIColor.white
-        label.font = UIFont.regular(20)
+        label.font = UIFont.regular(size:20)
         self.label = label
         
         let cancelButton:UIButton = UIButton()
@@ -30,7 +30,7 @@ class VChatDisplayAnnotationsTutorial:UIView
         cancelButton.setTitle(NSLocalizedString("VChatDisplayAnnotationsTutorial_cancelButton", comment:""), for:UIControlState())
         cancelButton.setTitleColor(UIColor.white, for:UIControlState())
         cancelButton.setTitleColor(UIColor(white:1, alpha:0.2), for:UIControlState.highlighted)
-        cancelButton.titleLabel!.font = UIFont.bold(20)
+        cancelButton.titleLabel!.font = UIFont.bold(size:20)
         cancelButton.addTarget(
             self,
             action:#selector(self.actionCancel(sender:)),

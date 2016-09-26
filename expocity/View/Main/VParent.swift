@@ -52,7 +52,7 @@ class VParent:UIView
     
     //MARK: private
     
-    private func scroll(controller:CController, delta:CGFloat, completion:(() -> ()))
+    private func scroll(controller:CController, delta:CGFloat, completion:@escaping(() -> ()))
     {
         insertSubview(controller.view, belowSubview:bar)
         
@@ -149,19 +149,19 @@ class VParent:UIView
         addConstraint(controller.layoutRight)
     }
     
-    func fromLeft(controller:CController, completion:(() -> ()))
+    func fromLeft(controller:CController, completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
-        scroll(controller, delta:width, completion:completion)
+        scroll(controller:controller, delta:width, completion:completion)
     }
     
-    func fromRight(controller:CController, completion:(() -> ()))
+    func fromRight(controller:CController, completion:@escaping(() -> ()))
     {
         let width:CGFloat = -bounds.maxX
-        scroll(controller, delta:width, completion:completion)
+        scroll(controller:controller, delta:width, completion:completion)
     }
     
-    func push(controller:CController, completion:(() -> ()))
+    func push(controller:CController, completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         let width_2:CGFloat = width / 2.0
@@ -206,7 +206,7 @@ class VParent:UIView
         parent.controllers.last?.layoutLeft.constant = -width_2
         parent.controllers.last?.layoutRight.constant = -width_2
         parent.controllers.last?.addShadow()
-        bar.push(controller.title)
+        bar.push(name:controller.title)
         
         UIView.animate(withDuration:kAnimationDurantion, animations:
         {
@@ -219,7 +219,7 @@ class VParent:UIView
         }
     }
     
-    func pop(completion:(() -> ()))
+    func pop(completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         let countControllers:Int = parent.controllers.count
@@ -235,8 +235,8 @@ class VParent:UIView
         
         UIView.animate(withDuration:kAnimationDurantion, animations:
         {
-                self.layoutIfNeeded()
-                previous.shadow?.minAlpha()
+            self.layoutIfNeeded()
+            previous.shadow?.minAlpha()
         })
         { (done) in
             
@@ -245,7 +245,7 @@ class VParent:UIView
         }
     }
     
-    func dismiss(completion:(() -> ()))
+    func dismiss(completion:@escaping(() -> ()))
     {
         let countControllers:Int = parent.controllers.count
         let controller:CController = parent.controllers[countControllers - 1]

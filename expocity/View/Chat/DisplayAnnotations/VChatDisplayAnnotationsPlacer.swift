@@ -65,7 +65,7 @@ class VChatDisplayAnnotationsPlacer:UIView
         let imageHeight:CGFloat = bounds.size.height
         let xPercent:CGFloat = pointX / imageWidth
         let yPercent:CGFloat = pointY / imageHeight
-        controller.confirmAnnotation(xPercent, yPercent:yPercent)
+        controller.confirmAnnotation(xPercent:xPercent, yPercent:yPercent)
     }
     
     //MARK: public

@@ -52,7 +52,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(18)
+        label.font = UIFont.bold(size:18)
         label.textAlignment = NSTextAlignment.center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
@@ -316,18 +316,18 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MMenuItem = modelAtIndex(indexPath)
+        let item:MMenuItem = modelAtIndex(index:indexPath)
         let cell:VBarCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: VBarCell.reusableIdentifier(),
             for:indexPath) as! VBarCell
-        cell.config(item)
+        cell.config(model:item)
         
         return cell
     }
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MMenuItem = modelAtIndex(indexPath)
+        let item:MMenuItem = modelAtIndex(index:indexPath)
         
         if item !== model.current
         {
@@ -335,11 +335,11 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             
             if item.index < model.current.index
             {
-                parent.scrollLeft(controller)
+                parent.scrollLeft(controller:controller)
             }
             else
             {
-                parent.scrollRight(controller)
+                parent.scrollRight(controller:controller)
             }
             
             model.current = item

@@ -155,7 +155,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         controller.dismiss(animated:true)
         { [weak self] in
             
-            self?.display.displayImage(image)
+            self?.display.displayImage(image:image)
         }
     }
 }

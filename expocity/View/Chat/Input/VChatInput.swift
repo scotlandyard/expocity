@@ -44,7 +44,7 @@ class VChatInput:UIView, UITextViewDelegate
         field.translatesAutoresizingMaskIntoConstraints = false
         field.clipsToBounds = true
         field.backgroundColor = UIColor.clear
-        field.font = UIFont.medium(15)
+        field.font = UIFont.medium(size:15)
         field.textColor = UIColor.black
         field.tintColor = UIColor.black
         field.returnKeyType = UIReturnKeyType.default
@@ -135,7 +135,7 @@ class VChatInput:UIView, UITextViewDelegate
             
             if !textValidating.isEmpty
             {
-                controller.addTextMine(text)
+                controller.addTextMine(text:text)
             }
             
             DispatchQueue.main.async

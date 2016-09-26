@@ -52,11 +52,11 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MChatEmojiKeyboardItem = modelAtIndex(indexPath)
+        let item:MChatEmojiKeyboardItem = modelAtIndex(index:indexPath)
         let cell:VChatEmojiKeyboardCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VChatEmojiKeyboardCell.reusableIdentifier(),
             for:indexPath) as! VChatEmojiKeyboardCell
-        cell.config(item)
+        cell.config(model:item)
         
         return cell
     }

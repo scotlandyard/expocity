@@ -97,14 +97,14 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        controller.parentController.viewParent.scrollDidScroll(scrollView)
+        controller.parentController.viewParent.scrollDidScroll(scroll:scrollView)
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let item:MChatItem = modelAtIndex(indexPath)
+        let item:MChatItem = modelAtIndex(index:indexPath)
         let width:CGFloat = collectionView.bounds.maxX
-        let height:CGFloat = item.heightForCollection(width)
+        let height:CGFloat = item.heightForCollection(width:width)
         let size:CGSize = CGSize(width:width, height:height)
         
         return size
@@ -124,11 +124,11 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MChatItem = modelAtIndex(indexPath)
+        let item:MChatItem = modelAtIndex(index:indexPath)
         let cell:VChatConversationCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: item.reusableIdentifier,
             for:indexPath) as! VChatConversationCell
-        cell.config(item, controller:controller)
+        cell.config(model:item, controller:controller)
         
         return cell
     }

@@ -103,12 +103,12 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        controller.parentController.viewParent.scrollDidScroll(scrollView)
+        controller.parentController.viewParent.scrollDidScroll(scroll:scrollView)
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let item:MHomeItem = modelAtIndex(indexPath)
+        let item:MHomeItem = modelAtIndex(index:indexPath)
         let width:CGFloat = collectionView.bounds.maxX
         let size:CGSize = CGSize(width:width, height:item.cellHeight)
         
@@ -129,18 +129,18 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MHomeItem = modelAtIndex(indexPath)
+        let item:MHomeItem = modelAtIndex(index:indexPath)
         let cell:VHomeCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:item.reusableIdentifier,
             for:indexPath) as! VHomeCell
-        cell.config(item)
+        cell.config(model:item)
         
         return cell
     }
     
     func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
     {
-        let item:MHomeItem = modelAtIndex(indexPath)
+        let item:MHomeItem = modelAtIndex(index:indexPath)
         let highlightable:Bool = item.selectable
         
         return highlightable
@@ -148,7 +148,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
     {
-        let item:MHomeItem = modelAtIndex(indexPath)
+        let item:MHomeItem = modelAtIndex(index:indexPath)
         let selectable:Bool = item.selectable
         
         return selectable
@@ -157,7 +157,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let cell:VHomeCell = collectionView.cellForItem(at:indexPath) as! VHomeCell
-        cell.selected(controller)
+        cell.selected(controller:controller)
         
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_SEC))
         { [weak collectionView] in

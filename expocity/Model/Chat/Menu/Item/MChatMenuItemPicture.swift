@@ -19,7 +19,7 @@ class MChatMenuItemPicture:MChatMenuItem
         }
         else
         {
-            showAlert(controller)
+            showAlert(controller:controller)
         }
     }
     
