@@ -7,7 +7,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     weak var display:VChatDisplay!
     weak var conversation:VChatConversation!
     weak var layoutInputBottom:NSLayoutConstraint!
-    fileprivate let kAnimationDuration:TimeInterval = 0.4
+    private let kAnimationDuration:TimeInterval = 0.4
     
     convenience init(controller:CChat)
     {
@@ -30,30 +30,30 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         addSubview(conversation)
         addSubview(display)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "input":input,
             "conversation":conversation,
             "display":display]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[input]-0-|",
+            withVisualFormat:"H:|-0-[input]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[display]-0-|",
+            withVisualFormat:"H:|-0-[display]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[conversation]-0-|",
+            withVisualFormat:"H:|-0-[conversation]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[conversation]-0-[display]-0-[input]",
+            withVisualFormat:"V:|-0-[conversation]-0-[display]-0-[input]",
             options:[],
             metrics:metrics,
             views:views))
@@ -117,13 +117,13 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         }
         
         layoutInputBottom.constant = -keyboardHeight
-        conversation.collection.contentOffset = CGPoint(x: 0, y: currentOffset.y + keyboardHeight)
+        conversation.collection.contentOffset = CGPoint(x:0, y:currentOffset.y + keyboardHeight)
         
-        UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
             
             self?.layoutIfNeeded()
-        })
-        
+        }
     }
     
     //MARK: public
@@ -152,7 +152,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     {
         let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        controller.dismiss(animated: true)
+        controller.dismiss(animated:true)
         { [weak self] in
             
             self?.display.displayImage(image)

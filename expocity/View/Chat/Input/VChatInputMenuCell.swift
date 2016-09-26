@@ -19,18 +19,18 @@ class VChatInputMenuCell:UICollectionViewCell
         
         addSubview(image)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "image":image]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[image]-0-|",
+            withVisualFormat:"H:|-0-[image]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[image]-0-|",
+            withVisualFormat:"V:|-0-[image]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -59,7 +59,7 @@ class VChatInputMenuCell:UICollectionViewCell
     
     //MARK: private
     
-    fileprivate func hover()
+    private func hover()
     {
         if isSelected || isHighlighted
         {
@@ -73,7 +73,7 @@ class VChatInputMenuCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(_ model:MChatMenuItem)
+    func config(model:MChatMenuItem)
     {
         image.image = UIImage(named:model.icon)
         hover()

@@ -5,7 +5,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     weak var controller:CChat!
     weak var collection:UICollectionView!
     let model:MChatMenu
-    fileprivate let kCellWidth:CGFloat = 50
+    private let kCellWidth:CGFloat = 50
     
     init(controller:CChat)
     {
@@ -42,18 +42,18 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         addSubview(collection)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "collection":collection]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[collection]-0-|",
+            withVisualFormat:"H:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[collection]-0-|",
+            withVisualFormat:"V:|-0-[collection]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -72,9 +72,9 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     //MARK: private
     
-    fileprivate func modelAtIndex(_ index:IndexPath) -> MChatMenuItem
+    private func modelAtIndex(index:IndexPath) -> MChatMenuItem
     {
-        let item:MChatMenuItem = model.status.items[(index as NSIndexPath).item]
+        let item:MChatMenuItem = model.status.items[index.item]
         
         return item
     }
@@ -148,7 +148,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let height:CGFloat = collectionView.bounds.maxY
-        let size:CGSize = CGSize(width: kCellWidth, height: height)
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
         
         return size
     }
@@ -169,9 +169,8 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     {
         let item:MChatMenuItem = modelAtIndex(indexPath)
         let cell:VChatInputMenuCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: VChatInputMenuCell.reusableIdentifier(),
-            for:
-            indexPath) as! VChatInputMenuCell
+            withReuseIdentifier:VChatInputMenuCell.reusableIdentifier(),
+            for:indexPath) as! VChatInputMenuCell
         cell.config(item)
         
         return cell
@@ -182,11 +181,11 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         let item:MChatMenuItem = modelAtIndex(indexPath)
         item.selected(controller)
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC))
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + Double(NSEC_PER_SEC))
         { [weak collectionView] in
             
             collectionView?.selectItem(
-                at: nil,
+                at:nil,
                 animated:false,
                 scrollPosition:UICollectionViewScrollPosition())
         }
