@@ -200,7 +200,7 @@ class VChatInput:UIView, UITextViewDelegate
     {
         UIApplication.shared.keyWindow!.endEditing(true)
         
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.sendMessage()
