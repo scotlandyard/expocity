@@ -73,7 +73,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.collection.insertItems(at: indexes)
+            self?.collection.insertItems(at:indexes)
             self?.scrollToBottom()
         }
     }

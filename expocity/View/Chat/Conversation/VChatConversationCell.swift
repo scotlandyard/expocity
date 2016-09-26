@@ -16,7 +16,7 @@ class VChatConversationCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(_ model:MChatItem, controller:CChat)
+    func config(model:MChatItem, controller:CChat)
     {
         model.cell = self
     }

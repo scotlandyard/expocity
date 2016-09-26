@@ -9,11 +9,11 @@ class VChatConversationCellText:VChatConversationCell
     weak var layoutBubbleLeft:NSLayoutConstraint!
     weak var layoutBubbleWidth:NSLayoutConstraint!
     weak var modelText:MChatItemText!
-    fileprivate let interMarginVr2:CGFloat
-    fileprivate let interMarginHr2:CGFloat
-    fileprivate let kBubbleCornerRadius:CGFloat = 4
-    fileprivate let kInterMarginHr:CGFloat = 8
-    fileprivate let kInterMarginVr:CGFloat = 5
+    private let interMarginVr2:CGFloat
+    private let interMarginHr2:CGFloat
+    private let kBubbleCornerRadius:CGFloat = 4
+    private let kInterMarginHr:CGFloat = 8
+    private let kInterMarginVr:CGFloat = 5
     
     override init(frame:CGRect)
     {
@@ -40,20 +40,20 @@ class VChatConversationCellText:VChatConversationCell
         bubbleContent.addSubview(labelContent)
         addSubview(bubbleContent)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "labelContent":labelContent]
         
-        let metrics:[String:AnyObject] = [
-            "interMarginHr":kInterMarginHr as AnyObject,
-            "interMarginVr":kInterMarginVr as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "interMarginHr":kInterMarginHr,
+            "interMarginVr":kInterMarginVr]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-(interMarginHr)-[labelContent]-(interMarginHr)-|",
+            withVisualFormat:"H:|-(interMarginHr)-[labelContent]-(interMarginHr)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-(interMarginVr)-[labelContent]-(interMarginVr)-|",
+            withVisualFormat:"V:|-(interMarginVr)-[labelContent]-(interMarginVr)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -102,7 +102,7 @@ class VChatConversationCellText:VChatConversationCell
         fatalError()
     }
     
-    override func config(_ model:MChatItem, controller:CChat)
+    override func config(model:MChatItem, controller:CChat)
     {
         super.config(model, controller:controller)
         modelText = model as! MChatItemText

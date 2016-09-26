@@ -8,13 +8,13 @@ class VChatInput:UIView, UITextViewDelegate
     weak var layoutHeight:NSLayoutConstraint!
     weak var layoutBaseRight:NSLayoutConstraint!
     let kMinHeight:CGFloat = 40
-    fileprivate let kFieldMarginVr:CGFloat = 4
-    fileprivate let kBorderHeight:CGFloat = 1
-    fileprivate let kMaxHeight:CGFloat = 75
-    fileprivate let kCornerRadius:CGFloat = 4
-    fileprivate let kAnimationDuration:TimeInterval = 0.3
-    fileprivate let kHypoteticalMaxHeight:CGFloat = 10000
-    fileprivate let kEmpty:String = ""
+    private let kFieldMarginVr:CGFloat = 4
+    private let kBorderHeight:CGFloat = 1
+    private let kMaxHeight:CGFloat = 75
+    private let kCornerRadius:CGFloat = 4
+    private let kAnimationDuration:TimeInterval = 0.3
+    private let kHypoteticalMaxHeight:CGFloat = 10000
+    private let kEmpty:String = ""
     
     convenience init(controller:CChat)
     {
@@ -61,49 +61,49 @@ class VChatInput:UIView, UITextViewDelegate
         addSubview(menu)
         addSubview(fieldBase)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "field":field,
             "fieldBase":fieldBase,
             "borderTop":borderTop,
             "menu":menu]
         
-        let metrics:[String:AnyObject] = [
-            "fieldMarginVr":kFieldMarginVr as AnyObject,
-            "borderHeight":kBorderHeight as AnyObject,
-            "minHeight":kMinHeight as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "fieldMarginVr":kFieldMarginVr,
+            "borderHeight":kBorderHeight,
+            "minHeight":kMinHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-10-[fieldBase]",
+            withVisualFormat:"H:|-10-[fieldBase]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[borderTop(borderHeight)]-(fieldMarginVr)-[fieldBase]-(fieldMarginVr)-|",
+            withVisualFormat:"V:|-0-[borderTop(borderHeight)]-(fieldMarginVr)-[fieldBase]-(fieldMarginVr)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-6-[field]-3-|",
+            withVisualFormat:"H:|-6-[field]-3-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[borderTop]-0-|",
+            withVisualFormat:"H:|-0-[borderTop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[menu]-0-|",
+            withVisualFormat:"H:|-0-[menu]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[field]-0-|",
+            withVisualFormat:"V:|-0-[field]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[menu(minHeight)]",
+            withVisualFormat:"V:|-0-[menu(minHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -124,14 +124,14 @@ class VChatInput:UIView, UITextViewDelegate
     
     //MARK: private
     
-    fileprivate func sendMessage()
+    private func sendMessage()
     {
         let text:String = field.text
         
         if !text.isEmpty
         {
-            var textValidating:String = text.replacingOccurrences(of: " ", with:"")
-            textValidating = textValidating.replacingOccurrences(of: "\n", with:"")
+            var textValidating:String = text.replacingOccurrences(of:" ", with:"")
+            textValidating = textValidating.replacingOccurrences(of:"\n", with:"")
             
             if !textValidating.isEmpty
             {
@@ -147,7 +147,7 @@ class VChatInput:UIView, UITextViewDelegate
         }
     }
     
-    fileprivate func heightForText()
+    private func heightForText()
     {
         let newHeight:CGFloat
         let height:CGFloat = field.contentSize.height + kFieldMarginVr + kBorderHeight
@@ -168,19 +168,19 @@ class VChatInput:UIView, UITextViewDelegate
         layoutHeight.constant = newHeight
     }
     
-    fileprivate func updateRightMargin()
+    private func updateRightMargin()
     {
         let rightMargin:CGFloat = -menu.rightMargin()
         layoutBaseRight.constant = rightMargin
         
-        UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
+        UIView.animate(withDuration: kAnimationDuration)
+        { [weak self] in
             
             self?.layoutIfNeeded()
-        })
-        
+        }
     }
     
-    fileprivate func updateTypingMenu()
+    private func updateTypingMenu()
     {
         if field.text.isEmpty
         {
