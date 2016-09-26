@@ -7,7 +7,7 @@ class VParent:UIView
     weak var layoutBarHeight:NSLayoutConstraint!
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20
-    fileprivate let kAnimationDurantion:TimeInterval = 0.3
+    private let kAnimationDurantion:TimeInterval = 0.3
     
     convenience init(parent:CParent)
     {
@@ -21,19 +21,19 @@ class VParent:UIView
         self.bar = bar
         addSubview(bar)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "bar":bar]
         
-        let metrics:[String:AnyObject] = [
-            "barHeight":kBarHeight as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "barHeight":kBarHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[bar]-0-|",
+            withVisualFormat:"H:|-0-[bar]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[bar]",
+            withVisualFormat:"V:|-0-[bar]",
             options:[],
             metrics:metrics,
             views:views))
@@ -52,17 +52,17 @@ class VParent:UIView
     
     //MARK: private
     
-    fileprivate func scroll(_ controller:CController, delta:CGFloat, completion:@escaping (() -> ()))
+    private func scroll(_ controller:CController, delta:CGFloat, completion:@escaping (() -> ()))
     {
         insertSubview(controller.view, belowSubview:bar)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "view":controller.view]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[view]-0-|",
+            withVisualFormat:"V:|-0-[view]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -94,21 +94,19 @@ class VParent:UIView
         parent.controllers.last?.layoutLeft.constant = delta
         parent.controllers.last?.layoutRight.constant = delta
         
-        UIView.animate(
-            withDuration: kAnimationDurantion,
-        animations:
+        UIView.animate(withDuration:kAnimationDurantion, animations:
         {
             self.layoutIfNeeded()
-        }, completion: { (done) in
+        })
+        { (done) in
             
             completion()
-        })
-        
+        }
     }
     
     //MARK: public
     
-    func over(_ controller:CController, underBar:Bool)
+    func over(controller:CController, underBar:Bool)
     {
         if underBar
         {
@@ -119,13 +117,13 @@ class VParent:UIView
             addSubview(controller.view)
         }
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "view":controller.view]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[view]-0-|",
+            withVisualFormat:"V:|-0-[view]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -151,32 +149,32 @@ class VParent:UIView
         addConstraint(controller.layoutRight)
     }
     
-    func fromLeft(_ controller:CController, completion:@escaping (() -> ()))
+    func fromLeft(controller:CController, completion:(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         scroll(controller, delta:width, completion:completion)
     }
     
-    func fromRight(_ controller:CController, completion:@escaping (() -> ()))
+    func fromRight(controller:CController, completion:(() -> ()))
     {
         let width:CGFloat = -bounds.maxX
         scroll(controller, delta:width, completion:completion)
     }
     
-    func push(_ controller:CController, completion:@escaping (() -> ()))
+    func push(controller:CController, completion:(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         let width_2:CGFloat = width / 2.0
         
         insertSubview(controller.view, belowSubview:bar)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "view":controller.view]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[view]-0-|",
+            withVisualFormat:"V:|-0-[view]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -210,64 +208,59 @@ class VParent:UIView
         parent.controllers.last?.addShadow()
         bar.push(controller.title)
         
-        UIView.animate(
-            withDuration: kAnimationDurantion,
-            animations:
-            {
-                self.layoutIfNeeded()
-                self.parent.controllers.last?.shadow?.maxAlpha()
-            }, completion: { (done) in
+        UIView.animate(withDuration:kAnimationDurantion, animations:
+        {
+            self.layoutIfNeeded()
+            self.parent.controllers.last?.shadow?.maxAlpha()
+        })
+        { (done) in
             
             completion()
-        })
-        
+        }
     }
     
-    func pop(_ completion:@escaping (() -> ()))
+    func pop(completion:(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         let countControllers:Int = parent.controllers.count
-        let controller:CController = parent.controllers[countControllers - 1]
-        let previous:CController = parent.controllers[countControllers - 2]
-        
+        let lastController:Int = countControllers - 1
+        let previousController:Int = countControllers - 2
+        let controller:CController = parent.controllers[lastController]
+        let previous:CController = parent.controllers[previousController]
         controller.layoutRight.constant = width
         controller.layoutLeft.constant = width
         previous.layoutLeft.constant = 0
         previous.layoutRight.constant = 0
         bar.pop()
         
-        UIView.animate(
-            withDuration: kAnimationDurantion,
-            animations:
-            {
+        UIView.animate(withDuration:kAnimationDurantion, animations:
+        {
                 self.layoutIfNeeded()
                 previous.shadow?.minAlpha()
-            }, completion: { (done) in
+        })
+        { (done) in
             
             previous.shadow?.removeFromSuperview()
             completion()
-        })
-        
+        }
     }
     
-    func dismiss(_ completion:@escaping (() -> ()))
+    func dismiss(completion:(() -> ()))
     {
         let countControllers:Int = parent.controllers.count
         let controller:CController = parent.controllers[countControllers - 1]
         
-        UIView.animate(
-            withDuration: kAnimationDurantion,
-            animations:
-            {
-                controller.view.alpha = 0
-            }, completion: { (done) in
+        UIView.animate(withDuration:kAnimationDurantion, animations:
+        {
+            controller.view.alpha = 0
+        })
+        { (done) in
             
             completion()
-        })
-        
+        }
     }
     
-    func scrollDidScroll(_ scroll:UIScrollView)
+    func scrollDidScroll(scroll:UIScrollView)
     {
         var offsetY:CGFloat = kBarHeight - scroll.contentOffset.y
         

@@ -12,16 +12,16 @@ class VMainAlert:UIView
     let kHeight:CGFloat = 90
     weak var layoutTop:NSLayoutConstraint!
     weak var timer:Timer?
-    fileprivate let kIconAnnotation:String = "alertAnnotation"
-    fileprivate let kIconWarning:String = ""
-    fileprivate let kIconError:String = ""
-    fileprivate let kImageViewWidth:CGFloat = 40
-    fileprivate let kMarginTop:CGFloat = 20
-    fileprivate let kAnimationDuration:TimeInterval = 0.2
-    fileprivate let kAlertDuration:TimeInterval = 3
-    fileprivate let kBorderHeight:CGFloat = 1
+    private let kIconAnnotation:String = "alertAnnotation"
+    private let kIconWarning:String = ""
+    private let kIconError:String = ""
+    private let kImageViewWidth:CGFloat = 40
+    private let kMarginTop:CGFloat = 20
+    private let kAnimationDuration:TimeInterval = 0.2
+    private let kAlertDuration:TimeInterval = 3
+    private let kBorderHeight:CGFloat = 1
     
-    class func Show(_ message:String, type:VMainAlertType)
+    class func Show(message:String, type:VMainAlertType)
     {
         DispatchQueue.main.async
         {
@@ -30,19 +30,19 @@ class VMainAlert:UIView
             
             mainView.addSubview(alert)
             
-            let views:[String:AnyObject] = [
+            let views:[String:UIView] = [
                 "alert":alert]
             
-            let metrics:[String:AnyObject] = [
-                "alertHeight":alert.kHeight as AnyObject]
+            let metrics:[String:CGFloat] = [
+                "alertHeight":alert.kHeight]
             
             mainView.addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[alert]-0-|",
+                withVisualFormat:"H:|-0-[alert]-0-|",
                 options:[],
                 metrics:metrics,
                 views:views))
             mainView.addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat: "V:[alert(alertHeight)]",
+                withVisualFormat:"V:[alert(alertHeight)]",
                 options:[],
                 metrics:metrics,
                 views:views))
@@ -97,38 +97,38 @@ class VMainAlert:UIView
         addSubview(label)
         addSubview(border)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "imageView":imageView,
             "label":label,
             "border":border]
         
-        let metrics:[String:AnyObject] = [
-            "imageWidth":kImageViewWidth as AnyObject,
-            "marginTop":kMarginTop as AnyObject,
-            "borderHeight":kBorderHeight as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "imageWidth":kImageViewWidth,
+            "marginTop":kMarginTop,
+            "borderHeight":kBorderHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[imageView(imageWidth)]-0-[label]-(imageWidth)-|",
+            withVisualFormat:"H:|-0-[imageView(imageWidth)]-0-[label]-(imageWidth)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[border]-0-|",
+            withVisualFormat:"H:|-0-[border]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-(marginTop)-[imageView]-0-|",
+            withVisualFormat:"V:|-(marginTop)-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-(marginTop)-[label]-0-|",
+            withVisualFormat:"V:|-(marginTop)-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[border(borderHeight)]-0-|",
+            withVisualFormat:"V:[border(borderHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -142,17 +142,17 @@ class VMainAlert:UIView
         
         layoutTop.constant = -kHeight
         
-        UIView.animate(withDuration: kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration, animations:
         {
             self.superview!.layoutIfNeeded()
-        }, completion: { (done) in
+        })
+        { (done) in
             
             self.removeFromSuperview()
-        })
-        
+        }
     }
     
-    fileprivate func setIcon(_ imageView:UIImageView, type:VMainAlertType)
+    private func setIcon(imageView:UIImageView, type:VMainAlertType)
     {
         let imageName:String
         
@@ -180,22 +180,22 @@ class VMainAlert:UIView
         imageView.image = UIImage(named:imageName)
     }
     
-    fileprivate func animateAlert()
+    private func animateAlert()
     {
         layoutTop.constant = 0
         
-        UIView.animate(withDuration: kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration, animations:
         {
             self.superview!.layoutIfNeeded()
-        }, completion: { (done) in
+        })
+        { (done) in
             
             self.timer = Timer.scheduledTimer(
-                timeInterval: self.kAlertDuration,
+                timeInterval:self.kAlertDuration,
                 target:self,
                 selector:#selector(self.timeOut(sender:)),
                 userInfo:nil,
                 repeats:false)
-        })
-        
+        }
     }
 }
