@@ -3,7 +3,7 @@ import UIKit
 class VChatDisplayDetailBar:UIView
 {
     weak var controller:CChatDisplayDetail!
-    fileprivate let kCloseButtonWidth:CGFloat = 80
+    private let kCloseButtonWidth:CGFloat = 80
     
     convenience init(controller:CChatDisplayDetail)
     {
@@ -31,25 +31,25 @@ class VChatDisplayDetailBar:UIView
         
         addSubview(closeButton)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "closeButton":closeButton]
         
-        let metrics:[String:AnyObject] = [
-            "closeButtonWidth":kCloseButtonWidth as AnyObject]
+        let metrics:[String:CGFloat] = [
+            "closeButtonWidth":kCloseButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[closeButton(closeButtonWidth)]",
+            withVisualFormat:"H:|-0-[closeButton(closeButtonWidth)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[closeButton]-0-|",
+            withVisualFormat:"V:|-0-[closeButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))
     }
     
-    override class var layerClass : AnyClass
+    override class var layerClass:AnyClass
     {
         return CAGradientLayer.self
     }

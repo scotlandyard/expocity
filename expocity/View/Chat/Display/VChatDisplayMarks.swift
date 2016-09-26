@@ -4,8 +4,8 @@ class VChatDisplayMarks:UIView
 {
     weak var controller:CChat!
     weak var button:UIButton?
-    fileprivate let kItemSize:CGFloat = 50
-    fileprivate let itemSize_2:CGFloat
+    private let kItemSize:CGFloat = 50
+    private let itemSize_2:CGFloat
     
     init(controller:CChat)
     {
@@ -42,23 +42,26 @@ class VChatDisplayMarks:UIView
         button.backgroundColor = UIColor.clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
-        button.addTarget(self, action:#selector(self.actionButton(sender:)), for:UIControlEvents.touchUpInside)
+        button.addTarget(
+            self,
+            action:#selector(self.actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.button = button
         
         addSubview(button)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "button":button]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[button]-0-|",
+            withVisualFormat:"H:|-0-[button]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[button]-0-|",
+            withVisualFormat:"V:|-0-[button]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,21 +76,21 @@ class VChatDisplayMarks:UIView
             let itemLeft:CGFloat = percentX - itemSize_2
             let itemTop:CGFloat = percentY - itemSize_2
             
-            let itemViews:[String:AnyObject] = [
+            let itemViews:[String:UIView] = [
                 "viewItem":viewItem]
             
-            let itemMetrics:[String:AnyObject] = [
-                "itemSize":kItemSize as AnyObject,
-                "itemLeft":itemLeft as AnyObject,
-                "itemTop":itemTop as AnyObject]
+            let itemMetrics:[String:CGFloat] = [
+                "itemSize":kItemSize,
+                "itemLeft":itemLeft,
+                "itemTop":itemTop]
             
             addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-(itemLeft)-[viewItem(itemSize)]",
+                withVisualFormat:"H:|-(itemLeft)-[viewItem(itemSize)]",
                 options:[],
                 metrics:itemMetrics,
                 views:itemViews))
             addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-(itemTop)-[viewItem(itemSize)]",
+                withVisualFormat:"V:|-(itemTop)-[viewItem(itemSize)]",
                 options:[],
                 metrics:itemMetrics,
                 views:itemViews))

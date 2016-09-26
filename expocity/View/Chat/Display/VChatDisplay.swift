@@ -10,9 +10,9 @@ class VChatDisplay:UIView
     weak var layoutBorderHeight:NSLayoutConstraint!
     let maxHeight:CGFloat
     let kMinHeight:CGFloat = 3
-    fileprivate let kMaxHeightPercent:CGFloat = 0.8
-    fileprivate let kBorderHeight:CGFloat = 1
-    fileprivate let kAnimationDuration:TimeInterval = 0.3
+    private let kMaxHeightPercent:CGFloat = 0.8
+    private let kBorderHeight:CGFloat = 1
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CChat)
     {
@@ -56,40 +56,40 @@ class VChatDisplay:UIView
         addSubview(imageView)
         addSubview(marks)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "border":border,
             "imageView":imageView,
             "marks":marks]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[border]-0-|",
+            withVisualFormat:"H:|-0-[border]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[imageView]-0-|",
+            withVisualFormat:"H:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[marks]-0-|",
+            withVisualFormat:"H:|-0-[marks]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[border]-0-[imageView]-0-|",
+            withVisualFormat:"V:|-0-[border]-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[imageView]-0-|",
+            withVisualFormat:"H:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[border]-0-[marks]-0-|",
+            withVisualFormat:"V:[border]-0-[marks]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -150,12 +150,12 @@ class VChatDisplay:UIView
     
     //MARK: private
     
-    fileprivate func updateDisplayOption()
+    private func updateDisplayOption()
     {
         imageView.contentMode = controller.model.displayOption.contentMode
     }
     
-    fileprivate func layoutImage()
+    private func layoutImage()
     {
         if imageView.image == nil
         {
@@ -180,16 +180,15 @@ class VChatDisplay:UIView
             }
         }
         
-        UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
-                
+        UIView.animate(withDuration: kAnimationDuration)
+        { [weak self] in
             self?.layoutIfNeeded()
-        })
-        
+        }
     }
     
     //MARK: public
     
-    func displayImage(_ image:UIImage?)
+    func displayImage(image:UIImage?)
     {
         imageView.image = image
         controller.viewChat.input.updateStandbyMenu()
