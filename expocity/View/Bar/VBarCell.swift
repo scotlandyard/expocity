@@ -23,7 +23,7 @@ class VBarCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.textAlignment = NSTextAlignment.center
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(12)
+        label.font = UIFont.regular(size:12)
         label.translatesAutoresizingMaskIntoConstraints = false
         self.label = label
         

@@ -18,7 +18,7 @@ class VHomeCellCreate:VHomeCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.bold(16)
+        label.font = UIFont.bold(size:16)
         label.textColor = UIColor.white
         label.text = NSLocalizedString("VHomeCellCreate_label", comment:"")
         
@@ -64,6 +64,6 @@ class VHomeCellCreate:VHomeCell
         
         let model:MChat = controller.model.chat()
         let chat:CChat = CChat(model:model)
-        controller.parentController.push(chat)
+        controller.parentController.push(controller:chat)
     }
 }

@@ -101,7 +101,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MChatDisplayAnnotationsItem = modelAtIndex(indexPath)
+        let item:MChatDisplayAnnotationsItem = modelAtIndex(index:indexPath)
         let cell:VChatDisplayAnnotationsListCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VChatDisplayAnnotationsListCell.reusableIdentifier(),
             for:indexPath) as! VChatDisplayAnnotationsListCell
