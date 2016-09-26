@@ -53,7 +53,7 @@ class VChatDisplayDetail:UIView
         addSubview(imageView)
         addSubview(bar)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "bar":bar,
             "blur":blur,
             "visualEffect":visualEffect]
@@ -141,19 +141,20 @@ class VChatDisplayDetail:UIView
         layoutImageLeft.constant = 0
         layoutImageRight.constant = 0
         
-        UIView.animate(withDuration: animationDuration, animations:
+        UIView.animate(withDuration:animationDuration, animations:
         { [weak self] in
             
             self?.layoutIfNeeded()
             self?.blur.alpha = 1
-        }, completion: { (done) in
-            
-            UIView.animate(withDuration: animationDuration, animations: { [weak self] in
-                
-                self?.bar.alpha = 1
-            })
             
         })
-        
+        { (done) in
+            
+            UIView.animate(withDuration:animationDuration)
+            { [weak self] in
+                
+                self?.bar.alpha = 1
+            }
+        }
     }
 }
