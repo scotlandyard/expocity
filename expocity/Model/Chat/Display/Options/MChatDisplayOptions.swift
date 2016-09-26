@@ -39,7 +39,7 @@ class MChatDisplayOptions
     
     func selectItem(_ index:Int)
     {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             if self != nil
