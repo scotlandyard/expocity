@@ -4,7 +4,7 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
 {
     weak var field:UITextField!
     weak var modelTitle:MHomeItemTitle!
-    fileprivate let kCornerRadius:CGFloat = 4
+    private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
@@ -39,29 +39,29 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         addSubview(base)
         addSubview(field)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "field":field,
             "base":base]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-16-[field]-12-|",
+            withVisualFormat:"H:|-16-[field]-12-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[field]-0-|",
+            withVisualFormat:"V:|-0-[field]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-10-[base]-10-|",
+            withVisualFormat:"H:|-10-[base]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-14-[base]-14-|",
+            withVisualFormat:"V:|-14-[base]-14-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -72,7 +72,7 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         fatalError()
     }
     
-    override func config(_ model:MHomeItem)
+    override func config(model:MHomeItem)
     {
         modelTitle = model as! MHomeItemTitle
         field.text = modelTitle.title

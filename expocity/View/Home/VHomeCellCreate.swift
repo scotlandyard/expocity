@@ -25,29 +25,29 @@ class VHomeCellCreate:VHomeCell
         addSubview(base)
         addSubview(label)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "label":label,
             "base":base]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[label]-0-|",
+            withVisualFormat:"H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[label]-0-|",
+            withVisualFormat:"V:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-10-[base]-10-|",
+            withVisualFormat:"H:|-10-[base]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-5-[base]-5-|",
+            withVisualFormat:"V:|-5-[base]-5-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -58,7 +58,7 @@ class VHomeCellCreate:VHomeCell
         fatalError()
     }
     
-    override func selected(_ controller:CHome)
+    override func selected(controller:CHome)
     {
         UIApplication.shared.keyWindow!.endEditing(true)
         

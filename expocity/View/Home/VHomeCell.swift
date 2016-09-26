@@ -31,7 +31,7 @@ class VHomeCell:UICollectionViewCell
     
     //MARK: private
     
-    fileprivate func hover()
+    private func hover()
     {
         if isSelected || isHighlighted
         {
@@ -45,12 +45,12 @@ class VHomeCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(_ model:MHomeItem)
+    func config(model:MHomeItem)
     {
         hover()
     }
     
-    func selected(_ controller:CHome)
+    func selected(controller:CHome)
     {
     }
 }
