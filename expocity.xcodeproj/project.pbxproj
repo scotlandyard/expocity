@@ -60,7 +60,7 @@
 		DA4F81A21D7D062500CC8B39 /* CategoryNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81981D7D062500CC8B39 /* CategoryNSDate.swift */; };
 		DA4F81A31D7D062500CC8B39 /* CategoryNSFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */; };
 		DA4F81A41D7D062500CC8B39 /* CategoryNSManagerdObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */; };
-		DA4F81A51D7D062500CC8B39 /* CategoryNSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819B1D7D062500CC8B39 /* CategoryNSNotification.swift */; };
+		DA4F81A51D7D062500CC8B39 /* CategoryNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819B1D7D062500CC8B39 /* CategoryNotificationName.swift */; };
 		DA4F81A61D7D062500CC8B39 /* CategoryUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */; };
 		DA4F81A71D7D062500CC8B39 /* CategoryUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819D1D7D062500CC8B39 /* CategoryUIColor.swift */; };
 		DA4F81A81D7D062500CC8B39 /* CategoryUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F819E1D7D062500CC8B39 /* CategoryUIFont.swift */; };
@@ -181,7 +181,7 @@
 		DA4F81981D7D062500CC8B39 /* CategoryNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSDate.swift; sourceTree = "<group>"; };
 		DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSFileManager.swift; sourceTree = "<group>"; };
 		DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSManagerdObject.swift; sourceTree = "<group>"; };
-		DA4F819B1D7D062500CC8B39 /* CategoryNSNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNSNotification.swift; sourceTree = "<group>"; };
+		DA4F819B1D7D062500CC8B39 /* CategoryNotificationName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryNotificationName.swift; sourceTree = "<group>"; };
 		DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUICollectionReusableView.swift; sourceTree = "<group>"; };
 		DA4F819D1D7D062500CC8B39 /* CategoryUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUIColor.swift; sourceTree = "<group>"; };
 		DA4F819E1D7D062500CC8B39 /* CategoryUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryUIFont.swift; sourceTree = "<group>"; };
@@ -523,7 +523,7 @@
 				DA4F81981D7D062500CC8B39 /* CategoryNSDate.swift */,
 				DA4F81991D7D062500CC8B39 /* CategoryNSFileManager.swift */,
 				DA4F819A1D7D062500CC8B39 /* CategoryNSManagerdObject.swift */,
-				DA4F819B1D7D062500CC8B39 /* CategoryNSNotification.swift */,
+				DA4F819B1D7D062500CC8B39 /* CategoryNotificationName.swift */,
 				DA4F819C1D7D062500CC8B39 /* CategoryUICollectionReusableView.swift */,
 				DA4F819D1D7D062500CC8B39 /* CategoryUIColor.swift */,
 				DA4F819E1D7D062500CC8B39 /* CategoryUIFont.swift */,
@@ -875,7 +875,7 @@
 				DA269CC91D949E98004062CA /* VChatDisplayMarks.swift in Sources */,
 				DA4A200D1D906D3200BCDFCA /* MChatMenuItemEmoji.swift in Sources */,
 				DA9739C51D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift in Sources */,
-				DA4F81A51D7D062500CC8B39 /* CategoryNSNotification.swift in Sources */,
+				DA4F81A51D7D062500CC8B39 /* CategoryNotificationName.swift in Sources */,
 				DAE27C5C1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift in Sources */,
 				DA4F81A61D7D062500CC8B39 /* CategoryUICollectionReusableView.swift in Sources */,
 				DA4F81A81D7D062500CC8B39 /* CategoryUIFont.swift in Sources */,
