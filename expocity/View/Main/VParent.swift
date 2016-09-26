@@ -7,7 +7,7 @@ class VParent:UIView
     weak var layoutBarHeight:NSLayoutConstraint!
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20
-    private let kAnimationDurantion:TimeInterval = 0.3
+    private let kAnimationDuration:TimeInterval = 0.3
     
     convenience init(parent:CParent)
     {
@@ -94,7 +94,7 @@ class VParent:UIView
         parent.controllers.last?.layoutLeft.constant = delta
         parent.controllers.last?.layoutRight.constant = delta
         
-        UIView.animate(withDuration:kAnimationDurantion, animations:
+        UIView.animate(withDuration:kAnimationDuration, animations:
         {
             self.layoutIfNeeded()
         })
@@ -208,7 +208,7 @@ class VParent:UIView
         parent.controllers.last?.addShadow()
         bar.push(name:controller.title)
         
-        UIView.animate(withDuration:kAnimationDurantion, animations:
+        UIView.animate(withDuration:kAnimationDuration, animations:
         {
             self.layoutIfNeeded()
             self.parent.controllers.last?.shadow?.maxAlpha()
@@ -233,7 +233,7 @@ class VParent:UIView
         previous.layoutRight.constant = 0
         bar.pop()
         
-        UIView.animate(withDuration:kAnimationDurantion, animations:
+        UIView.animate(withDuration:kAnimationDuration, animations:
         {
             self.layoutIfNeeded()
             previous.shadow?.minAlpha()
@@ -250,7 +250,7 @@ class VParent:UIView
         let countControllers:Int = parent.controllers.count
         let controller:CController = parent.controllers[countControllers - 1]
         
-        UIView.animate(withDuration:kAnimationDurantion, animations:
+        UIView.animate(withDuration:kAnimationDuration, animations:
         {
             controller.view.alpha = 0
         })
