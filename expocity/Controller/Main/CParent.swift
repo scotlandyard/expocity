@@ -5,7 +5,6 @@ class CParent:UIViewController
     weak var viewParent:VParent!
     var controllers:[CController]
     private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.lightContent
-    private let kAnimationDuration:TimeInterval = 3//0.3
     
     init()
     {

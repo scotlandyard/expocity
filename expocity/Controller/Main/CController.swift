@@ -34,10 +34,10 @@ class CController:UIViewController
         
         view.addSubview(shadow)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "shadow":shadow]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
         view.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[shadow]-0-|",
