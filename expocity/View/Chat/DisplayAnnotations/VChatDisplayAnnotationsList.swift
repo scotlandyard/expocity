@@ -105,7 +105,7 @@ class VChatDisplayAnnotationsList:UIView, UICollectionViewDelegate, UICollection
         let cell:VChatDisplayAnnotationsListCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VChatDisplayAnnotationsListCell.reusableIdentifier(),
             for:indexPath) as! VChatDisplayAnnotationsListCell
-        cell.config(item, controller:controller)
+        cell.config(model:item, controller:controller)
         
         return cell
     }

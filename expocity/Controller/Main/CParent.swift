@@ -23,7 +23,7 @@ class CParent:UIViewController
         super.viewDidLoad()
 
         let home:CHome = CHome()
-        center(home)
+        center(controller:home)
     }
     
     override func loadView()
@@ -61,7 +61,7 @@ class CParent:UIViewController
     {
         addChildViewController(controller)
         
-        viewParent.push(controller)
+        viewParent.push(controller:controller)
         {
             self.controllers.append(controller)
             controller.didMove(toParentViewController:self)
@@ -71,7 +71,7 @@ class CParent:UIViewController
     func center(controller:CController)
     {
         addChildViewController(controller)
-        viewParent.over(controller, underBar:true)
+        viewParent.over(controller:controller, underBar:true)
         controllers.append(controller)
         controller.didMove(toParentViewController:self)
     }
@@ -79,7 +79,7 @@ class CParent:UIViewController
     func over(controller:CController)
     {
         addChildViewController(controller)
-        viewParent.over(controller, underBar:false)
+        viewParent.over(controller:controller, underBar:false)
         controllers.append(controller)
         controller.didMove(toParentViewController:self)
     }
@@ -109,7 +109,7 @@ class CParent:UIViewController
         addChildViewController(controller)
         controllers.last?.willMove(toParentViewController:nil)
         
-        viewParent.fromLeft(controller)
+        viewParent.fromLeft(controller:controller)
         {
             let lastController:CController? = self.controllers.popLast()
             lastController?.view.removeFromSuperview()
@@ -124,7 +124,7 @@ class CParent:UIViewController
         addChildViewController(controller)
         controllers.last?.willMove(toParentViewController:nil)
         
-        viewParent.fromRight(controller)
+        viewParent.fromRight(controller:controller)
         {
             let lastController:CController? = self.controllers.popLast()
             lastController?.view.removeFromSuperview()

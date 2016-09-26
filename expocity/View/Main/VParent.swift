@@ -52,7 +52,7 @@ class VParent:UIView
     
     //MARK: private
     
-    private func scroll(_ controller:CController, delta:CGFloat, completion:@escaping (() -> ()))
+    private func scroll(controller:CController, delta:CGFloat, completion:(() -> ()))
     {
         insertSubview(controller.view, belowSubview:bar)
         

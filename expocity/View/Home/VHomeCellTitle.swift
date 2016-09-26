@@ -23,7 +23,7 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
         field.clipsToBounds = true
         field.backgroundColor = UIColor.clear
         field.borderStyle = UITextBorderStyle.none
-        field.font = UIFont.bold(16)
+        field.font = UIFont.bold(size:16)
         field.textColor = UIColor.black
         field.tintColor = UIColor.black
         field.returnKeyType = UIReturnKeyType.done
