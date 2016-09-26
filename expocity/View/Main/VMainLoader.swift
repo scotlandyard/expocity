@@ -2,7 +2,7 @@ import UIKit
 
 class VMainLoader:UIImageView
 {
-    fileprivate let kAnimationDuration:TimeInterval = 2
+    private let kAnimationDuration:TimeInterval = 2
     
     init()
     {
@@ -25,7 +25,7 @@ class VMainLoader:UIImageView
         startAnimating()
     }
     
-    required init?(coder aDecoder:NSCoder)
+    required init?(coder:NSCoder)
     {
         fatalError()
     }

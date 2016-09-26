@@ -2,7 +2,7 @@ import UIKit
 
 class VMainShadow:UIView
 {
-    fileprivate let kMaxAlpha:CGFloat = 0.5
+    private let kMaxAlpha:CGFloat = 0.5
     
     init()
     {
