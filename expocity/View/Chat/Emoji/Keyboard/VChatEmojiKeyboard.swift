@@ -21,6 +21,8 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         backgroundColor = UIColor.collectionBackground()
         translatesAutoresizingMaskIntoConstraints = false
         
+        let cellHeight:CGFloat = kMaxHeight - kFooterHeight
+        
         let border:UIView = UIView()
         border.isUserInteractionEnabled = false
         border.backgroundColor = UIColor.bubbleMine()
@@ -32,6 +34,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
+        flow.itemSize = CGSize(width:kCellWidth, height:cellHeight)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -121,8 +124,6 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         
         return sectionInsets
     }
-    
-    
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
