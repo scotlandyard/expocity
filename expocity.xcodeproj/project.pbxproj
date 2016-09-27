@@ -467,7 +467,6 @@
 		DA4EB6991D95EEA700E15758 /* Emoji */ = {
 			isa = PBXGroup;
 			children = (
-				DA4EB69F1D95EF2300E15758 /* Conversation */,
 				DA4EB69B1D95EEA700E15758 /* Keyboard */,
 			);
 			path = Emoji;
@@ -512,13 +511,6 @@
 				DA4269F01D9B05EC00FE7EFB /* MChatEmojiKeyboardItemSurprise.swift */,
 			);
 			path = Keyboard;
-			sourceTree = "<group>";
-		};
-		DA4EB69F1D95EF2300E15758 /* Conversation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Conversation;
 			sourceTree = "<group>";
 		};
 		DA4F81791D7BB7FC00CC8B39 /* Data */ = {
