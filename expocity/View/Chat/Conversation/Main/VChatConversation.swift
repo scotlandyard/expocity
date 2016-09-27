@@ -36,6 +36,10 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             VChatConversationCellTextMine.self,
             forCellWithReuseIdentifier:
             VChatConversationCellTextMine.reusableIdentifier())
+        collectionView.register(
+            VChatConversationCellEmojiMine.self,
+            forCellWithReuseIdentifier:
+            VChatConversationCellEmojiMine.reusableIdentifier())
         self.collectionView = collectionView
         
         addSubview(collectionView)
