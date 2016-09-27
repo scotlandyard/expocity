@@ -16,7 +16,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.collectionBackground()
         translatesAutoresizingMaskIntoConstraints = false
         
         let border:UIView = UIView()
