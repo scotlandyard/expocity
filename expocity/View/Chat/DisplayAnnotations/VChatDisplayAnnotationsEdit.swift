@@ -115,7 +115,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     func actionDone(sender button:UIButton)
     {
-        confirmText()
+        textField.resignFirstResponder()
     }
     
     //MARK: private
@@ -141,11 +141,12 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     {
         isHidden = true
         textField.text = ""
+        confirmText()
     }
     
     func textFieldShouldReturn(_ textField:UITextField) -> Bool
     {
-        confirmText()
+        textField.resignFirstResponder()
         
         return true
     }
