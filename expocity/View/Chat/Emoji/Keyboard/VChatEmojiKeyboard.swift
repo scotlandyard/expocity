@@ -4,8 +4,10 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
 {
     weak var controller:CChat!
     weak var collectionView:UICollectionView!
+    weak var layoutHeight:NSLayoutConstraint!
     let model:MChatEmojiKeyboard
     private let kBorderHeight:CGFloat = 1
+    private let kMaxHeight:CGFloat = 200
     
     init(controller:CChat)
     {

@@ -6,6 +6,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     weak var input:VChatInput!
     weak var display:VChatDisplay!
     weak var conversation:VChatConversation!
+    weak var emojiKeyboard:VChatEmojiKeyboard!
     weak var layoutInputBottom:NSLayoutConstraint!
     private let kAnimationDuration:TimeInterval = 0.4
     
@@ -26,14 +27,19 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         let display:VChatDisplay = VChatDisplay(controller:controller)
         self.display = display
         
-        addSubview(input)
+        let emojiKeyboard:VChatEmojiKeyboard = VChatEmojiKeyboard(controller:controller)
+        self.emojiKeyboard = emojiKeyboard
+        
         addSubview(conversation)
         addSubview(display)
+        addSubview(emojiKeyboard)
+        addSubview(input)
         
         let views:[String:UIView] = [
             "input":input,
             "conversation":conversation,
-            "display":display]
+            "display":display,
+            "emojiKeyboard":emojiKeyboard]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -53,7 +59,17 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[emojiKeyboard]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[conversation]-0-[display]-0-[input]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[emojiKeyboard]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -66,7 +82,6 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             attribute:NSLayoutAttribute.bottom,
             multiplier:1,
             constant:0)
-        
         input.layoutHeight = NSLayoutConstraint(
             item:input,
             attribute:NSLayoutAttribute.height,
@@ -75,7 +90,6 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:input.kMinHeight)
-        
         display.layoutHeight = NSLayoutConstraint(
             item:display,
             attribute:NSLayoutAttribute.height,
