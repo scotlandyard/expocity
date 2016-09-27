@@ -3,7 +3,7 @@ import UIKit
 class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CChat!
-    weak var collection:UICollectionView!
+    weak var collectionView:UICollectionView!
     private let kCollectionBottom:CGFloat = 10
     
     convenience init(controller:CChat)
@@ -23,38 +23,45 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         flow.sectionInset = UIEdgeInsetsMake(collectionTop, 0, kCollectionBottom, 0)
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         
-        let collection:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
-        collection.clipsToBounds = true
-        collection.backgroundColor = UIColor.clear
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.showsVerticalScrollIndicator = false
-        collection.alwaysBounceVertical = true
-        collection.delegate = self
-        collection.dataSource = self
-        collection.register(
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
             VChatConversationCellTextMine.self,
             forCellWithReuseIdentifier:
             VChatConversationCellTextMine.reusableIdentifier())
-        self.collection = collection
+        self.collectionView = collectionView
         
-        addSubview(collection)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "collection":collection]
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[collection]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[collection]-0-|",
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
     }
     
     //MARK: private
@@ -73,7 +80,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.collection.insertItems(at:indexes)
+            self?.collectionView.insertItems(at:indexes)
             self?.scrollToBottom()
         }
     }
@@ -86,7 +93,7 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         {
             let lastItem:Int = count - 1
             let indexPath:IndexPath = IndexPath(item:lastItem, section:0)
-            collection.scrollToItem(
+            collectionView.scrollToItem(
                 at:indexPath,
                 at:UICollectionViewScrollPosition.top,
                 animated:true)
@@ -102,8 +109,9 @@ class VChatConversation:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
+        let screenSize:CGSize = UIScreen.main.bounds.size
         let item:MChatItem = modelAtIndex(index:indexPath)
-        let width:CGFloat = collectionView.bounds.maxX
+        let width:CGFloat = screenSize.width
         let height:CGFloat = item.heightForCollection(width:width)
         let size:CGSize = CGSize(width:width, height:height)
         

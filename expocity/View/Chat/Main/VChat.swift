@@ -104,7 +104,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         let keyRect:CGRect = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue
         let yOrigin = keyRect.origin.y
         let screenHeight:CGFloat = UIScreen.main.bounds.size.height
-        let currentOffset:CGPoint = conversation.collection.contentOffset
+        let currentOffset:CGPoint = conversation.collectionView.contentOffset
         let keyboardHeight:CGFloat
         
         if yOrigin < screenHeight
@@ -117,7 +117,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         }
         
         layoutInputBottom.constant = -keyboardHeight
-        conversation.collection.contentOffset = CGPoint(x:0, y:currentOffset.y + keyboardHeight)
+        conversation.collectionView.contentOffset = CGPoint(x:0, y:currentOffset.y + keyboardHeight)
         
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
@@ -133,6 +133,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         let imagePicker:UIImagePickerController = UIImagePickerController()
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         controller.present(imagePicker, animated:true, completion:nil)
     }
@@ -147,15 +148,20 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     }
     
     //MARK: imagePicker delegate
-    
+    /*
     func imagePickerController(_ picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:Any])
     {
-        let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let rawImage:Data? = info[UIImagePickerControllerOriginalImage] as? Data
+        
+        if rawImage != nil
+        {
+//            let image:UIImage? = UIImage(data:rawImage!)
+        }
         
         controller.dismiss(animated:true)
         { [weak self] in
             
-            self?.display.displayImage(image:image)
+//            self?.display.displayImage(image:image)
         }
-    }
+    }*/
 }

@@ -34,8 +34,7 @@ class CChat:CController
     {
         UIApplication.shared.keyWindow!.endEditing(true)
         
-        super.viewWillTransition(to: size, with:coordinator)
-        viewChat.conversation.collection.collectionViewLayout.invalidateLayout()
+        super.viewWillTransition(to:size, with:coordinator)
         
         DispatchQueue.main.async
         { [weak self] in
