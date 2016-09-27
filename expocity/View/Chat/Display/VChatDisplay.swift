@@ -83,11 +83,6 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[imageView]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[border]-0-[marks]-0-|",
             options:[],
             metrics:metrics,
@@ -147,10 +142,14 @@ class VChatDisplay:UIView
     
     private func layoutImage()
     {
+        var animate:Bool = false
+        let newHeight:CGFloat
+        let newBorderHeight:CGFloat
+        
         if imageView.image == nil
         {
-            layoutHeight.constant = kMinHeight
-            layoutBorderHeight.constant = kBorderHeight
+            newHeight = kMinHeight
+            newBorderHeight = kBorderHeight
         }
         else
         {
@@ -160,20 +159,31 @@ class VChatDisplay:UIView
             
             if screenWidth < screenHeight
             {
-                layoutHeight.constant = maxHeight
-                layoutBorderHeight.constant = kBorderHeight
+                newHeight = maxHeight
+                newBorderHeight = kBorderHeight
             }
             else
             {
-                layoutBorderHeight.constant = 0
-                layoutHeight.constant = 0
+                newHeight = 0
+                newBorderHeight = 0
             }
         }
         
-        UIView.animate(withDuration: kAnimationDuration)
-        { [weak self] in
+        if newHeight != layoutHeight.constant
+        {
+            animate = true
+        }
+        
+        if animate
+        {
+            layoutHeight.constant = newHeight
+            layoutBorderHeight.constant = newBorderHeight
             
-            self?.layoutIfNeeded()
+            UIView.animate(withDuration:kAnimationDuration)
+            { [weak self] in
+                
+                self?.superview?.layoutIfNeeded()
+            }
         }
     }
     
