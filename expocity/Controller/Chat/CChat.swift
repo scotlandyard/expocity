@@ -43,6 +43,17 @@ class CChat:CController
         }
     }
     
+    //MARK: private
+    
+    private func addChatItem(chatItem:MChatItem)
+    {
+        let index:Int = model.items.count
+        let indexPath:IndexPath = IndexPath(item:index, section:0)
+        let indexes:[IndexPath] = [indexPath]
+        model.items.append(chatItem)
+        viewChat.conversation.didAddChatItem(indexes:indexes)
+    }
+    
     //MARK: public
     
     func displayImageRect() -> CGRect
@@ -56,16 +67,13 @@ class CChat:CController
     func addTextMine(text:String)
     {
         let chatItem:MChatItemTextMine = MChatItemTextMine(text:text)
-        let index:Int = model.items.count
-        let indexPath:IndexPath = IndexPath(item:index, section:0)
-        let indexes:[IndexPath] = [indexPath]
-        model.items.append(chatItem)
-        viewChat.conversation.didAddChatItem(indexes:indexes)
+        addChatItem(chatItem:chatItem)
     }
     
-    func addEmoji()
+    func addEmojiMine(image:UIImage)
     {
-        
+        let chatItem:MChatItemEmojiMine = MChatItemEmojiMine(image:image)
+        addChatItem(chatItem:chatItem)
     }
     
     func displayDetail()
