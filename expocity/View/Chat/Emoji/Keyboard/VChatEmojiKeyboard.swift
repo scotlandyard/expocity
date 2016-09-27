@@ -10,7 +10,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     private let kMaxHeight:CGFloat = 200
     private let kCellWidth:CGFloat = 50
     private let kFooterHeight:CGFloat = 70
-    private let kAnimationDuration:TimeInterval = 0.3
+    private let kAnimationDuration:TimeInterval = 6
     
     init(controller:CChat)
     {
@@ -65,7 +65,8 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
             "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
-            "borderHeight":kBorderHeight]
+            "borderHeight":kBorderHeight,
+            "collectionHeight":kMaxHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[border]-0-|",
@@ -83,7 +84,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[collectionView]-0-|",
+            withVisualFormat:"V:|-0-[collectionView(collectionHeight)]",
             options:[],
             metrics:metrics,
             views:views))
