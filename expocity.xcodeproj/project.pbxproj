@@ -53,6 +53,7 @@
 		DA426A0C1D9B199E00FE7EFB /* VChatConversationCellTextMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA426A071D9B199E00FE7EFB /* VChatConversationCellTextMine.swift */; };
 		DA426A0D1D9B199E00FE7EFB /* VChatConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA426A091D9B199E00FE7EFB /* VChatConversation.swift */; };
 		DA426A0F1D9B1AEE00FE7EFB /* VChatConversationCellEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA426A0E1D9B1AEE00FE7EFB /* VChatConversationCellEmoji.swift */; };
+		DA426A111D9B1B1100FE7EFB /* VChatConversationCellEmojiMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA426A101D9B1B1100FE7EFB /* VChatConversationCellEmojiMine.swift */; };
 		DA4A200D1D906D3200BCDFCA /* MChatMenuItemEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A200C1D906D3200BCDFCA /* MChatMenuItemEmoji.swift */; };
 		DA4A200F1D90705800BCDFCA /* MChatMenuStatusStandbyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A200E1D90705800BCDFCA /* MChatMenuStatusStandbyImage.swift */; };
 		DA4A20111D90707D00BCDFCA /* MChatMenuStatusTypeReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A20101D90707D00BCDFCA /* MChatMenuStatusTypeReady.swift */; };
@@ -182,6 +183,7 @@
 		DA426A071D9B199E00FE7EFB /* VChatConversationCellTextMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversationCellTextMine.swift; sourceTree = "<group>"; };
 		DA426A091D9B199E00FE7EFB /* VChatConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversation.swift; sourceTree = "<group>"; };
 		DA426A0E1D9B1AEE00FE7EFB /* VChatConversationCellEmoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversationCellEmoji.swift; sourceTree = "<group>"; };
+		DA426A101D9B1B1100FE7EFB /* VChatConversationCellEmojiMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatConversationCellEmojiMine.swift; sourceTree = "<group>"; };
 		DA4A200C1D906D3200BCDFCA /* MChatMenuItemEmoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuItemEmoji.swift; sourceTree = "<group>"; };
 		DA4A200E1D90705800BCDFCA /* MChatMenuStatusStandbyImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuStatusStandbyImage.swift; sourceTree = "<group>"; };
 		DA4A20101D90707D00BCDFCA /* MChatMenuStatusTypeReady.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuStatusTypeReady.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				DA426A0E1D9B1AEE00FE7EFB /* VChatConversationCellEmoji.swift */,
+				DA426A101D9B1B1100FE7EFB /* VChatConversationCellEmojiMine.swift */,
 			);
 			path = Emoji;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 				DA4F81A81D7D062500CC8B39 /* CategoryUIFont.swift in Sources */,
 				DA4A20111D90707D00BCDFCA /* MChatMenuStatusTypeReady.swift in Sources */,
 				DA4F817F1D7BB7FC00CC8B39 /* expocity.xcdatamodeld in Sources */,
+				DA426A111D9B1B1100FE7EFB /* VChatConversationCellEmojiMine.swift in Sources */,
 				DA4A20181D9094B100BCDFCA /* VChatDisplayAnnotations.swift in Sources */,
 				DAAA070E1D974D4400B9D67A /* VChatEmojiKeyboard.swift in Sources */,
 				DA4F818E1D7BB97B00CC8B39 /* CHome.swift in Sources */,
