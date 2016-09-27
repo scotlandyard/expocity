@@ -63,6 +63,11 @@ class CChat:CController
         viewChat.conversation.didAddChatItem(indexes:indexes)
     }
     
+    func addEmoji()
+    {
+        
+    }
+    
     func displayDetail()
     {
         let imageView:UIImageView = viewChat.display.imageView
