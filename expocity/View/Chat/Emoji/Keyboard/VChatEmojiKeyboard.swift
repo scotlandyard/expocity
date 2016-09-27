@@ -15,10 +15,16 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         
+        let border:UIView = UIView()
+        border.isUserInteractionEnabled = false
+        border.backgroundColor = UIColor.bubbleMine()
+        border.translatesAutoresizingMaskIntoConstraints = false
+        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         
+        addSubview(border)
         addSubview(collectionView)
     }
     
