@@ -46,6 +46,6 @@ class VChatEmojiKeyboardFooter:UICollectionReusableView
     
     func actionClose(sender button:UIButton)
     {
-        controller.viewChat.
+        controller.viewChat.hideEmojiKeyboard()
     }
 }
