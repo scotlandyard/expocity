@@ -129,7 +129,6 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         let keyRect:CGRect = keyboardFrameValue.cgRectValue
         let yOrigin = keyRect.origin.y
         let screenHeight:CGFloat = UIScreen.main.bounds.size.height
-        let currentOffset:CGPoint = conversation.collectionView.contentOffset
         let keyboardHeight:CGFloat
         
         if yOrigin < screenHeight
@@ -141,8 +140,18 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             keyboardHeight = 0
         }
         
-        layoutInputBottom.constant = -keyboardHeight
-        conversation.collectionView.contentOffset = CGPoint(x:0, y:currentOffset.y + keyboardHeight)
+        let newInputBottom:CGFloat = -keyboardHeight
+        animateInput(bottom:newInputBottom)
+    }
+    
+    //MARK: private
+    
+    private func animateInput(bottom:CGFloat)
+    {
+        let currentOffset:CGPoint = conversation.collectionView.contentOffset
+        let newCollectionOffsetY:CGFloat = currentOffset.y - bottom
+        layoutInputBottom.constant = bottom
+        conversation.collectionView.contentOffset = CGPoint(x:0, y:newCollectionOffsetY)
         
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
@@ -170,6 +179,13 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             selector:#selector(self.notifiedKeyboardChanged(sender:)),
             name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
+    }
+    
+    func displayEmojiKeyboard()
+    {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
+        
     }
     
     //MARK: imagePicker delegate
