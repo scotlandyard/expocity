@@ -8,9 +8,9 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     let model:MChatEmojiKeyboard
     private let kNumberOfLines:CGFloat = 2
     private let kBorderHeight:CGFloat = 1
-    private let kMaxHeight:CGFloat = 230
+    private let kMaxHeight:CGFloat = 250
     private let kCellWidth:CGFloat = 80
-    private let kFooterHeight:CGFloat = 70
+    private let kFooterHeight:CGFloat = 90
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CChat)
@@ -95,6 +95,12 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
     }
     
     //MARK: private
