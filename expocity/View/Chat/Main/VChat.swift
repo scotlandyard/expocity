@@ -164,7 +164,7 @@ class VChat:UIView
     
     func presentImagePicker()
     {
-        let chatPicker:VChatPicker = VChatPicker(controller:controller)
+        let chatPicker:CChatDisplayPicker = CChatDisplayPicker(controller:controller)
         
         controller.present(chatPicker, animated:true, completion:nil)
     }
