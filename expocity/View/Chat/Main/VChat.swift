@@ -98,10 +98,19 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:display.kMinHeight)
+        emojiKeyboard.layoutHeight = NSLayoutConstraint(
+            item:emojiKeyboard,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
+            multiplier:1,
+            constant:0)
         
         addConstraint(layoutInputBottom)
         addConstraint(input.layoutHeight)
         addConstraint(display.layoutHeight)
+        addConstraint(emojiKeyboard.layoutHeight)
         
         listenToKeyboard()
     }
