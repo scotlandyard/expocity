@@ -9,6 +9,7 @@ class MChatEmojiKeyboard
         let itemLike:MChatEmojiKeyboardItemLike = MChatEmojiKeyboardItemLike()
         let itemLove:MChatEmojiKeyboardItemLove = MChatEmojiKeyboardItemLove()
         let itemSmile:MChatEmojiKeyboardItemSmile = MChatEmojiKeyboardItemSmile()
+        let itemSurprise:MChatEmojiKeyboardItemSurprise = MChatEmojiKeyboardItemSurprise()
         let itemSad:MChatEmojiKeyboardItemSad = MChatEmojiKeyboardItemSad()
         let itemAngry:MChatEmojiKeyboardItemAngry = MChatEmojiKeyboardItemAngry()
         
@@ -16,6 +17,7 @@ class MChatEmojiKeyboard
             itemLike,
             itemLove,
             itemSmile,
+            itemSurprise,
             itemSad,
             itemAngry
         ]
