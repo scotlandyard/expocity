@@ -183,9 +183,9 @@ class VChat:UIView
         UIApplication.shared.keyWindow!.endEditing(true)
         emojiKeyboard.animateKeyboard(show:true)
         
-        let emojiKeyboardHeight:CGFloat = emojiKeyboard.kMaxHeight
+        let emojiKeyboardHeight:CGFloat = emojiKeyboard.layoutHeight.constant
         let inputHeight:CGFloat = input.layoutHeight.constant
-        let inputBottom:CGFloat = emojiKeyboardHeight - inputHeight
+        let inputBottom:CGFloat = -(emojiKeyboardHeight - inputHeight)
         
         animateInput(bottom:inputBottom)
     }
