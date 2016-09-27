@@ -5,6 +5,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     weak var controller:CChat!
     weak var collectionView:UICollectionView!
     let model:MChatEmojiKeyboard
+    private let kBorderHeight:CGFloat = 1
     
     init(controller:CChat)
     {
@@ -23,9 +24,35 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
         
         addSubview(border)
         addSubview(collectionView)
+        
+        let views:[String:UIView] = [
+            "border":border,
+            "collectionView":collectionView]
+        
+        let metrics:[String:CGFloat] = [
+            "borderHeight":kBorderHeight]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[border]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[border(borderHeight)]-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
