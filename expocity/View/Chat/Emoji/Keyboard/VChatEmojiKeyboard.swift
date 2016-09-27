@@ -137,6 +137,17 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         return count
     }
     
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let footer:VChatEmojiKeyboardFooter = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:VChatEmojiKeyboardFooter.reusableIdentifier(),
+            for:indexPath) as! VChatEmojiKeyboardFooter
+        footer.controller = controller
+        
+        return footer
+    }
+    
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MChatEmojiKeyboardItem = modelAtIndex(index:indexPath)
