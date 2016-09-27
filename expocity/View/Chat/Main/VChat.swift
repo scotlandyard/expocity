@@ -1,6 +1,6 @@
 import UIKit
 
-class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class VChat:UIView
 {
     weak var controller:CChat!
     weak var input:VChatInput!
@@ -164,6 +164,8 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     
     func presentImagePicker()
     {
+        let chatPicker:VChatPicker = VChatPicker()
+        
         let imagePicker:UIImagePickerController = UIImagePickerController()
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.delegate = self
