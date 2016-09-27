@@ -164,14 +164,9 @@ class VChat:UIView
     
     func presentImagePicker()
     {
-        let chatPicker:VChatPicker = VChatPicker()
+        let chatPicker:VChatPicker = VChatPicker(controller:controller)
         
-        let imagePicker:UIImagePickerController = UIImagePickerController()
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = false
-        
-        controller.present(imagePicker, animated:true, completion:nil)
+        controller.present(chatPicker, animated:true, completion:nil)
     }
     
     func listenToKeyboard()
