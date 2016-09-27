@@ -12,6 +12,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     private let kCellWidth:CGFloat = 80
     private let kFooterHeight:CGFloat = 90
     private let kAnimationDuration:TimeInterval = 0.3
+    private let kDeselectAfter:TimeInterval = 1
     
     init(controller:CChat)
     {
@@ -184,5 +185,17 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kDeselectAfter)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
