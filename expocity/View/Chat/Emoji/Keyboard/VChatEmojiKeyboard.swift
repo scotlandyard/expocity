@@ -110,6 +110,20 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     
     //MARK: collection del
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
+    {
+        let itemsCount:Int = model.items.count
+        let itemsWidth:CGFloat = CGFloat(itemsCount) * kCellWidth
+        let totalWidth:CGFloat = collectionView.bounds.maxX
+        let remainWidth:CGFloat = totalWidth - itemsWidth
+        let marginWidth:CGFloat = remainWidth / 2.0
+        let sectionInsets:UIEdgeInsets = UIEdgeInsets(top:0, left:marginWidth, bottom:0, right:marginWidth)
+        
+        return sectionInsets
+    }
+    
+    
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
