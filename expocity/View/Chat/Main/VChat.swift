@@ -187,17 +187,4 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         
         
     }
-    
-    //MARK: imagePicker delegate
-    
-    func imagePickerController(_ picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:Any])
-    {
-        let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-        controller.dismiss(animated:true)
-        { [weak self] in
-            
-            self?.display.displayImage(image:image)
-        }
-    }
 }
