@@ -6,7 +6,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     weak var collection:UICollectionView!
     let model:MChatMenu
     private let kCellWidth:CGFloat = 50
-    private let kWaitingTime:Double = 1
+    private let kWaitingTime:TimeInterval = 1
     
     init(controller:CChat)
     {

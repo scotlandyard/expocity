@@ -6,7 +6,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     weak var collection:UICollectionView!
     weak var loader:VMainLoader!
     private let kCollectionBottom:CGFloat = 40
-    private let kWaitingTime:Double = 1
+    private let kWaitingTime:TimeInterval = 1
     
     convenience init(controller:CHome)
     {

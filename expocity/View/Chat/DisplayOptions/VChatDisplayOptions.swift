@@ -11,7 +11,7 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
     private let kBaseMarginVertical:CGFloat = 40
     private let kBaseMarginHorizontal:CGFloat = 10
     private let kButtonDoneHeight:CGFloat = 40
-    private let kWaitingTime:Double = 0.15
+    private let kWaitingTime:TimeInterval = 0.15
     
     convenience init(controller:CChatDisplayOptions)
     {
