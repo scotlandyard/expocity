@@ -189,4 +189,10 @@ class VChat:UIView
         
         animateInput(bottom:inputBottom)
     }
+    
+    func hideEmojiKeyboard()
+    {
+        emojiKeyboard.animateKeyboard(show:false)
+        animateInput(bottom:0)
+    }
 }
