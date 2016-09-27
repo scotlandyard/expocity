@@ -20,6 +20,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         clipsToBounds = true
         backgroundColor = UIColor.collectionBackground()
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
         
         let cellHeight:CGFloat = kMaxHeight - kFooterHeight
         
