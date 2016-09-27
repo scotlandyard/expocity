@@ -204,7 +204,9 @@ class VChatDisplayAnnotations:UIView
     
     func notifiedKeyboardChanged(sender notification:Notification)
     {
-        let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]! as! CGRect
+        let userInfo:[AnyHashable:Any] = notification.userInfo!
+        let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let keyRect:CGRect = keyboardFrameValue.cgRectValue
         let yOrigin = keyRect.origin.y
         let screenHeight:CGFloat = UIScreen.main.bounds.size.height
         let keyboardHeight:CGFloat
