@@ -3,6 +3,7 @@ import UIKit
 class VChatEmojiKeyboardCell:UICollectionViewCell
 {
     weak var imageView:UIImageView!
+    private let kMargin:CGFloat = 5
     
     override init(frame:CGRect)
     {
@@ -13,7 +14,7 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
         let imageView:UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.isUserInteractionEnabled = false
         self.imageView = imageView
         
@@ -22,15 +23,16 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
         let views:[String:UIView] = [
             "imageView":imageView]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "margin":kMargin]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView]-0-|",
+            withVisualFormat:"H:|-(margin)-[imageView]-(margin)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[imageView]-0-|",
+            withVisualFormat:"V:|-(margin)-[imageView]-(margin)-|",
             options:[],
             metrics:metrics,
             views:views))
