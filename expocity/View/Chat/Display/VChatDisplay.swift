@@ -6,7 +6,6 @@ class VChatDisplay:UIView
     weak var marks:VChatDisplayMarks!
     weak var imageView:UIImageView!
     weak var layoutHeight:NSLayoutConstraint!
-    weak var layoutImageLeft:NSLayoutConstraint!
     weak var layoutBorderHeight:NSLayoutConstraint!
     let maxHeight:CGFloat
     let kMinHeight:CGFloat = 3
@@ -84,7 +83,7 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView]-0-|",
+            withVisualFormat:"V:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -94,14 +93,6 @@ class VChatDisplay:UIView
             metrics:metrics,
             views:views))
         
-        layoutImageLeft = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
         layoutBorderHeight = NSLayoutConstraint(
             item:border,
             attribute:NSLayoutAttribute.height,
@@ -111,7 +102,6 @@ class VChatDisplay:UIView
             multiplier:1,
             constant:0)
         
-        addConstraint(layoutImageLeft)
         addConstraint(layoutBorderHeight)
         
         NotificationCenter.default.addObserver(
@@ -182,6 +172,7 @@ class VChatDisplay:UIView
         
         UIView.animate(withDuration: kAnimationDuration)
         { [weak self] in
+            
             self?.layoutIfNeeded()
         }
     }
