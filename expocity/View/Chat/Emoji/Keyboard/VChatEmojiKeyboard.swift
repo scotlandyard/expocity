@@ -11,7 +11,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     private let kMaxHeight:CGFloat = 230
     private let kCellWidth:CGFloat = 80
     private let kFooterHeight:CGFloat = 70
-    private let kAnimationDuration:TimeInterval = 6
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CChat)
     {
