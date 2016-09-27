@@ -8,6 +8,8 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     let model:MChatEmojiKeyboard
     private let kBorderHeight:CGFloat = 1
     private let kMaxHeight:CGFloat = 200
+    private let kCellWidth:CGFloat = 50
+    private let kFooterHeight:CGFloat = 70
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CChat)
@@ -25,6 +27,11 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         border.translatesAutoresizingMaskIntoConstraints = false
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize(width:0, height:kFooterHeight)
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
