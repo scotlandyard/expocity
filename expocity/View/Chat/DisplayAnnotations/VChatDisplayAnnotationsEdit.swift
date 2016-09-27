@@ -122,7 +122,9 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     private func confirmText()
     {
+        isHidden = true
         let text:String = textField.text!
+        textField.text = ""
         UIApplication.shared.keyWindow!.endEditing(true)
         controller.confirmTextAnnotation(text:text)
     }
@@ -139,8 +141,6 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
     
     func textFieldDidEndEditing(_ textField:UITextField)
     {
-        isHidden = true
-        textField.text = ""
         confirmText()
     }
     
