@@ -45,5 +45,6 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
     
     func config(model:MChatEmojiKeyboardItem)
     {
+        imageView.image = model.image
     }
 }
