@@ -41,10 +41,41 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
         fatalError()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            imageView.alpha = 0.1
+        }
+        else
+        {
+            imageView.alpha = 1
+        }
+    }
+    
     //MARK: public
     
     func config(model:MChatEmojiKeyboardItem)
     {
         imageView.image = model.image
+        hover()
     }
 }
