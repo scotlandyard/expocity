@@ -190,6 +190,8 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        let item:MChatEmojiKeyboardItem = modelAtIndex(index:indexPath)
+        controller.addEmojiMine(image:item.image)
         controller.viewChat.hideEmojiKeyboard()
         
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kDeselectAfter)
