@@ -8,6 +8,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     let model:MChatEmojiKeyboard
     private let kBorderHeight:CGFloat = 1
     private let kMaxHeight:CGFloat = 200
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CChat)
     {
@@ -74,6 +75,30 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         let item:MChatEmojiKeyboardItem = model.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func animateKeyboard(show:Bool)
+    {
+        let newHeight:CGFloat
+        
+        if show
+        {
+            newHeight = kMaxHeight
+        }
+        else
+        {
+            newHeight = 0
+        }
+        
+        layoutHeight.constant = newHeight
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.superview?.layoutIfNeeded()
+        }
     }
     
     //MARK: collection del
