@@ -39,7 +39,7 @@ class VChatDisplay:UIView
         let border:UIView = UIView()
         border.isUserInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = UIColor.bubbleMine()
+        border.backgroundColor = UIColor.black
         
         let imageView:UIImageView = UIImageView()
         imageView.contentMode = controller.model.displayOption.contentMode
@@ -149,7 +149,7 @@ class VChatDisplay:UIView
         if imageView.image == nil
         {
             newHeight = kMinHeight
-            newBorderHeight = kBorderHeight
+            newBorderHeight = 0
         }
         else
         {
@@ -187,10 +187,20 @@ class VChatDisplay:UIView
                 layoutBorderHeight.constant = newBorderHeight
             }
             
-            UIView.animate(withDuration:kAnimationDuration)
+            UIView.animate(withDuration:kAnimationDuration, animations:
             { [weak self] in
                 
                 self?.superview?.layoutIfNeeded()
+            })
+            { [weak self] (done) in
+                
+                if self != nil
+                {
+                    if newHeight == self!.maxHeight
+                    {
+                        self!.controller.viewChat.conversation.scrollToBottom()
+                    }
+                }
             }
         }
     }
