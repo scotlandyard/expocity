@@ -43,5 +43,7 @@ class VChatConversationCellEmoji:VChatConversationCell
     override func config(model:MChatItem, controller:CChat)
     {
         super.config(model:model, controller:controller)
+        let modelEmoji:MChatItemEmoji = model as! MChatItemEmoji
+        imageView.image = modelEmoji.image
     }
 }
