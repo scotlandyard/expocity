@@ -6,5 +6,6 @@ class MChatEmojiKeyboardItem
     
     init(image:UIImage)
     {
+        self.image = image
     }
 }
