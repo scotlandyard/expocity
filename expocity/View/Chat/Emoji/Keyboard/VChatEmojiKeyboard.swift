@@ -51,7 +51,12 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[border(borderHeight)]-0-[collectionView]-0-|",
+            withVisualFormat:"V:|-0-[border(borderHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
