@@ -133,7 +133,7 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         let imagePicker:UIImagePickerController = UIImagePickerController()
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        imagePicker.allowsEditing = false
         
         controller.present(imagePicker, animated:true, completion:nil)
     }
@@ -148,20 +148,15 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     }
     
     //MARK: imagePicker delegate
-    /*
+    
     func imagePickerController(_ picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:Any])
     {
-        let rawImage:Data? = info[UIImagePickerControllerOriginalImage] as? Data
-        
-        if rawImage != nil
-        {
-//            let image:UIImage? = UIImage(data:rawImage!)
-        }
+        let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         controller.dismiss(animated:true)
         { [weak self] in
             
-//            self?.display.displayImage(image:image)
+            self?.display.displayImage(image:image)
         }
-    }*/
+    }
 }
