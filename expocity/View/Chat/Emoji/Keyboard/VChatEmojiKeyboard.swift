@@ -59,6 +59,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
             forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
             withReuseIdentifier:
             VChatEmojiKeyboardFooter.reusableIdentifier())
+        self.collectionView = collectionView
         
         addSubview(border)
         addSubview(collectionView)
