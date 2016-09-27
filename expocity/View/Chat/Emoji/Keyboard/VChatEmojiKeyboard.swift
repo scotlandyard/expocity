@@ -40,6 +40,21 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.clipsToBounds = true
         collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.bounces = false
+        collectionView.isScrollEnabled = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VChatEmojiKeyboardCell.self,
+            forCellWithReuseIdentifier:
+            VChatEmojiKeyboardCell.reusableIdentifier())
+        collectionView.register(
+            VChatEmojiKeyboardFooter.self,
+            forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
+            withReuseIdentifier:
+            VChatEmojiKeyboardFooter.reusableIdentifier())
         
         addSubview(border)
         addSubview(collectionView)
