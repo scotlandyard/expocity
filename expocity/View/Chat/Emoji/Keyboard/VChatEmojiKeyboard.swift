@@ -6,9 +6,10 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     weak var collectionView:UICollectionView!
     weak var layoutHeight:NSLayoutConstraint!
     let model:MChatEmojiKeyboard
+    private let kNumberOfLines:CGFloat = 2
     private let kBorderHeight:CGFloat = 1
-    private let kMaxHeight:CGFloat = 200
-    private let kCellWidth:CGFloat = 50
+    private let kMaxHeight:CGFloat = 240
+    private let kCellWidth:CGFloat = 85
     private let kFooterHeight:CGFloat = 70
     private let kAnimationDuration:TimeInterval = 6
     
@@ -22,7 +23,8 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let cellHeight:CGFloat = kMaxHeight - kFooterHeight
+        let cellsHeight:CGFloat = kMaxHeight - kFooterHeight
+        let cellLineHeight:CGFloat = cellsHeight / kNumberOfLines
         
         let border:UIView = UIView()
         border.isUserInteractionEnabled = false
@@ -35,7 +37,7 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
-        flow.itemSize = CGSize(width:kCellWidth, height:cellHeight)
+        flow.itemSize = CGSize(width:kCellWidth, height:cellLineHeight)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
