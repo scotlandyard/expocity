@@ -11,7 +11,7 @@ class MChatMenuItemPicture:MChatMenuItem
     
     override func selected(controller:CChat)
     {
-        UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        UIApplication.shared.keyWindow!.endEditing(true)
         
         if controller.viewChat.display.imageView.image == nil
         {
@@ -19,7 +19,7 @@ class MChatMenuItemPicture:MChatMenuItem
         }
         else
         {
-            showAlert(controller)
+            showAlert(controller:controller)
         }
     }
     
@@ -30,11 +30,11 @@ class MChatMenuItemPicture:MChatMenuItem
         let alert:UIAlertController = UIAlertController(
             title:NSLocalizedString("MChatMenuItemPicture_alertTitle", comment:""),
             message:nil,
-            preferredStyle:UIAlertControllerStyle.ActionSheet)
+            preferredStyle:UIAlertControllerStyle.actionSheet)
         
         let actionChange:UIAlertAction = UIAlertAction(
             title:NSLocalizedString("MChatMenuItemPicture_alertChange", comment:""),
-            style:UIAlertActionStyle.Default)
+            style:UIAlertActionStyle.default)
         { [weak controller] (action) in
             
             controller?.viewChat.presentImagePicker()
@@ -42,7 +42,7 @@ class MChatMenuItemPicture:MChatMenuItem
         
         let actionRemove:UIAlertAction = UIAlertAction(
             title:NSLocalizedString("MChatMenuItemPicture_alertRemove", comment:""),
-            style:UIAlertActionStyle.Destructive)
+            style:UIAlertActionStyle.destructive)
         { [weak controller] (action) in
             
             controller?.removeImage()
@@ -50,14 +50,14 @@ class MChatMenuItemPicture:MChatMenuItem
         
         let actionCancel:UIAlertAction = UIAlertAction(
             title:NSLocalizedString("MChatMenuItemPicture_alertCancel", comment:""),
-            style:UIAlertActionStyle.Cancel,
+            style:UIAlertActionStyle.cancel,
             handler:nil)
         
         alert.addAction(actionChange)
         alert.addAction(actionRemove)
         alert.addAction(actionCancel)
         
-        controller.parent.presentViewController(
+        controller.parentController.present(
             alert,
             animated:true,
             completion:nil)

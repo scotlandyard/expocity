@@ -12,9 +12,9 @@ class VChatDisplayAnnotationsPlacer:UIView
     {
         itemSize_2 = kItemSize / 2.0
         
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -29,18 +29,18 @@ class VChatDisplayAnnotationsPlacer:UIView
         addGestureRecognizer(tapGesture)
         addSubview(itemContainer)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "itemContainer":itemContainer]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[itemContainer]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[itemContainer]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[itemContainer]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[itemContainer]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -57,36 +57,36 @@ class VChatDisplayAnnotationsPlacer:UIView
     
     func actionTap(sender tapGesture:UITapGestureRecognizer)
     {
-        tapGesture.enabled = false
-        let point:CGPoint = tapGesture.locationInView(self)
+        tapGesture.isEnabled = false
+        let point:CGPoint = tapGesture.location(in: self)
         let pointX:CGFloat = point.x
         let pointY:CGFloat = point.y
         let imageWidth:CGFloat = bounds.size.width
         let imageHeight:CGFloat = bounds.size.height
         let xPercent:CGFloat = pointX / imageWidth
         let yPercent:CGFloat = pointY / imageHeight
-        controller.confirmAnnotation(xPercent, yPercent:yPercent)
+        controller.confirmAnnotation(xPercent:xPercent, yPercent:yPercent)
     }
     
     //MARK: public
     
     func addAnnotation()
     {
-        tapGesture.enabled = true
-        itemContainer.userInteractionEnabled = false
+        tapGesture.isEnabled = true
+        itemContainer.isUserInteractionEnabled = false
     }
     
     func cancelAnnotation()
     {
         reloadItems()
-        tapGesture.enabled = false
-        itemContainer.userInteractionEnabled = true
+        tapGesture.isEnabled = false
+        itemContainer.isUserInteractionEnabled = true
     }
     
     func reloadItems()
     {
-        tapGesture.enabled = false
-        let screenSize:CGSize = UIScreen.mainScreen().bounds.size
+        tapGesture.isEnabled = false
+        let screenSize:CGSize = UIScreen.main.bounds.size
         let imageHeight:CGFloat = controller.controllerChat.viewChat.display.maxHeight
         let imageWidth:CGFloat
         
@@ -100,6 +100,7 @@ class VChatDisplayAnnotationsPlacer:UIView
         }
         
         var count:Int = itemContainer.subviews.count - 1
+        
         while count >= 0
         {
             let subview:UIView = itemContainer.subviews[count]
@@ -118,21 +119,21 @@ class VChatDisplayAnnotationsPlacer:UIView
             let subview:VChatDisplayAnnotationsPlacerItem = VChatDisplayAnnotationsPlacerItem(model:item, controller:controller)
             itemContainer.addSubview(subview)
             
-            let views:[String:AnyObject] = [
+            let views:[String:UIView] = [
                 "item":subview]
             
-            let metrics:[String:AnyObject] = [
+            let metrics:[String:CGFloat] = [
                 "itemSize":kItemSize,
                 "itemLeft":itemLeft,
                 "itemTop":itemTop]
             
-            itemContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-(itemLeft)-[item(itemSize)]",
+            itemContainer.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat:"H:|-(itemLeft)-[item(itemSize)]",
                 options:[],
                 metrics:metrics,
                 views:views))
-            itemContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-(itemTop)-[item(itemSize)]",
+            itemContainer.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat:"V:|-(itemTop)-[item(itemSize)]",
                 options:[],
                 metrics:metrics,
                 views:views))

@@ -8,7 +8,7 @@ class VRooms:UIView
     {
         self.init()
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         clipsToBounds = true
         self.controller = controller
     }

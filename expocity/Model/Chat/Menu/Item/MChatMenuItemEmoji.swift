@@ -11,5 +11,6 @@ class MChatMenuItemEmoji:MChatMenuItem
     
     override func selected(controller:CChat)
     {
+        controller.viewChat.displayEmojiKeyboard()
     }
 }

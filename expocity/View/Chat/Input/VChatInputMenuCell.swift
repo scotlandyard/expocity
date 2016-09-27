@@ -8,29 +8,29 @@ class VChatInputMenuCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         
         let image:UIImageView = UIImageView()
-        image.userInteractionEnabled = false
+        image.isUserInteractionEnabled = false
         image.clipsToBounds = true
-        image.contentMode = UIViewContentMode.Center
+        image.contentMode = UIViewContentMode.center
         image.translatesAutoresizingMaskIntoConstraints = false
         self.image = image
         
         addSubview(image)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "image":image]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[image]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[image]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[image]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[image]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -41,7 +41,7 @@ class VChatInputMenuCell:UICollectionViewCell
         fatalError()
     }
     
-    override var selected:Bool
+    override var isSelected:Bool
     {
         didSet
         {
@@ -49,7 +49,7 @@ class VChatInputMenuCell:UICollectionViewCell
         }
     }
     
-    override var highlighted:Bool
+    override var isHighlighted:Bool
     {
         didSet
         {
@@ -61,7 +61,7 @@ class VChatInputMenuCell:UICollectionViewCell
     
     private func hover()
     {
-        if selected || highlighted
+        if isSelected || isHighlighted
         {
             image.alpha = 0.2
         }

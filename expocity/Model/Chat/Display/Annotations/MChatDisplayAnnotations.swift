@@ -36,6 +36,6 @@ class MChatDisplayAnnotations
             }
         }
         
-        items.removeAtIndex(indexToRemove)
+        items.remove(at:indexToRemove)
     }
 }

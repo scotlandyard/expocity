@@ -10,8 +10,8 @@ class CChatDisplayOptions:CController
         model = MChatDisplayOptions(modelChat:modelChat)
         
         super.init(nibName:nil, bundle:nil)
-        modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        modalTransitionStyle = UIModalTransitionStyle.crossDissolve
     }
     
     required init?(coder:NSCoder)
@@ -26,7 +26,7 @@ class CChatDisplayOptions:CController
         view = viewOptions
     }
     
-    override func viewDidAppear(animated:Bool)
+    override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
         viewOptions.animateBlur()

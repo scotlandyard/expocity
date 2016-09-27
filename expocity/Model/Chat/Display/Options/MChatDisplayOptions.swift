@@ -39,7 +39,7 @@ class MChatDisplayOptions
     
     func selectItem(index:Int)
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             if self != nil
@@ -47,9 +47,7 @@ class MChatDisplayOptions
                 self!.selected = index
                 self!.modelChat.displayOption = self!.items[index]
                 
-                NSNotificationCenter.defaultCenter().postNotificationName(
-                    NSNotification.Name.ChatDisplayOptionChanged.rawValue,
-                    object:nil)
+                NotificationCenter.default.post(name:Notification.Notifications.ChatDisplayOptionChanged.Value, object:nil)
             }
         }
     }

@@ -6,11 +6,11 @@ class VMainShadow:UIView
     
     init()
     {
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
-        userInteractionEnabled = false
+        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.blackColor()
+        backgroundColor = UIColor.black
         
         minAlpha()
     }

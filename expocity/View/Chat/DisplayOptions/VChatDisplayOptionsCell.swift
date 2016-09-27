@@ -9,49 +9,49 @@ class VChatDisplayOptionsCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         
         let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
+        label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.bold(14)
-        label.textAlignment = NSTextAlignment.Center
+        label.backgroundColor = UIColor.clear
+        label.font = UIFont.bold(size:14)
+        label.textAlignment = NSTextAlignment.center
         self.label = label
         
         let imageView:UIImageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.Center
+        imageView.contentMode = UIViewContentMode.center
         imageView.clipsToBounds = true
-        imageView.userInteractionEnabled = false
+        imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
         addSubview(label)
         addSubview(imageView)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "imageView":imageView,
             "label":label]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[imageView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[label]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[imageView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-59-[label]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-59-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -62,7 +62,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         fatalError()
     }
     
-    override var selected:Bool
+    override var isSelected:Bool
     {
         didSet
         {
@@ -70,7 +70,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
         }
     }
     
-    override var highlighted:Bool
+    override var isHighlighted:Bool
     {
         didSet
         {
@@ -82,7 +82,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
     
     private func hover()
     {
-        if selected || highlighted
+        if isSelected || isHighlighted
         {
             label.textColor = UIColor.main()
             imageView.tintColor = UIColor.main()
@@ -99,7 +99,7 @@ class VChatDisplayOptionsCell:UICollectionViewCell
     func config(model:MChatDisplayOptionsItem)
     {
         label.text = model.title
-        imageView.image = UIImage(named:model.icon)!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        imageView.image = UIImage(named:model.icon)!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         hover()
     }
 }

@@ -3,20 +3,23 @@ import UIKit
 class VChatDisplayMarksItem:UIButton
 {
     weak var controller:CChat!
-    weak var timer:NSTimer?
+    weak var timer:Timer?
     weak var model:MChatDisplayAnnotationsItem!
-    private let kTimeInterval:NSTimeInterval = 3
+    private let kTimeInterval:TimeInterval = 3
     
     convenience init(controller:CChat, model:MChatDisplayAnnotationsItem)
     {
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        setImage(UIImage(named:"chatAnnotation"), forState:UIControlState.Normal)
-        setImage(UIImage(named:"chatAnnotationSelected"), forState:UIControlState.Selected)
-        imageView!.contentMode = UIViewContentMode.Center
+        setImage(UIImage(named:"chatAnnotation"), for:UIControlState())
+        setImage(UIImage(named:"chatAnnotationSelected"), for:UIControlState.selected)
+        imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
-        addTarget(self, action:#selector(self.actionButton(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        addTarget(
+            self,
+            action:#selector(self.actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.model = model
         self.controller = controller
     }
@@ -25,9 +28,9 @@ class VChatDisplayMarksItem:UIButton
     
     func actionButton(sender button:UIButton)
     {
-        if !selected
+        if !isSelected
         {
-            selected = true
+            isSelected = true
             showMessage()
         }
     }
@@ -36,21 +39,21 @@ class VChatDisplayMarksItem:UIButton
     
     private func showMessage()
     {
-        timer = NSTimer.scheduledTimerWithTimeInterval(
-            kTimeInterval,
+        timer = Timer.scheduledTimer(
+            timeInterval:kTimeInterval,
             target:self,
             selector:#selector(self.timeOut(sender:)),
             userInfo:nil,
             repeats:false)
         
         let alertMessage:String = model.text
-        let alertType:VMainAlert.VMainAlertType = VMainAlert.VMainAlertType.Annotation
-        VMainAlert.Show(alertMessage, type:alertType)
+        let alertType:VMainAlert.VMainAlertType = VMainAlert.VMainAlertType.annotation
+        VMainAlert.Show(message:alertMessage, type:alertType)
     }
     
-    func timeOut(sender timer:NSTimer)
+    func timeOut(sender timer:Timer)
     {
         timer.invalidate()
-        selected = false
+        isSelected = false
     }
 }

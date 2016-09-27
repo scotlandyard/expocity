@@ -13,7 +13,7 @@ class VHomeCell:UICollectionViewCell
         fatalError()
     }
     
-    override var selected:Bool
+    override var isSelected:Bool
     {
         didSet
         {
@@ -21,7 +21,7 @@ class VHomeCell:UICollectionViewCell
         }
     }
     
-    override var highlighted:Bool
+    override var isHighlighted:Bool
     {
         didSet
         {
@@ -33,7 +33,7 @@ class VHomeCell:UICollectionViewCell
     
     private func hover()
     {
-        if selected || highlighted
+        if isSelected || isHighlighted
         {
             alpha = 0.2
         }

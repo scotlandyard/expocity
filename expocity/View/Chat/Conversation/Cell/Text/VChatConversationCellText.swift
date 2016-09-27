@@ -23,71 +23,71 @@ class VChatConversationCellText:VChatConversationCell
         super.init(frame:frame)
         
         let labelContent:UILabel = UILabel()
-        labelContent.backgroundColor = UIColor.clearColor()
+        labelContent.backgroundColor = UIColor.clear
         labelContent.translatesAutoresizingMaskIntoConstraints = false
-        labelContent.userInteractionEnabled = false
+        labelContent.isUserInteractionEnabled = false
         labelContent.numberOfLines = 0
-        labelContent.textColor = UIColor.blackColor()
+        labelContent.textColor = UIColor.black
         self.labelContent = labelContent
         
         let bubbleContent:UIView = UIView()
         bubbleContent.clipsToBounds = true
         bubbleContent.translatesAutoresizingMaskIntoConstraints = false
-        bubbleContent.userInteractionEnabled = false
+        bubbleContent.isUserInteractionEnabled = false
         bubbleContent.layer.cornerRadius = kBubbleCornerRadius
         self.bubbleContent = bubbleContent
         
         bubbleContent.addSubview(labelContent)
         addSubview(bubbleContent)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "labelContent":labelContent]
         
-        let metrics:[String:AnyObject] = [
+        let metrics:[String:CGFloat] = [
             "interMarginHr":kInterMarginHr,
             "interMarginVr":kInterMarginVr]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-(interMarginHr)-[labelContent]-(interMarginHr)-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-(interMarginHr)-[labelContent]-(interMarginHr)-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-(interMarginVr)-[labelContent]-(interMarginVr)-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(interMarginVr)-[labelContent]-(interMarginVr)-|",
             options:[],
             metrics:metrics,
             views:views))
         
         layoutBubbleTop = NSLayoutConstraint(
             item:bubbleContent,
-            attribute:NSLayoutAttribute.Top,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Top,
+            attribute:NSLayoutAttribute.top,
             multiplier:1,
             constant:0)
         layoutBubbleHeight = NSLayoutConstraint(
             item:bubbleContent,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:0)
         layoutBubbleLeft = NSLayoutConstraint(
             item:bubbleContent,
-            attribute:NSLayoutAttribute.Left,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Left,
+            attribute:NSLayoutAttribute.left,
             multiplier:1,
             constant:0)
         layoutBubbleWidth = NSLayoutConstraint(
             item:bubbleContent,
-            attribute:NSLayoutAttribute.Width,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.width,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:0)
         
@@ -104,7 +104,7 @@ class VChatConversationCellText:VChatConversationCell
     
     override func config(model:MChatItem, controller:CChat)
     {
-        super.config(model, controller:controller)
+        super.config(model:model, controller:controller)
         modelText = model as! MChatItemText
         labelContent.attributedText = modelText.attributedString
         layoutConstraints()

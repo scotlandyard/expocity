@@ -15,14 +15,14 @@ class VChatDisplayAnnotations:UIView
     weak var layoutPlacerHeight:NSLayoutConstraint!
     weak var layoutEditTextBottom:NSLayoutConstraint!
     private let kEditTextHeight:CGFloat = 45
-    private let kAnimationDuration:NSTimeInterval = 0.3
-    private let kDelayLayout:UInt64 = 100
+    private let kAnimationDuration:TimeInterval = 0.3
+    private let kWaitingTime:TimeInterval = 0.1
     
     convenience init(controller:CChatDisplayAnnotations)
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -51,7 +51,7 @@ class VChatDisplayAnnotations:UIView
         addSubview(placer)
         addSubview(editText)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "shadeTop":shadeTop,
             "shadeBottom":shadeBottom,
             "list":list,
@@ -59,103 +59,103 @@ class VChatDisplayAnnotations:UIView
             "placer":placer,
             "editText":editText]
         
-        let metrics:[String:AnyObject] = [
+        let metrics:[String:CGFloat] = [
             "editTextHeight":kEditTextHeight]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[placer]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[placer]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[shadeTop]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[shadeTop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[shadeBottom]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[shadeBottom]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[list]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[list]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[tutorial]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[tutorial]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[editText]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[editText]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[shadeTop]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[shadeTop]",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[shadeBottom]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[shadeBottom]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[list]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[list]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[tutorial]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[tutorial]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[editText(editTextHeight)]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[editText(editTextHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         
         layoutShadeTopHeight = NSLayoutConstraint(
             item:shadeTop,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:0)
         layoutShadeBottomHeight = NSLayoutConstraint(
             item:shadeBottom,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:0)
         layoutPlacerTop = NSLayoutConstraint(
             item:placer,
-            attribute:NSLayoutAttribute.Top,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Top,
+            attribute:NSLayoutAttribute.top,
             multiplier:1,
             constant:0)
         layoutPlacerHeight = NSLayoutConstraint(
             item:placer,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:0)
         layoutEditTextBottom = NSLayoutConstraint(
             item:editText,
-            attribute:NSLayoutAttribute.Bottom,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Bottom,
+            attribute:NSLayoutAttribute.bottom,
             multiplier:1,
             constant:0)
         
@@ -167,29 +167,29 @@ class VChatDisplayAnnotations:UIView
         
         layoutShades()
         
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector:#selector(self.notifiedKeyboardChanged(sender:)),
-            name:UIKeyboardWillChangeFrameNotification,
+            name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
     }
     
     deinit
     {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func layoutSubviews()
     {
-        let delayLayout:UInt64 = self.kDelayLayout
+        let delayLayout:TimeInterval = kWaitingTime
         
-        dispatch_async(dispatch_get_main_queue())
+        DispatchQueue.main.async
         { [weak self] in
             
             self?.shadeTop.alpha = 0
             self?.shadeBottom.alpha = 0
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC * delayLayout)), dispatch_get_main_queue())
+            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + delayLayout)
             { [weak self] in
                 
                 self?.layoutShades()
@@ -202,11 +202,13 @@ class VChatDisplayAnnotations:UIView
     
     //MARK: notified
     
-    func notifiedKeyboardChanged(sender notification:NSNotification)
+    func notifiedKeyboardChanged(sender notification:Notification)
     {
-        let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
+        let userInfo:[AnyHashable:Any] = notification.userInfo!
+        let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let keyRect:CGRect = keyboardFrameValue.cgRectValue
         let yOrigin = keyRect.origin.y
-        let screenHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
+        let screenHeight:CGFloat = UIScreen.main.bounds.size.height
         let keyboardHeight:CGFloat
         
         if yOrigin < screenHeight
@@ -220,7 +222,7 @@ class VChatDisplayAnnotations:UIView
         
         layoutEditTextBottom.constant = -keyboardHeight
         
-        UIView.animateWithDuration(kAnimationDuration)
+        UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
             
             self?.layoutIfNeeded()
@@ -232,7 +234,7 @@ class VChatDisplayAnnotations:UIView
     private func layoutShades()
     {
         let imageRect:CGRect = controller.controllerChat.displayImageRect()
-        let screenRect:CGRect = UIScreen.mainScreen().bounds
+        let screenRect:CGRect = UIScreen.main.bounds
         let topHeight:CGFloat = imageRect.minY
         let bottomHeight:CGFloat = screenRect.maxY - imageRect.maxY
         
@@ -242,7 +244,7 @@ class VChatDisplayAnnotations:UIView
         layoutPlacerHeight.constant = imageRect.size.height
     }
     
-    private func modelAtIndex(index:NSIndexPath) -> MChatDisplayAnnotationsItem
+    private func modelAtIndex(index:IndexPath) -> MChatDisplayAnnotationsItem
     {
         let item:MChatDisplayAnnotationsItem = controller.controllerChat.model.annotations.items[index.item]
         
@@ -253,7 +255,7 @@ class VChatDisplayAnnotations:UIView
     
     func animateShades()
     {
-        UIView.animateWithDuration(kAnimationDuration)
+        UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
             
             self?.shadeTop.alpha = 1

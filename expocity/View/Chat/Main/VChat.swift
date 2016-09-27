@@ -1,19 +1,20 @@
 import UIKit
 
-class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class VChat:UIView
 {
     weak var controller:CChat!
     weak var input:VChatInput!
     weak var display:VChatDisplay!
     weak var conversation:VChatConversation!
+    weak var emojiKeyboard:VChatEmojiKeyboard!
     weak var layoutInputBottom:NSLayoutConstraint!
-    private let kAnimationDuration:NSTimeInterval = 0.4
+    private let kAnimationDuration:TimeInterval = 0.4
     
     convenience init(controller:CChat)
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -26,85 +27,108 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
         let display:VChatDisplay = VChatDisplay(controller:controller)
         self.display = display
         
-        addSubview(input)
+        let emojiKeyboard:VChatEmojiKeyboard = VChatEmojiKeyboard(controller:controller)
+        self.emojiKeyboard = emojiKeyboard
+        
         addSubview(conversation)
         addSubview(display)
+        addSubview(input)
+        addSubview(emojiKeyboard)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "input":input,
             "conversation":conversation,
-            "display":display]
+            "display":display,
+            "emojiKeyboard":emojiKeyboard]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[input]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[input]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[display]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[display]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[conversation]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[conversation]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[conversation]-0-[display]-0-[input]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[emojiKeyboard]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[conversation]-0-[display]-0-[input]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[emojiKeyboard]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         
         layoutInputBottom = NSLayoutConstraint(
             item:input,
-            attribute:NSLayoutAttribute.Bottom,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Bottom,
+            attribute:NSLayoutAttribute.bottom,
             multiplier:1,
             constant:0)
-        
         input.layoutHeight = NSLayoutConstraint(
             item:input,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:input.kMinHeight)
-        
         display.layoutHeight = NSLayoutConstraint(
             item:display,
-            attribute:NSLayoutAttribute.Height,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
             toItem:nil,
-            attribute:NSLayoutAttribute.NotAnAttribute,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:display.kMinHeight)
+        emojiKeyboard.layoutHeight = NSLayoutConstraint(
+            item:emojiKeyboard,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
+            multiplier:1,
+            constant:0)
         
         addConstraint(layoutInputBottom)
         addConstraint(input.layoutHeight)
         addConstraint(display.layoutHeight)
+        addConstraint(emojiKeyboard.layoutHeight)
         
         listenToKeyboard()
     }
     
     deinit
     {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: notified
     
-    func notifiedKeyboardChanged(sender notification:NSNotification)
+    func notifiedKeyboardChanged(sender notification:Notification)
     {
-        let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
+        let userInfo:[AnyHashable:Any] = notification.userInfo!
+        let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let keyRect:CGRect = keyboardFrameValue.cgRectValue
         let yOrigin = keyRect.origin.y
-        let screenHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
-        let currentOffset:CGPoint = conversation.collection.contentOffset
+        let screenHeight:CGFloat = UIScreen.main.bounds.size.height
         let keyboardHeight:CGFloat
         
         if yOrigin < screenHeight
@@ -116,10 +140,20 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
             keyboardHeight = 0
         }
         
-        layoutInputBottom.constant = -keyboardHeight
-        conversation.collection.contentOffset = CGPointMake(0, currentOffset.y + keyboardHeight)
+        let newInputBottom:CGFloat = -keyboardHeight
+        animateInput(bottom:newInputBottom)
+    }
+    
+    //MARK: private
+    
+    private func animateInput(bottom:CGFloat)
+    {
+        let currentOffset:CGPoint = conversation.collectionView.contentOffset
+        let newCollectionOffsetY:CGFloat = currentOffset.y - bottom
+        layoutInputBottom.constant = bottom
+        conversation.collectionView.contentOffset = CGPoint(x:0, y:newCollectionOffsetY)
         
-        UIView.animateWithDuration(kAnimationDuration)
+        UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
             
             self?.layoutIfNeeded()
@@ -130,32 +164,35 @@ class VChat:UIView, UIImagePickerControllerDelegate, UINavigationControllerDeleg
     
     func presentImagePicker()
     {
-        let imagePicker:UIImagePickerController = UIImagePickerController()
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        imagePicker.delegate = self
+        let chatPicker:CChatDisplayPicker = CChatDisplayPicker(controller:controller)
         
-        controller.presentViewController(imagePicker, animated:true, completion:nil)
+        controller.present(chatPicker, animated:true, completion:nil)
     }
     
     func listenToKeyboard()
     {
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector:#selector(self.notifiedKeyboardChanged(sender:)),
-            name:UIKeyboardWillChangeFrameNotification,
+            name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
     }
     
-    //MARK: imagePicker delegate
-    
-    func imagePickerController(picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:AnyObject])
+    func displayEmojiKeyboard()
     {
-        let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
+        UIApplication.shared.keyWindow!.endEditing(true)
+        emojiKeyboard.animateKeyboard(show:true)
         
-        controller.dismissViewControllerAnimated(true)
-        { [weak self] in
-            
-            self?.display.displayImage(image)
-        }
+        let emojiKeyboardHeight:CGFloat = emojiKeyboard.layoutHeight.constant
+        let inputHeight:CGFloat = input.layoutHeight.constant
+        let inputBottom:CGFloat = -(emojiKeyboardHeight - inputHeight)
+        
+        animateInput(bottom:inputBottom)
+    }
+    
+    func hideEmojiKeyboard()
+    {
+        emojiKeyboard.animateKeyboard(show:false)
+        animateInput(bottom:0)
     }
 }

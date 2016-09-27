@@ -6,7 +6,7 @@ class VChatConversationCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
     }
     
     required init?(coder:NSCoder)

@@ -8,90 +8,96 @@ class VChatDisplayAnnotationsBar:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
         let border:UIView = UIView()
-        border.userInteractionEnabled = false
+        border.isUserInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
         border.backgroundColor = UIColor(white:1, alpha:0.2)
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named:"genericClose"), forState:UIControlState.Normal)
+        backButton.setImage(UIImage(named:"genericClose"), for:UIControlState())
         backButton.imageView!.clipsToBounds = true
-        backButton.imageView!.contentMode = UIViewContentMode.Center
+        backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
-        backButton.addTarget(self, action:#selector(self.actionBack(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        backButton.addTarget(
+            self,
+            action:#selector(self.actionBack(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
-        label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.bold(16)
-        label.textAlignment = NSTextAlignment.Center
+        label.isUserInteractionEnabled = false
+        label.backgroundColor = UIColor.clear
+        label.font = UIFont.bold(size:16)
+        label.textAlignment = NSTextAlignment.center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         label.text = NSLocalizedString("VChatDisplayAnnotationsBar_labelTitle", comment:"")
         
         let addButton:UIButton = UIButton()
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.setImage(UIImage(named:"genericAdd"), forState:UIControlState.Normal)
+        addButton.setImage(UIImage(named:"genericAdd"), for:UIControlState())
         addButton.imageView!.clipsToBounds = true
-        addButton.imageView!.contentMode = UIViewContentMode.Center
+        addButton.imageView!.contentMode = UIViewContentMode.center
         addButton.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
-        addButton.addTarget(self, action:#selector(self.actionAdd(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        addButton.addTarget(
+            self,
+            action:#selector(self.actionAdd(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(label)
         addSubview(backButton)
         addSubview(addButton)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "border":border,
             "backButton":backButton,
             "label":label,
             "addButton":addButton]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[border]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[border]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[label]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[backButton(60)]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[backButton(60)]",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[addButton(60)]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[addButton(60)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[border(1)]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[border(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[backButton(44)]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[backButton(44)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label(44)]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[label(44)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[addButton(44)]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[addButton(44)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -101,10 +107,10 @@ class VChatDisplayAnnotationsBar:UIView
     
     func actionBack(sender button:UIButton)
     {
-        UIApplication.sharedApplication().keyWindow!.endEditing(true)
+        UIApplication.shared.keyWindow!.endEditing(true)
         controller.controllerChat.viewChat.listenToKeyboard()
         controller.controllerChat.viewChat.display.hideAnnotations()
-        controller.parent.dismiss()
+        controller.parentController.dismiss()
     }
     
     func actionAdd(sender button:UIButton)

@@ -4,27 +4,27 @@ class VChatDisplayAnnotationsShade:UIView
 {
     init(borderTop:Bool, borderBottom:Bool)
     {
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         alpha = 0
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.Dark)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.dark)
         
         let blurView:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
-        blurView.userInteractionEnabled = false
+        blurView.isUserInteractionEnabled = false
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.clipsToBounds = true
         
-        let borderColor:UIColor = UIColor.blackColor()
+        let borderColor:UIColor = UIColor.black
         
         let topBorder:UIView = UIView()
-        topBorder.userInteractionEnabled = false
+        topBorder.isUserInteractionEnabled = false
         topBorder.translatesAutoresizingMaskIntoConstraints = false
         topBorder.backgroundColor = borderColor
         
         let bottomBorder:UIView = UIView()
-        bottomBorder.userInteractionEnabled = false
+        bottomBorder.isUserInteractionEnabled = false
         bottomBorder.translatesAutoresizingMaskIntoConstraints = false
         bottomBorder.backgroundColor = borderColor
         
@@ -32,52 +32,52 @@ class VChatDisplayAnnotationsShade:UIView
         addSubview(topBorder)
         addSubview(bottomBorder)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "blurView":blurView,
             "topBorder":topBorder,
             "bottomBorder":bottomBorder]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[blurView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[blurView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[topBorder]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[topBorder]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[bottomBorder]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[bottomBorder]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[blurView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[blurView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[topBorder(1)]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[topBorder(1)]",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[bottomBorder(1)]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[bottomBorder(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         
         if !borderTop
         {
-            topBorder.hidden = true
+            topBorder.isHidden = true
         }
         
         if !borderBottom
         {
-            bottomBorder.hidden = true
+            bottomBorder.isHidden = true
         }
     }
     
