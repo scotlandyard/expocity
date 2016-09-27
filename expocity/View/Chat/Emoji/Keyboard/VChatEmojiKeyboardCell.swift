@@ -11,7 +11,13 @@ class VChatEmojiKeyboardCell:UICollectionViewCell
         backgroundColor = UIColor.clear
         
         let imageView:UIImageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        imageView.isUserInteractionEnabled = false
         self.imageView = imageView
+        
+        addSubview(imageView)
         
         let views:[String:UIView] = [
             "imageView":imageView]
