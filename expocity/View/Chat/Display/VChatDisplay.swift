@@ -176,8 +176,16 @@ class VChatDisplay:UIView
         
         if animate
         {
-            layoutHeight.constant = newHeight
-            layoutBorderHeight.constant = newBorderHeight
+            if newBorderHeight == 0
+            {
+                layoutBorderHeight.constant = newBorderHeight
+                layoutHeight.constant = newHeight
+            }
+            else
+            {
+                layoutHeight.constant = newHeight
+                layoutBorderHeight.constant = newBorderHeight
+            }
             
             UIView.animate(withDuration:kAnimationDuration)
             { [weak self] in
