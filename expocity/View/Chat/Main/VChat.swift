@@ -32,8 +32,8 @@ class VChat:UIView
         
         addSubview(conversation)
         addSubview(display)
-        addSubview(emojiKeyboard)
         addSubview(input)
+        addSubview(emojiKeyboard)
         
         let views:[String:UIView] = [
             "input":input,
@@ -181,7 +181,12 @@ class VChat:UIView
     func displayEmojiKeyboard()
     {
         UIApplication.shared.keyWindow!.endEditing(true)
+        emojiKeyboard.animateKeyboard(show:true)
         
+        let emojiKeyboardHeight:CGFloat = emojiKeyboard.kMaxHeight
+        let inputHeight:CGFloat = input.layoutHeight.constant
+        let inputBottom:CGFloat = emojiKeyboardHeight - inputHeight
         
+        animateInput(bottom:inputBottom)
     }
 }

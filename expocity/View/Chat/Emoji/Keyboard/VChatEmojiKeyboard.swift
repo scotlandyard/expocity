@@ -6,8 +6,8 @@ class VChatEmojiKeyboard:UIView, UICollectionViewDataSource, UICollectionViewDel
     weak var collectionView:UICollectionView!
     weak var layoutHeight:NSLayoutConstraint!
     let model:MChatEmojiKeyboard
+    let kMaxHeight:CGFloat = 200
     private let kBorderHeight:CGFloat = 1
-    private let kMaxHeight:CGFloat = 200
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CChat)
