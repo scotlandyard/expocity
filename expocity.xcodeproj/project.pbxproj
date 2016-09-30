@@ -90,6 +90,7 @@
 		DA86D5E11D9EE43700FE8BE1 /* FMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5E01D9EE43700FE8BE1 /* FMain.swift */; };
 		DA86D5E71D9EE88A00FE8BE1 /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5E51D9EE88A00FE8BE1 /* FDatabase.swift */; };
 		DA86D5E91D9EE8AE00FE8BE1 /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5E81D9EE8AE00FE8BE1 /* FDatabaseModel.swift */; };
+		DA86D5EC1D9EF24300FE8BE1 /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5EB1D9EF24300FE8BE1 /* MSession.swift */; };
 		DA8B1B541D7DBF40004D8457 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B531D7DBF40004D8457 /* Launch.storyboard */; };
 		DA8B1B561D7DC9D0004D8457 /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B551D7DC9D0004D8457 /* generic.xcassets */; };
 		DA8B1B5E1D7DD48C004D8457 /* menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B5D1D7DD48C004D8457 /* menu.xcassets */; };
@@ -229,6 +230,7 @@
 		DA86D5E01D9EE43700FE8BE1 /* FMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMain.swift; sourceTree = "<group>"; };
 		DA86D5E51D9EE88A00FE8BE1 /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA86D5E81D9EE8AE00FE8BE1 /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
+		DA86D5EB1D9EF24300FE8BE1 /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
 		DA8B1B531D7DBF40004D8457 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		DA8B1B551D7DC9D0004D8457 /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA8B1B5D1D7DD48C004D8457 /* menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = menu.xcassets; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 		DA4F81891D7BB97B00CC8B39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA86D5EA1D9EF23900FE8BE1 /* Session */,
 				DA8B1B8A1D7E2442004D8457 /* Home */,
 				DA8B1B871D7E23AB004D8457 /* Chat */,
 				DA8B1B5F1D7DD735004D8457 /* Menu */,
@@ -710,6 +713,14 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DA86D5EA1D9EF23900FE8BE1 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				DA86D5EB1D9EF24300FE8BE1 /* MSession.swift */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 		DA8B1B521D7DBF08004D8457 /* Assets */ = {
@@ -1082,6 +1093,7 @@
 				DA8B1B801D7E11CA004D8457 /* VParent.swift in Sources */,
 				DA4A20151D9089C200BCDFCA /* CChatDisplayAnnotations.swift in Sources */,
 				DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */,
+				DA86D5EC1D9EF24300FE8BE1 /* MSession.swift in Sources */,
 				DA4A20131D9072E900BCDFCA /* MChatMenuItemHideKeyboard.swift in Sources */,
 				DA0DEE7E1D88C16400B52422 /* MChatMenuItemAnnotate.swift in Sources */,
 				DA4269F91D9B121E00FE7EFB /* MChatItemText.swift in Sources */,
