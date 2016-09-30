@@ -26,15 +26,15 @@ class MSession
     {
         if user.userId == nil
         {
-            firebaseUser()
+            createFirebaseUser()
         }
         else
         {
-            firebaseLoaded()
+            loadFirebaseUser()
         }
     }
     
-    private func firebaseUser()
+    private func createFirebaseUser()
     {
         let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(name:user.name)
         let json:[String:Any] = firebaseUser.modelJson()
@@ -46,6 +46,11 @@ class MSession
         user.userId = userId
         DManager.sharedInstance.save()
         firebaseLoaded()
+    }
+    
+    private func loadFirebaseUser()
+    {
+        
     }
     
     private func firebaseLoaded()

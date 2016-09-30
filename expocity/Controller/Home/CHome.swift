@@ -19,7 +19,8 @@ class CHome:CController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        //viewHome.sessionLoaded()
+        
+        MSession.sharedInstance.load()
     }
     
     override func loadView()
