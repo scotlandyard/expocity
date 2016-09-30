@@ -12,4 +12,10 @@ class FMain
         FIRConfiguration.sharedInstance().logLevel = FIRLogLevel.error
         database = FDatabase()
     }
+    
+    //MARK: public
+    
+    func load()
+    {
+    }
 }

@@ -5,6 +5,8 @@ extension NSManagedObject
 {
     class func entityName() -> String
     {
-        fatalError()
+        let classType:AnyClass = object_getClass(self)
+        
+        return NSStringFromClass(classType)
     }
 }
