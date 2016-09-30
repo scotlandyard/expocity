@@ -645,6 +645,45 @@
 			path = Bar;
 			sourceTree = "<group>";
 		};
+		DA86D5D91D9EDF7C00FE8BE1 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DA86D5DA1D9EDF7C00FE8BE1 /* Analytics */,
+				DA86D5DB1D9EDF7C00FE8BE1 /* Database */,
+				DA86D5DC1D9EDF7C00FE8BE1 /* Main */,
+				DA86D5DD1D9EDF7C00FE8BE1 /* Storage */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		DA86D5DA1D9EDF7C00FE8BE1 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		DA86D5DB1D9EDF7C00FE8BE1 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		DA86D5DC1D9EDF7C00FE8BE1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DA86D5DD1D9EDF7C00FE8BE1 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		DA8B1B521D7DBF08004D8457 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -789,6 +828,7 @@
 		DAC3CAEA1D7BB5C60090ECCD /* expocity */ = {
 			isa = PBXGroup;
 			children = (
+				DA86D5D91D9EDF7C00FE8BE1 /* Firebase */,
 				DA8B1B6C1D7DEC45004D8457 /* Resource */,
 				DA8B1B521D7DBF08004D8457 /* Assets */,
 				DA4F81961D7D062500CC8B39 /* Category */,
