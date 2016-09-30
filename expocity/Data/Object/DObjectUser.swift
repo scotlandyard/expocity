@@ -5,7 +5,7 @@ import CoreData
 class DObjectUser:NSManagedObject
 {
     @NSManaged var userId:String?
-    @NSManaged var name:String?
+    @NSManaged var name:String!
     
     override class func entityName() -> String
     {

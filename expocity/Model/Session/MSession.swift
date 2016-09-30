@@ -36,6 +36,10 @@ class MSession
     
     private func firebaseUser()
     {
+        let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(name:user.name)
+        let json:[String:Any] = firebaseUser.modelJson()
+        let userId:String = 
+        
         /*
         let fUser:FDatabaseModelUser = FDatabaseModelUser()
         let json:[String:AnyObject] = fUser.modelJson()

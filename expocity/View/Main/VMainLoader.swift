@@ -12,7 +12,7 @@ class VMainLoader:UIImageView
             #imageLiteral(resourceName: "genericLoader0"),
             #imageLiteral(resourceName: "genericLoader1"),
             #imageLiteral(resourceName: "genericLoader2"),
-            #imageLiteral(resourceName: "genericLoader3")!
+            #imageLiteral(resourceName: "genericLoader3")
         ]
         
         isUserInteractionEnabled = false

@@ -14,4 +14,15 @@ class FDatabase
     {
         reference = FIRDatabase.database().reference()
     }
+    
+    //MARK: public
+    
+    func createChild(path:String, json:[String:Any]) -> String
+    {
+        let childReference:FIRDatabaseReference = reference.child(path).childByAutoId()
+        let childId:String = childReference.key
+        childReference.setValue(json)
+        
+        return childId
+    }
 }
