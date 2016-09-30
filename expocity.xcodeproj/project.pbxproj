@@ -1228,6 +1228,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 360F7C110042A59B18C0BCCD /* Pods-expocity.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = expocity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1244,6 +1245,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF19681E03B26778A98D855C /* Pods-expocity.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = expocity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
