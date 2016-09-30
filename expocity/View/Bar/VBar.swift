@@ -102,7 +102,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[collection(barHeight)]-0-|",
+            withVisualFormat:"V:[collectionView(barHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
