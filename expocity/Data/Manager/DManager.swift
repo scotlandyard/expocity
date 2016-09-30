@@ -3,19 +3,28 @@ import CoreData
 
 class DManager
 {
+    static let sharedInstance:DManager = DManager()
     private weak var timer:Timer?
     private let managedObjectContext:NSManagedObjectContext
+    private let kModelName:String = "DExpocity"
     private let kModelExtension:String = "momd"
     private let kSQLiteExtension:String = "%@.sqlite"
     private let kTimeoutSave:TimeInterval = 1
     
-    init(modelName:String)
+    private init()
     {
-        let modelURL:URL = Bundle.main.url(forResource:modelName, withExtension:kModelExtension)!
-        let sqliteFile:String = String(format:kSQLiteExtension, modelName)
-        let storeCoordinatorURL:URL = FileManager.appDirectory().appendingPathComponent(sqliteFile)
-        let managedObjectModel:NSManagedObjectModel = NSManagedObjectModel(contentsOf:modelURL)!
-        let persistentStoreCoordinator:NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel:managedObjectModel)
+        let modelURL:URL = Bundle.main.url(
+            forResource:kModelName,
+            withExtension:kModelExtension)!
+        let sqliteFile:String = String(
+            format:kSQLiteExtension,
+            kModelName)
+        let storeCoordinatorURL:URL = FileManager.appDirectory().appendingPathComponent(
+            sqliteFile)
+        let managedObjectModel:NSManagedObjectModel = NSManagedObjectModel(
+            contentsOf:modelURL)!
+        let persistentStoreCoordinator:NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(
+            managedObjectModel:managedObjectModel)
         
         do
         {
@@ -47,12 +56,12 @@ class DManager
         if managedObjectContext.hasChanges
         {
             managedObjectContext.perform
+            {
+                do
                 {
-                    do
-                    {
-                        try self.managedObjectContext.save()
-                    }
-                    catch{}
+                    try self.managedObjectContext.save()
+                }
+                catch{}
             }
         }
     }
@@ -80,8 +89,8 @@ class DManager
         else
         {
             DispatchQueue.main.async
-                {
-                    self.startTimer()
+            {
+                self.startTimer()
             }
         }
     }
@@ -91,15 +100,15 @@ class DManager
         delaySaving()
         
         managedObjectContext.perform
-            {
-                let entityDescription:NSEntityDescription = NSEntityDescription.entity(
-                    forEntityName:modelType.entityName(),
-                    in:self.managedObjectContext)!
-                let managedObject:NSManagedObject = NSManagedObject(
-                    entity:entityDescription,
-                    insertInto:self.managedObjectContext)
-                let managedGeneric:ModelType = managedObject as! ModelType
-                completion(managedGeneric)
+        {
+            let entityDescription:NSEntityDescription = NSEntityDescription.entity(
+                forEntityName:modelType.entityName(),
+                in:self.managedObjectContext)!
+            let managedObject:NSManagedObject = NSManagedObject(
+                entity:entityDescription,
+                insertInto:self.managedObjectContext)
+            let managedGeneric:ModelType = managedObject as! ModelType
+            completion(managedGeneric)
         }
     }
     
@@ -116,19 +125,19 @@ class DManager
         fetchRequest.includesSubentities = true
         
         managedObjectContext.perform
+        {
+            let results:[ModelType]
+            
+            do
             {
-                let results:[ModelType]
-                
-                do
-                {
-                    results = try self.managedObjectContext.fetch(fetchRequest)
-                }
-                catch
-                {
-                    results = []
-                }
-                
-                completion(results)
+                results = try self.managedObjectContext.fetch(fetchRequest)
+            }
+            catch
+            {
+                results = []
+            }
+            
+            completion(results)
         }
     }
     
@@ -137,9 +146,9 @@ class DManager
         delaySaving()
         
         managedObjectContext.perform
-            {
-                self.managedObjectContext.delete(object)
-                completion?()
+        {
+            self.managedObjectContext.delete(object)
+            completion?()
         }
     }
     
@@ -167,8 +176,8 @@ class DManager
     func clearTimer()
     {
         DispatchQueue.main.async
-            {
-                self.timer?.invalidate()
+        {
+            self.timer?.invalidate()
         }
     }
 }
