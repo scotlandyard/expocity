@@ -2,7 +2,9 @@ import Foundation
 
 class FDatabaseModel
 {
-    func modelJson() -> [String:AnyObject]
+    var modelId:String?
+    
+    func modelJson() -> [String:Any]
     {
         fatalError()
     }
