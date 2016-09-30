@@ -15,6 +15,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         let loader:VMainLoader = VMainLoader()
         self.loader = loader
         
@@ -53,7 +54,8 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             "loader":loader,
             "collection":collection]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "barHeight":barHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[loader]-0-|",
@@ -61,7 +63,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[loader]-0-|",
+            withVisualFormat:"V:|-(barHeight)-[loader]-0-|",
             options:[],
             metrics:metrics,
             views:views))
