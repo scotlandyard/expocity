@@ -38,20 +38,14 @@ class MSession
     {
         let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(name:user.name)
         let json:[String:Any] = firebaseUser.modelJson()
-        let userId:String = 
+        let path:String = FDatabase.Parent.User.rawValue
+        let userId:String = FMain.sharedInstance.database.createChild(
+            path:path,
+            json:json)
         
-        /*
-        let fUser:FDatabaseModelUser = FDatabaseModelUser()
-        let json:[String:AnyObject] = fUser.modelJson()
-        let userId:String = FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.User, json:json)
-        dbUser?.userId = userId
-        DManager.sharedInstance.managerGandalla.saver.save(false)
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
-        { [weak self] in
-            
-            self?.askNotifications()
-        }*/
+        user.userId = userId
+        DManager.sharedInstance.save()
+        firebaseLoaded()
     }
     
     private func firebaseLoaded()
