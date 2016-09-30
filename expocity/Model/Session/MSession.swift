@@ -24,6 +24,8 @@ class MSession
     
     private func userLoaded()
     {
+        print("userid: %@", user.userId)
+        
         if user.userId == nil
         {
             createFirebaseUser()

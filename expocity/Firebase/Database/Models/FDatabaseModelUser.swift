@@ -24,9 +24,19 @@ class FdatabaseModelUser:FDatabaseModel
     
     required init(snapshot:[String:Any])
     {
+        let rawRooms:[String]? = snapshot[Property.rooms.rawValue] as? [String]
+        
         name = snapshot[Property.name.rawValue] as! String
         created = snapshot[Property.created.rawValue] as! TimeInterval
-        rooms = snapshot[Property.rooms.rawValue] as! [String]
+        
+        if rawRooms == nil
+        {
+            rooms = []
+        }
+        else
+        {
+            rooms = rawRooms!
+        }
         
         super.init()
     }
