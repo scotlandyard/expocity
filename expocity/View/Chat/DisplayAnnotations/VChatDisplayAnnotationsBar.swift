@@ -25,7 +25,7 @@ class VChatDisplayAnnotationsBar:UIView
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
         backButton.addTarget(
             self,
-            action:#selector(self.actionBack(sender:)),
+            action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
         let label:UILabel = UILabel()
@@ -45,7 +45,7 @@ class VChatDisplayAnnotationsBar:UIView
         addButton.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
         addButton.addTarget(
             self,
-            action:#selector(self.actionAdd(sender:)),
+            action:#selector(actionAdd(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(border)

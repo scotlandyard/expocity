@@ -15,7 +15,7 @@ class VChatDisplayAnnotationsPlacerItem:UIButton
         imageView!.clipsToBounds = true
         addTarget(
             self,
-            action:#selector(self.actionSelect(sender:)),
+            action:#selector(actionSelect(sender:)),
             for:UIControlEvents.touchUpInside)
         self.model = model
         self.controller = controller

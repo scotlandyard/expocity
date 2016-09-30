@@ -28,7 +28,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         buttonRemove.translatesAutoresizingMaskIntoConstraints = false
         buttonRemove.addTarget(
             self,
-            action:#selector(self.actionRemove(sender:)),
+            action:#selector(actionRemove(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(label)

@@ -72,7 +72,7 @@ class DManager
         timer = Timer.scheduledTimer(
             timeInterval:kTimeoutSave,
             target:self,
-            selector:#selector(self.timerDone(sender:)),
+            selector:#selector(timerDone(sender:)),
             userInfo:nil,
             repeats:false)
     }

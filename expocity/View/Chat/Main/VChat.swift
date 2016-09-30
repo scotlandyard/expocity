@@ -173,7 +173,7 @@ class VChat:UIView
     {
         NotificationCenter.default.addObserver(
             self,
-            selector:#selector(self.notifiedKeyboardChanged(sender:)),
+            selector:#selector(notifiedKeyboardChanged(sender:)),
             name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
     }

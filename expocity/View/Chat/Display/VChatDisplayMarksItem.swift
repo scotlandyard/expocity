@@ -18,7 +18,7 @@ class VChatDisplayMarksItem:UIButton
         imageView!.clipsToBounds = true
         addTarget(
             self,
-            action:#selector(self.actionButton(sender:)),
+            action:#selector(actionButton(sender:)),
             for:UIControlEvents.touchUpInside)
         self.model = model
         self.controller = controller
@@ -42,7 +42,7 @@ class VChatDisplayMarksItem:UIButton
         timer = Timer.scheduledTimer(
             timeInterval:kTimeInterval,
             target:self,
-            selector:#selector(self.timeOut(sender:)),
+            selector:#selector(timeOut(sender:)),
             userInfo:nil,
             repeats:false)
         

@@ -46,7 +46,10 @@ class VChatDisplayOptions:UIView, UICollectionViewDelegate, UICollectionViewData
         buttonDone.setTitleColor(UIColor(white:1, alpha:0.2), for:UIControlState.highlighted)
         buttonDone.setTitle(NSLocalizedString("VChatDisplayOptions_buttonDone", comment:""), for:UIControlState())
         buttonDone.titleLabel!.font = UIFont.bold(size:14)
-        buttonDone.addTarget(self, action:#selector(self.actionDone(sender:)), for:UIControlEvents.touchUpInside)
+        buttonDone.addTarget(
+            self,
+            action:#selector(actionDone(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero

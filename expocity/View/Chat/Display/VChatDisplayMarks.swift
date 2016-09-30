@@ -44,7 +44,7 @@ class VChatDisplayMarks:UIView
         button.clipsToBounds = true
         button.addTarget(
             self,
-            action:#selector(self.actionButton(sender:)),
+            action:#selector(actionButton(sender:)),
             for:UIControlEvents.touchUpInside)
         self.button = button
         

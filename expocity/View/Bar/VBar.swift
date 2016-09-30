@@ -69,7 +69,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
         backButton.addTarget(
             self,
-            action:#selector(self.actionBack(sender:)),
+            action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         self.backButton = backButton
         

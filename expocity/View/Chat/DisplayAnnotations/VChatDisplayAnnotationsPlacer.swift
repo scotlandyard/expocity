@@ -23,7 +23,9 @@ class VChatDisplayAnnotationsPlacer:UIView
         itemContainer.clipsToBounds = true
         self.itemContainer = itemContainer
         
-        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.actionTap(sender:)))
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(
+            target:self,
+            action:#selector(actionTap(sender:)))
         self.tapGesture = tapGesture
         
         addGestureRecognizer(tapGesture)

@@ -189,14 +189,17 @@ class VMainAlert:UIView
         {
             self.superview!.layoutIfNeeded()
         })
-        { (done:Bool) in
+        { [weak self] (done:Bool) in
             
-            self.timer = Timer.scheduledTimer(
-                timeInterval:self.kAlertDuration,
-                target:self,
-                selector:#selector(self.timeOut(sender:)),
-                userInfo:nil,
-                repeats:false)
+            if self != nil
+            {
+                self!.timer = Timer.scheduledTimer(
+                    timeInterval:self!.kAlertDuration,
+                    target:self!,
+                    selector:#selector(self!.timeOut(sender:)),
+                    userInfo:nil,
+                    repeats:false)
+            }
         }
     }
 }
