@@ -22,3 +22,5 @@
 "VChatDisplayAnnotationsListCell_removeTitle"="Remove annotation?";
 "VChatDisplayAnnotationsListCell_removeButton"="Remove";
 "VChatDisplayAnnotationsListCell_removeCancel"="Cancel";
+
+"DObjectUser_defaultName"="No name";

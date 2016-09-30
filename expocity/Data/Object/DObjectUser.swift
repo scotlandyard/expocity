@@ -11,4 +11,11 @@ class DObjectUser:NSManagedObject
     {
         return "User"
     }
+    
+    //MARK: public
+    
+    func defaultName()
+    {
+        name = NSLocalizedString("DObjectUser_defaultName", comment:"")
+    }
 }

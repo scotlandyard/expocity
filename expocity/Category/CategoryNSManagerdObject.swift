@@ -5,6 +5,6 @@ extension NSManagedObject
 {
     class func entityName() -> String
     {
-        return ""
+        fatalError()
     }
 }

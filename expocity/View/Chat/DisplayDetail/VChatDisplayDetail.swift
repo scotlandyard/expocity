@@ -148,7 +148,7 @@ class VChatDisplayDetail:UIView
             self?.blur.alpha = 1
             
         })
-        { (done) in
+        { (done:Bool) in
             
             UIView.animate(withDuration:animationDuration)
             { [weak self] in

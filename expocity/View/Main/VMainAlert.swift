@@ -146,7 +146,7 @@ class VMainAlert:UIView
         {
             self.superview!.layoutIfNeeded()
         })
-        { (done) in
+        { (done:Bool) in
             
             self.removeFromSuperview()
         }
@@ -188,7 +188,7 @@ class VMainAlert:UIView
         {
             self.superview!.layoutIfNeeded()
         })
-        { (done) in
+        { (done:Bool) in
             
             self.timer = Timer.scheduledTimer(
                 timeInterval:self.kAlertDuration,
