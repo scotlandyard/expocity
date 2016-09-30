@@ -90,7 +90,7 @@
 		DA86D5E71D9EE88A00FE8BE1 /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5E51D9EE88A00FE8BE1 /* FDatabase.swift */; };
 		DA86D5E91D9EE8AE00FE8BE1 /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5E81D9EE8AE00FE8BE1 /* FDatabaseModel.swift */; };
 		DA86D5EC1D9EF24300FE8BE1 /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5EB1D9EF24300FE8BE1 /* MSession.swift */; };
-		DA86D5F11D9EF4F900FE8BE1 /* expocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5EE1D9EF4F900FE8BE1 /* expocity.xcdatamodeld */; };
+		DA86D5F11D9EF4F900FE8BE1 /* DExpocity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5EE1D9EF4F900FE8BE1 /* DExpocity.xcdatamodeld */; };
 		DA86D5F31D9EF52000FE8BE1 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA86D5F21D9EF52000FE8BE1 /* DManager.swift */; };
 		DA8B1B541D7DBF40004D8457 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B531D7DBF40004D8457 /* Launch.storyboard */; };
 		DA8B1B561D7DC9D0004D8457 /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B551D7DC9D0004D8457 /* generic.xcassets */; };
@@ -231,7 +231,7 @@
 		DA86D5E51D9EE88A00FE8BE1 /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA86D5E81D9EE8AE00FE8BE1 /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
 		DA86D5EB1D9EF24300FE8BE1 /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
-		DA86D5EF1D9EF4F900FE8BE1 /* expocity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expocity.xcdatamodel; sourceTree = "<group>"; };
+		DA86D5EF1D9EF4F900FE8BE1 /* DExpocity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DExpocity.xcdatamodel; sourceTree = "<group>"; };
 		DA86D5F21D9EF52000FE8BE1 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
 		DA8B1B531D7DBF40004D8457 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		DA8B1B551D7DC9D0004D8457 /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
@@ -729,7 +729,7 @@
 		DA86D5ED1D9EF4F900FE8BE1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				DA86D5EE1D9EF4F900FE8BE1 /* expocity.xcdatamodeld */,
+				DA86D5EE1D9EF4F900FE8BE1 /* DExpocity.xcdatamodeld */,
 				DA86D5F21D9EF52000FE8BE1 /* DManager.swift */,
 			);
 			path = Manager;
@@ -1132,7 +1132,7 @@
 				DA9739C51D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift in Sources */,
 				DA4269FA1D9B121E00FE7EFB /* MChatItemTextMine.swift in Sources */,
 				DA4269E91D9AFC1400FE7EFB /* MChatEmojiKeyboardItemSmile.swift in Sources */,
-				DA86D5F11D9EF4F900FE8BE1 /* expocity.xcdatamodeld in Sources */,
+				DA86D5F11D9EF4F900FE8BE1 /* DExpocity.xcdatamodeld in Sources */,
 				DA4F81A51D7D062500CC8B39 /* CategoryNotification.swift in Sources */,
 				DAE27C5C1D8AEB6A00E43F33 /* VChatDisplayOptionsCell.swift in Sources */,
 				DA4F81A61D7D062500CC8B39 /* CategoryUICollectionReusableView.swift in Sources */,
@@ -1420,13 +1420,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DA86D5EE1D9EF4F900FE8BE1 /* expocity.xcdatamodeld */ = {
+		DA86D5EE1D9EF4F900FE8BE1 /* DExpocity.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DA86D5EF1D9EF4F900FE8BE1 /* expocity.xcdatamodel */,
+				DA86D5EF1D9EF4F900FE8BE1 /* DExpocity.xcdatamodel */,
 			);
-			currentVersion = DA86D5EF1D9EF4F900FE8BE1 /* expocity.xcdatamodel */;
-			path = expocity.xcdatamodeld;
+			currentVersion = DA86D5EF1D9EF4F900FE8BE1 /* DExpocity.xcdatamodel */;
+			path = DExpocity.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
