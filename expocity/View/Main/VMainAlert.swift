@@ -2,7 +2,7 @@ import UIKit
 
 class VMainAlert:UIView
 {
-    enum VMainAlertType
+    enum Type
     {
         case annotation
         case warning
@@ -21,7 +21,7 @@ class VMainAlert:UIView
     private let kAlertDuration:TimeInterval = 3
     private let kBorderHeight:CGFloat = 1
     
-    class func Show(message:String, type:VMainAlertType)
+    class func Show(message:String, type:Type)
     {
         DispatchQueue.main.async
         {
@@ -64,7 +64,7 @@ class VMainAlert:UIView
         }
     }
     
-    convenience init(message:String, type:VMainAlertType)
+    convenience init(message:String, type:Type)
     {
         self.init()
         isUserInteractionEnabled = false
@@ -152,25 +152,25 @@ class VMainAlert:UIView
         }
     }
     
-    private func setIcon(imageView:UIImageView, type:VMainAlertType)
+    private func setIcon(imageView:UIImageView, type:Type)
     {
         let imageName:String
         
         switch type
         {
-            case VMainAlertType.annotation:
+            case Type.annotation:
             
                 imageName = kIconAnnotation
                 
                 break
             
-            case VMainAlertType.warning:
+            case Type.warning:
                 
                 imageName = kIconWarning
                 
                 break
             
-            case VMainAlertType.error:
+            case Type.error:
             
                 imageName = kIconError
                 

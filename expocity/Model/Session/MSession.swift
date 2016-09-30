@@ -15,6 +15,10 @@ class MSession
             
             self.user = object
             self.user.defaultName()
+            
+            DManager.sharedInstance.save()
+            
+            self.userLoaded()
         }
     }
     
@@ -32,7 +36,17 @@ class MSession
     
     private func firebaseUser()
     {
+        let fUser:FDatabaseModelUser = FDatabaseModelUser()
+        let json:[String:AnyObject] = fUser.modelJson()
+        let userId:String = FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.User, json:json)
+        dbUser?.userId = userId
+        DManager.sharedInstance.managerGandalla.saver.save(false)
         
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.askNotifications()
+        }
     }
     
     private func firebaseLoaded()
