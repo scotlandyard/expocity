@@ -50,7 +50,20 @@ class MSession
     
     private func loadFirebaseUser()
     {
+        let userReference:String = FDatabase.Parent.User.rawValue
+        let userId:String = user.userId!
+        let path:String = String(
+            format:"%@/%@",
+            userReference,
+            userId)
         
+        FMain.sharedInstance.database.listenOnce(
+            path:path,
+            modelType:FdatabaseModelUser.self)
+        { (object:FdatabaseModelUser) in
+            
+            self.firebaseLoaded()
+        }
     }
     
     private func firebaseLoaded()
