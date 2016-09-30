@@ -5,12 +5,14 @@ class FdatabaseModelUser:FDatabaseModel
     let name:String
     let created:TimeInterval
     let status:Status
+    var rooms:[String]
     
     enum Property:String
     {
         case name = "name"
         case created = "created"
         case status = "status"
+        case rooms = "rooms"
     }
     
     enum Status:Int
@@ -24,6 +26,7 @@ class FdatabaseModelUser:FDatabaseModel
         self.name = name
         created = NSDate().timeIntervalSince1970
         status = Status.active
+        rooms = []
     }
 
     override func modelJson() -> [String:Any]
@@ -31,7 +34,8 @@ class FdatabaseModelUser:FDatabaseModel
         let json:[String:Any] = [
             Property.name.rawValue:name,
             Property.created.rawValue:created,
-            Property.status.rawValue:status
+            Property.status.rawValue:status,
+            Property.rooms.rawValue:rooms
         ]
         
         return json
