@@ -14,7 +14,7 @@ class MSession
         { (object:DObjectUser) in
             
             self.user = object
-            self.user.defaultName()
+            self.user.name = NSLocalizedString("DObjectUser_defaultName", comment:"")
             
             DManager.sharedInstance.save()
             
@@ -36,7 +36,7 @@ class MSession
     
     private func createFirebaseUser()
     {
-        let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(name:user.name)
+        let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(name:user.name!)
         let json:[String:Any] = firebaseUser.modelJson()
         let path:String = FDatabase.Parent.User.rawValue
         let userId:String = FMain.sharedInstance.database.createChild(
@@ -68,6 +68,7 @@ class MSession
     
     private func firebaseLoaded()
     {
+        print("firebase loaded")
     }
     
     //MARK: public
