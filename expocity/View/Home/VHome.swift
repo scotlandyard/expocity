@@ -3,7 +3,7 @@ import UIKit
 class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CHome!
-    weak var collection:UICollectionView!
+    weak var collectionView:UICollectionView!
     weak var loader:VMainLoader!
     private let kCollectionBottom:CGFloat = 40
     private let kWaitingTime:TimeInterval = 1
@@ -27,32 +27,32 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         flow.minimumInteritemSpacing = 0
         flow.sectionInset = UIEdgeInsetsMake(controller.parentController.viewParent.kBarHeight, 0, kCollectionBottom, 0)
         
-        let collection:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
-        collection.clipsToBounds = true
-        collection.backgroundColor = UIColor.clear
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.showsVerticalScrollIndicator = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.alwaysBounceVertical = true
-        collection.delegate = self
-        collection.dataSource = self
-        collection.isHidden = true
-        collection.register(
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.isHidden = true
+        collectionView.register(
             VHomeCellTitle.self,
             forCellWithReuseIdentifier:
             VHomeCellTitle.reusableIdentifier())
-        collection.register(
+        collectionView.register(
             VHomeCellCreate.self,
             forCellWithReuseIdentifier:
             VHomeCellCreate.reusableIdentifier())
-        self.collection = collection
+        self.collection = collectionView
         
-        addSubview(collection)
+        addSubview(collectionView)
         addSubview(loader)
         
         let views:[String:UIView] = [
             "loader":loader,
-            "collection":collection]
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -68,12 +68,12 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[collection]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[collection]-0-|",
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -81,7 +81,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     override func layoutSubviews()
     {
-        collection.collectionViewLayout.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()
         super.layoutSubviews()
     }
     
@@ -99,7 +99,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func sessionLoaded()
     {
         loader.stopAnimating()
-        collection.isHidden = false
+        collectionView.isHidden = false
     }
     
     //MARK: col del

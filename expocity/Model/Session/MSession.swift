@@ -7,6 +7,25 @@ class MSession
     
     //MARK: private
     
+    private func loadUser()
+    {
+        DManager.sharedInstance.fetchManagedObjects(
+            modelType:DObjectUser.self,
+            limit:1)
+        { (objects:[DObjectUser]) in
+            
+            if objects.isEmpty
+            {
+                self.createUser()
+            }
+            else
+            {
+                self.user = objects.first
+                self.userLoaded()
+            }
+        }
+    }
+    
     private func createUser()
     {
         DManager.sharedInstance.createManagedObject(
@@ -24,8 +43,6 @@ class MSession
     
     private func userLoaded()
     {
-        print("userid: %@", user.userId)
-        
         if user.userId == nil
         {
             createFirebaseUser()
@@ -70,27 +87,22 @@ class MSession
     
     private func firebaseLoaded()
     {
-        print("firebase loaded")
+        NotificationCenter.default.post(
+            name:Notification.Notifications.sessionLoaded.Value,
+            object:nil)
     }
     
     //MARK: public
     
     func load()
     {
-        DManager.sharedInstance.fetchManagedObjects(
-            modelType:DObjectUser.self,
-            limit:1)
-        { (objects:[DObjectUser]) in
-            
-            if objects.isEmpty
-            {
-                self.createUser()
-            }
-            else
-            {
-                self.user = objects.first
-                self.userLoaded()
-            }
+        if user == nil
+        {
+            loadUser()
+        }
+        else
+        {
+            userLoaded()
         }
     }
 }

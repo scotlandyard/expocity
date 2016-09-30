@@ -20,6 +20,12 @@ class CHome:CController
     {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedSessionLoaded(sender:)),
+            name:Notification.Notifications.sessionLoaded.Value,
+            object:nil)
+        
         MSession.sharedInstance.load()
     }
     
@@ -28,5 +34,16 @@ class CHome:CController
         let viewHome:VHome = VHome(controller:self)
         self.viewHome = viewHome
         view = viewHome
+    }
+    
+    //MARK: notified
+    
+    func notifiedSessionLoaded(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewHome.sessionLoaded()
+        }
     }
 }
