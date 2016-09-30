@@ -3,4 +3,4 @@
 # Expocity
 Deep in vogue
 
-![Expocity](https://pbs.twimg.com/media/Ctn9OfuVYAAApzg.jpg:small "Expocity")
+<img src="https://pbs.twimg.com/media/Ctn9OfuVYAAApzg.jpg:small" width="150" alt="Expocity" />
