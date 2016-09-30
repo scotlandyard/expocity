@@ -10,7 +10,7 @@ class VChatDisplayAnnotationsPlacerItem:UIButton
         self.init()
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
-        setImage(UIImage(named:"chatAnnotation"), for:UIControlState())
+        setImage(#imageLiteral(resourceName: "chatAnnotation"), for:UIControlState())
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
         addTarget(

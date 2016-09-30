@@ -19,7 +19,7 @@ class VChatDisplayAnnotationsBar:UIView
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named:"genericClose"), for:UIControlState())
+        backButton.setImage(#imageLiteral(resourceName: "genericClose"), for:UIControlState())
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
@@ -39,7 +39,7 @@ class VChatDisplayAnnotationsBar:UIView
         
         let addButton:UIButton = UIButton()
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.setImage(UIImage(named:"genericAdd"), for:UIControlState())
+        addButton.setImage(#imageLiteral(resourceName: "genericAdd"), for:UIControlState())
         addButton.imageView!.clipsToBounds = true
         addButton.imageView!.contentMode = UIViewContentMode.center
         addButton.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)

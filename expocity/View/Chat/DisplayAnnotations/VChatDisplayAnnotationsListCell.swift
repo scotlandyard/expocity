@@ -22,7 +22,7 @@ class VChatDisplayAnnotationsListCell:UICollectionViewCell
         self.label = label
         
         let buttonRemove:UIButton = UIButton()
-        buttonRemove.setImage(UIImage(named:"chatAnnotationRemove"), for:UIControlState())
+        buttonRemove.setImage(#imageLiteral(resourceName: "chatAnnotationRemove"), for:UIControlState())
         buttonRemove.imageView!.contentMode = UIViewContentMode.center
         buttonRemove.imageView!.clipsToBounds = true
         buttonRemove.translatesAutoresizingMaskIntoConstraints = false
