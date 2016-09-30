@@ -36,6 +36,7 @@ class MSession
     
     private func firebaseUser()
     {
+        /*
         let fUser:FDatabaseModelUser = FDatabaseModelUser()
         let json:[String:AnyObject] = fUser.modelJson()
         let userId:String = FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.User, json:json)
@@ -46,7 +47,7 @@ class MSession
         { [weak self] in
             
             self?.askNotifications()
-        }
+        }*/
     }
     
     private func firebaseLoaded()

@@ -47,7 +47,7 @@ class VChatDisplayMarksItem:UIButton
             repeats:false)
         
         let alertMessage:String = model.text
-        let alertType:VMainAlert.VMainAlertType = VMainAlert.VMainAlertType.annotation
+        let alertType:VMainAlert.AlertType = VMainAlert.AlertType.annotation
         VMainAlert.Show(message:alertMessage, type:alertType)
     }
     
