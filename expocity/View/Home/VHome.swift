@@ -45,7 +45,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             VHomeCellCreate.self,
             forCellWithReuseIdentifier:
             VHomeCellCreate.reusableIdentifier())
-        self.collection = collectionView
+        self.collectionView = collectionView
         
         addSubview(collectionView)
         addSubview(loader)

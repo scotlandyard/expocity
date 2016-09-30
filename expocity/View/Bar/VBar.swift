@@ -3,7 +3,7 @@ import UIKit
 class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var parent:CParent!
-    weak var collection:UICollectionView!
+    weak var collectionView:UICollectionView!
     weak var label:UILabel!
     weak var backButton:UIButton!
     private var currentWidth:CGFloat
@@ -34,21 +34,21 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         
-        let collection:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
-        collection.clipsToBounds = true
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = UIColor.clear
-        collection.showsVerticalScrollIndicator = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.isScrollEnabled = false
-        collection.bounces = false
-        collection.dataSource = self
-        collection.delegate = self
-        collection.register(
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isScrollEnabled = false
+        collectionView.bounces = false
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(
             VBarCell.self,
             forCellWithReuseIdentifier:
             VBarCell.reusableIdentifier())
-        self.collection = collection
+        self.collectionView = collectionView
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -75,10 +75,10 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         addSubview(label)
         addSubview(backButton)
-        addSubview(collection)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "collection":collection,
+            "collectionView":collectionView,
             "backButton":backButton,
             "label":label]
         
@@ -97,7 +97,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[collection]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -120,7 +120,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         {
             let indexPath:IndexPath = IndexPath(item:self.model.current.index, section:0)
-            self.collection.selectItem(
+            self.collectionView.selectItem(
                 at:indexPath,
                 animated:false,
                 scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
@@ -139,13 +139,13 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         if currentWidth != width
         {
             currentWidth = width
-            collection.collectionViewLayout.invalidateLayout()
+            collectionView.collectionViewLayout.invalidateLayout()
             
             DispatchQueue.main.async
             {
                 let selected:Int = self.model.current.index
                 let selectedIndexPath:IndexPath = IndexPath(item:selected, section:0)
-                self.collection.scrollToItem(
+                self.collectionView.scrollToItem(
                     at:selectedIndexPath,
                     at:UICollectionViewScrollPosition.centeredHorizontally,
                     animated:true)
@@ -161,7 +161,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             
             if self.model.state.showOptions()
             {
-                self.collection.alpha = alpha
+                self.collectionView.alpha = alpha
             }
             
             if self.model.state.showBackButton()
@@ -234,7 +234,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         UIView.animate(withDuration:kAnimationDuration)
         {
-            self.collection.alpha = alphaCollection
+            self.collectionView.alpha = alphaCollection
             self.backButton.alpha = alphaBackButton
             self.label.alpha = alphaLabel
         }
@@ -277,7 +277,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         UIView.animate(withDuration:kAnimationDuration)
         {
-            self.collection.alpha = alphaCollection
+            self.collectionView.alpha = alphaCollection
             self.backButton.alpha = alphaBackButton
             self.label.alpha = alphaLabel
         }
