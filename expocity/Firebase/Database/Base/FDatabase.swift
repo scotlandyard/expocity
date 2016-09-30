@@ -25,4 +25,15 @@ class FDatabase
         
         return childId
     }
+    
+    func listenOnce<ModelType:FDatabaseModel>(path:String, modelType:ModelType.Type, completion:@escaping((ModelType) -> ()))
+    {
+        let pathReference:FIRDatabaseReference = reference.child(path)
+        pathReference.observeSingleEvent(of:FIRDataEventType.value)
+        { (snapshot:FIRDataSnapshot) in
+            
+            let json:[String:Any] = snapshot.value as! [String:Any]
+            let model:ModelType = ModelType(snapshot:json)
+        }
+    }
 }

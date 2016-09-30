@@ -18,6 +18,17 @@ class FdatabaseModelUser:FDatabaseModel
         self.name = name
         created = NSDate().timeIntervalSince1970
         rooms = []
+        
+        super.init()
+    }
+    
+    required init(snapshot:[String:Any])
+    {
+        name = snapshot[Property.name.rawValue] as! String
+        created = snapshot[Property.created.rawValue] as! TimeInterval
+        rooms = snapshot[Property.rooms.rawValue] as! [String]
+        
+        super.init()
     }
 
     override func modelJson() -> [String:Any]
