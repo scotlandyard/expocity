@@ -34,6 +34,8 @@ class FDatabase
             
             let json:[String:Any] = snapshot.value as! [String:Any]
             let model:ModelType = ModelType(snapshot:json)
+            
+            completion(model)
         }
     }
 }
