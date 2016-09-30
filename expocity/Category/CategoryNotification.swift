@@ -4,7 +4,8 @@ extension Notification
 {
     enum Notifications:String
     {
-        case ChatDisplayOptionChanged = "ChatDisplayOptionChanged"
+        case chatDisplayOptionChanged = "chatDisplayOptionChanged"
+        case sessionLoaded = "sessionLoaded"
         
         var Value:Notification.Name
         {
