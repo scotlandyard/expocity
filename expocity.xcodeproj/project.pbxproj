@@ -85,6 +85,7 @@
 		DA4F81AF1D7DBB4000CC8B39 /* VBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81AE1D7DBB4000CC8B39 /* VBar.swift */; };
 		DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */; };
 		DA73F1551D7F7C5B004E3875 /* VMainShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73F1541D7F7C5B004E3875 /* VMainShadow.swift */; };
+		DA86D5D71D9EB5A800FE8BE1 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA86D5D61D9EB5A800FE8BE1 /* brand.xcassets */; };
 		DA8B1B541D7DBF40004D8457 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B531D7DBF40004D8457 /* Launch.storyboard */; };
 		DA8B1B561D7DC9D0004D8457 /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B551D7DC9D0004D8457 /* generic.xcassets */; };
 		DA8B1B5E1D7DD48C004D8457 /* menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1B5D1D7DD48C004D8457 /* menu.xcassets */; };
@@ -219,6 +220,7 @@
 		DA4F81AE1D7DBB4000CC8B39 /* VBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBar.swift; sourceTree = "<group>"; };
 		DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBarCell.swift; sourceTree = "<group>"; };
 		DA73F1541D7F7C5B004E3875 /* VMainShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainShadow.swift; sourceTree = "<group>"; };
+		DA86D5D61D9EB5A800FE8BE1 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DA8B1B531D7DBF40004D8457 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		DA8B1B551D7DC9D0004D8457 /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA8B1B5D1D7DD48C004D8457 /* menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = menu.xcassets; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 				DAFBF7071D831F43002B294C /* chat.xcassets */,
 				DA4EB6971D95D88000E15758 /* alert.xcassets */,
 				DA4269EE1D9B053000FE7EFB /* emoji.xcassets */,
+				DA86D5D61D9EB5A800FE8BE1 /* brand.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -917,6 +920,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4EB6981D95D88000E15758 /* alert.xcassets in Resources */,
+				DA86D5D71D9EB5A800FE8BE1 /* brand.xcassets in Resources */,
 				DAFBF7081D831F43002B294C /* chat.xcassets in Resources */,
 				DA4269EF1D9B053000FE7EFB /* emoji.xcassets in Resources */,
 				DA8B1B541D7DBF40004D8457 /* Launch.storyboard in Resources */,
@@ -1224,6 +1228,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 360F7C110042A59B18C0BCCD /* Pods-expocity.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = expocity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1240,6 +1245,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF19681E03B26778A98D855C /* Pods-expocity.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = expocity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
