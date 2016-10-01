@@ -23,6 +23,7 @@
 		DA0DEE831D88C16400B52422 /* MChatMenuStatusStandby.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE771D88C16400B52422 /* MChatMenuStatusStandby.swift */; };
 		DA0DEE841D88C16400B52422 /* MChatMenuStatusTyping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE781D88C16400B52422 /* MChatMenuStatusTyping.swift */; };
 		DA0DEE861D88C21000B52422 /* CChatDisplayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE851D88C21000B52422 /* CChatDisplayDetail.swift */; };
+		DA160E861DA02C6B002634B7 /* FDatabaseModelRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA160E851DA02C6B002634B7 /* FDatabaseModelRoom.swift */; };
 		DA21D1F31D9186E8009A149E /* VChatDisplayAnnotationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21D1F21D9186E8009A149E /* VChatDisplayAnnotationsList.swift */; };
 		DA21D1F51D918749009A149E /* VChatDisplayAnnotationsShade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21D1F41D918749009A149E /* VChatDisplayAnnotationsShade.swift */; };
 		DA21D1F71D91903C009A149E /* VChatDisplayAnnotationsTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21D1F61D91903C009A149E /* VChatDisplayAnnotationsTutorial.swift */; };
@@ -164,6 +165,7 @@
 		DA0DEE771D88C16400B52422 /* MChatMenuStatusStandby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuStatusStandby.swift; sourceTree = "<group>"; };
 		DA0DEE781D88C16400B52422 /* MChatMenuStatusTyping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatMenuStatusTyping.swift; sourceTree = "<group>"; };
 		DA0DEE851D88C21000B52422 /* CChatDisplayDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CChatDisplayDetail.swift; sourceTree = "<group>"; };
+		DA160E851DA02C6B002634B7 /* FDatabaseModelRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelRoom.swift; sourceTree = "<group>"; };
 		DA21D1F21D9186E8009A149E /* VChatDisplayAnnotationsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayAnnotationsList.swift; sourceTree = "<group>"; };
 		DA21D1F41D918749009A149E /* VChatDisplayAnnotationsShade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayAnnotationsShade.swift; sourceTree = "<group>"; };
 		DA21D1F61D91903C009A149E /* VChatDisplayAnnotationsTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayAnnotationsTutorial.swift; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 			isa = PBXGroup;
 			children = (
 				DA86D5F61D9F037600FE8BE1 /* FDatabaseModelUser.swift */,
+				DA160E851DA02C6B002634B7 /* FDatabaseModelRoom.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1102,6 +1105,7 @@
 				DA86D5EC1D9EF24300FE8BE1 /* MSession.swift in Sources */,
 				DA4A20131D9072E900BCDFCA /* MChatMenuItemHideKeyboard.swift in Sources */,
 				DA0DEE7E1D88C16400B52422 /* MChatMenuItemAnnotate.swift in Sources */,
+				DA160E861DA02C6B002634B7 /* FDatabaseModelRoom.swift in Sources */,
 				DA4269F91D9B121E00FE7EFB /* MChatItemText.swift in Sources */,
 				DA8B1B981D7E25CE004D8457 /* VHomeCellTitle.swift in Sources */,
 				DA86D6001D9F153700FE8BE1 /* DExpocity.xcdatamodeld in Sources */,
