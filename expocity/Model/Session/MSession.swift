@@ -4,6 +4,7 @@ class MSession
 {
     static let sharedInstance:MSession = MSession()
     var user:DObjectUser!
+    var rooms:[FDatabaseModelRoom]?
     
     //MARK: private
     
