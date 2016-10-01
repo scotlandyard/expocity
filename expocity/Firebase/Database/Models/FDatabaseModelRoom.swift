@@ -27,4 +27,15 @@ class FDatabaseModelRoom:FDatabaseModel
         
         super.init()
     }
+    
+    override func modelJson() -> [String:Any]
+    {
+        let json:[String:Any] = [
+            Property.name.rawValue:name,
+            Property.created.rawValue:created,
+            Property.access.rawValue:access.rawValue
+        ]
+        
+        return json
+    }
 }
