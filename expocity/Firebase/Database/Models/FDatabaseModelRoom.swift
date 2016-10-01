@@ -28,6 +28,16 @@ class FDatabaseModelRoom:FDatabaseModel
         super.init()
     }
     
+    required init(snapshot:[String:Any])
+    {
+        let rawAccess:Int = snapshot[Property.access.rawValue] as! Int
+        name = snapshot[Property.name.rawValue] as! String
+        created = snapshot[Property.created.rawValue] as! TimeInterval
+        access = Access(rawValue:rawAccess)!
+        
+        super.init()
+    }
+    
     override func modelJson() -> [String:Any]
     {
         let json:[String:Any] = [
