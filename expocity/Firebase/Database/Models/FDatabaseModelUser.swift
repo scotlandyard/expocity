@@ -4,7 +4,7 @@ class FdatabaseModelUser:FDatabaseModel
 {
     let name:String
     let created:TimeInterval
-    var rooms:[String]
+    var rooms:[FDatabaseModelRoom]
     
     enum Property:String
     {
@@ -24,7 +24,7 @@ class FdatabaseModelUser:FDatabaseModel
     
     required init(snapshot:[String:Any])
     {
-        let rawRooms:[String]? = snapshot[Property.rooms.rawValue] as? [String]
+        let rawRooms:[[String:Any]]? = snapshot[Property.rooms.rawValue] as? [[String:Any]]
         
         name = snapshot[Property.name.rawValue] as! String
         created = snapshot[Property.created.rawValue] as! TimeInterval
@@ -35,7 +35,10 @@ class FdatabaseModelUser:FDatabaseModel
         }
         else
         {
-            rooms = rawRooms!
+            for rawRoom:[String:Any] in rawRooms
+            {
+                
+            }
         }
         
         super.init()
