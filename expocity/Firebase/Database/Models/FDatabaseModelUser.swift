@@ -35,9 +35,11 @@ class FdatabaseModelUser:FDatabaseModel
         }
         else
         {
-            for rawRoom:[String:Any] in rawRooms
+            for rawRoom:[String:Any] in rawRooms!
             {
+                let firebaseRoom:FDatabaseModelRoom = FDatabaseModelRoom(snapshot:rawRoom)
                 
+                // need review
             }
         }
         
