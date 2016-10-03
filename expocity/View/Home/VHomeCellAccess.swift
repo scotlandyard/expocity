@@ -7,9 +7,12 @@ class VHomeCellAccess:VHomeCell
     weak var buttonInvitationOnly:UIButton!
     weak var buttonFreeJoin:UIButton!
     weak var model:MHomeItemAccess!
+    weak var layoutButtonsLeft:NSLayoutConstraint!
     private let kLabelsHeight:CGFloat = 20
-    private let kLabelsWidth:CGFloat = 110
+    private let kLabelsWidth:CGFloat = 105
+    private let kLabelsMargin:CGFloat = 5
     private let kButtonsWidth:CGFloat = 50
+    private let kButtonsHeight:CGFloat = 34
     private let kCornerRadius:CGFloat = 5
     
     override init(frame:CGRect)
@@ -79,7 +82,9 @@ class VHomeCellAccess:VHomeCell
         let metrics:[String:CGFloat] = [
             "labelsHeight":kLabelsHeight,
             "labelsWidth":kLabelsWidth,
-            "buttonsWidth":kButtonsWidth]
+            "labelsMargin":kLabelsMargin,
+            "buttonsWidth":kButtonsWidth,
+            "buttonsHeight":kButtonsHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[labelTitle]-0-|",
@@ -87,12 +92,8 @@ class VHomeCellAccess:VHomeCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelInvitationOnly(labelsWidth)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[labelFreeJoin(labelsWidth)]-0-|",
+            withVisualFormat:
+            "H:[labelInvitationOnly(labelsWidth)]-(labelsMargin)-[buttonInvitationOnly(buttonsWidth)]-0-[buttonFreeJoin(buttonsWidth)]-(labelsMargin)-[labelFreeJoin(labelsWidth)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -111,6 +112,27 @@ class VHomeCellAccess:VHomeCell
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-53-[buttonInvitationOnly(buttonsHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-53-[buttonFreeJoin(buttonsHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        layoutButtonsLeft = NSLayoutConstraint(
+            item:labelInvitationOnly,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
+        addSubview(layoutButtonsLeft)
     }
     
     required init?(coder:NSCoder)
