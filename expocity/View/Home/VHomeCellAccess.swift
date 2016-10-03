@@ -8,6 +8,7 @@ class VHomeCellAccess:VHomeCell
     weak var buttonFreeJoin:UIButton!
     weak var model:MHomeItemAccess!
     weak var layoutButtonsLeft:NSLayoutConstraint!
+    private let colorNotSelected:UIColor
     private let buttonsTotalWidth:CGFloat
     private let kLabelsHeight:CGFloat = 20
     private let kLabelsWidth:CGFloat = 105
@@ -19,6 +20,7 @@ class VHomeCellAccess:VHomeCell
     override init(frame:CGRect)
     {
         buttonsTotalWidth = kLabelsWidth + kLabelsMargin + kButtonsWidth + kButtonsWidth + kLabelsMargin + kLabelsWidth
+        colorNotSelected = UIColor(white:0.9, alpha:1)
         
         super.init(frame:frame)
         
@@ -54,7 +56,9 @@ class VHomeCellAccess:VHomeCell
         let buttonInvitationOnly:UIButton = UIButton()
         buttonInvitationOnly.translatesAutoresizingMaskIntoConstraints = false
         buttonInvitationOnly.clipsToBounds = true
-        buttonInvitationOnly.setImage(#imageLiteral(resourceName: "roomAccessInvitationOnly"), for:UIControlState.normal)
+        buttonInvitationOnly.setImage(
+            #imageLiteral(resourceName: "roomAccessInvitationOnly").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.normal)
         buttonInvitationOnly.imageView!.contentMode = UIViewContentMode.center
         buttonInvitationOnly.imageView!.clipsToBounds = true
         buttonInvitationOnly.layer.cornerRadius = kCornerRadius
@@ -63,7 +67,9 @@ class VHomeCellAccess:VHomeCell
         let buttonFreeJoin:UIButton = UIButton()
         buttonFreeJoin.translatesAutoresizingMaskIntoConstraints = false
         buttonFreeJoin.clipsToBounds = true
-        buttonFreeJoin.setImage(#imageLiteral(resourceName: "roomAccessFreeJoin"), for:UIControlState.normal)
+        buttonFreeJoin.setImage(
+            #imageLiteral(resourceName: "roomAccessFreeJoin").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.normal)
         buttonFreeJoin.imageView!.contentMode = UIViewContentMode.center
         buttonFreeJoin.imageView!.clipsToBounds = true
         buttonFreeJoin.layer.cornerRadius = kCornerRadius
@@ -151,5 +157,47 @@ class VHomeCellAccess:VHomeCell
         layoutButtonsLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    override func config(model:MHomeItem)
+    {
+        self.model = model as! MHomeItemAccess
+        hover()
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        switch model.access
+        {
+            case FDatabaseModelRoom.Access.invitationOnly:
+                
+                showInvitationOnly()
+                
+                break
+                
+            case FDatabaseModelRoom.Access.freeJoin:
+     
+                showFreeJoin()
+                
+                break
+        }
+    }
+    
+    private func showInvitationOnly()
+    {
+        buttonInvitationOnly.backgroundColor = UIColor.main()
+        buttonInvitationOnly.imageView!.tintColor = UIColor.white
+        buttonFreeJoin.backgroundColor = UIColor.clear
+        buttonFreeJoin.imageView!.tintColor = colorNotSelected
+    }
+    
+    private func showFreeJoin()
+    {
+        buttonInvitationOnly.backgroundColor = UIColor.clear
+        buttonInvitationOnly.imageView!.tintColor = colorNotSelected
+        buttonFreeJoin.backgroundColor = UIColor.main()
+        buttonFreeJoin.imageView!.tintColor = UIColor.white
     }
 }
