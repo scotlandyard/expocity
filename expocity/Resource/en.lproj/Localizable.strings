@@ -12,6 +12,9 @@
 
 "VHomeCellCreate_label"="Create";
 "VHomeCellTitle_placeholder"="Room title";
+"VHomeCellAccess_labelTitle"="Access";
+"VHomeCellAccess_labelInvitationOnly"="Invitation only";
+"VHomeCellAccess_labelFreeJoin"="Free join";
 "VChatDisplayOptions_buttonDone"="Done";
 "VChatDisplayAnnotationsBar_labelTitle"="Annotations";
 "VChatDisplayAnnotationsTutorial_tutorialPlaceMark"="Tap on the picture to add annotation";

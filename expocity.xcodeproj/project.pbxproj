@@ -618,8 +618,8 @@
 				DA4F818C1D7BB97B00CC8B39 /* VHome.swift */,
 				DA8B1B931D7E2575004D8457 /* VHomeCell.swift */,
 				DA8B1B971D7E25CE004D8457 /* VHomeCellTitle.swift */,
-				DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */,
 				DA9814FE1DA2F59000BFDD3B /* VHomeCellAccess.swift */,
+				DA8B1B951D7E25C1004D8457 /* VHomeCellCreate.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -839,8 +839,8 @@
 				DA8B1B8B1D7E244C004D8457 /* MHome.swift */,
 				DA8B1B8D1D7E2462004D8457 /* MHomeItem.swift */,
 				DA8B1B911D7E2548004D8457 /* MHomeItemTitle.swift */,
-				DA8B1B8F1D7E253A004D8457 /* MHomeItemCreate.swift */,
 				DA9814FC1DA2F47900BFDD3B /* MHomeItemAccess.swift */,
+				DA8B1B8F1D7E253A004D8457 /* MHomeItemCreate.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
