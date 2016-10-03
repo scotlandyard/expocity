@@ -42,6 +42,10 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             forCellWithReuseIdentifier:
             VHomeCellTitle.reusableIdentifier())
         collectionView.register(
+            VHomeCellAccess.self,
+            forCellWithReuseIdentifier:
+            VHomeCellAccess.reusableIdentifier())
+        collectionView.register(
             VHomeCellCreate.self,
             forCellWithReuseIdentifier:
             VHomeCellCreate.reusableIdentifier())
