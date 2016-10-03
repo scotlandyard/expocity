@@ -13,14 +13,14 @@ class VHomeCellAccess:VHomeCell
     private let kLabelsHeight:CGFloat = 20
     private let kLabelsWidth:CGFloat = 100
     private let kLabelsMargin:CGFloat = 8
-    private let kButtonsWidth:CGFloat = 50
+    private let kButtonsWidth:CGFloat = 42
     private let kButtonsHeight:CGFloat = 34
     private let kCornerRadius:CGFloat = 5
     
     override init(frame:CGRect)
     {
         buttonsTotalWidth = kLabelsWidth + kLabelsMargin + kButtonsWidth + kButtonsWidth + kLabelsMargin + kLabelsWidth
-        colorNotSelected = UIColor(white:0.9, alpha:1)
+        colorNotSelected = UIColor(white:0.88, alpha:1)
         
         super.init(frame:frame)
         
@@ -39,7 +39,6 @@ class VHomeCellAccess:VHomeCell
         labelInvitationOnly.backgroundColor = UIColor.clear
         labelInvitationOnly.textAlignment = NSTextAlignment.right
         labelInvitationOnly.font = UIFont.regular(size:12)
-        labelInvitationOnly.textColor = UIColor.main()
         labelInvitationOnly.text = NSLocalizedString("VHomeCellAccess_labelInvitationOnly", comment:"")
         self.labelInvitationOnly = labelInvitationOnly
         
@@ -49,7 +48,6 @@ class VHomeCellAccess:VHomeCell
         labelFreeJoin.backgroundColor = UIColor.clear
         labelFreeJoin.textAlignment = NSTextAlignment.left
         labelFreeJoin.font = UIFont.regular(size:12)
-        labelFreeJoin.textColor = UIColor.main()
         labelFreeJoin.text = NSLocalizedString("VHomeCellAccess_labelFreeJoin", comment:"")
         self.labelFreeJoin = labelFreeJoin
         
@@ -211,15 +209,19 @@ class VHomeCellAccess:VHomeCell
     {
         buttonInvitationOnly.backgroundColor = UIColor.main()
         buttonInvitationOnly.imageView!.tintColor = UIColor.white
+        labelInvitationOnly.textColor = UIColor.main()
         buttonFreeJoin.backgroundColor = UIColor.clear
         buttonFreeJoin.imageView!.tintColor = colorNotSelected
+        labelFreeJoin.textColor = colorNotSelected
     }
     
     private func showFreeJoin()
     {
         buttonInvitationOnly.backgroundColor = UIColor.clear
         buttonInvitationOnly.imageView!.tintColor = colorNotSelected
+        labelInvitationOnly.textColor = colorNotSelected
         buttonFreeJoin.backgroundColor = UIColor.main()
         buttonFreeJoin.imageView!.tintColor = UIColor.white
+        labelFreeJoin.textColor = UIColor.main()
     }
 }
