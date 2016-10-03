@@ -119,6 +119,7 @@
 		DA9739C31D90C9D700365D84 /* MChatDisplayAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9739C21D90C9D700365D84 /* MChatDisplayAnnotations.swift */; };
 		DA9739C51D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9739C41D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift */; };
 		DA9814FB1DA2EEFC00BFDD3B /* room.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9814FA1DA2EEFC00BFDD3B /* room.xcassets */; };
+		DA9814FD1DA2F47900BFDD3B /* MHomeItemAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9814FC1DA2F47900BFDD3B /* MHomeItemAccess.swift */; };
 		DA9846061D89D61B0084A0A6 /* VChatDisplayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */; };
 		DA9846081D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */; };
 		DAAA070E1D974D4400B9D67A /* VChatEmojiKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAA070D1D974D4400B9D67A /* VChatEmojiKeyboard.swift */; };
@@ -263,6 +264,7 @@
 		DA9739C21D90C9D700365D84 /* MChatDisplayAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatDisplayAnnotations.swift; sourceTree = "<group>"; };
 		DA9739C41D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatDisplayAnnotationsItem.swift; sourceTree = "<group>"; };
 		DA9814FA1DA2EEFC00BFDD3B /* room.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = room.xcassets; sourceTree = "<group>"; };
+		DA9814FC1DA2F47900BFDD3B /* MHomeItemAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemAccess.swift; sourceTree = "<group>"; };
 		DA9846051D89D61B0084A0A6 /* VChatDisplayDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetail.swift; sourceTree = "<group>"; };
 		DA9846071D89DA1A0084A0A6 /* VChatDisplayDetailBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatDisplayDetailBar.swift; sourceTree = "<group>"; };
 		DAAA070D1D974D4400B9D67A /* VChatEmojiKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChatEmojiKeyboard.swift; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 				DA8B1B8D1D7E2462004D8457 /* MHomeItem.swift */,
 				DA8B1B911D7E2548004D8457 /* MHomeItemTitle.swift */,
 				DA8B1B8F1D7E253A004D8457 /* MHomeItemCreate.swift */,
+				DA9814FC1DA2F47900BFDD3B /* MHomeItemAccess.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1141,6 +1144,7 @@
 				DA4F81A11D7D062500CC8B39 /* CategoryMKAnnotationView.swift in Sources */,
 				DA426A0A1D9B199E00FE7EFB /* VChatConversationCell.swift in Sources */,
 				DA8B1B691D7DD7D4004D8457 /* MMenuItemHistory.swift in Sources */,
+				DA9814FD1DA2F47900BFDD3B /* MHomeItemAccess.swift in Sources */,
 				DAE27C6C1D8B123600E43F33 /* MChatDisplayOptionsItemCenter.swift in Sources */,
 				DAE27C5E1D8AEDCE00E43F33 /* CChatDisplayOptions.swift in Sources */,
 				DA4F81921D7BB97B00CC8B39 /* VHome.swift in Sources */,
