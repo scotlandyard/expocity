@@ -6,6 +6,7 @@ class FDatabaseModelRoom:FDatabaseModel
     var access:Access
     let created:TimeInterval
     
+    
     enum Property:String
     {
         case name = "name"
@@ -17,6 +18,12 @@ class FDatabaseModelRoom:FDatabaseModel
     {
         case invitationOnly = 0
         case freeAccess = 1
+    }
+    
+    enum Presentation:Int
+    {
+        case owner = 0
+        case everyone = 1
     }
     
     init(name:String, access:Access)
