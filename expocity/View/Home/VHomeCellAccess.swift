@@ -9,7 +9,8 @@ class VHomeCellAccess:VHomeCell
     weak var model:MHomeItemAccess!
     private let kLabelsHeight:CGFloat = 20
     private let kLabelsWidth:CGFloat = 110
-    private let kButtonWidth:CGFloat = 50
+    private let kButtonsWidth:CGFloat = 50
+    private let kCornerRadius:CGFloat = 5
     
     override init(frame:CGRect)
     {
@@ -44,18 +45,41 @@ class VHomeCellAccess:VHomeCell
         labelFreeJoin.text = NSLocalizedString("VHomeCellAccess_labelFreeJoin", comment:"")
         self.labelFreeJoin = labelFreeJoin
         
+        let buttonInvitationOnly:UIButton = UIButton()
+        buttonInvitationOnly.translatesAutoresizingMaskIntoConstraints = false
+        buttonInvitationOnly.clipsToBounds = true
+        buttonInvitationOnly.setImage(#imageLiteral(resourceName: "roomAccessInvitationOnly"), for:UIControlState.normal)
+        buttonInvitationOnly.imageView!.contentMode = UIViewContentMode.center
+        buttonInvitationOnly.imageView!.clipsToBounds = true
+        buttonInvitationOnly.layer.cornerRadius = kCornerRadius
+        self.buttonInvitationOnly = buttonInvitationOnly
+        
+        let buttonFreeJoin:UIButton = UIButton()
+        buttonFreeJoin.translatesAutoresizingMaskIntoConstraints = false
+        buttonFreeJoin.clipsToBounds = true
+        buttonFreeJoin.setImage(#imageLiteral(resourceName: "roomAccessFreeJoin"), for:UIControlState.normal)
+        buttonFreeJoin.imageView!.contentMode = UIViewContentMode.center
+        buttonFreeJoin.imageView!.clipsToBounds = true
+        buttonFreeJoin.layer.cornerRadius = kCornerRadius
+        self.buttonFreeJoin = buttonFreeJoin
+        
         addSubview(labelTitle)
         addSubview(labelInvitationOnly)
         addSubview(labelFreeJoin)
+        addSubview(buttonInvitationOnly)
+        addSubview(buttonFreeJoin)
         
         let views:[String:UIView] = [
             "labelTitle":labelTitle,
             "labelInvitationOnly":labelInvitationOnly,
-            "labelFreeJoin":labelFreeJoin]
+            "labelFreeJoin":labelFreeJoin,
+            "buttonInvitationOnly":buttonInvitationOnly,
+            "buttonFreeJoin":buttonFreeJoin]
         
         let metrics:[String:CGFloat] = [
             "labelsHeight":kLabelsHeight,
-            "labelsWidth":kLabelsWidth]
+            "labelsWidth":kLabelsWidth,
+            "buttonsWidth":kButtonsWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[labelTitle]-0-|",
@@ -73,17 +97,17 @@ class VHomeCellAccess:VHomeCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[labelTitle(labelsHeight)]",
+            withVisualFormat:"V:|-10-[labelTitle(labelsHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-70-[labelInvitationOnly(labelsHeight)]",
+            withVisualFormat:"V:|-60-[labelInvitationOnly(labelsHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-70-[labelFreeJoin(labelsHeight)]",
+            withVisualFormat:"V:|-60-[labelFreeJoin(labelsHeight)]",
             options:[],
             metrics:metrics,
             views:views))
