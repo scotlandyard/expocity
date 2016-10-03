@@ -9,7 +9,7 @@ class MHomeItemAccess:MHomeItem
     init()
     {
         access = FDatabaseModelRoom.Access.invitationOnly
-        let reusableIdentifier:String = VHomeCellTitle.reusableIdentifier()
+        let reusableIdentifier:String = VHomeCellAccess.reusableIdentifier()
         super.init(cellHeight:kCellHeight, reusableIdentifier:reusableIdentifier, selectable:kSelectable)
     }
 }
