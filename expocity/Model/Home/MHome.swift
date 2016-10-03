@@ -23,8 +23,10 @@ class MHome
     
     //MARK: public
     
-    func chat() -> MChat
+    func room() -> FDatabaseModelRoom
     {
+        let access:FDatabaseModelRoom.Access = itemAccess.access
+        let userId:String = MSession.sharedInstance.user!.userId!
         var title:String = itemTitle.title
         
         if title.isEmpty
@@ -32,8 +34,11 @@ class MHome
             title = NSLocalizedString("MHome_noTitle", comment:"")
         }
         
-        let model:MChat = MChat(title:title)
+        let room:FDatabaseModelRoom = FDatabaseModelRoom(
+            name:title,
+            access:access,
+            owner:userId)
         
-        return model
+        return room
     }
 }
