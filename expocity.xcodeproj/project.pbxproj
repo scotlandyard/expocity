@@ -554,6 +554,7 @@
 		DA4F817C1D7BB7FC00CC8B39 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				DA9815001DA3165100BFDD3B /* Model */,
 				DA4F817D1D7BB7FC00CC8B39 /* Info.plist */,
 				DA4F817E1D7BB7FC00CC8B39 /* test.swift */,
 			);
@@ -852,6 +853,21 @@
 				DA9739C41D90C9E300365D84 /* MChatDisplayAnnotationsItem.swift */,
 			);
 			path = Annotations;
+			sourceTree = "<group>";
+		};
+		DA9815001DA3165100BFDD3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA9815011DA3165100BFDD3B /* Home */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA9815011DA3165100BFDD3B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		DA9846041D89D61B0084A0A6 /* DisplayDetail */ = {
