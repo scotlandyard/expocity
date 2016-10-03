@@ -20,7 +20,7 @@ class FDatabaseModelRoom:FDatabaseModel
     enum Access:Int
     {
         case invitationOnly = 0
-        case freeAccess = 1
+        case freeJoin = 1
     }
     
     enum Presentation:Int
