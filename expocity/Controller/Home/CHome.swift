@@ -46,4 +46,13 @@ class CHome:CController
             self?.viewHome.sessionLoaded()
         }
     }
+    
+    //MARK: public
+    
+    func createChat()
+    {
+        let modelChat:MChat = model.chat()
+        let chat:CChat = CChat(model:modelChat)
+        parentController.push(controller:chat)
+    }
 }

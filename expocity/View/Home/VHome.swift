@@ -36,7 +36,6 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.isHidden = true
         collectionView.register(
             VHomeCellTitle.self,
             forCellWithReuseIdentifier:
@@ -81,6 +80,8 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             options:[],
             metrics:metrics,
             views:views))
+        
+        startLoading()
     }
     
     override func layoutSubviews()
@@ -104,6 +105,12 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         loader.stopAnimating()
         collectionView.isHidden = false
+    }
+    
+    func startLoading()
+    {
+        loader.startAnimating()
+        collectionView.isHidden = true
     }
     
     //MARK: col del
