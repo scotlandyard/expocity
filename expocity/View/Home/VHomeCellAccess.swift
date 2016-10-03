@@ -11,8 +11,8 @@ class VHomeCellAccess:VHomeCell
     private let colorNotSelected:UIColor
     private let buttonsTotalWidth:CGFloat
     private let kLabelsHeight:CGFloat = 20
-    private let kLabelsWidth:CGFloat = 105
-    private let kLabelsMargin:CGFloat = 5
+    private let kLabelsWidth:CGFloat = 100
+    private let kLabelsMargin:CGFloat = 8
     private let kButtonsWidth:CGFloat = 50
     private let kButtonsHeight:CGFloat = 34
     private let kCornerRadius:CGFloat = 5
@@ -29,7 +29,7 @@ class VHomeCellAccess:VHomeCell
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
-        labelTitle.font = UIFont.bold(size:15)
+        labelTitle.font = UIFont.bold(size:16)
         labelTitle.textColor = UIColor.complement()
         labelTitle.text = NSLocalizedString("VHomeCellAccess_labelTitle", comment:"")
         
@@ -62,6 +62,10 @@ class VHomeCellAccess:VHomeCell
         buttonInvitationOnly.imageView!.contentMode = UIViewContentMode.center
         buttonInvitationOnly.imageView!.clipsToBounds = true
         buttonInvitationOnly.layer.cornerRadius = kCornerRadius
+        buttonInvitationOnly.addTarget(
+            self,
+            action:#selector(actionInvitationOnly(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonInvitationOnly = buttonInvitationOnly
         
         let buttonFreeJoin:UIButton = UIButton()
@@ -73,6 +77,10 @@ class VHomeCellAccess:VHomeCell
         buttonFreeJoin.imageView!.contentMode = UIViewContentMode.center
         buttonFreeJoin.imageView!.clipsToBounds = true
         buttonFreeJoin.layer.cornerRadius = kCornerRadius
+        buttonFreeJoin.addTarget(
+            self,
+            action:#selector(actionFreeJoin(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonFreeJoin = buttonFreeJoin
         
         addSubview(labelTitle)
@@ -107,7 +115,7 @@ class VHomeCellAccess:VHomeCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[labelTitle(labelsHeight)]",
+            withVisualFormat:"V:|-15-[labelTitle(labelsHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -162,6 +170,20 @@ class VHomeCellAccess:VHomeCell
     override func config(model:MHomeItem)
     {
         self.model = model as! MHomeItemAccess
+        hover()
+    }
+    
+    //MARK: actions
+    
+    func actionInvitationOnly(sender button:UIButton)
+    {
+        model.access = FDatabaseModelRoom.Access.invitationOnly
+        hover()
+    }
+    
+    func actionFreeJoin(sender button:UIButton)
+    {
+        model.access = FDatabaseModelRoom.Access.freeJoin
         hover()
     }
     
