@@ -1,6 +1,6 @@
 import UIKit
 
-class VHomeCellCreate:VHomeCell
+class VHomeCellAccess:VHomeCell
 {
     override init(frame:CGRect)
     {
@@ -55,14 +55,5 @@ class VHomeCellCreate:VHomeCell
     required init?(coder:NSCoder)
     {
         fatalError()
-    }
-    
-    override func selected(controller:CHome)
-    {
-        UIApplication.shared.keyWindow!.endEditing(true)
-        
-        let model:MChat = controller.model.chat()
-        let chat:CChat = CChat(model:model)
-        controller.parentController.push(controller:chat)
     }
 }
