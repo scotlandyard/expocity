@@ -7,8 +7,9 @@ class VHomeCellAccess:VHomeCell
     weak var buttonInvitationOnly:UIButton!
     weak var buttonFreeJoin:UIButton!
     weak var model:MHomeItemAccess!
-    private let kTitleHeight:CGFloat = 20
-    private let kLabelsWidth:CGFloat = 100
+    private let kLabelsHeight:CGFloat = 20
+    private let kLabelsWidth:CGFloat = 110
+    private let kButtonWidth:CGFloat = 50
     
     override init(frame:CGRect)
     {
@@ -19,7 +20,7 @@ class VHomeCellAccess:VHomeCell
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
-        labelTitle.font = UIFont.bold(size:14)
+        labelTitle.font = UIFont.bold(size:15)
         labelTitle.textColor = UIColor.complement()
         labelTitle.text = NSLocalizedString("VHomeCellAccess_labelTitle", comment:"")
         
@@ -28,7 +29,7 @@ class VHomeCellAccess:VHomeCell
         labelInvitationOnly.translatesAutoresizingMaskIntoConstraints = false
         labelInvitationOnly.backgroundColor = UIColor.clear
         labelInvitationOnly.textAlignment = NSTextAlignment.right
-        labelInvitationOnly.font = UIFont.regular(size:13)
+        labelInvitationOnly.font = UIFont.regular(size:12)
         labelInvitationOnly.textColor = UIColor.main()
         labelInvitationOnly.text = NSLocalizedString("VHomeCellAccess_labelInvitationOnly", comment:"")
         self.labelInvitationOnly = labelInvitationOnly
@@ -38,7 +39,7 @@ class VHomeCellAccess:VHomeCell
         labelFreeJoin.translatesAutoresizingMaskIntoConstraints = false
         labelFreeJoin.backgroundColor = UIColor.clear
         labelFreeJoin.textAlignment = NSTextAlignment.left
-        labelFreeJoin.font = UIFont.regular(size:13)
+        labelFreeJoin.font = UIFont.regular(size:12)
         labelFreeJoin.textColor = UIColor.main()
         labelFreeJoin.text = NSLocalizedString("VHomeCellAccess_labelFreeJoin", comment:"")
         self.labelFreeJoin = labelFreeJoin
@@ -53,16 +54,11 @@ class VHomeCellAccess:VHomeCell
             "labelFreeJoin":labelFreeJoin]
         
         let metrics:[String:CGFloat] = [
-            "titleHeight":kTitleHeight,
+            "labelsHeight":kLabelsHeight,
             "labelsWidth":kLabelsWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[label]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[label(titleHeight)]",
+            withVisualFormat:"H:|-0-[labelTitle]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,6 +69,21 @@ class VHomeCellAccess:VHomeCell
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[labelFreeJoin(labelsWidth)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-20-[labelTitle(labelsHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-70-[labelInvitationOnly(labelsHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-70-[labelFreeJoin(labelsHeight)]",
             options:[],
             metrics:metrics,
             views:views))
