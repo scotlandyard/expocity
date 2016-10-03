@@ -8,6 +8,7 @@ class VHomeCellAccess:VHomeCell
     weak var buttonFreeJoin:UIButton!
     weak var model:MHomeItemAccess!
     weak var layoutButtonsLeft:NSLayoutConstraint!
+    private let buttonsTotalWidth:CGFloat
     private let kLabelsHeight:CGFloat = 20
     private let kLabelsWidth:CGFloat = 105
     private let kLabelsMargin:CGFloat = 5
@@ -17,6 +18,8 @@ class VHomeCellAccess:VHomeCell
     
     override init(frame:CGRect)
     {
+        buttonsTotalWidth = kLabelsWidth + kLabelsMargin + kButtonsWidth + kButtonsWidth + kLabelsMargin + kLabelsWidth
+        
         super.init(frame:frame)
         
         let labelTitle:UILabel = UILabel()
@@ -132,11 +135,21 @@ class VHomeCellAccess:VHomeCell
             multiplier:1,
             constant:0)
         
-        addSubview(layoutButtonsLeft)
+        addConstraint(layoutButtonsLeft)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let maxWidth:CGFloat = bounds.maxX
+        let remainWidth:CGFloat = maxWidth - buttonsTotalWidth
+        let margin:CGFloat = remainWidth / 2.0
+        layoutButtonsLeft.constant = margin
+        
+        super.layoutSubviews()
     }
 }
