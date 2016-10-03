@@ -87,7 +87,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             "barDelta":barDelta]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-40-[label]-40-|",
+            withVisualFormat:"H:|-60-[label]-60-|",
             options:[],
             metrics:metrics,
             views:views))
