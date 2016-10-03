@@ -3,7 +3,7 @@ import XCTest
 
 class TMHome:XCTestCase
 {
-    var mHome:MHome
+    var mHome:MHome?
     
     override func setUp()
     {
