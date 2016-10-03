@@ -12,14 +12,14 @@ class VHomeCellAccess:VHomeCell
     private let buttonsTotalWidth:CGFloat
     private let kLabelsHeight:CGFloat = 20
     private let kLabelsWidth:CGFloat = 100
-    private let kLabelsMargin:CGFloat = 8
+    private let kLabelsMargin:CGFloat = 6
     private let kButtonsWidth:CGFloat = 42
     private let kButtonsHeight:CGFloat = 34
     private let kCornerRadius:CGFloat = 5
     
     override init(frame:CGRect)
     {
-        buttonsTotalWidth = kLabelsWidth + kLabelsMargin + kButtonsWidth + kButtonsWidth + kLabelsMargin + kLabelsWidth
+        buttonsTotalWidth = kLabelsWidth + kLabelsMargin + kButtonsWidth + kLabelsMargin + kButtonsWidth + kLabelsMargin + kLabelsWidth
         colorNotSelected = UIColor(white:0.88, alpha:1)
         
         super.init(frame:frame)
@@ -108,7 +108,7 @@ class VHomeCellAccess:VHomeCell
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:
-            "H:[labelInvitationOnly(labelsWidth)]-(labelsMargin)-[buttonInvitationOnly(buttonsWidth)]-0-[buttonFreeJoin(buttonsWidth)]-(labelsMargin)-[labelFreeJoin(labelsWidth)]",
+            "H:[labelInvitationOnly(labelsWidth)]-(labelsMargin)-[buttonInvitationOnly(buttonsWidth)]-(labelsMargin)-[buttonFreeJoin(buttonsWidth)]-(labelsMargin)-[labelFreeJoin(labelsWidth)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -175,12 +175,16 @@ class VHomeCellAccess:VHomeCell
     
     func actionInvitationOnly(sender button:UIButton)
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         model.access = FDatabaseModelRoom.Access.invitationOnly
         hover()
     }
     
     func actionFreeJoin(sender button:UIButton)
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         model.access = FDatabaseModelRoom.Access.freeJoin
         hover()
     }

@@ -25,7 +25,13 @@ class MHome
     
     func chat() -> MChat
     {
-        let title:String = itemTitle.title
+        var title:String = itemTitle.title
+        
+        if title.isEmpty
+        {
+            title = NSLocalizedString("MHome_noTitle", comment:"")
+        }
+        
         let model:MChat = MChat(title:title)
         
         return model
