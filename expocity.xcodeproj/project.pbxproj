@@ -70,7 +70,6 @@
 		DA4F81901D7BB97B00CC8B39 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81871D7BB97B00CC8B39 /* CController.swift */; };
 		DA4F81911D7BB97B00CC8B39 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81881D7BB97B00CC8B39 /* CParent.swift */; };
 		DA4F81921D7BB97B00CC8B39 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F818C1D7BB97B00CC8B39 /* VHome.swift */; };
-		DA4F81931D7BBA6A00CC8B39 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F817E1D7BB7FC00CC8B39 /* test.swift */; };
 		DA4F81A11D7D062500CC8B39 /* CategoryMKAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81971D7D062500CC8B39 /* CategoryMKAnnotationView.swift */; };
 		DA4F81A21D7D062500CC8B39 /* CategoryDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81981D7D062500CC8B39 /* CategoryDate.swift */; };
 		DA4F81A31D7D062500CC8B39 /* CategoryFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81991D7D062500CC8B39 /* CategoryFileManager.swift */; };
@@ -212,7 +211,6 @@
 		DA4EB6951D95C5EF00E15758 /* VMainAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainAlert.swift; sourceTree = "<group>"; };
 		DA4EB6971D95D88000E15758 /* alert.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = alert.xcassets; sourceTree = "<group>"; };
 		DA4F817D1D7BB7FC00CC8B39 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA4F817E1D7BB7FC00CC8B39 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		DA4F81841D7BB97B00CC8B39 /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DA4F81861D7BB97B00CC8B39 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4F81871D7BB97B00CC8B39 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -558,7 +556,6 @@
 			children = (
 				DA9815001DA3165100BFDD3B /* Model */,
 				DA4F817D1D7BB7FC00CC8B39 /* Info.plist */,
-				DA4F817E1D7BB7FC00CC8B39 /* test.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -1235,7 +1232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA4F81931D7BBA6A00CC8B39 /* test.swift in Sources */,
 				DA9815031DA3169300BFDD3B /* TMHome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

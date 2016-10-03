@@ -1,7 +1,10 @@
 import XCTest
+@testable import expocity
 
 class TMHome:XCTestCase
 {
+    var mHome:MHome
+    
     override func setUp()
     {
         super.setUp()

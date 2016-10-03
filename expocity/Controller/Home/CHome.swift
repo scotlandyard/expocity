@@ -51,7 +51,7 @@ class CHome:CController
     
     private func createFirebaseRoom()
     {
-        let firebaseRoom:FDatabaseModelRoom = model.chat()
+        /*let firebaseRoom:FDatabaseModelRoom = model.chat()
         
         let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(name:user.name!)
         let json:[String:Any] = firebaseUser.modelJson()
@@ -62,7 +62,7 @@ class CHome:CController
         
         user.userId = userId
         DManager.sharedInstance.save()
-        firebaseLoaded()
+        firebaseLoaded()*/
     }
     
     //MARK: public
@@ -74,7 +74,7 @@ class CHome:CController
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.createFirebaseChat()
+            self?.createFirebaseRoom()
             
             if self != nil
             {/*
