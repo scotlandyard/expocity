@@ -51,8 +51,17 @@ class CHome:CController
     
     func createChat()
     {
-        let modelChat:MChat = model.chat()
-        let chat:CChat = CChat(model:modelChat)
-        parentController.push(controller:chat)
+        viewHome.startLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            if self != nil
+            {/*
+                let modelChat:MChat = model.chat()
+                let chat:CChat = CChat(model:modelChat)
+                parentController.push(controller:chat)*/
+            }
+        }
     }
 }
