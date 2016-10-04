@@ -6,14 +6,14 @@ class FDatabaseModel
     {
     }
     
-    required init(snapshot:[String:Any])
+    required init(snapshot:[Any])
     {
         fatalError()
     }
     
     //MARK: public
     
-    func modelJson() -> [String:Any]
+    func modelJson() -> [Any]
     {
         fatalError()
     }
