@@ -3,9 +3,8 @@ import XCTest
 
 class TMHome:XCTestCase
 {
+    private var mHome:MHome?
     private let kRoomName:String = "MyWeirdRoomName with space"
-    
-    var mHome:MHome?
     
     override func setUp()
     {
