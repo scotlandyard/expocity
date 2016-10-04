@@ -19,13 +19,19 @@ class TMHome:XCTestCase
         super.tearDown()
     }
     
-    //MARK: tests
+    //MARK: -
+    
+    func testRoomOwner()
+    {
+        let firebaseRoom:FDatabaseModelRoom = mHome!.room()
+        let userId:String = firebaseRoom.owner
+        XCTAssertFalse(userId.isEmpty, "Room has no owner")
+    }
     
     func testEmptyRoomName()
     {
         let firebaseRoom:FDatabaseModelRoom = mHome!.room()
         let roomName:String = firebaseRoom.name
-        
         XCTAssertFalse(roomName.isEmpty, "Room name is empty")
     }
 }
