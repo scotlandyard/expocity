@@ -55,7 +55,7 @@ class MSession
     
     private func createFirebaseUser()
     {
-        let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(name:user.name!)
+        let firebaseUser:FDatabaseModelUser = FDatabaseModelUser(name:user.name!)
         let json:[String:Any] = firebaseUser.modelJson()
         let path:String = FDatabase.Parent.User.rawValue
         let userId:String = FMain.sharedInstance.database.createChild(
@@ -78,8 +78,8 @@ class MSession
         
         FMain.sharedInstance.database.listenOnce(
             path:path,
-            modelType:FdatabaseModelUser.self)
-        { (object:FdatabaseModelUser) in
+            modelType:FDatabaseModelUser.self)
+        { (object:FDatabaseModelUser) in
             
             self.firebaseLoaded()
         }

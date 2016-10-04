@@ -9,7 +9,7 @@ class TFDatabaseModelUser:XCTestCase
     {
         let name:String = "John Test"
         
-        let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(
+        let firebaseUser:FDatabaseModelUser = FDatabaseModelUser(
             name:name)
         
         let json:[String:Any] = firebaseUser.modelJson()
