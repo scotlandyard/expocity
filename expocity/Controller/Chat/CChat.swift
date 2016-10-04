@@ -17,6 +17,20 @@ class CChat:CController
         fatalError()
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        if model == nil
+        {
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.loadModel()
+            }
+        }
+    }
+    
     override func loadView()
     {
         let viewChat:VChat = VChat(controller:self)
@@ -38,6 +52,11 @@ class CChat:CController
     }
     
     //MARK: private
+    
+    private func loadModel()
+    {
+        
+    }
     
     private func addChatItem(chatItem:MChatItem)
     {
