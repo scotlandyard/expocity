@@ -3,6 +3,8 @@ import XCTest
 
 class TMHome:XCTestCase
 {
+    private let kRoomName:String = "MyWeirdRoomName with space"
+    
     var mHome:MHome?
     
     override func setUp()
@@ -33,5 +35,13 @@ class TMHome:XCTestCase
         let firebaseRoom:FDatabaseModelRoom = mHome!.room()
         let roomName:String = firebaseRoom.name
         XCTAssertFalse(roomName.isEmpty, "Room name is empty")
+    }
+    
+    func testRoomName()
+    {
+        mHome!.itemTitle.title = kRoomName
+        let firebaseRoom:FDatabaseModelRoom = mHome!.room()
+        let roomName:String = firebaseRoom.name
+        XCTAssertTrue(roomName == kRoomName, "Room name mismatch")
     }
 }
