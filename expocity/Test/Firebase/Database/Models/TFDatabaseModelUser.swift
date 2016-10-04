@@ -30,7 +30,7 @@ class TFDatabaseModelUser:XCTestCase
         let userCreated:TimeInterval? = json[createdKey] as? TimeInterval
         let userRooms:[String]? = json[roomsKey] as? [String]
         
-        XCTAssertTrue(name == userName, "Invalid name")
+        XCTAssertEqual(name, userName, "Invalid name")
         XCTAssertNotNil(userCreated, "Not storing user creation timestamp")
         XCTAssertGreaterThan(userCreated!, 1, "Invalid timestamp")
         XCTAssertNotNil(userRooms, "Invalid user rooms")

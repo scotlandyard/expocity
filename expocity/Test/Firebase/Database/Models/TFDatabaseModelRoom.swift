@@ -28,8 +28,8 @@ class TFDatabaseModelRoom:XCTestCase
         
         let rawAccess:FDatabaseModelRoom.Access? = FDatabaseModelRoom.Access(rawValue:roomRawAccess!)
         
-        XCTAssertTrue(access == rawAccess, "Invalid access")
-        XCTAssertTrue(name == roomName, "Invalid name")
-        XCTAssertTrue(owner == roomOwner, "Invalid owner")
+        XCTAssertEqual(access, rawAccess, "Invalid access")
+        XCTAssertEqual(name, roomName, "Invalid name")
+        XCTAssertEqual(owner, roomOwner, "Invalid owner")
     }
 }

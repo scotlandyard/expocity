@@ -26,6 +26,7 @@ class TMHome:XCTestCase
     {
         let firebaseRoom:FDatabaseModelRoom = mHome!.room()
         let userId:String = firebaseRoom.owner
+        
         XCTAssertFalse(userId.isEmpty, "Room has no owner")
     }
     
@@ -33,6 +34,7 @@ class TMHome:XCTestCase
     {
         let firebaseRoom:FDatabaseModelRoom = mHome!.room()
         let roomName:String = firebaseRoom.name
+        
         XCTAssertFalse(roomName.isEmpty, "Room name is empty")
     }
     
@@ -41,7 +43,8 @@ class TMHome:XCTestCase
         mHome!.itemTitle.title = kRoomName
         let firebaseRoom:FDatabaseModelRoom = mHome!.room()
         let roomName:String = firebaseRoom.name
-        XCTAssertTrue(roomName == kRoomName, "Room name mismatch")
+        
+        XCTAssertEqual(roomName, kRoomName, "Room name mismatch")
     }
     
     func testAccessInvitationOnly()
@@ -50,7 +53,8 @@ class TMHome:XCTestCase
         mHome!.itemAccess.access = accessInvitationOnly
         let firebaseRoom:FDatabaseModelRoom = mHome!.room()
         let roomAccess:FDatabaseModelRoom.Access = firebaseRoom.access
-        XCTAssertTrue(roomAccess == accessInvitationOnly, "Room access mismatch")
+        
+        XCTAssertEqual(roomAccess, accessInvitationOnly, "Room access mismatch")
     }
     
     func testAccessFreeJoin()
@@ -59,6 +63,7 @@ class TMHome:XCTestCase
         mHome!.itemAccess.access = accessFreeJoin
         let firebaseRoom:FDatabaseModelRoom = mHome!.room()
         let roomAccess:FDatabaseModelRoom.Access = firebaseRoom.access
-        XCTAssertTrue(roomAccess == accessFreeJoin, "Room access mismatch")
+        
+        XCTAssertEqual(roomAccess, accessFreeJoin, "Room access mismatch")
     }
 }
