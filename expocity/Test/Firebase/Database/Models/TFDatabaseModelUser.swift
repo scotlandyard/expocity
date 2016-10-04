@@ -35,4 +35,11 @@ class TFDatabaseModelUser:XCTestCase
         XCTAssertGreaterThan(userCreated!, 1, "Invalid timestamp")
         XCTAssertNotNil(userRooms, "Invalid user rooms")
     }
+    
+    func testSnapshot()
+    {
+        let firebaseUser:FDatabaseModelUser = FDatabaseModelUser(
+            snapshot:kSnapshot)
+        firebaseUser.name = 
+    }
 }

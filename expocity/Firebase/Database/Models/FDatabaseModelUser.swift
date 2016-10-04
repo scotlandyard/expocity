@@ -5,6 +5,8 @@ class FDatabaseModelUser:FDatabaseModel
     let name:String
     let created:TimeInterval
     var rooms:[String]
+    private let kEmptyString:String = ""
+    private let kNonCreated:TimeInterval = 0
     
     enum Property:String
     {
@@ -24,10 +26,27 @@ class FDatabaseModelUser:FDatabaseModel
     
     required init(snapshot:[String:Any])
     {
+        let rawName:String? = snapshot[Property.name.rawValue] as? String
+        let rawCreated:TimeInterval? = snapshot[Property.created.rawValue] as? TimeInterval
         let rawRooms:[String]? = snapshot[Property.rooms.rawValue] as? [String]
         
-        name = snapshot[Property.name.rawValue] as! String
-        created = snapshot[Property.created.rawValue] as! TimeInterval
+        if rawName == nil
+        {
+            name = rawName!
+        }
+        else
+        {
+            name = kEmptyString
+        }
+        
+        if rawCreated == nil
+        {
+            created = rawCreated!
+        }
+        else
+        {
+            created = kNonCreated
+        }
         
         if rawRooms == nil
         {
