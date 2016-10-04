@@ -4,7 +4,7 @@ class MSession
 {
     static let sharedInstance:MSession = MSession()
     var user:DObjectUser!
-    var rooms:[String]
+    private(set) var rooms:[String]
     
     init()
     {
@@ -112,5 +112,12 @@ class MSession
         {
             userLoaded()
         }
+    }
+    
+    func addedRoom(roomId:String)
+    {
+        rooms.append(roomId)
+        
+        
     }
 }

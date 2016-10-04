@@ -27,6 +27,12 @@ class FDatabase
         return childId
     }
     
+    func updateChild(path:String, json:Any)
+    {
+        let childReference:FIRDatabaseReference = reference.child(path)
+        childReference.setValue(json)
+    }
+    
     func listenOnce<ModelType:FDatabaseModel>(path:String, modelType:ModelType.Type, completion:@escaping((ModelType) -> ()))
     {
         let pathReference:FIRDatabaseReference = reference.child(path)

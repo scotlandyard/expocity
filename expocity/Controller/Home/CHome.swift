@@ -58,7 +58,7 @@ class CHome:CController
             path:path,
             json:json)
         
-        
+        MSession.sharedInstance.addedRoom(roomId:roomId)
     }
     
     //MARK: public
