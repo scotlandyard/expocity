@@ -17,7 +17,7 @@ class TFDatabaseModelUser:XCTestCase
         
         let json:[String:Any] = firebaseUser.modelJson()
         let userName:String? = json[nameKey] as? String
-        let userCreated:Int? = json[createdKey] as? Int
+        let userCreated:TimeInterval? = json[createdKey] as? TimeInterval
         let userRooms:[String]? = json[roomsKey] as? [String]
         
         XCTAssertTrue(name == userName, "Invalid name")
