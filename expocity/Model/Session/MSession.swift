@@ -88,7 +88,7 @@ class MSession
             modelType:FDatabaseModelUser.self)
         { (object:FDatabaseModelUser) in
             
-            self.rooms = object.rooms
+            self.parseRooms(firebaseRooms:object.rooms)
             self.firebaseLoaded()
         }
     }
@@ -112,6 +112,11 @@ class MSession
         {
             userLoaded()
         }
+    }
+    
+    func parseRooms(firebaseRooms:FDatabaseModelUserRooms)
+    {
+        rooms = firebaseRooms.rooms
     }
     
     func createdRoom(roomId:String)

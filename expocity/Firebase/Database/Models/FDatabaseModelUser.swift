@@ -19,7 +19,7 @@ class FDatabaseModelUser:FDatabaseModel
     {
         self.name = name
         created = NSDate().timeIntervalSince1970
-        rooms = []
+        rooms = FDatabaseModelUserRooms()
         
         super.init()
     }
@@ -51,11 +51,11 @@ class FDatabaseModelUser:FDatabaseModel
         
         if rawRooms == nil
         {
-            rooms = []
+            rooms = FDatabaseModelUserRooms()
         }
         else
         {
-            rooms = rawRooms!
+            rooms = FDatabaseModelUserRooms(rooms:rawRooms!)
         }
         
         super.init()
