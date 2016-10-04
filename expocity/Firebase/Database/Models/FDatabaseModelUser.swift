@@ -24,11 +24,25 @@ class FDatabaseModelUser:FDatabaseModel
         super.init()
     }
     
-    required init(snapshot:[String:Any])
+    required init(snapshot:Any)
     {
-        let rawName:String? = snapshot[Property.name.rawValue] as? String
-        let rawCreated:TimeInterval? = snapshot[Property.created.rawValue] as? TimeInterval
-        let rawRooms:[String]? = snapshot[Property.rooms.rawValue] as? [String]
+        let snapshotDict:[String:Any]? = snapshot as? [String:Any]
+        let rawName:String?
+        let rawCreated:TimeInterval?
+        let rawRooms:[String]?
+        
+        if snapshotDict == nil
+        {
+            rawName = nil
+            rawCreated = nil
+            rawRooms = nil
+        }
+        else
+        {
+            rawName = snapshotDict![Property.name.rawValue] as? String
+            rawCreated = snapshotDict![Property.created.rawValue] as? TimeInterval
+            rawRooms = snapshotDict![Property.rooms.rawValue] as? [String]
+        }
         
         if rawName == nil
         {
@@ -60,7 +74,7 @@ class FDatabaseModelUser:FDatabaseModel
         super.init()
     }
 
-    override func modelJson() -> [String:Any]
+    override func modelJson() -> Any
     {
         let json:[String:Any] = [
             Property.name.rawValue:name,
