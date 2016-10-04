@@ -13,36 +13,7 @@ class FDatabaseModelUserRooms:FDatabaseModel
     
     required init(snapshot:[String:Any])
     {
-        let rawName:String? = snapshot[Property.name.rawValue] as? String
-        let rawCreated:TimeInterval? = snapshot[Property.created.rawValue] as? TimeInterval
-        let rawRooms:[String]? = snapshot[Property.rooms.rawValue] as? [String]
-        
-        if rawName == nil
-        {
-            name = kEmptyString
-        }
-        else
-        {
-            name = rawName!
-        }
-        
-        if rawCreated == nil
-        {
-            created = kNonCreated
-        }
-        else
-        {
-            created = rawCreated!
-        }
-        
-        if rawRooms == nil
-        {
-            rooms = []
-        }
-        else
-        {
-            rooms = rawRooms!
-        }
+        rooms = []
         
         super.init()
     }

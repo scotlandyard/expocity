@@ -44,13 +44,31 @@ class FDatabaseModelRoom:FDatabaseModel
         super.init()
     }
     
-    required init(snapshot:[String:Any])
+    required init(snapshot:Any)
     {
-        let rawIntAccess:Int? = snapshot[Property.access.rawValue] as? Int
-        let rawIntPresentation:Int? = snapshot[Property.presentation.rawValue] as? Int
-        let rawName:String? = snapshot[Property.name.rawValue] as? String
-        let rawOwner:String? = snapshot[Property.owner.rawValue] as? String
-        let rawCreated:TimeInterval? = snapshot[Property.created.rawValue] as? TimeInterval
+        let snapshotDict:[String:Any]? = snapshot as? [String:Any]
+        let rawIntAccess:Int?
+        let rawIntPresentation:Int?
+        let rawName:String?
+        let rawOwner:String?
+        let rawCreated:TimeInterval?
+        
+        if snapshotDict == nil
+        {
+            rawIntAccess = nil
+            rawIntPresentation = nil
+            rawName = nil
+            rawOwner = nil
+            rawCreated = nil
+        }
+        else
+        {
+            rawIntAccess = snapshotDict![Property.access.rawValue] as? Int
+            rawIntPresentation = snapshotDict![Property.presentation.rawValue] as? Int
+            rawName = snapshotDict![Property.name.rawValue] as? String
+            rawOwner = snapshotDict![Property.owner.rawValue] as? String
+            rawCreated = snapshotDict![Property.created.rawValue] as? TimeInterval
+        }
         
         if rawIntAccess == nil
         {
@@ -118,7 +136,7 @@ class FDatabaseModelRoom:FDatabaseModel
         super.init()
     }
     
-    override func modelJson() -> [String:Any]
+    override func modelJson() -> Any
     {
         let json:[String:Any] = [
             Property.name.rawValue:name,
