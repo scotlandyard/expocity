@@ -44,7 +44,7 @@ class FDatabaseModelRoom:FDatabaseModel
         super.init()
     }
     
-    required init(snapshot:Any)
+    required init(snapshot:Any?)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         let rawIntAccess:Int?

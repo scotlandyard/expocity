@@ -62,7 +62,7 @@ class MSession
     private func createFirebaseUser()
     {
         let firebaseUser:FDatabaseModelUser = FDatabaseModelUser(name:user.name!)
-        let json:[String:Any] = firebaseUser.modelJson()
+        let json:Any = firebaseUser.modelJson()
         let path:String = FDatabase.Parent.user.rawValue
         let userId:String = FMain.sharedInstance.database.createChild(
             path:path,

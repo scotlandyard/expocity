@@ -11,19 +11,16 @@ class FDatabaseModelUserRooms:FDatabaseModel
         super.init()
     }
     
-    required init(snapshot:[String:Any])
+    required init(snapshot:Any?)
     {
         rooms = []
         
         super.init()
     }
     
-    override func modelJson() -> [String:Any]
+    override func modelJson() -> Any
     {
-        let json:[String:Any] = [
-            Property.name.rawValue:name,
-            Property.created.rawValue:created,
-            Property.rooms.rawValue:rooms
+        let json:[String:Any] = [:
         ]
         
         return json
