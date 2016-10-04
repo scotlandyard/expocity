@@ -66,7 +66,14 @@ class CChat:CController
             modelType:FDatabaseModelRoom.self)
         { [weak self] (object:FDatabaseModelRoom) in
             
+            self?.model = MChat(firebaseRoom:object)
+            self?.modelLoaded()
         }
+    }
+    
+    private func modelLoaded()
+    {
+        
     }
     
     private func addChatItem(chatItem:MChatItem)
