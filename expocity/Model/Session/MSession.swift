@@ -118,6 +118,17 @@ class MSession
     {
         rooms.append(roomId)
         
+        let userReference:String = FDatabase.Parent.User.rawValue
+        let userId:String = user.userId!
+        let roomsReference:String = FDatabaseModelUser.Property.rooms.rawValue
+        let path:String = String(
+            format:"%@/%@/%@",
+            userReference,
+            userId,
+            roomsReference)
         
+        FMain.sharedInstance.database.updateChild(
+            path:path,
+            json:rooms)
     }
 }
