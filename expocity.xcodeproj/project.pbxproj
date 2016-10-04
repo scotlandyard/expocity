@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39C34E0DEE225F0F89A6EC8F /* Pods_expocity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D416AEC16372C74456B4740A /* Pods_expocity.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		5840591EF8161EE2608215F0 /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD2DC3FB73D5E7754FC9CC6 /* Pods_tests.framework */; };
 		DA0DEE621D88C0C000B52422 /* VChatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE571D88C0C000B52422 /* VChatDisplay.swift */; };
 		DA0DEE631D88C0C000B52422 /* VChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE591D88C0C000B52422 /* VChatInput.swift */; };
 		DA0DEE641D88C0C000B52422 /* VChatInputMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE5A1D88C0C000B52422 /* VChatInputMenu.swift */; };
@@ -151,6 +152,8 @@
 
 /* Begin PBXFileReference section */
 		360F7C110042A59B18C0BCCD /* Pods-expocity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-expocity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-expocity/Pods-expocity.debug.xcconfig"; sourceTree = "<group>"; };
+		41AEBE3C4629EA7A8D2E835E /* Pods-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.debug.xcconfig"; sourceTree = "<group>"; };
+		8BE9796F96961E4B0E7FD1AE /* Pods-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.release.xcconfig"; sourceTree = "<group>"; };
 		BFD2DC3FB73D5E7754FC9CC6 /* Pods_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF19681E03B26778A98D855C /* Pods-expocity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-expocity.release.xcconfig"; path = "Pods/Target Support Files/Pods-expocity/Pods-expocity.release.xcconfig"; sourceTree = "<group>"; };
 		D416AEC16372C74456B4740A /* Pods_expocity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_expocity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5840591EF8161EE2608215F0 /* Pods_tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +326,8 @@
 			children = (
 				360F7C110042A59B18C0BCCD /* Pods-expocity.debug.xcconfig */,
 				CF19681E03B26778A98D855C /* Pods-expocity.release.xcconfig */,
+				41AEBE3C4629EA7A8D2E835E /* Pods-tests.debug.xcconfig */,
+				8BE9796F96961E4B0E7FD1AE /* Pods-tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -974,9 +980,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAC3CB0B1D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "tests" */;
 			buildPhases = (
+				B9B5C1593DF321146808F036 /* [CP] Check Pods Manifest.lock */,
 				DAC3CAFB1D7BB5C60090ECCD /* Sources */,
 				DAC3CAFC1D7BB5C60090ECCD /* Frameworks */,
 				DAC3CAFD1D7BB5C60090ECCD /* Resources */,
+				970AF3C238FF3D9164876777 /* [CP] Embed Pods Frameworks */,
+				04D36885A2A94E0016B4109B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1072,6 +1081,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		04D36885A2A94E0016B4109B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tests/Pods-tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6FEDF56991F2F0A444895215 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1085,6 +1109,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-expocity/Pods-expocity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		970AF3C238FF3D9164876777 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tests/Pods-tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9B5C1593DF321146808F036 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BF60226AEB1A3F18B198D68B /* [CP] Copy Pods Resources */ = {
@@ -1451,6 +1505,7 @@
 		};
 		DAC3CB0C1D7BB5C60090ECCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41AEBE3C4629EA7A8D2E835E /* Pods-tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = expocity/Test/Info.plist;
@@ -1464,6 +1519,7 @@
 		};
 		DAC3CB0D1D7BB5C60090ECCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BE9796F96961E4B0E7FD1AE /* Pods-tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = expocity/Test/Info.plist;
