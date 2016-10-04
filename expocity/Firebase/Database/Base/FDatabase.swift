@@ -18,7 +18,7 @@ class FDatabase
     
     //MARK: public
     
-    func createChild(path:String, json:[String:Any]) -> String
+    func createChild(path:String, json:Any) -> String
     {
         let childReference:FIRDatabaseReference = reference.child(path).childByAutoId()
         let childId:String = childReference.key
@@ -39,7 +39,7 @@ class FDatabase
         pathReference.observeSingleEvent(of:FIRDataEventType.value)
         { (snapshot:FIRDataSnapshot) in
             
-            let json:[String:Any] = snapshot.value as! [String:Any]
+            let json:Any? = snapshot.value
             let model:ModelType = ModelType(snapshot:json)
             
             completion(model)
@@ -52,7 +52,7 @@ class FDatabase
         let listenId:UInt = pathReference.observe(eventType)
         { (snapshot:FIRDataSnapshot) in
             
-            let json:[String:Any] = snapshot.value as! [String:Any]
+            let json:Any? = snapshot.value
             let model:ModelType = ModelType(snapshot:json)
             
             completion(model)
