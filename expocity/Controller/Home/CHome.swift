@@ -59,6 +59,18 @@ class CHome:CController
             json:json)
         
         MSession.sharedInstance.createdRoom(roomId:roomId)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+        
+            self?.firebaseRoomCreated(roomId:roomId)
+        }
+    }
+    
+    private func firebaseRoomCreated(roomId:String)
+    {
+        let chat:CChat = CChat(model:modelChat)
+        parentController.push(controller:chat)
     }
     
     //MARK: public
@@ -71,13 +83,6 @@ class CHome:CController
         { [weak self] in
             
             self?.createFirebaseRoom()
-            
-            if self != nil
-            {/*
-                let modelChat:MChat = model.chat()
-                let chat:CChat = CChat(model:modelChat)
-                parentController.push(controller:chat)*/
-            }
         }
     }
 }

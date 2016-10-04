@@ -11,6 +11,7 @@ class MChat
     init(roomId:String)
     {
         self.roomId = roomId
+        title = ""
         items = []
         displayOption = MChatDisplayOptionsItemFill()
         annotations = MChatDisplayAnnotations()
