@@ -3,8 +3,8 @@ import Foundation
 class MHome
 {
     let items:[MHomeItem]
-    private weak var itemTitle:MHomeItemTitle!
-    private weak var itemAccess:MHomeItemAccess!
+    weak var itemTitle:MHomeItemTitle!
+    weak var itemAccess:MHomeItemAccess!
     
     init()
     {
