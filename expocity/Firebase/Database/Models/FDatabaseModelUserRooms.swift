@@ -13,16 +13,22 @@ class FDatabaseModelUserRooms:FDatabaseModel
     
     required init(snapshot:Any?)
     {
-        rooms = []
+        let snapshotArray:[String]? = snapshot as? [String]
+        
+        if snapshotArray == nil
+        {
+            rooms = []
+        }
+        else
+        {
+            rooms = snapshotArray!
+        }
         
         super.init()
     }
     
     override func modelJson() -> Any
     {
-        let json:[String:Any] = [:
-        ]
-        
-        return json
+        return rooms
     }
 }
