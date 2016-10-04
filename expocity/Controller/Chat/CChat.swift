@@ -82,6 +82,7 @@ class CChat:CController
     
     private func chatReady()
     {
+        title = model.title
         viewChat.chatLoaded()
     }
     
