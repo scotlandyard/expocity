@@ -1,9 +1,11 @@
 import UIKit
+import FirebaseDatabase
 
 class CRooms:CController
 {
     weak var viewRooms:VRooms!
     var model:MRooms?
+    var listenId:UInt?
     
     override func loadView()
     {
@@ -16,6 +18,10 @@ class CRooms:CController
     {
         super.viewDidLoad()
         
-        
+        /*
+        listenId = FMain.sharedInstance.database.listen(
+            eventType:FIRDataEventType.value,
+            path: <#T##String#>,
+            modelType: <#T##ModelType.Type#>, completion: <#T##((ModelType) -> ())##((ModelType) -> ())##(ModelType) -> ()#>)*/
     }
 }
