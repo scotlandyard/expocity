@@ -44,4 +44,22 @@ class TMHome:XCTestCase
         let roomName:String = firebaseRoom.name
         XCTAssertTrue(roomName == kRoomName, "Room name mismatch")
     }
+    
+    func testAccessInvitationOnly()
+    {
+        let accessInvitationOnly:FDatabaseModelRoom.Access = FDatabaseModelRoom.Access.invitationOnly
+        mHome!.itemAccess.access = accessInvitationOnly
+        let firebaseRoom:FDatabaseModelRoom = mHome!.room()
+        let roomAccess:FDatabaseModelRoom.Access = firebaseRoom.access
+        XCTAssertTrue(roomAccess == accessInvitationOnly, "Room access mismatch")
+    }
+    
+    func testAccessFreeJoin()
+    {
+        let accessFreeJoin:FDatabaseModelRoom.Access = FDatabaseModelRoom.Access.freeJoin
+        mHome!.itemAccess.access = accessFreeJoin
+        let firebaseRoom:FDatabaseModelRoom = mHome!.room()
+        let roomAccess:FDatabaseModelRoom.Access = firebaseRoom.access
+        XCTAssertTrue(roomAccess == accessFreeJoin, "Room access mismatch")
+    }
 }
