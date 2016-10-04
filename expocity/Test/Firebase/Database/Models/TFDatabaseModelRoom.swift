@@ -40,4 +40,32 @@ class TFDatabaseModelRoom:XCTestCase
         XCTAssertEqual(name, roomName, "Invalid name")
         XCTAssertEqual(owner, roomOwner, "Invalid owner")
     }
+    
+    func testSnapshot()
+    {
+        let snapshotRawPresentation:Int = kSnapshot["presentation"] as! Int
+        let snapshotOwner:String = kSnapshot["owner"] as! String
+        let snapshotName:String = kSnapshot["name"] as! String
+        let snapshotCreated:TimeInterval = kSnapshot["created"] as! TimeInterval
+        let snapshotRawAccess:Int = kSnapshot["access"] as! Int
+        let snapshotPresentation:FDatabaseModelRoom.Presentation = FDatabaseModelRoom.Presentation(
+            rawValue:snapshotRawPresentation)!
+        let snapshotAccess:FDatabaseModelRoom.Access = FDatabaseModelRoom.Access(
+            rawValue:snapshotRawAccess)!
+        
+        let firebaseRoom:FDatabaseModelRoom = FDatabaseModelRoom(
+            snapshot:kSnapshot)
+        
+        let roomPresentation:FDatabaseModelRoom.Presentation = firebaseRoom.presentation
+        let roomOwner:String = firebaseRoom.owner
+        let roomName:String = firebaseRoom.name
+        let roomCreated:TimeInterval = firebaseRoom.created
+        let roomAccess:FDatabaseModelRoom.Access = firebaseRoom.access
+        
+        XCTAssertEqual(snapshotPresentation, roomPresentation, "Invalid presentation")
+        XCTAssertEqual(snapshotOwner, roomOwner, "Invalid owner")
+        XCTAssertEqual(snapshotName, roomName, "Invalid name")
+        XCTAssertEqual(snapshotCreated, roomCreated, "Invalid created timestamp")
+        XCTAssertEqual(snapshotAccess, roomAccess, "Invalid access")
+    }
 }
