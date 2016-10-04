@@ -4,7 +4,7 @@ class FDatabaseModelUser:FDatabaseModel
 {
     let name:String
     let created:TimeInterval
-    var rooms:[String]
+    let rooms:FDatabaseModelUserRooms
     private let kEmptyString:String = ""
     private let kNonCreated:TimeInterval = 0
     

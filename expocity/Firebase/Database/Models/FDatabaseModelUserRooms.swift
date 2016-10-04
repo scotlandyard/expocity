@@ -4,6 +4,13 @@ class FDatabaseModelUserRooms:FDatabaseModel
 {
     let rooms:[String]
     
+    override init()
+    {
+        rooms = []
+        
+        super.init()
+    }
+    
     init(rooms:[String])
     {
         self.rooms = rooms
