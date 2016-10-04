@@ -32,20 +32,20 @@ class FDatabaseModelUser:FDatabaseModel
         
         if rawName == nil
         {
-            name = rawName!
+            name = kEmptyString
         }
         else
         {
-            name = kEmptyString
+            name = rawName!
         }
         
         if rawCreated == nil
         {
-            created = rawCreated!
+            created = kNonCreated
         }
         else
         {
-            created = kNonCreated
+            created = rawCreated!
         }
         
         if rawRooms == nil

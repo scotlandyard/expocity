@@ -38,8 +38,24 @@ class TFDatabaseModelUser:XCTestCase
     
     func testSnapshot()
     {
+        let snapshotName:String = kSnapshot["name"] as! String
+        let snapshotCreated:TimeInterval = kSnapshot["created"] as! TimeInterval
+        let snapshotRooms:[String] = kSnapshot["rooms"] as! [String]
+        let snapshotCountRooms:Int = snapshotRooms.count
+        let snapshotLastRoomId:String = snapshotRooms.last!
+        
         let firebaseUser:FDatabaseModelUser = FDatabaseModelUser(
             snapshot:kSnapshot)
-        firebaseUser.name = 
+
+        let userName:String = firebaseUser.name
+        let userCreated:TimeInterval = firebaseUser.created
+        let userRooms:[String] = firebaseUser.rooms
+        let userCountRooms:Int = userRooms.count
+        let userLastRoomId:String = userRooms.last!
+        
+        XCTAssertTrue(userName == snapshotName, "Invalid name")
+        XCTAssertTrue(userCreated == snapshotCreated, "Invalid created timestamp")
+        XCTAssertTrue(snapshotCountRooms == userCountRooms, "Invalid rooms")
+        XCTAssertEqual(snapshotLastRoomId, userLastRoomId, "Invalid room id")
     }
 }
