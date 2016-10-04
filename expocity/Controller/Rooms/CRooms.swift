@@ -18,10 +18,14 @@ class CRooms:CController
     {
         super.viewDidLoad()
         
-        /*
+        let path:String = ""
+        
         listenId = FMain.sharedInstance.database.listen(
             eventType:FIRDataEventType.value,
-            path: <#T##String#>,
-            modelType: <#T##ModelType.Type#>, completion: <#T##((ModelType) -> ())##((ModelType) -> ())##(ModelType) -> ()#>)*/
+            path:path,
+            modelType:FDatabaseModelUserRooms.self)
+        { [weak self] (object:FDatabaseModelUserRooms) in
+            
+        }
     }
 }
