@@ -47,28 +47,11 @@ class FDatabaseModelRoom:FDatabaseModel
     required init(snapshot:Any?)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
-        let rawIntAccess:Int?
-        let rawIntPresentation:Int?
-        let rawName:String?
-        let rawOwner:String?
-        let rawCreated:TimeInterval?
-        
-        if snapshotDict == nil
-        {
-            rawIntAccess = nil
-            rawIntPresentation = nil
-            rawName = nil
-            rawOwner = nil
-            rawCreated = nil
-        }
-        else
-        {
-            rawIntAccess = snapshotDict![Property.access.rawValue] as? Int
-            rawIntPresentation = snapshotDict![Property.presentation.rawValue] as? Int
-            rawName = snapshotDict![Property.name.rawValue] as? String
-            rawOwner = snapshotDict![Property.owner.rawValue] as? String
-            rawCreated = snapshotDict![Property.created.rawValue] as? TimeInterval
-        }
+        let rawIntAccess:Int? = snapshotDict?[Property.access.rawValue] as? Int
+        let rawIntPresentation:Int? = snapshotDict?[Property.presentation.rawValue] as? Int
+        let rawName:String? = snapshotDict?[Property.name.rawValue] as? String
+        let rawOwner:String? = snapshotDict?[Property.owner.rawValue] as? String
+        let rawCreated:TimeInterval? = snapshotDict?[Property.created.rawValue] as? TimeInterval
         
         if rawIntAccess == nil
         {
