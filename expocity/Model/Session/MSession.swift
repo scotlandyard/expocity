@@ -114,7 +114,7 @@ class MSession
         }
     }
     
-    func addedRoom(roomId:String)
+    func createdRoom(roomId:String)
     {
         rooms.append(roomId)
         
