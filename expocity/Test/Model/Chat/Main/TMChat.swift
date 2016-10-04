@@ -40,4 +40,35 @@ class TMChat:XCTestCase
         XCTAssertEqual(snapshotCreated, chatCreated, "Invalid created timestamp")
         XCTAssertEqual(snapshotAccess, chatAccess, "Invalid access")
     }
+    
+    func testChatOwner()
+    {
+        let userId:String = MSession.sharedInstance.user!.userId!
+        let snapshot:[String:Any] = [
+            "owner":userId
+        ]
+        
+        let firebaseRoom:FDatabaseModelRoom = FDatabaseModelRoom(
+            snapshot:snapshot)
+        let chat:MChat = MChat(firebaseRoom:firebaseRoom)
+        
+        let meOwner:Bool = chat.meOwner
+        
+        XCTAssertTrue(meOwner, "Chat owner not working")
+    }
+    
+    func testChatNotOwner()
+    {
+        let snapshot:[String:Any] = [
+            "owner":"123456"
+        ]
+        
+        let firebaseRoom:FDatabaseModelRoom = FDatabaseModelRoom(
+            snapshot:snapshot)
+        let chat:MChat = MChat(firebaseRoom:firebaseRoom)
+        
+        let meOwner:Bool = chat.meOwner
+        
+        XCTAssertFalse(meOwner, "Chat owner not working")
+    }
 }
