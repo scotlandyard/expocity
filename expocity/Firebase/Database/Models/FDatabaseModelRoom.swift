@@ -7,6 +7,8 @@ class FDatabaseModelRoom:FDatabaseModel
     var presentation:Presentation
     let owner:String
     let created:TimeInterval
+    private let kEmptyString:String = ""
+    private let kNonCreated:TimeInterval = 0
     
     enum Property:String
     {
@@ -21,12 +23,14 @@ class FDatabaseModelRoom:FDatabaseModel
     {
         case invitationOnly = 0
         case freeJoin = 1
+        case unknown = 999
     }
     
     enum Presentation:Int
     {
         case owner = 0
         case everyone = 1
+        case unknown = 999
     }
     
     init(name:String, access:Access, owner:String)
@@ -42,15 +46,74 @@ class FDatabaseModelRoom:FDatabaseModel
     
     required init(snapshot:[String:Any])
     {
-        print(snapshot)
+        let rawIntAccess:Int? = snapshot[Property.access.rawValue] as? Int
+        let rawIntPresentation:Int? = snapshot[Property.presentation.rawValue] as? Int
+        let rawName:String? = snapshot[Property.name.rawValue] as? String
+        let rawOwner:String? = snapshot[Property.owner.rawValue] as? String
+        let rawCreated:TimeInterval? = snapshot[Property.created.rawValue] as? TimeInterval
         
-        let rawAccess:Int = snapshot[Property.access.rawValue] as! Int
-        let rawPresentation:Int = snapshot[Property.presentation.rawValue] as! Int
-        name = snapshot[Property.name.rawValue] as! String
-        owner = snapshot[Property.owner.rawValue] as! String
-        created = snapshot[Property.created.rawValue] as! TimeInterval
-        access = Access(rawValue:rawAccess)!
-        presentation = Presentation(rawValue:rawPresentation)!
+        if rawIntAccess == nil
+        {
+            access = Access.unknown
+        }
+        else
+        {
+            let rawAccess:Access? = Access(rawValue:rawIntAccess!)
+            
+            if rawAccess == nil
+            {
+                access = Access.unknown
+            }
+            else
+            {
+                access = rawAccess!
+            }
+        }
+        
+        if rawIntPresentation == nil
+        {
+            presentation = Presentation.unknown
+        }
+        else
+        {
+            let rawPresentation:Presentation? = Presentation(rawValue:rawIntPresentation!)
+            
+            if rawPresentation == nil
+            {
+                presentation = Presentation.unknown
+            }
+            else
+            {
+                presentation = rawPresentation!
+            }
+        }
+        
+        if rawName == nil
+        {
+            name = kEmptyString
+        }
+        else
+        {
+            name = rawName!
+        }
+        
+        if rawOwner == nil
+        {
+            owner = kEmptyString
+        }
+        else
+        {
+            owner = rawOwner!
+        }
+        
+        if rawCreated == nil
+        {
+            created = kNonCreated
+        }
+        else
+        {
+            created = rawCreated!
+        }
         
         super.init()
     }
