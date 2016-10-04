@@ -101,7 +101,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     //MARK: public
     
-    func sessionLoaded()
+    func stopLoading()
     {
         loader.stopAnimating()
         collectionView.isHidden = false

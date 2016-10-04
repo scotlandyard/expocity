@@ -69,6 +69,8 @@ class CHome:CController
     
     private func firebaseRoomCreated(roomId:String)
     {
+        viewHome.stopLoading()
+        
         let chat:CChat = CChat(roomId:roomId)
         parentController.push(controller:chat)
     }
