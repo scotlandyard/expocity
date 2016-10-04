@@ -42,6 +42,8 @@ class FDatabaseModelRoom:FDatabaseModel
     
     required init(snapshot:[String:Any])
     {
+        print(snapshot)
+        
         let rawAccess:Int = snapshot[Property.access.rawValue] as! Int
         let rawPresentation:Int = snapshot[Property.presentation.rawValue] as! Int
         name = snapshot[Property.name.rawValue] as! String

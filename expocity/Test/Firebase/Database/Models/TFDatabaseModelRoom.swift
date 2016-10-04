@@ -3,6 +3,14 @@ import XCTest
 
 class TFDatabaseModelRoom:XCTestCase
 {
+    private let kSnapshot:[String:Any] = [
+        "presentation":1,
+        "owner":"John Test",
+        "name":"My fancy room",
+        "created":1475541121.581116,
+        "access":1
+    ]
+    
     //MARK: -
     
     func testModelJson()

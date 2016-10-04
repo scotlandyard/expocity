@@ -1,15 +1,15 @@
 import XCTest
+@testable import expocity
 
 class TMChat:XCTestCase
 {
+    //MARK: -
     
-    override func setUp()
+    func testFirebaseRoom()
     {
-        super.setUp()
-    }
-    
-    override func tearDown()
-    {
-        super.tearDown()
+        let firebaseRoom:FDatabaseModelRoom = FDatabaseModelRoom(snapshot:[:])
+        let userId:String = firebaseRoom.owner
+        
+        XCTAssertFalse(userId.isEmpty, "Room has no owner")
     }
 }
