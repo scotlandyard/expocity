@@ -43,7 +43,7 @@ class CHome:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewHome.sessionLoaded()
+            self?.viewHome.stopLoading()
         }
     }
     
