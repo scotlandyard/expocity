@@ -4,6 +4,12 @@ class MSession
 {
     static let sharedInstance:MSession = MSession()
     var user:DObjectUser!
+    var rooms:[String]
+    
+    init()
+    {
+        rooms = []
+    }
     
     //MARK: private
     
@@ -62,6 +68,7 @@ class MSession
             path:path,
             json:json)
         
+        rooms = []
         user.userId = userId
         DManager.sharedInstance.save()
         firebaseLoaded()
@@ -81,6 +88,7 @@ class MSession
             modelType:FDatabaseModelUser.self)
         { (object:FDatabaseModelUser) in
             
+            self.rooms = object.rooms
             self.firebaseLoaded()
         }
     }
