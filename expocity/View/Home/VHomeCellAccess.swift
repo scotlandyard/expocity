@@ -206,6 +206,9 @@ class VHomeCellAccess:VHomeCell
                 showFreeJoin()
                 
                 break
+            
+            case FDatabaseModelRoom.Access.unknown:
+                break
         }
     }
     

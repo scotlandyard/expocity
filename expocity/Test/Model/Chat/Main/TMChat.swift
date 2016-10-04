@@ -3,6 +3,14 @@ import XCTest
 
 class TMChat:XCTestCase
 {
+    private let kRoomSnapshot:[String:Any] = [
+        "presentation":1,
+        "owner":"John Test",
+        "name":"My fancy room",
+        "created":1475541121.581116,
+        "access":1
+    ]
+    
     //MARK: -
     
     func testFirebaseRoom()
