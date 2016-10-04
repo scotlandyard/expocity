@@ -12,7 +12,3 @@ end
 target 'expocity' do
   podlist
 end
-
-target 'tests' do
-  podlist
-end
