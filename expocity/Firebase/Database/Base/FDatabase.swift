@@ -49,7 +49,7 @@ class FDatabase
     func listen<ModelType:FDatabaseModel>(eventType:FIRDataEventType, path:String, modelType:ModelType.Type, completion:@escaping((ModelType) -> ())) -> UInt
     {
         let pathReference:FIRDatabaseReference = reference.child(path)
-        let listenId:UInt = pathReference.observe(eventType)
+        let handler:UInt = pathReference.observe(eventType)
         { (snapshot:FIRDataSnapshot) in
             
             let json:Any? = snapshot.value
@@ -58,6 +58,12 @@ class FDatabase
             completion(model)
         }
         
-        return listenId
+        return handler
+    }
+    
+    func stopListening(path:String, handler:UInt)
+    {
+        let pathReference:FIRDatabaseReference = reference.child(path)
+        pathReference.removeObserver(withHandle:handler)
     }
 }

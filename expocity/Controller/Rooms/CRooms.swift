@@ -5,7 +5,10 @@ class CRooms:CController
 {
     weak var viewRooms:VRooms!
     var model:MRooms?
-    var listenId:UInt?
+    var listenPath:String?
+    var listenHandler:UInt?
+    
+    
     
     override func loadView()
     {
@@ -20,7 +23,7 @@ class CRooms:CController
         
         let path:String = ""
         
-        listenId = FMain.sharedInstance.database.listen(
+        listenHandler = FMain.sharedInstance.database.listen(
             eventType:FIRDataEventType.value,
             path:path,
             modelType:FDatabaseModelUserRooms.self)
