@@ -55,22 +55,17 @@ class CChat:CController
     
     private func loadModel()
     {
-        let roomReference:String = FDatabase.Parent.Room.rawValue
-        
-        let userReference:String = FDatabase.Parent.User.rawValue
-        let userId:String = user.userId!
+        let roomReference:String = FDatabase.Parent.room.rawValue
         let path:String = String(
             format:"%@/%@",
-            userReference,
-            userId)
+            roomReference,
+            roomId)
         
         FMain.sharedInstance.database.listenOnce(
             path:path,
-            modelType:FDatabaseModelUser.self)
-        { (object:FDatabaseModelUser) in
+            modelType:FDatabaseModelRoom.self)
+        { [weak self] (object:FDatabaseModelRoom) in
             
-            self.rooms = object.rooms
-            self.firebaseLoaded()
         }
     }
     

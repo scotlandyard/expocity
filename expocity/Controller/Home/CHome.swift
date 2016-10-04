@@ -53,7 +53,7 @@ class CHome:CController
     {
         let firebaseRoom:FDatabaseModelRoom = model.room()
         let json:[String:Any] = firebaseRoom.modelJson()
-        let path:String = FDatabase.Parent.Room.rawValue
+        let path:String = FDatabase.Parent.room.rawValue
         let roomId:String = FMain.sharedInstance.database.createChild(
             path:path,
             json:json)

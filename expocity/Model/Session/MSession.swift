@@ -63,7 +63,7 @@ class MSession
     {
         let firebaseUser:FDatabaseModelUser = FDatabaseModelUser(name:user.name!)
         let json:[String:Any] = firebaseUser.modelJson()
-        let path:String = FDatabase.Parent.User.rawValue
+        let path:String = FDatabase.Parent.user.rawValue
         let userId:String = FMain.sharedInstance.database.createChild(
             path:path,
             json:json)
@@ -76,7 +76,7 @@ class MSession
     
     private func loadFirebaseUser()
     {
-        let userReference:String = FDatabase.Parent.User.rawValue
+        let userReference:String = FDatabase.Parent.user.rawValue
         let userId:String = user.userId!
         let path:String = String(
             format:"%@/%@",
@@ -118,7 +118,7 @@ class MSession
     {
         rooms.append(roomId)
         
-        let userReference:String = FDatabase.Parent.User.rawValue
+        let userReference:String = FDatabase.Parent.user.rawValue
         let userId:String = user.userId!
         let roomsReference:String = FDatabaseModelUser.Property.rooms.rawValue
         let path:String = String(
