@@ -3,24 +3,18 @@ import UIKit
 class CChat:CController
 {
     weak var viewChat:VChat!
-    let model:MChat
+    let roomId:String
+    var model:MChat!
     
-    init(model:MChat)
+    init(roomId:String)
     {
-        self.model = model
-        
+        self.roomId = roomId
         super.init(nibName:nil, bundle:nil)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
-    }
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        title = model.title
     }
     
     override func loadView()

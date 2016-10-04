@@ -69,7 +69,7 @@ class CHome:CController
     
     private func firebaseRoomCreated(roomId:String)
     {
-        let chat:CChat = CChat(model:modelChat)
+        let chat:CChat = CChat(roomId:roomId)
         parentController.push(controller:chat)
     }
     
