@@ -27,10 +27,11 @@ class TFDatabaseModelRoom:XCTestCase
             access:access,
             owner:owner)
         
-        let json:[String:Any] = firebaseRoom.modelJson()
-        let roomName:String? = json[nameKey] as? String
-        let roomOwner:String? = json[ownerKey] as? String
-        let roomRawAccess:Int? = json[accessKey] as? Int
+        let json:Any = firebaseRoom.modelJson()
+        let jsonDict:[String:Any]? = json as? [String:Any]
+        let roomName:String? = jsonDict?[nameKey] as? String
+        let roomOwner:String? = jsonDict?[ownerKey] as? String
+        let roomRawAccess:Int? = jsonDict?[accessKey] as? Int
         
         XCTAssertNotNil(roomRawAccess, "Invalid raw access")
         

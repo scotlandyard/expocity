@@ -25,10 +25,11 @@ class TFDatabaseModelUser:XCTestCase
         let firebaseUser:FDatabaseModelUser = FDatabaseModelUser(
             name:name)
         
-        let json:[String:Any] = firebaseUser.modelJson()
-        let userName:String? = json[nameKey] as? String
-        let userCreated:TimeInterval? = json[createdKey] as? TimeInterval
-        let userRooms:[String]? = json[roomsKey] as? [String]
+        let json:Any = firebaseUser.modelJson()
+        let jsonDict:[String:Any]? = json as? [String:Any]
+        let userName:String? = jsonDict?[nameKey] as? String
+        let userCreated:TimeInterval? = jsonDict?[createdKey] as? TimeInterval
+        let userRooms:[String]? = jsonDict?[roomsKey] as? [String]
         
         XCTAssertEqual(name, userName, "Invalid name")
         XCTAssertNotNil(userCreated, "Not storing user creation timestamp")
