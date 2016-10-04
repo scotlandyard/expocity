@@ -45,4 +45,19 @@ class FDatabase
             completion(model)
         }
     }
+    
+    func listen<ModelType:FDatabaseModel>(eventType:FIRDataEventType, path:String, modelType:ModelType.Type, completion:@escaping((ModelType) -> ())) -> UInt
+    {
+        let pathReference:FIRDatabaseReference = reference.child(path)
+        let listenId:UInt = pathReference.observe(eventType)
+        { (snapshot:FIRDataSnapshot) in
+            
+            let json:[String:Any] = snapshot.value as! [String:Any]
+            let model:ModelType = ModelType(snapshot:json)
+            
+            completion(model)
+        }
+        
+        return listenId
+    }
 }
