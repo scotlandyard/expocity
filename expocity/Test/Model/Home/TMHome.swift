@@ -23,6 +23,9 @@ class TMHome:XCTestCase
     
     func testEmptyRoomName()
     {
-        mHome.itm
+        let firebaseRoom:FDatabaseModelRoom = mHome!.room()
+        let roomName:String = firebaseRoom.name
+        
+        XCTAssertFalse(roomName.isEmpty, "Room name is empty")
     }
 }
