@@ -75,7 +75,23 @@ class VChat:UIView
     
     //MARK: private
     
-    private func chatLoaded()
+    private func animateInput(bottom:CGFloat)
+    {
+        let currentOffset:CGPoint = conversation.collectionView.contentOffset
+        let newCollectionOffsetY:CGFloat = currentOffset.y - bottom
+        layoutInputBottom.constant = bottom
+        conversation.collectionView.contentOffset = CGPoint(x:0, y:newCollectionOffsetY)
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
+    //MARK: public
+    
+    func chatLoaded()
     {
         spinner?.removeFromSuperview()
         
@@ -175,22 +191,6 @@ class VChat:UIView
         
         listenToKeyboard()
     }
-    
-    private func animateInput(bottom:CGFloat)
-    {
-        let currentOffset:CGPoint = conversation.collectionView.contentOffset
-        let newCollectionOffsetY:CGFloat = currentOffset.y - bottom
-        layoutInputBottom.constant = bottom
-        conversation.collectionView.contentOffset = CGPoint(x:0, y:newCollectionOffsetY)
-        
-        UIView.animate(withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        }
-    }
-    
-    //MARK: public
     
     func presentImagePicker()
     {

@@ -73,7 +73,16 @@ class CChat:CController
     
     private func modelLoaded()
     {
-        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.chatReady()
+        }
+    }
+    
+    private func chatReady()
+    {
+        viewChat.chatLoaded()
     }
     
     private func addChatItem(chatItem:MChatItem)
