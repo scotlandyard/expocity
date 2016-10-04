@@ -1,6 +1,6 @@
 import Foundation
 
-class FdatabaseModelUser:FDatabaseModel
+class FDatabaseModelUser:FDatabaseModel
 {
     let name:String
     let created:TimeInterval

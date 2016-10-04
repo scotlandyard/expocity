@@ -7,6 +7,11 @@ class TFDatabaseModelUser:XCTestCase
     
     func testModelJson()
     {
+        let name:String = "John Test"
         
+        let firebaseUser:FdatabaseModelUser = FdatabaseModelUser(
+            name:name)
+        
+        let json:[String:Any] = firebaseUser.modelJson()
     }
 }
