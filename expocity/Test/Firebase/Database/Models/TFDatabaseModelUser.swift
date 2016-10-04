@@ -53,9 +53,9 @@ class TFDatabaseModelUser:XCTestCase
         let userCountRooms:Int = userRooms.count
         let userLastRoomId:String = userRooms.last!
         
-        XCTAssertTrue(userName == snapshotName, "Invalid name")
-        XCTAssertTrue(userCreated == snapshotCreated, "Invalid created timestamp")
-        XCTAssertTrue(snapshotCountRooms == userCountRooms, "Invalid rooms")
+        XCTAssertEqual(userName, snapshotName, "Invalid name")
+        XCTAssertEqual(userCreated, snapshotCreated, "Invalid created timestamp")
+        XCTAssertEqual(snapshotCountRooms, userCountRooms, "Invalid rooms")
         XCTAssertEqual(snapshotLastRoomId, userLastRoomId, "Invalid room id")
     }
 }
