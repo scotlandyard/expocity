@@ -5,8 +5,8 @@ class FDatabase
 {
     enum Parent:String
     {
-        case User = "user"
-        case Room = "room"
+        case user = "user"
+        case room = "room"
     }
     
     private let reference:FIRDatabaseReference
