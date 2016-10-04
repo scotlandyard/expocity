@@ -63,10 +63,12 @@ class FDatabaseModelUser:FDatabaseModel
 
     override func modelJson() -> Any
     {
+        let roomsArray:[String] = rooms.rooms
+        
         let json:[String:Any] = [
             Property.name.rawValue:name,
             Property.created.rawValue:created,
-            Property.rooms.rawValue:rooms
+            Property.rooms.rawValue:roomsArray
         ]
         
         return json

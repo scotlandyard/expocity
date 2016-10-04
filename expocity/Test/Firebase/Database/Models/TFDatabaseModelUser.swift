@@ -50,7 +50,7 @@ class TFDatabaseModelUser:XCTestCase
 
         let userName:String = firebaseUser.name
         let userCreated:TimeInterval = firebaseUser.created
-        let userRooms:[String] = firebaseUser.rooms
+        let userRooms:[String] = firebaseUser.rooms.rooms
         let userCountRooms:Int = userRooms.count
         let userLastRoomId:String = userRooms.last!
         
