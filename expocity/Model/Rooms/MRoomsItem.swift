@@ -3,6 +3,7 @@ import Foundation
 class MRoomsItem
 {
     let roomId:String
+    var roomName:String?
     
     init(roomId:String)
     {
@@ -19,11 +20,18 @@ class MRoomsItem
     
     private func loadRoom()
     {
-        
+        let roomRerence:String = FDatabase.Parent.room.rawValue
+        let path:String = String(
+            format:"%@/%@",
+            roomRerence,
+            roomId)
         
         FMain.sharedInstance.database.listenOnce(
-            path: <#T##String#>,
-            modelType: <#T##ModelType.Type#>,
-            completion: <#T##((ModelType) -> ())##((ModelType) -> ())##(ModelType) -> ()#>)
+            path:path,
+            modelType:FDatabaseModelRoom.self)
+        { [weak self] (object:FDatabaseModelRoom) in
+            
+            self?.roomName = object.name
+        }
     }
 }

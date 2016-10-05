@@ -46,6 +46,16 @@ class CRooms:CController
         { [weak self] (object:FDatabaseModelUserRooms) in
             
             self?.model = MRooms(rooms:object)
+            self?.roomsLoaded()
+        }
+    }
+    
+    private func roomsLoaded()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewRooms.roomsReload()
         }
     }
 }
