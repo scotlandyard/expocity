@@ -6,6 +6,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var spinner:VMainLoader?
     weak var collectionView:UICollectionView!
     private let kCollectionFooter:CGFloat = 80
+    private let kCellHeight:CGFloat = 50
     private let kLineSpacing:CGFloat = 1
     
     convenience init(controller:CRooms)
@@ -99,6 +100,14 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     //MARK: collection delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
