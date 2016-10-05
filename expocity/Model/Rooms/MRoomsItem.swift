@@ -4,6 +4,7 @@ class MRoomsItem
 {
     let roomId:String
     var roomName:String?
+    weak var cell:VRoomsCell?
     
     init(roomId:String)
     {
