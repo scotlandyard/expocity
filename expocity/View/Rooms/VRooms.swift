@@ -91,5 +91,33 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     //MARK: collection delegate
     
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int
+        
+        if controller.model == nil
+        {
+            count = 0
+        }
+        else
+        {
+            count = controller.model!.items.count
+        }
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VRoomsCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:VRoomsCell.reusableIdentifier(),
+            for:indexPath) as! VRoomsCell
+        
+        return cell
+    }
 }
