@@ -3,12 +3,12 @@ import UIKit
 class CChat:CController
 {
     weak var viewChat:VChat!
-    let model:MChat
+    let roomId:String
+    var model:MChat!
     
-    init(model:MChat)
+    init(roomId:String)
     {
-        self.model = model
-        
+        self.roomId = roomId
         super.init(nibName:nil, bundle:nil)
     }
     
@@ -17,10 +17,18 @@ class CChat:CController
         fatalError()
     }
     
-    override func viewDidLoad()
+    override func viewDidAppear(_ animated:Bool)
     {
-        super.viewDidLoad()
-        title = model.title
+        super.viewDidAppear(animated)
+        
+        if model == nil
+        {
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.loadModel()
+            }
+        }
     }
     
     override func loadView()
@@ -44,6 +52,39 @@ class CChat:CController
     }
     
     //MARK: private
+    
+    private func loadModel()
+    {
+        let roomReference:String = FDatabase.Parent.room.rawValue
+        let path:String = String(
+            format:"%@/%@",
+            roomReference,
+            roomId)
+        
+        FMain.sharedInstance.database.listenOnce(
+            path:path,
+            modelType:FDatabaseModelRoom.self)
+        { [weak self] (object:FDatabaseModelRoom) in
+            
+            self?.model = MChat(firebaseRoom:object)
+            self?.modelLoaded()
+        }
+    }
+    
+    private func modelLoaded()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.chatReady()
+        }
+    }
+    
+    private func chatReady()
+    {
+        title = model.title
+        viewChat.chatLoaded()
+    }
     
     private func addChatItem(chatItem:MChatItem)
     {

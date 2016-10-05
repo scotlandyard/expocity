@@ -98,7 +98,7 @@ class VParent:UIView
         {
             self.layoutIfNeeded()
         })
-        { (done) in
+        { (done:Bool) in
             
             completion()
         }
@@ -213,7 +213,7 @@ class VParent:UIView
             self.layoutIfNeeded()
             self.parent.controllers.last?.shadow?.maxAlpha()
         })
-        { (done) in
+        { (done:Bool) in
             
             completion()
         }
@@ -238,7 +238,7 @@ class VParent:UIView
             self.layoutIfNeeded()
             previous.shadow?.minAlpha()
         })
-        { (done) in
+        { (done:Bool) in
             
             previous.shadow?.removeFromSuperview()
             completion()
@@ -254,7 +254,7 @@ class VParent:UIView
         {
             controller.view.alpha = 0
         })
-        { (done) in
+        { (done:Bool) in
             
             completion()
         }

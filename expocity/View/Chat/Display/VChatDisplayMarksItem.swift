@@ -12,13 +12,13 @@ class VChatDisplayMarksItem:UIButton
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        setImage(UIImage(named:"chatAnnotation"), for:UIControlState())
-        setImage(UIImage(named:"chatAnnotationSelected"), for:UIControlState.selected)
+        setImage(#imageLiteral(resourceName: "chatAnnotation"), for:UIControlState())
+        setImage(#imageLiteral(resourceName: "chatAnnotationSelected"), for:UIControlState.selected)
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
         addTarget(
             self,
-            action:#selector(self.actionButton(sender:)),
+            action:#selector(actionButton(sender:)),
             for:UIControlEvents.touchUpInside)
         self.model = model
         self.controller = controller
@@ -42,12 +42,12 @@ class VChatDisplayMarksItem:UIButton
         timer = Timer.scheduledTimer(
             timeInterval:kTimeInterval,
             target:self,
-            selector:#selector(self.timeOut(sender:)),
+            selector:#selector(timeOut(sender:)),
             userInfo:nil,
             repeats:false)
         
         let alertMessage:String = model.text
-        let alertType:VMainAlert.VMainAlertType = VMainAlert.VMainAlertType.annotation
+        let alertType:VMainAlert.AlertType = VMainAlert.AlertType.annotation
         VMainAlert.Show(message:alertMessage, type:alertType)
     }
     

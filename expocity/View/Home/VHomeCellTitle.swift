@@ -9,7 +9,6 @@ class VHomeCellTitle:VHomeCell, UITextFieldDelegate
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.clear
         
         let base:UIView = UIView()
         base.isUserInteractionEnabled = false

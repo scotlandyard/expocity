@@ -23,10 +23,13 @@ class VChatDisplayDetailBar:UIView
         let closeButton:UIButton = UIButton()
         closeButton.clipsToBounds = true
         closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.setImage(UIImage(named:"genericClose"), for:UIControlState())
+        closeButton.setImage(#imageLiteral(resourceName: "genericClose"), for:UIControlState())
         closeButton.imageView!.contentMode = UIViewContentMode.center
         closeButton.imageView!.clipsToBounds = true
-        closeButton.addTarget(self, action:#selector(self.actionClose(sender:)), for:UIControlEvents.touchUpInside)
+        closeButton.addTarget(
+            self,
+            action:#selector(actionClose(sender:)),
+            for:UIControlEvents.touchUpInside)
         closeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 42)
         
         addSubview(closeButton)

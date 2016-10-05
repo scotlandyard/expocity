@@ -1,3 +1,4 @@
+"MHome_noTitle"="Unnamed room";
 "MMenuItemHome_title"="Home";
 "MMenuItemSettings_title"="Settings";
 "MMenuItemHistory_title"="History";
@@ -12,6 +13,9 @@
 
 "VHomeCellCreate_label"="Create";
 "VHomeCellTitle_placeholder"="Room title";
+"VHomeCellAccess_labelTitle"="Access";
+"VHomeCellAccess_labelInvitationOnly"="Invitation only";
+"VHomeCellAccess_labelFreeJoin"="Free join";
 "VChatDisplayOptions_buttonDone"="Done";
 "VChatDisplayAnnotationsBar_labelTitle"="Annotations";
 "VChatDisplayAnnotationsTutorial_tutorialPlaceMark"="Tap on the picture to add annotation";
@@ -22,3 +26,6 @@
 "VChatDisplayAnnotationsListCell_removeTitle"="Remove annotation?";
 "VChatDisplayAnnotationsListCell_removeButton"="Remove";
 "VChatDisplayAnnotationsListCell_removeCancel"="Cancel";
+"VRoomsFooter_buttonCreate"="Create room";
+
+"DObjectUser_defaultName"="No name";

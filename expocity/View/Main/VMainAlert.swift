@@ -2,7 +2,7 @@ import UIKit
 
 class VMainAlert:UIView
 {
-    enum VMainAlertType
+    enum AlertType
     {
         case annotation
         case warning
@@ -21,7 +21,7 @@ class VMainAlert:UIView
     private let kAlertDuration:TimeInterval = 3
     private let kBorderHeight:CGFloat = 1
     
-    class func Show(message:String, type:VMainAlertType)
+    class func Show(message:String, type:AlertType)
     {
         DispatchQueue.main.async
         {
@@ -64,7 +64,7 @@ class VMainAlert:UIView
         }
     }
     
-    convenience init(message:String, type:VMainAlertType)
+    convenience init(message:String, type:AlertType)
     {
         self.init()
         isUserInteractionEnabled = false
@@ -108,7 +108,8 @@ class VMainAlert:UIView
             "borderHeight":kBorderHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView(imageWidth)]-0-[label]-(imageWidth)-|",
+            withVisualFormat:
+            "H:|-0-[imageView(imageWidth)]-0-[label]-(imageWidth)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -146,31 +147,31 @@ class VMainAlert:UIView
         {
             self.superview!.layoutIfNeeded()
         })
-        { (done) in
+        { (done:Bool) in
             
             self.removeFromSuperview()
         }
     }
     
-    private func setIcon(imageView:UIImageView, type:VMainAlertType)
+    private func setIcon(imageView:UIImageView, type:AlertType)
     {
         let imageName:String
         
         switch type
         {
-            case VMainAlertType.annotation:
+            case AlertType.annotation:
             
                 imageName = kIconAnnotation
                 
                 break
             
-            case VMainAlertType.warning:
+            case AlertType.warning:
                 
                 imageName = kIconWarning
                 
                 break
             
-            case VMainAlertType.error:
+            case AlertType.error:
             
                 imageName = kIconError
                 
@@ -188,14 +189,17 @@ class VMainAlert:UIView
         {
             self.superview!.layoutIfNeeded()
         })
-        { (done) in
+        { [weak self] (done:Bool) in
             
-            self.timer = Timer.scheduledTimer(
-                timeInterval:self.kAlertDuration,
-                target:self,
-                selector:#selector(self.timeOut(sender:)),
-                userInfo:nil,
-                repeats:false)
+            if self != nil
+            {
+                self!.timer = Timer.scheduledTimer(
+                    timeInterval:self!.kAlertDuration,
+                    target:self!,
+                    selector:#selector(self!.timeOut(sender:)),
+                    userInfo:nil,
+                    repeats:false)
+            }
         }
     }
 }

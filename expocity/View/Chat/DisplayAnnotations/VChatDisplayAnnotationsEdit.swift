@@ -31,7 +31,7 @@ class VChatDisplayAnnoationsEdit:UIView, UITextFieldDelegate
         doneButton.titleLabel!.font = UIFont.bold(size:15)
         doneButton.addTarget(
             self,
-            action:#selector(self.actionDone(sender:)),
+            action:#selector(actionDone(sender:)),
             for:UIControlEvents.touchUpInside)
         
         let fieldBase:UIView = UIView()

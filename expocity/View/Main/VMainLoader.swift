@@ -2,17 +2,17 @@ import UIKit
 
 class VMainLoader:UIImageView
 {
-    private let kAnimationDuration:TimeInterval = 2
+    private let kAnimationDuration:TimeInterval = 1
     
     init()
     {
         super.init(frame:CGRect.zero)
         
         let images:[UIImage] = [
-            UIImage(named:"genericLoader0")!,
-            UIImage(named:"genericLoader1")!,
-            UIImage(named:"genericLoader2")!,
-            UIImage(named:"genericLoader3")!
+            #imageLiteral(resourceName: "genericLoader0"),
+            #imageLiteral(resourceName: "genericLoader1"),
+            #imageLiteral(resourceName: "genericLoader2"),
+            #imageLiteral(resourceName: "genericLoader3")
         ]
         
         isUserInteractionEnabled = false

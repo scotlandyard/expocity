@@ -8,6 +8,7 @@ class VChat:UIView
     weak var conversation:VChatConversation!
     weak var emojiKeyboard:VChatEmojiKeyboard!
     weak var layoutInputBottom:NSLayoutConstraint!
+    weak var spinner:VMainLoader?
     private let kAnimationDuration:TimeInterval = 0.4
     
     convenience init(controller:CChat)
@@ -17,6 +18,82 @@ class VChat:UIView
         backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let spinner:VMainLoader = VMainLoader()
+        self.spinner = spinner
+        
+        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+        
+        addSubview(spinner)
+        
+        let views:[String:UIView] = [
+            "spinner":spinner]
+        
+        let metrics:[String:CGFloat] = [
+            "barHeight":barHeight]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notified
+    
+    func notifiedKeyboardChanged(sender notification:Notification)
+    {
+        let userInfo:[AnyHashable:Any] = notification.userInfo!
+        let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let keyRect:CGRect = keyboardFrameValue.cgRectValue
+        let yOrigin = keyRect.origin.y
+        let screenHeight:CGFloat = UIScreen.main.bounds.size.height
+        let keyboardHeight:CGFloat
+        
+        if yOrigin < screenHeight
+        {
+            keyboardHeight = screenHeight - yOrigin
+        }
+        else
+        {
+            keyboardHeight = 0
+        }
+        
+        let newInputBottom:CGFloat = -keyboardHeight
+        animateInput(bottom:newInputBottom)
+    }
+    
+    //MARK: private
+    
+    private func animateInput(bottom:CGFloat)
+    {
+        let currentOffset:CGPoint = conversation.collectionView.contentOffset
+        let newCollectionOffsetY:CGFloat = currentOffset.y - bottom
+        layoutInputBottom.constant = bottom
+        conversation.collectionView.contentOffset = CGPoint(x:0, y:newCollectionOffsetY)
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
+    //MARK: public
+    
+    func chatLoaded()
+    {
+        spinner?.removeFromSuperview()
         
         let input:VChatInput = VChatInput(controller:controller)
         self.input = input
@@ -115,53 +192,6 @@ class VChat:UIView
         listenToKeyboard()
     }
     
-    deinit
-    {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    //MARK: notified
-    
-    func notifiedKeyboardChanged(sender notification:Notification)
-    {
-        let userInfo:[AnyHashable:Any] = notification.userInfo!
-        let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
-        let keyRect:CGRect = keyboardFrameValue.cgRectValue
-        let yOrigin = keyRect.origin.y
-        let screenHeight:CGFloat = UIScreen.main.bounds.size.height
-        let keyboardHeight:CGFloat
-        
-        if yOrigin < screenHeight
-        {
-            keyboardHeight = screenHeight - yOrigin
-        }
-        else
-        {
-            keyboardHeight = 0
-        }
-        
-        let newInputBottom:CGFloat = -keyboardHeight
-        animateInput(bottom:newInputBottom)
-    }
-    
-    //MARK: private
-    
-    private func animateInput(bottom:CGFloat)
-    {
-        let currentOffset:CGPoint = conversation.collectionView.contentOffset
-        let newCollectionOffsetY:CGFloat = currentOffset.y - bottom
-        layoutInputBottom.constant = bottom
-        conversation.collectionView.contentOffset = CGPoint(x:0, y:newCollectionOffsetY)
-        
-        UIView.animate(withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        }
-    }
-    
-    //MARK: public
-    
     func presentImagePicker()
     {
         let chatPicker:CChatDisplayPicker = CChatDisplayPicker(controller:controller)
@@ -173,7 +203,7 @@ class VChat:UIView
     {
         NotificationCenter.default.addObserver(
             self,
-            selector:#selector(self.notifiedKeyboardChanged(sender:)),
+            selector:#selector(notifiedKeyboardChanged(sender:)),
             name:NSNotification.Name.UIKeyboardWillChangeFrame,
             object:nil)
     }

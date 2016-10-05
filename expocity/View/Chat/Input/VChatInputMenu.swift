@@ -3,7 +3,7 @@ import UIKit
 class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CChat!
-    weak var collection:UICollectionView!
+    weak var collectionView:UICollectionView!
     let model:MChatMenu
     private let kCellWidth:CGFloat = 50
     private let kWaitingTime:TimeInterval = 1
@@ -25,36 +25,36 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         
-        let collection:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
-        collection.clipsToBounds = true
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.showsVerticalScrollIndicator = false
-        collection.isScrollEnabled = false
-        collection.bounces = false
-        collection.backgroundColor = UIColor.clear
-        collection.dataSource = self
-        collection.delegate = self
-        collection.register(
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.isScrollEnabled = false
+        collectionView.bounces = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(
             VChatInputMenuCell.self,
             forCellWithReuseIdentifier:
             VChatInputMenuCell.reusableIdentifier())
-        self.collection = collection
+        self.collectionView = collectionView
         
-        addSubview(collection)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "collection":collection]
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[collection]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[collection]-0-|",
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -67,7 +67,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     override func layoutSubviews()
     {
-        collection.collectionViewLayout.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()
         super.layoutSubviews()
     }
     
@@ -97,7 +97,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         if currentStatus == nil
         {
             model.status = MChatMenuStatusTyping()
-            collection.reloadData()
+            collectionView.reloadData()
         }
     }
     
@@ -108,7 +108,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         if currentStatus == nil
         {
             model.status = MChatMenuStatusTypeReady()
-            collection.reloadData()
+            collectionView.reloadData()
         }
     }
     
@@ -119,7 +119,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         if currentStatus == nil
         {
             model.status = MChatMenuStatusStandby()
-            collection.reloadData()
+            collectionView.reloadData()
         }
     }
     
@@ -130,7 +130,7 @@ class VChatInputMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         if currentStatus == nil
         {
             model.status = MChatMenuStatusStandbyImage()
-            collection.reloadData()
+            collectionView.reloadData()
         }
     }
     

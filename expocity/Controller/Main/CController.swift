@@ -6,6 +6,14 @@ class CController:UIViewController
     weak var layoutRight:NSLayoutConstraint!
     weak var shadow:VMainShadow?
     
+    override var title:String?
+    {
+        didSet
+        {
+            parentController.viewParent.bar.label.text = title
+        }
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()

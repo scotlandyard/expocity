@@ -15,7 +15,7 @@ class VChatEmojiKeyboardFooter:UICollectionReusableView
         button.setImage(#imageLiteral(resourceName: "chatHideKeyboard"), for:UIControlState.normal)
         button.addTarget(
             self,
-            action:#selector(self.actionClose(sender:)),
+            action:#selector(actionClose(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(button)

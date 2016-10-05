@@ -33,7 +33,7 @@ class VChatDisplayAnnotationsTutorial:UIView
         cancelButton.titleLabel!.font = UIFont.bold(size:20)
         cancelButton.addTarget(
             self,
-            action:#selector(self.actionCancel(sender:)),
+            action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(label)

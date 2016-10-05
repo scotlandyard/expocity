@@ -2,14 +2,14 @@ import UIKit
 
 class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    let model:MMenu
     weak var parent:CParent!
-    weak var collection:UICollectionView!
+    weak var collectionView:UICollectionView!
     weak var label:UILabel!
     weak var backButton:UIButton!
     private var currentWidth:CGFloat
     private let barHeight:CGFloat
     private let barDelta:CGFloat
-    private let model:MMenu
     private let kCellWidth:CGFloat = 80
     private let kAnimationDuration:TimeInterval = 0.3
     private let kWaitingTime:TimeInterval = 1
@@ -34,21 +34,21 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         
-        let collection:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
-        collection.clipsToBounds = true
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = UIColor.clear
-        collection.showsVerticalScrollIndicator = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.isScrollEnabled = false
-        collection.bounces = false
-        collection.dataSource = self
-        collection.delegate = self
-        collection.register(
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isScrollEnabled = false
+        collectionView.bounces = false
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(
             VBarCell.self,
             forCellWithReuseIdentifier:
             VBarCell.reusableIdentifier())
-        self.collection = collection
+        self.collectionView = collectionView
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -62,23 +62,23 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named:"genericBack"), for:UIControlState())
+        backButton.setImage(#imageLiteral(resourceName: "genericBack"), for:UIControlState())
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.alpha = 0
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
         backButton.addTarget(
             self,
-            action:#selector(self.actionBack(sender:)),
+            action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         self.backButton = backButton
         
         addSubview(label)
         addSubview(backButton)
-        addSubview(collection)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "collection":collection,
+            "collectionView":collectionView,
             "backButton":backButton,
             "label":label]
         
@@ -87,7 +87,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             "barDelta":barDelta]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-30-[label]-30-|",
+            withVisualFormat:"H:|-60-[label]-60-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -97,12 +97,12 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[collection]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[collection(barHeight)]-0-|",
+            withVisualFormat:"V:[collectionView(barHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -120,7 +120,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         {
             let indexPath:IndexPath = IndexPath(item:self.model.current.index, section:0)
-            self.collection.selectItem(
+            self.collectionView.selectItem(
                 at:indexPath,
                 animated:false,
                 scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
@@ -139,13 +139,13 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         if currentWidth != width
         {
             currentWidth = width
-            collection.collectionViewLayout.invalidateLayout()
+            collectionView.collectionViewLayout.invalidateLayout()
             
             DispatchQueue.main.async
             {
                 let selected:Int = self.model.current.index
                 let selectedIndexPath:IndexPath = IndexPath(item:selected, section:0)
-                self.collection.scrollToItem(
+                self.collectionView.scrollToItem(
                     at:selectedIndexPath,
                     at:UICollectionViewScrollPosition.centeredHorizontally,
                     animated:true)
@@ -161,7 +161,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             
             if self.model.state.showOptions()
             {
-                self.collection.alpha = alpha
+                self.collectionView.alpha = alpha
             }
             
             if self.model.state.showBackButton()
@@ -192,6 +192,22 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let item:MMenuItem = model.items[index.item]
         
         return item
+    }
+    
+    private func selectItem(item:MMenuItem)
+    {
+        let controller:CController = item.controller()
+        
+        if item.index < model.current.index
+        {
+            parent.scrollLeft(controller:controller)
+        }
+        else
+        {
+            parent.scrollRight(controller:controller)
+        }
+        
+        model.current = item
     }
     
     //MARK: public
@@ -234,7 +250,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         UIView.animate(withDuration:kAnimationDuration)
         {
-            self.collection.alpha = alphaCollection
+            self.collectionView.alpha = alphaCollection
             self.backButton.alpha = alphaBackButton
             self.label.alpha = alphaLabel
         }
@@ -277,10 +293,22 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         UIView.animate(withDuration:kAnimationDuration)
         {
-            self.collection.alpha = alphaCollection
+            self.collectionView.alpha = alphaCollection
             self.backButton.alpha = alphaBackButton
             self.label.alpha = alphaLabel
         }
+    }
+    
+    func synthSelect(index:Int)
+    {
+        let menuItem:MMenuItem = model.items[index]
+        let indexPath:IndexPath = IndexPath(item:index, section:0)
+        selectItem(item:menuItem)
+        
+        collectionView.selectItem(
+            at:indexPath,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
     }
     
     //MARK: col del
@@ -332,18 +360,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         if item !== model.current
         {
-            let controller:CController = item.controller()
-            
-            if item.index < model.current.index
-            {
-                parent.scrollLeft(controller:controller)
-            }
-            else
-            {
-                parent.scrollRight(controller:controller)
-            }
-            
-            model.current = item
+            selectItem(item:item)
             
             collectionView.scrollToItem(
                 at:indexPath,
