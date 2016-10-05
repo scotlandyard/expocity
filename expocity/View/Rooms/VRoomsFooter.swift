@@ -3,6 +3,11 @@ import UIKit
 class VRoomsFooter:UICollectionReusableView
 {
     weak var controller:CRooms!
+    weak var layoutButtonCreateLeft:NSLayoutConstraint!
+    private let kButtonCreateWidth:CGFloat = 160
+    private let kButtonCreateHeight:CGFloat = 36
+    private let kButtonCreateTop:CGFloat = 20
+    private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
@@ -17,13 +22,54 @@ class VRoomsFooter:UICollectionReusableView
         buttonCreate.setTitle(NSLocalizedString("VRoomsFooter_buttonCreate", comment:""), for:UIControlState.normal)
         buttonCreate.titleLabel!.font = UIFont.bold(size:14)
         buttonCreate.setTitleColor(UIColor.white, for:UIControlState.normal)
+        buttonCreate.layer.cornerRadius = kCornerRadius
         
         addSubview(buttonCreate)
         
+        let views:[String:UIView] = [
+            "buttonCreate":buttonCreate]
+        
+        let metrics:[String:CGFloat] = [
+            "buttonCreateWidth":kButtonCreateWidth,
+            "buttonCreateHeight":kButtonCreateHeight,
+            "buttonCreateTop":kButtonCreateTop]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[buttonCreate(buttonCreateWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(buttonCreateTop)-[buttonCreate(buttonCreateHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        layoutButtonCreateLeft = NSLayoutConstraint(
+            item:buttonCreate,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
+        
+        addConstraint(layoutButtonCreateLeft)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remain:CGFloat = width - kButtonCreateWidth
+        let margin:CGFloat = remain / 2.0
+        layoutButtonCreateLeft.constant = margin
+        
+        super.layoutSubviews()
     }
 }
