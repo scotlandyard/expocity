@@ -8,8 +8,6 @@ class CRooms:CController
     var listenPath:String?
     var listenHandler:UInt?
     
-    
-    
     override func loadView()
     {
         let viewRooms:VRooms = VRooms(controller:self)
@@ -21,6 +19,17 @@ class CRooms:CController
     {
         super.viewDidLoad()
         
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.listenRooms()
+        }
+    }
+    
+    //MARK: private
+    
+    private func listenRooms()
+    {
         let userReference:String = FDatabase.Parent.user.rawValue
         let userId:String = MSession.sharedInstance.user!.userId!
         let roomsReference:String = FDatabaseModelUser.Property.rooms.rawValue
