@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39C34E0DEE225F0F89A6EC8F /* Pods_expocity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D416AEC16372C74456B4740A /* Pods_expocity.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		8F73ADDCDE5FBDFC45AB3B40 /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD2DC3FB73D5E7754FC9CC6 /* Pods_tests.framework */; };
 		DA0DEE621D88C0C000B52422 /* VChatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE571D88C0C000B52422 /* VChatDisplay.swift */; };
 		DA0DEE631D88C0C000B52422 /* VChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE591D88C0C000B52422 /* VChatInput.swift */; };
 		DA0DEE641D88C0C000B52422 /* VChatInputMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DEE5A1D88C0C000B52422 /* VChatInputMenu.swift */; };
@@ -157,6 +158,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11A34FD9B013C57A02AA9917 /* Pods-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.debug.xcconfig"; sourceTree = "<group>"; };
 		360F7C110042A59B18C0BCCD /* Pods-expocity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-expocity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-expocity/Pods-expocity.debug.xcconfig"; sourceTree = "<group>"; };
 		BFD2DC3FB73D5E7754FC9CC6 /* Pods_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF19681E03B26778A98D855C /* Pods-expocity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-expocity.release.xcconfig"; path = "Pods/Target Support Files/Pods-expocity/Pods-expocity.release.xcconfig"; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 		DAE27C691D8B122C00E43F33 /* MChatDisplayOptionsItemFill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatDisplayOptionsItemFill.swift; sourceTree = "<group>"; };
 		DAE27C6B1D8B123600E43F33 /* MChatDisplayOptionsItemCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChatDisplayOptionsItemCenter.swift; sourceTree = "<group>"; };
 		DAFBF7071D831F43002B294C /* chat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = chat.xcassets; sourceTree = "<group>"; };
+		F0C066A732C95C73E7F25FBF /* Pods-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F73ADDCDE5FBDFC45AB3B40 /* Pods_tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +340,8 @@
 			children = (
 				360F7C110042A59B18C0BCCD /* Pods-expocity.debug.xcconfig */,
 				CF19681E03B26778A98D855C /* Pods-expocity.release.xcconfig */,
+				11A34FD9B013C57A02AA9917 /* Pods-tests.debug.xcconfig */,
+				F0C066A732C95C73E7F25FBF /* Pods-tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1043,9 +1049,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAC3CB0B1D7BB5C60090ECCD /* Build configuration list for PBXNativeTarget "tests" */;
 			buildPhases = (
+				96C30F5E65C772D3FEA60D09 /* [CP] Check Pods Manifest.lock */,
 				DAC3CAFB1D7BB5C60090ECCD /* Sources */,
 				DAC3CAFC1D7BB5C60090ECCD /* Frameworks */,
 				DAC3CAFD1D7BB5C60090ECCD /* Resources */,
+				8675D3B9FEE84E0F742DE678 /* [CP] Embed Pods Frameworks */,
+				AE241D1379CFCE2AED43B18B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1074,7 +1083,9 @@
 					};
 					DAC3CAFE1D7BB5C60090ECCD = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 7AMWG3RLHN;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						TestTargetID = DAC3CAE71D7BB5C60090ECCD;
 					};
 				};
@@ -1154,6 +1165,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-expocity/Pods-expocity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8675D3B9FEE84E0F742DE678 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tests/Pods-tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96C30F5E65C772D3FEA60D09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AE241D1379CFCE2AED43B18B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tests/Pods-tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BF60226AEB1A3F18B198D68B /* [CP] Copy Pods Resources */ = {
@@ -1523,18 +1579,16 @@
 		};
 		DAC3CB0C1D7BB5C60090ECCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11A34FD9B013C57A02AA9917 /* Pods-tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Firebase/Core/Sources\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Firebase/Core/Sources\"/**",
-				);
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = expocity/Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocityTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -1544,18 +1598,16 @@
 		};
 		DAC3CB0D1D7BB5C60090ECCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0C066A732C95C73E7F25FBF /* Pods-tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Firebase/Core/Sources\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Firebase/Core/Sources\"/**",
-				);
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = expocity/Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.expocityTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
