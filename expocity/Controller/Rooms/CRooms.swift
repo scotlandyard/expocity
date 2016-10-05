@@ -21,7 +21,14 @@ class CRooms:CController
     {
         super.viewDidLoad()
         
-        let path:String = ""
+        let userReference:String = FDatabase.Parent.user.rawValue
+        let userId:String = MSession.sharedInstance.user!.userId!
+        let roomsReference:String = FDatabaseModelUser.Property.rooms.rawValue
+        let path:String = String(
+            format:"%@/%@/%@",
+            userReference,
+            userId,
+            roomsReference)
         
         listenHandler = FMain.sharedInstance.database.listen(
             eventType:FIRDataEventType.value,
