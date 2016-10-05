@@ -81,6 +81,15 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             views:views))
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MRoomsItem
+    {
+        let item:MRoomsItem = controller.model!.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func roomsReload()
@@ -114,6 +123,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MRoomsItem = modelAtIndex(index:indexPath)
         let cell:VRoomsCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VRoomsCell.reusableIdentifier(),
             for:indexPath) as! VRoomsCell
