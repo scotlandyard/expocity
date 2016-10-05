@@ -1,9 +1,10 @@
 import UIKit
 
-class VRooms:UIView
+class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CRooms!
     weak var spinner:VMainLoader?
+    weak var collectionView:UICollectionView!
     
     convenience init(controller:CRooms)
     {
@@ -25,4 +26,7 @@ class VRooms:UIView
     {
         spinner?.removeFromSuperview()
     }
+    
+    //MARK: collection delegate
+    
 }
