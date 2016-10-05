@@ -4,9 +4,9 @@ class VRoomsFooter:UICollectionReusableView
 {
     weak var controller:CRooms!
     weak var layoutButtonCreateLeft:NSLayoutConstraint!
-    private let kButtonCreateWidth:CGFloat = 160
-    private let kButtonCreateHeight:CGFloat = 36
-    private let kButtonCreateTop:CGFloat = 20
+    private let kButtonCreateWidth:CGFloat = 170
+    private let kButtonCreateHeight:CGFloat = 37
+    private let kButtonCreateTop:CGFloat = 30
     private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
@@ -22,6 +22,7 @@ class VRoomsFooter:UICollectionReusableView
         buttonCreate.setTitle(NSLocalizedString("VRoomsFooter_buttonCreate", comment:""), for:UIControlState.normal)
         buttonCreate.titleLabel!.font = UIFont.bold(size:14)
         buttonCreate.setTitleColor(UIColor.white, for:UIControlState.normal)
+        buttonCreate.setTitleColor(UIColor(white:1, alpha:0.2), for:UIControlState.highlighted)
         buttonCreate.layer.cornerRadius = kCornerRadius
         
         addSubview(buttonCreate)
