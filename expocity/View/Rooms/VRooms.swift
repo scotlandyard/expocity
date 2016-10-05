@@ -27,8 +27,26 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         flow.minimumLineSpacing = kLineSpacing
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets.zero
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(
+            VRoomsCell.self,
+            forCellWithReuseIdentifier:
+            VRoomsCell.reusableIdentifier())
+        collectionView.register(
+            VRoomsFooter.self,
+            forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
+            withReuseIdentifier:
+            VRoomsFooter.reusableIdentifier())
         self.collectionView = collectionView
         
         addSubview(collectionView)
@@ -68,6 +86,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func roomsReload()
     {
         spinner?.removeFromSuperview()
+        collectionView.reloadData()
     }
     
     //MARK: collection delegate
