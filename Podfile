@@ -14,5 +14,5 @@ target 'expocity' do
 end
 
 target 'tests' do
-  pod 'Firebase'
+  podlist
 end

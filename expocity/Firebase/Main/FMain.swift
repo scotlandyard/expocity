@@ -9,7 +9,6 @@ class FMain
     private init()
     {
         FIRApp.configure()
-        FIRConfiguration.sharedInstance().logLevel = FIRLogLevel.error
         database = FDatabase()
     }
     
