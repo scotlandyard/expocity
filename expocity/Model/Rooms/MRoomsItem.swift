@@ -33,6 +33,16 @@ class MRoomsItem
         { [weak self] (object:FDatabaseModelRoom) in
             
             self?.roomName = object.name
+            self?.roomLoaded()
+        }
+    }
+    
+    private func roomLoaded()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.cell?.label.text = self?.roomName
         }
     }
 }

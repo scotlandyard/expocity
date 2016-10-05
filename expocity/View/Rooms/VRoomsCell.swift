@@ -9,14 +9,12 @@ class VRoomsCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.white
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.font = UIFont.bold(size:16)
-        label.textColor = UIColor.main()
         label.textAlignment = NSTextAlignment.center
         self.label = label
         
@@ -67,11 +65,13 @@ class VRoomsCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            alpha = 0.2
+            backgroundColor = UIColor.complement()
+            label.textColor = UIColor.white
         }
         else
         {
-            alpha = 1
+            backgroundColor = UIColor.white
+            label.textColor = UIColor.main()
         }
     }
     

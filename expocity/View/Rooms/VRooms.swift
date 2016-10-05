@@ -6,7 +6,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var spinner:VMainLoader?
     weak var collectionView:UICollectionView!
     private let kCollectionFooter:CGFloat = 80
-    private let kCellHeight:CGFloat = 50
+    private let kCellHeight:CGFloat = 54
     private let kLineSpacing:CGFloat = 1
     
     convenience init(controller:CRooms)
