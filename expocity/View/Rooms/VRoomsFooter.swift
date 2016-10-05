@@ -10,6 +10,15 @@ class VRoomsFooter:UICollectionReusableView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
+        let buttonCreate:UIButton = UIButton()
+        buttonCreate.translatesAutoresizingMaskIntoConstraints = false
+        buttonCreate.backgroundColor = UIColor.complement()
+        buttonCreate.clipsToBounds = true
+        buttonCreate.setTitle(NSLocalizedString("VRoomsFooter_buttonCreate", comment:""), for:UIControlState.normal)
+        buttonCreate.titleLabel!.font = UIFont.bold(size:14)
+        buttonCreate.setTitleColor(UIColor.white, for:UIControlState.normal)
+        
+        addSubview(buttonCreate)
         
     }
     
