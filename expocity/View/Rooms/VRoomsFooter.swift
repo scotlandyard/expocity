@@ -24,6 +24,10 @@ class VRoomsFooter:UICollectionReusableView
         buttonCreate.setTitleColor(UIColor.white, for:UIControlState.normal)
         buttonCreate.setTitleColor(UIColor(white:1, alpha:0.2), for:UIControlState.highlighted)
         buttonCreate.layer.cornerRadius = kCornerRadius
+        buttonCreate.addTarget(
+            self,
+            action:#selector(actionCreate(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(buttonCreate)
         
@@ -72,5 +76,12 @@ class VRoomsFooter:UICollectionReusableView
         layoutButtonCreateLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionCreate(sender button:UIButton)
+    {
+        controller.createRoom()
     }
 }

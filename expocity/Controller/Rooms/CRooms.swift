@@ -67,4 +67,10 @@ class CRooms:CController
         let chatController:CChat = CChat(roomId:roomId)
         parentController.push(controller:chatController)
     }
+    
+    func createRoom()
+    {
+        let home:CHome = CHome()
+        parentController.scrollLeft(controller:home)
+    }
 }

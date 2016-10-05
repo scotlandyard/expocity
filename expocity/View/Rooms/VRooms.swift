@@ -5,7 +5,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var controller:CRooms!
     weak var spinner:VMainLoader?
     weak var collectionView:UICollectionView!
-    private let kCollectionFooter:CGFloat = 80
+    private let kCollectionFooter:CGFloat = 95
     private let kCellHeight:CGFloat = 54
     private let kLineSpacing:CGFloat = 1
     private let kDeselectTime:TimeInterval = 1
@@ -154,6 +154,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             ofKind:kind,
             withReuseIdentifier:VRoomsFooter.reusableIdentifier(),
             for:indexPath) as! VRoomsFooter
+        reusableView.controller = controller
         
         return reusableView
     }
