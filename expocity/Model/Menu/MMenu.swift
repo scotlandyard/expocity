@@ -5,6 +5,7 @@ class MMenu
     let items:[MMenuItem]
     var state:MMenuState
     weak var current:MMenuItem!
+    weak var itemHome:MMenuItemHome!
     
     init()
     {
@@ -20,6 +21,7 @@ class MMenu
         
         let itemHome:MMenuItemHome = MMenuItemHome(index:items.count)
         current = itemHome
+        self.itemHome = itemHome
         items.append(itemHome)
         
         let itemRooms:MMenuItemRooms = MMenuItemRooms(index:items.count)

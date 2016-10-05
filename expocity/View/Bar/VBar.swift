@@ -2,6 +2,7 @@ import UIKit
 
 class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    let model:MMenu
     weak var parent:CParent!
     weak var collectionView:UICollectionView!
     weak var label:UILabel!
@@ -9,7 +10,6 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private var currentWidth:CGFloat
     private let barHeight:CGFloat
     private let barDelta:CGFloat
-    private let model:MMenu
     private let kCellWidth:CGFloat = 80
     private let kAnimationDuration:TimeInterval = 0.3
     private let kWaitingTime:TimeInterval = 1
@@ -194,6 +194,22 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         return item
     }
     
+    private func selectItem(item:MMenuItem)
+    {
+        let controller:CController = item.controller()
+        
+        if item.index < model.current.index
+        {
+            parent.scrollLeft(controller:controller)
+        }
+        else
+        {
+            parent.scrollRight(controller:controller)
+        }
+        
+        model.current = item
+    }
+    
     //MARK: public
     
     func push(name:String?)
@@ -283,6 +299,18 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         }
     }
     
+    func synthSelect(index:Int)
+    {
+        let menuItem:MMenuItem = model.items[index]
+        let indexPath:IndexPath = IndexPath(item:index, section:0)
+        selectItem(item:menuItem)
+        
+        collectionView.selectItem(
+            at:indexPath,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+    }
+    
     //MARK: col del
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
@@ -332,18 +360,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         if item !== model.current
         {
-            let controller:CController = item.controller()
-            
-            if item.index < model.current.index
-            {
-                parent.scrollLeft(controller:controller)
-            }
-            else
-            {
-                parent.scrollRight(controller:controller)
-            }
-            
-            model.current = item
+            selectItem(item:item)
             
             collectionView.scrollToItem(
                 at:indexPath,

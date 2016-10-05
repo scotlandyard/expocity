@@ -70,7 +70,7 @@ class CRooms:CController
     
     func createRoom()
     {
-        let home:CHome = CHome()
-        parentController.scrollLeft(controller:home)
+        let indexHome:Int = parentController.viewParent.bar.model.itemHome.index
+        parentController.viewParent.bar.synthSelect(index:indexHome)
     }
 }
