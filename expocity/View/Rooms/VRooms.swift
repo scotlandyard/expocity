@@ -12,7 +12,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     {
         self.init()
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.collectionBackground()
         clipsToBounds = true
         self.controller = controller
         
@@ -60,12 +60,12 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             "barHeight":barHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[loader]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(barHeight)-[loader]-0-|",
+            withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -105,7 +105,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section:Int) -> Int
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
         let count:Int
         
@@ -127,6 +127,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let cell:VRoomsCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VRoomsCell.reusableIdentifier(),
             for:indexPath) as! VRoomsCell
+        cell.config(model:item)
         
         return cell
     }
