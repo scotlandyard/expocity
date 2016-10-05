@@ -1,6 +1,3 @@
-## Build generated
-build/
-
 ## Various settings
 *.pbxuser
 !default.pbxuser
@@ -10,12 +7,7 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata/
 .DS_Store
-
-## Other
-*.moved-aside
-*.xcuserstate
 
 ## Obj-C/Swift specific
 *.hmap
@@ -26,5 +18,3 @@ xcuserdata/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
-
-.build/
