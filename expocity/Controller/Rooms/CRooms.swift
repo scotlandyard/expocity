@@ -45,6 +45,7 @@ class CRooms:CController
             modelType:FDatabaseModelUserRooms.self)
         { [weak self] (object:FDatabaseModelUserRooms) in
             
+            self?.model = MRooms(rooms:object)
         }
     }
 }
