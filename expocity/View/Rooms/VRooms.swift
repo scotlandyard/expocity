@@ -83,6 +83,12 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MRoomsItem
@@ -142,11 +148,20 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return cell
     }
     
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath: IndexPath) -> UICollectionReusableView
+    {
+        let reusableView:VRoomsFooter = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:VRoomsFooter.reusableIdentifier(),
+            for:indexPath) as! VRoomsFooter
+        
+        return reusableView
+    }
+    
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MRoomsItem = modelAtIndex(index:indexPath)
-        
-        
+        controller.showRoom(room:item)
         
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
