@@ -8,6 +8,7 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private let kCollectionFooter:CGFloat = 80
     private let kCellHeight:CGFloat = 54
     private let kLineSpacing:CGFloat = 1
+    private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CRooms)
     {
@@ -139,5 +140,21 @@ class VRooms:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MRoomsItem = modelAtIndex(index:indexPath)
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

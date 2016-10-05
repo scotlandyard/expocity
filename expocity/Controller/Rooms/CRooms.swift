@@ -58,4 +58,13 @@ class CRooms:CController
             self?.viewRooms.roomsReload()
         }
     }
+    
+    //MARK: public
+    
+    func showRoom(room:MRoomsItem)
+    {
+        let roomId:String = room.roomId
+        let chatController:CChat = CChat(roomId:roomId)
+        parentController.push(controller:chatController)
+    }
 }
