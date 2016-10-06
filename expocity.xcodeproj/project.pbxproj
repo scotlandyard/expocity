@@ -92,6 +92,7 @@
 		DA4F81AC1D7DBA5E00CC8B39 /* VMainLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81AB1D7DBA5E00CC8B39 /* VMainLoader.swift */; };
 		DA4F81AF1D7DBB4000CC8B39 /* VBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81AE1D7DBB4000CC8B39 /* VBar.swift */; };
 		DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */; };
+		DA60D8D01DA6EAD100571098 /* FDatabaseModelMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60D8CF1DA6EAD100571098 /* FDatabaseModelMessage.swift */; };
 		DA73F1551D7F7C5B004E3875 /* VMainShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73F1541D7F7C5B004E3875 /* VMainShadow.swift */; };
 		DA86D5D71D9EB5A800FE8BE1 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA86D5D61D9EB5A800FE8BE1 /* brand.xcassets */; };
 		DA86D5DF1D9EE3E500FE8BE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA86D5DE1D9EE3E500FE8BE1 /* GoogleService-Info.plist */; };
@@ -250,6 +251,7 @@
 		DA4F81AB1D7DBA5E00CC8B39 /* VMainLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainLoader.swift; sourceTree = "<group>"; };
 		DA4F81AE1D7DBB4000CC8B39 /* VBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBar.swift; sourceTree = "<group>"; };
 		DA4F81B01D7DBB4A00CC8B39 /* VBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBarCell.swift; sourceTree = "<group>"; };
+		DA60D8CF1DA6EAD100571098 /* FDatabaseModelMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelMessage.swift; sourceTree = "<group>"; };
 		DA73F1541D7F7C5B004E3875 /* VMainShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainShadow.swift; sourceTree = "<group>"; };
 		DA86D5D61D9EB5A800FE8BE1 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DA86D5DE1D9EE3E500FE8BE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -772,6 +774,7 @@
 				DA86D5F61D9F037600FE8BE1 /* FDatabaseModelUser.swift */,
 				DA2CDD901DA455460089E770 /* FDatabaseModelUserRooms.swift */,
 				DA160E851DA02C6B002634B7 /* FDatabaseModelRoom.swift */,
+				DA60D8CF1DA6EAD100571098 /* FDatabaseModelMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1255,6 +1258,7 @@
 				DA8B1B921D7E2548004D8457 /* MHomeItemTitle.swift in Sources */,
 				DA4F81B11D7DBB4A00CC8B39 /* VBarCell.swift in Sources */,
 				DA0DEE801D88C16400B52422 /* MChatMenuItemSend.swift in Sources */,
+				DA60D8D01DA6EAD100571098 /* FDatabaseModelMessage.swift in Sources */,
 				DA8B1B611D7DD746004D8457 /* MMenu.swift in Sources */,
 				DA4F818F1D7BB97B00CC8B39 /* CAppDelegate.swift in Sources */,
 				DA8B1B7E1D7E0740004D8457 /* VRooms.swift in Sources */,
