@@ -14,20 +14,20 @@ class FDatabaseModelMessageEmoji:FDatabaseModelMessage
         case surprise = 5
     }
     
-    init(senderId:String, senderName:String, message:String)
+    init(senderId:String, senderName:String, emoji:Emoji)
     {
-        self.message = message
+        self.emoji = emoji
         super.init(senderId:senderId, senderName:senderName)
     }
     
     required init(snapshot:Any?)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
-        let rawMessage:String? = snapshotDict?[Property.message.rawValue] as? String
+        let rawEmoji:Int? = snapshotDict?[Property.emoji.rawValue] as? Int
         
-        if rawMessage == nil
+        if rawEmoji == nil
         {
-            message = kEmptyString
+            emoji = kEmptyString
         }
         else
         {
