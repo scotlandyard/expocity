@@ -6,6 +6,8 @@ class FDatabaseModelMessage:FDatabaseModel
     let senderName:String
     let message:String
     let timestamp:TimeInterval
+    private let kEmptyString:String = ""
+    private let kNoTimestamp:TimeInterval = 0
     
     enum Property:String
     {
@@ -33,67 +35,40 @@ class FDatabaseModelMessage:FDatabaseModel
         let rawMessage:String? = snapshotDict?[Property.message.rawValue] as? String
         let rawTimestamp:TimeInterval? = snapshotDict?[Property.timestamp.rawValue] as? TimeInterval
         
-        if rawIntAccess == nil
+        if rawSenderId == nil
         {
-            access = Access.unknown
+            senderId = kEmptyString
         }
         else
         {
-            let rawAccess:Access? = Access(rawValue:rawIntAccess!)
-            
-            if rawAccess == nil
-            {
-                access = Access.unknown
-            }
-            else
-            {
-                access = rawAccess!
-            }
+            senderId = rawSenderId!
         }
         
-        if rawIntPresentation == nil
+        if rawSenderName == nil
         {
-            presentation = Presentation.unknown
+            senderName = kEmptyString
         }
         else
         {
-            let rawPresentation:Presentation? = Presentation(rawValue:rawIntPresentation!)
-            
-            if rawPresentation == nil
-            {
-                presentation = Presentation.unknown
-            }
-            else
-            {
-                presentation = rawPresentation!
-            }
+            senderName = rawSenderName!
         }
         
-        if rawName == nil
+        if rawMessage == nil
         {
-            name = kEmptyString
+            message = kEmptyString
         }
         else
         {
-            name = rawName!
+            message = rawMessage!
         }
         
-        if rawOwner == nil
+        if rawTimestamp == nil
         {
-            owner = kEmptyString
+            timestamp = kNoTimestamp
         }
         else
         {
-            owner = rawOwner!
-        }
-        
-        if rawCreated == nil
-        {
-            created = kNonCreated
-        }
-        else
-        {
-            created = rawCreated!
+            timestamp = rawTimestamp!
         }
         
         super.init()
