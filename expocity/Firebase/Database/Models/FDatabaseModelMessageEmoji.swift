@@ -6,12 +6,13 @@ class FDatabaseModelMessageEmoji:FDatabaseModelMessage
 
     enum Emoji:Int
     {
-        case like = 0
-        case love = 1
-        case smile = 2
-        case sad = 3
-        case angry = 4
-        case surprise = 5
+        case none = 0
+        case like = 1
+        case love = 2
+        case smile = 3
+        case sad = 4
+        case angry = 5
+        case surprise = 6
     }
     
     init(senderId:String, senderName:String, emoji:Emoji)
