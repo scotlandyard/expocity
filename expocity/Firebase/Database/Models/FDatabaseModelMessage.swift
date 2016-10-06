@@ -15,13 +15,12 @@ class FDatabaseModelMessage:FDatabaseModel
         case timestamp = "timestamp"
     }
     
-    init(name:String, access:Access, owner:String)
+    init(senderId:String, senderName:String, message:String)
     {
-        self.name = name
-        self.access = access
-        self.owner = owner
-        presentation = Presentation.owner
-        created = NSDate().timeIntervalSince1970
+        self.senderId = senderId
+        self.senderName = senderName
+        self.message = message
+        timestamp = NSDate().timeIntervalSince1970
         
         super.init()
     }
