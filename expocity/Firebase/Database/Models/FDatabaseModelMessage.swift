@@ -4,7 +4,6 @@ class FDatabaseModelMessage:FDatabaseModel
 {
     let senderId:String
     let senderName:String
-    let message:String
     let timestamp:TimeInterval
     private let kEmptyString:String = ""
     private let kNoTimestamp:TimeInterval = 0
@@ -14,10 +13,11 @@ class FDatabaseModelMessage:FDatabaseModel
         case senderId = "senderId"
         case senderName = "senderName"
         case message = "message"
+        case emoji = "emoji"
         case timestamp = "timestamp"
     }
     
-    init(senderId:String, senderName:String, message:String)
+    init(senderId:String, senderName:String)
     {
         self.senderId = senderId
         self.senderName = senderName
