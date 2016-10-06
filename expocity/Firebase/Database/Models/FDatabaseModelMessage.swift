@@ -28,11 +28,10 @@ class FDatabaseModelMessage:FDatabaseModel
     required init(snapshot:Any?)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
-        let rawIntAccess:Int? = snapshotDict?[Property.access.rawValue] as? Int
-        let rawIntPresentation:Int? = snapshotDict?[Property.presentation.rawValue] as? Int
-        let rawName:String? = snapshotDict?[Property.name.rawValue] as? String
-        let rawOwner:String? = snapshotDict?[Property.owner.rawValue] as? String
-        let rawCreated:TimeInterval? = snapshotDict?[Property.created.rawValue] as? TimeInterval
+        let rawSenderId:String? = snapshotDict?[Property.senderId.rawValue] as? String
+        let rawSenderName:String? = snapshotDict?[Property.senderName.rawValue] as? String
+        let rawMessage:String? = snapshotDict?[Property.message.rawValue] as? String
+        let rawTimestamp:TimeInterval? = snapshotDict?[Property.timestamp.rawValue] as? TimeInterval
         
         if rawIntAccess == nil
         {
@@ -103,11 +102,10 @@ class FDatabaseModelMessage:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
-            Property.name.rawValue:name,
-            Property.owner.rawValue:owner,
-            Property.created.rawValue:created,
-            Property.access.rawValue:access.rawValue,
-            Property.presentation.rawValue:presentation.rawValue
+            Property.senderId.rawValue:senderId,
+            Property.senderName.rawValue:senderName,
+            Property.message.rawValue:message,
+            Property.timestamp.rawValue:timestamp,
         ]
         
         return json
