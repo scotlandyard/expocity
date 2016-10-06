@@ -21,7 +21,6 @@ class FDatabaseModelMessage:FDatabaseModel
     {
         self.senderId = senderId
         self.senderName = senderName
-        self.message = message
         timestamp = NSDate().timeIntervalSince1970
         
         super.init()
@@ -32,7 +31,6 @@ class FDatabaseModelMessage:FDatabaseModel
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         let rawSenderId:String? = snapshotDict?[Property.senderId.rawValue] as? String
         let rawSenderName:String? = snapshotDict?[Property.senderName.rawValue] as? String
-        let rawMessage:String? = snapshotDict?[Property.message.rawValue] as? String
         let rawTimestamp:TimeInterval? = snapshotDict?[Property.timestamp.rawValue] as? TimeInterval
         
         if rawSenderId == nil
@@ -53,15 +51,6 @@ class FDatabaseModelMessage:FDatabaseModel
             senderName = rawSenderName!
         }
         
-        if rawMessage == nil
-        {
-            message = kEmptyString
-        }
-        else
-        {
-            message = rawMessage!
-        }
-        
         if rawTimestamp == nil
         {
             timestamp = kNoTimestamp
@@ -79,7 +68,6 @@ class FDatabaseModelMessage:FDatabaseModel
         let json:[String:Any] = [
             Property.senderId.rawValue:senderId,
             Property.senderName.rawValue:senderName,
-            Property.message.rawValue:message,
             Property.timestamp.rawValue:timestamp,
         ]
         
