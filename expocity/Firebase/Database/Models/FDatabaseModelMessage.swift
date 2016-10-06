@@ -1,36 +1,18 @@
 import Foundation
 
 class FDatabaseModelMessage:FDatabaseModel
-{/*
-    let name:String
-    var access:Access
-    var presentation:Presentation
-    let owner:String
-    let created:TimeInterval
-    private let kEmptyString:String = ""
-    private let kNonCreated:TimeInterval = 0
+{
+    let senderId:String
+    let senderName:String
+    let message:String
+    let timestamp:TimeInterval
     
     enum Property:String
     {
-        case name = "name"
-        case owner = "owner"
-        case created = "created"
-        case access = "access"
-        case presentation = "presentation"
-    }
-    
-    enum Access:Int
-    {
-        case invitationOnly = 0
-        case freeJoin = 1
-        case unknown = 999
-    }
-    
-    enum Presentation:Int
-    {
-        case owner = 0
-        case everyone = 1
-        case unknown = 999
+        case senderId = "senderId"
+        case senderName = "senderName"
+        case message = "message"
+        case timestamp = "timestamp"
     }
     
     init(name:String, access:Access, owner:String)
@@ -130,5 +112,5 @@ class FDatabaseModelMessage:FDatabaseModel
         ]
         
         return json
-    }*/
+    }
 }
