@@ -28,13 +28,31 @@ class FDatabaseModelMessageEmoji:FDatabaseModelMessage
         
         if rawEmoji == nil
         {
-            emoji = kEmptyString
+            emoji = Emoji.none
         }
         else
         {
-            message = rawMessage!
+            emoji = Emoji(rawValue:rawEmoji!)!
         }
         
         super.init(snapshot:snapshot)
+    }
+    
+    override func modelJson() -> Any
+    {
+        var json:[String:Any] = [
+            Property.emoji.rawValue:emoji.rawValue
+        ]
+        
+        let parentJson:[String:Any] = super.modelJson() as! [String:Any]
+        let parentKeys:[String] = Array(parentJson.keys)
+        
+        for parentKey:String in parentKeys
+        {
+            let parentValue:Any = parentJson[parentKey]!
+            json[parentKey] = parentValue
+        }
+        
+        return json
     }
 }
