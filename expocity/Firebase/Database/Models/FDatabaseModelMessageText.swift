@@ -27,4 +27,22 @@ class FDatabaseModelMessageText:FDatabaseModelMessage
         
         super.init(snapshot:snapshot)
     }
+    
+    override func modelJson() -> Any
+    {
+        var json:[String:Any] = [
+            Property.message.rawValue:message
+        ]
+        
+        let parentJson:[String:Any] = super.modelJson() as! [String:Any]
+        let parentKeys:[String] = Array(parentJson.keys)
+        
+        for parentKey:String in parentKeys
+        {
+            let parentValue:Any = parentJson[parentKey]!
+            json[parentKey] = parentValue
+        }
+        
+        return json
+    }
 }
