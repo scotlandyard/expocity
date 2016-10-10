@@ -1,5 +1,6 @@
 ## Build generated
 /build
+/Build
 
 ## Various settings
 *.pbxuser
