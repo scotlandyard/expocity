@@ -12,7 +12,7 @@ class VChatInput:UIView, UITextViewDelegate
     private let kBorderHeight:CGFloat = 1
     private let kMaxHeight:CGFloat = 75
     private let kCornerRadius:CGFloat = 4
-    private let kAnimationDuration:NSTimeInterval = 0.3
+    private let kAnimationDuration:TimeInterval = 0.3
     private let kHypoteticalMaxHeight:CGFloat = 10000
     private let kEmpty:String = ""
     
@@ -28,30 +28,30 @@ class VChatInput:UIView, UITextViewDelegate
         self.menu = menu
         
         let borderTop:UIView = UIView()
-        borderTop.userInteractionEnabled = false
+        borderTop.isUserInteractionEnabled = false
         borderTop.translatesAutoresizingMaskIntoConstraints = false
         borderTop.backgroundColor = UIColor.bubbleMine()
         
         let fieldBase:UIView = UIView()
         fieldBase.clipsToBounds = true
-        fieldBase.backgroundColor = UIColor.whiteColor()
+        fieldBase.backgroundColor = UIColor.white
         fieldBase.translatesAutoresizingMaskIntoConstraints = false
         fieldBase.layer.borderWidth = 1
-        fieldBase.layer.borderColor = UIColor.bubbleMine().CGColor
+        fieldBase.layer.borderColor = UIColor.bubbleMine().cgColor
         fieldBase.layer.cornerRadius = kCornerRadius
         
         let field:UITextView = UITextView()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.clipsToBounds = true
-        field.backgroundColor = UIColor.clearColor()
-        field.font = UIFont.medium(15)
-        field.textColor = UIColor.blackColor()
-        field.tintColor = UIColor.blackColor()
-        field.returnKeyType = UIReturnKeyType.Default
-        field.keyboardAppearance = UIKeyboardAppearance.Light
-        field.autocorrectionType = UITextAutocorrectionType.No
-        field.spellCheckingType = UITextSpellCheckingType.No
-        field.autocapitalizationType = UITextAutocapitalizationType.Sentences
+        field.backgroundColor = UIColor.clear
+        field.font = UIFont.medium(size:15)
+        field.textColor = UIColor.black
+        field.tintColor = UIColor.black
+        field.returnKeyType = UIReturnKeyType.default
+        field.keyboardAppearance = UIKeyboardAppearance.light
+        field.autocorrectionType = UITextAutocorrectionType.no
+        field.spellCheckingType = UITextSpellCheckingType.no
+        field.autocapitalizationType = UITextAutocapitalizationType.sentences
         field.textContainerInset = UIEdgeInsetsMake(6, 0, 0, 0)
         field.delegate = self
         self.field = field
@@ -61,49 +61,49 @@ class VChatInput:UIView, UITextViewDelegate
         addSubview(menu)
         addSubview(fieldBase)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "field":field,
             "fieldBase":fieldBase,
             "borderTop":borderTop,
             "menu":menu]
         
-        let metrics:[String:AnyObject] = [
+        let metrics:[String:CGFloat] = [
             "fieldMarginVr":kFieldMarginVr,
             "borderHeight":kBorderHeight,
             "minHeight":kMinHeight]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[fieldBase]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[fieldBase]",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[borderTop(borderHeight)]-(fieldMarginVr)-[fieldBase]-(fieldMarginVr)-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[borderTop(borderHeight)]-(fieldMarginVr)-[fieldBase]-(fieldMarginVr)-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-6-[field]-3-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-6-[field]-3-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[borderTop]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[borderTop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[menu]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[menu]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[field]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[field]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[menu(minHeight)]",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[menu(minHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -112,10 +112,10 @@ class VChatInput:UIView, UITextViewDelegate
         
         layoutBaseRight = NSLayoutConstraint(
             item:fieldBase,
-            attribute:NSLayoutAttribute.Right,
-            relatedBy:NSLayoutRelation.Equal,
+            attribute:NSLayoutAttribute.right,
+            relatedBy:NSLayoutRelation.equal,
             toItem:self,
-            attribute:NSLayoutAttribute.Right,
+            attribute:NSLayoutAttribute.right,
             multiplier:1,
             constant:rightMargin)
         
@@ -130,9 +130,15 @@ class VChatInput:UIView, UITextViewDelegate
         
         if !text.isEmpty
         {
-            controller.addTextMine(text)
+            var textValidating:String = text.replacingOccurrences(of:" ", with:"")
+            textValidating = textValidating.replacingOccurrences(of:"\n", with:"")
             
-            dispatch_async(dispatch_get_main_queue())
+            if !textValidating.isEmpty
+            {
+                controller.addTextMine(text:text)
+            }
+            
+            DispatchQueue.main.async
             { [weak self] in
                 
                 self?.field.text = self?.kEmpty
@@ -144,7 +150,7 @@ class VChatInput:UIView, UITextViewDelegate
     private func heightForText()
     {
         let newHeight:CGFloat
-        let height:CGFloat = field.contentSize.height
+        let height:CGFloat = field.contentSize.height + kFieldMarginVr + kBorderHeight
         
         if height > kMaxHeight
         {
@@ -167,44 +173,71 @@ class VChatInput:UIView, UITextViewDelegate
         let rightMargin:CGFloat = -menu.rightMargin()
         layoutBaseRight.constant = rightMargin
         
-        UIView.animateWithDuration(kAnimationDuration)
+        UIView.animate(withDuration: kAnimationDuration)
         { [weak self] in
             
             self?.layoutIfNeeded()
         }
     }
     
+    private func updateTypingMenu()
+    {
+        if field.text.isEmpty
+        {
+            menu.modeTypeReady()
+        }
+        else
+        {
+            menu.modeTyping()
+        }
+        
+        updateRightMargin()
+    }
+    
     //MARK: public
     
     func actionSend()
     {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+        UIApplication.shared.keyWindow!.endEditing(true)
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.sendMessage()
         }
     }
     
+    func updateStandbyMenu()
+    {
+        if controller.viewChat.display.imageView.image == nil
+        {
+            menu.modeStandby()
+        }
+        else
+        {
+            menu.modeStandbyImage()
+        }
+        
+        updateRightMargin()
+    }
+    
     //MARK: textview del
     
-    func textViewDidBeginEditing(textView:UITextView)
+    func textViewDidBeginEditing(_ textView:UITextView)
     {
         heightForText()
-        menu.modeTyping()
-        updateRightMargin()
+        updateTypingMenu()
     }
     
-    func textViewDidEndEditing(textView:UITextView)
+    func textViewDidEndEditing(_ textView:UITextView)
     {
         heightForText()
-        menu.modeStandby()
-        updateRightMargin()
+        updateStandbyMenu()
     }
     
-    func textViewDidChange(textView:UITextView)
+    func textViewDidChange(_ textView:UITextView)
     {
         heightForText()
+        updateTypingMenu()
     }
 }

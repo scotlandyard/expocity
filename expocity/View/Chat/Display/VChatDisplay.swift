@@ -3,16 +3,33 @@ import UIKit
 class VChatDisplay:UIView
 {
     weak var controller:CChat!
+    weak var marks:VChatDisplayMarks!
     weak var imageView:UIImageView!
     weak var layoutHeight:NSLayoutConstraint!
-    let kMinHeight:CGFloat = 5
+    weak var layoutBorderHeight:NSLayoutConstraint!
+    let maxHeight:CGFloat
+    let kMinHeight:CGFloat = 3
+    private let kMaxHeightPercent:CGFloat = 0.8
     private let kBorderHeight:CGFloat = 1
-    private let kMaxHeight:CGFloat = 200
-    private let kAnimationDuration:NSTimeInterval = 0.3
+    private let kAnimationDuration:TimeInterval = 0.3
     
-    convenience init(controller:CChat)
+    init(controller:CChat)
     {
-        self.init()
+        let screenSize:CGSize = UIScreen.main.bounds.size
+        let smallerSize:CGFloat
+        
+        if screenSize.width > screenSize.height
+        {
+            smallerSize = screenSize.height
+        }
+        else
+        {
+            smallerSize = screenSize.width
+        }
+        
+        maxHeight = smallerSize * kMaxHeightPercent
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.collectionBackground()
@@ -20,55 +37,172 @@ class VChatDisplay:UIView
         self.controller = controller
         
         let border:UIView = UIView()
-        border.userInteractionEnabled = false
+        border.isUserInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = UIColor.bubbleMine()
-        
-        let button:UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action:#selector(self.actionButton(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        border.backgroundColor = UIColor.black
         
         let imageView:UIImageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = controller.model.displayOption.contentMode
         imageView.clipsToBounds = true
-        imageView.userInteractionEnabled = false
+        imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
+        let marks:VChatDisplayMarks = VChatDisplayMarks(controller:controller)
+        self.marks = marks
+        
         addSubview(border)
         addSubview(imageView)
-        addSubview(button)
+        addSubview(marks)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "border":border,
             "imageView":imageView,
-            "button":button]
+            "marks":marks]
         
-        let metrics:[String:AnyObject] = [
-            "borderHeight":kBorderHeight]
+        let metrics:[String:CGFloat] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[border]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[border]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[imageView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[border(borderHeight)]-0-[imageView]-0-|",
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[marks]-0-|",
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[border]-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[border]-0-[marks]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        layoutBorderHeight = NSLayoutConstraint(
+            item:border,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutBorderHeight)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedDisplayOptionChanged(sender:)),
+            name:Notification.Notifications.chatDisplayOptionChanged.Value,
+            object:nil)
     }
     
-    //MARK: actions
-    
-    func actionButton(sender button:UIButton)
+    required init?(coder:NSCoder)
     {
+        fatalError()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func layoutSubviews()
+    {
+        layoutImage()
+        super.layoutSubviews()
+    }
+    
+    //MARK: notified
+    
+    func notifiedDisplayOptionChanged(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.updateDisplayOption()
+        }
+    }
+    
+    //MARK: private
+    
+    private func updateDisplayOption()
+    {
+        imageView.contentMode = controller.model.displayOption.contentMode
+    }
+    
+    private func layoutImage()
+    {
+        var animate:Bool = false
+        let newHeight:CGFloat
+        let newBorderHeight:CGFloat
         
+        if imageView.image == nil
+        {
+            newHeight = kMinHeight
+            newBorderHeight = 0
+        }
+        else
+        {
+            let screenSize:CGSize = UIScreen.main.bounds.size
+            let screenWidth:CGFloat = screenSize.width
+            let screenHeight:CGFloat = screenSize.height
+            
+            if screenWidth < screenHeight
+            {
+                newHeight = maxHeight
+                newBorderHeight = kBorderHeight
+            }
+            else
+            {
+                newHeight = 0
+                newBorderHeight = 0
+            }
+        }
+        
+        if newHeight != layoutHeight.constant
+        {
+            animate = true
+        }
+        
+        if animate
+        {
+            if newBorderHeight == 0
+            {
+                layoutBorderHeight.constant = newBorderHeight
+                layoutHeight.constant = newHeight
+            }
+            else
+            {
+                layoutHeight.constant = newHeight
+                layoutBorderHeight.constant = newBorderHeight
+            }
+            
+            UIView.animate(withDuration:kAnimationDuration, animations:
+            { [weak self] in
+                
+                self?.superview?.layoutIfNeeded()
+            })
+            { [weak self] (done) in
+                
+                if self != nil
+                {
+                    if newHeight == self!.maxHeight
+                    {
+                        self!.controller.viewChat.conversation.scrollToBottom()
+                    }
+                }
+            }
+        }
     }
     
     //MARK: public
@@ -76,28 +210,25 @@ class VChatDisplay:UIView
     func displayImage(image:UIImage?)
     {
         imageView.image = image
-        layoutHeight.constant = kMaxHeight
-        
-        UIView.animateWithDuration(kAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        }
+        controller.viewChat.input.updateStandbyMenu()
+        layoutImage()
+        marks.addItems()
     }
     
     func removeImage()
     {
-        layoutHeight.constant = kMinHeight
-        
-        UIView.animateWithDuration(kAnimationDuration, animations:
-            { [weak self] in
-                
-                self?.layoutIfNeeded()
-                
-            })
-        { [weak self] (done) in
-            
-            self?.imageView.image = nil
-        }
+        imageView.image = nil
+        controller.viewChat.input.updateStandbyMenu()
+        layoutImage()
+    }
+    
+    func displayAnnotations()
+    {
+        marks.isHidden = true
+    }
+    
+    func hideAnnotations()
+    {
+        marks.isHidden = false
     }
 }

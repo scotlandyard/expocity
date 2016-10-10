@@ -6,21 +6,29 @@ class CController:UIViewController
     weak var layoutRight:NSLayoutConstraint!
     weak var shadow:VMainShadow?
     
+    override var title:String?
+    {
+        didSet
+        {
+            parentController.viewParent.bar.label.text = title
+        }
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle
+    override var preferredStatusBarStyle:UIStatusBarStyle
     {
-        return UIStatusBarStyle.LightContent
+        return UIStatusBarStyle.lightContent
     }
     
-    override func prefersStatusBarHidden() -> Bool
+    override var prefersStatusBarHidden:Bool
     {
         return false
     }
@@ -34,22 +42,22 @@ class CController:UIViewController
         
         view.addSubview(shadow)
         
-        let views:[String:AnyObject] = [
+        let views:[String:UIView] = [
             "shadow":shadow]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:CGFloat] = [:]
         
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[shadow]-0-|",
+        view.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[shadow]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[shadow]-0-|",
+        view.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[shadow]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         
-        shadow.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
 }

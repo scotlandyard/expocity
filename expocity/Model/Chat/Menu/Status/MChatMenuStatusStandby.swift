@@ -5,11 +5,11 @@ class MChatMenuStatusStandby:MChatMenuStatus
     init()
     {
         let itemPicture:MChatMenuItemPicture = MChatMenuItemPicture()
-        let itemAnnotate:MChatMenuItemAnnotate = MChatMenuItemAnnotate()
+        let itemEmoji:MChatMenuItemEmoji = MChatMenuItemEmoji()
         
         let items:[MChatMenuItem] = [
-            itemPicture,
-            itemAnnotate
+            itemEmoji,
+            itemPicture
         ]
         
         super.init(items:items)
