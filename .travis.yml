@@ -4,8 +4,8 @@ branches:
   only:
     - dev
 script:
-- if [ $MODE == 'Tests' ]; then set -o pipefail && xcodebuild -workspace expocity.xcworkspace -scheme expocity -sdk "iphonesimulator" -destination "platform=iOS Simulator,OS=10.0,name=iPhone 6s" test | xcpretty -c; fi
-- if [ $MODE == 'Build' ]; then set -o pipefail && xcodebuild -workspace expocity.xcworkspace -scheme expocity -sdk "iphonesimulator" -destination "platform=iOS Simulator,OS=10.0,name=iPhone 6s" build | xcpretty -c; fi
+- if [ $MODE == 'Tests' ]; then set -o pipefail && xcodebuild -workspace expocity.xcworkspace test | xcpretty; fi
+- if [ $MODE == 'Build' ]; then set -o pipefail && xcodebuild -workspace expocity.xcworkspace build | xcpretty; fi
 notifications:
   email:
     on_success: never
