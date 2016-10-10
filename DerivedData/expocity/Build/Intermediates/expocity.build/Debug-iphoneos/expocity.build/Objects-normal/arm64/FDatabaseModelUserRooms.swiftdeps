@@ -7,13 +7,13 @@ provides-member:
 - ["C8expocity23FDatabaseModelUserRooms", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "FDatabaseModelUserRooms"
 - "String"
-- "FDatabaseModel"
+- !private "Array"
+- "FDatabaseModelUserRooms"
 - !private "=="
 - "AssignmentPrecedence"
 - "CastingPrecedence"
-- !private "Array"
+- "FDatabaseModel"
 depends-member:
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "modelJson"]

@@ -9,17 +9,17 @@ provides-member:
 - ["OC8expocity21FDatabaseModelMessage8Property", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "NSDate"
-- "FDatabaseModel"
-- "FDatabaseModelMessage"
 - "String"
+- "FDatabaseModelMessage"
 - "StringLiteralType"
-- !private "Dictionary"
 - !private "~="
-- "TimeInterval"
+- "FDatabaseModel"
 - "=="
 - "AssignmentPrecedence"
 - "CastingPrecedence"
+- "TimeInterval"
+- !private "NSDate"
+- !private "Dictionary"
 depends-member:
 - !private ["Ps9AnyObject", "NSDate"]
 - !private ["Ps9AnyObject", "Property"]

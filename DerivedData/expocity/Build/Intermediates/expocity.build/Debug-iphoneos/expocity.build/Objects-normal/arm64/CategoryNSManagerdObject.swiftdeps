@@ -7,11 +7,11 @@ provides-member:
 provides-dynamic-lookup:
 - "entityName"
 depends-top-level:
+- "String"
+- !private "NSStringFromClass"
+- "NSManagedObject"
 - !private "object_getClass"
 - !private "AnyClass"
-- "String"
-- "NSManagedObject"
-- !private "NSStringFromClass"
 depends-member:
 - !private ["Ps9AnyObject", "NSStringFromClass"]
 - ["Ps9AnyObject", "entityName"]

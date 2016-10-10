@@ -8,10 +8,10 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - !private "MChatMenuItemSend"
-- !private "StringLiteralType"
 - !private "MChatMenuItem"
-- "MChatMenuStatusTyping"
+- !private "StringLiteralType"
 - "MChatMenuStatus"
+- "MChatMenuStatusTyping"
 depends-member:
 - !private ["Ps9AnyObject", "MChatMenuItemSend"]
 - ["Ps9AnyObject", "init"]

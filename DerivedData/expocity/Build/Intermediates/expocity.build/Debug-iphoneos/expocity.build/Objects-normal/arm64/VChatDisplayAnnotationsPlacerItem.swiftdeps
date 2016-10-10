@@ -9,17 +9,17 @@ provides-dynamic-lookup:
 - "controller"
 - "actionSelect"
 depends-top-level:
+- !private "UIControlState"
 - !private "BooleanLiteralType"
-- "MChatDisplayAnnotationsItem"
+- !private "UIViewContentMode"
 - !private "_ImageLiteralType"
 - !private "StringLiteralType"
-- !private "UIControlEvents"
-- "CChatDisplayAnnotations"
-- "AssignmentPrecedence"
-- !private "UIViewContentMode"
-- !private "UIControlState"
 - "VChatDisplayAnnotationsPlacerItem"
 - "UIButton"
+- "MChatDisplayAnnotationsItem"
+- "AssignmentPrecedence"
+- !private "UIControlEvents"
+- "CChatDisplayAnnotations"
 depends-member:
 - !private ["Ps9AnyObject", "UIControlEvents"]
 - !private ["Ps9AnyObject", "UIControlState"]

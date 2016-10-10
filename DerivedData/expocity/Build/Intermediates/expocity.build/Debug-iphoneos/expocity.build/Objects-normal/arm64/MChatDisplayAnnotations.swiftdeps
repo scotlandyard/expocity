@@ -8,12 +8,12 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - !private "Int"
-- !private "Array"
-- "MChatDisplayAnnotations"
 - !private "..<"
-- "AssignmentPrecedence"
-- !private "==="
+- "MChatDisplayAnnotations"
 - "MChatDisplayAnnotationsItem"
+- !private "==="
+- "AssignmentPrecedence"
+- !private "Array"
 depends-member:
 - !private ["Ps9AnyObject", "MChatDisplayAnnotationsItem"]
 - !private ["Ps9AnyObject", "init"]

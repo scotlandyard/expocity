@@ -7,19 +7,19 @@ provides-member:
 - ["C8expocity20MChatMenuItemPicture", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "BooleanLiteralType"
-- !private "UIAlertControllerStyle"
-- "String"
-- !private "UIAlertActionStyle"
-- "MChatMenuItem"
-- !private "UIAlertController"
-- "StringLiteralType"
 - "CChat"
-- !private "=="
-- !private "UIAlertAction"
+- "String"
+- !private "BooleanLiteralType"
+- "MChatMenuItem"
 - !private "UIApplication"
-- !private "NSLocalizedString"
+- !private "UIAlertAction"
+- "StringLiteralType"
 - "MChatMenuItemPicture"
+- !private "NSLocalizedString"
+- !private "UIAlertControllerStyle"
+- !private "=="
+- !private "UIAlertActionStyle"
+- !private "UIAlertController"
 depends-member:
 - !private ["Ps9AnyObject", "NSLocalizedString"]
 - !private ["Ps9AnyObject", "UIAlertAction"]

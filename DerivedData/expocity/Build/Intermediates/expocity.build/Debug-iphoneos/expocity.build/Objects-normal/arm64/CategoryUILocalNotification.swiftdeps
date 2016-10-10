@@ -6,24 +6,24 @@ provides-member:
 - ["CSo19UILocalNotification", "cancelAll"]
 - ["CSo19UILocalNotification", "postRemainder"]
 provides-dynamic-lookup:
-- "cancelAll"
 - "postRemainder"
+- "cancelAll"
 depends-top-level:
-- !private "+"
+- !private "<"
+- !private ">"
 - !private "*"
+- !private "NSLocalizedString"
 - !private "NSCalendar"
 - !private "StringLiteralType"
-- !private ">"
-- "UILocalNotification"
-- !private "UIApplication"
 - !private "TimeInterval"
-- !private "Date"
-- !private "NSLocalizedString"
+- !private "-"
+- !private "UIApplication"
+- !private "Calendar"
+- !private "+"
 - !private "AssignmentPrecedence"
 - !private "CastingPrecedence"
-- !private "Calendar"
-- !private "<"
-- !private "-"
+- "UILocalNotification"
+- !private "Date"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "Calendar"]

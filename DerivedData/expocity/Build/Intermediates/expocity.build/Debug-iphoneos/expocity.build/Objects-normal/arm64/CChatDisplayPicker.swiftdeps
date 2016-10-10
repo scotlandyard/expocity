@@ -6,21 +6,21 @@ provides-nominal:
 provides-member:
 - ["C8expocity18CChatDisplayPicker", ""]
 provides-dynamic-lookup:
-- "imagePickerController"
 - "controller"
+- "imagePickerController"
 depends-top-level:
-- "CChatDisplayPicker"
 - "CChat"
 - !private "BooleanLiteralType"
-- !private "UIImagePickerControllerSourceType"
-- !private "UIImagePickerControllerOriginalImage"
+- "UIImagePickerControllerDelegate"
+- "UIImagePickerController"
 - "String"
 - "UINavigationControllerDelegate"
-- "UIImagePickerControllerDelegate"
+- !private "UIImage"
+- !private "UIImagePickerControllerOriginalImage"
 - "AssignmentPrecedence"
 - "CastingPrecedence"
-- "UIImagePickerController"
-- !private "UIImage"
+- "CChatDisplayPicker"
+- !private "UIImagePickerControllerSourceType"
 depends-member:
 - !private ["Ps9AnyObject", "UIImagePickerControllerOriginalImage"]
 - !private ["Ps9AnyObject", "UIImagePickerControllerSourceType"]

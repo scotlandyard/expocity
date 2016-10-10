@@ -7,18 +7,18 @@ provides-member:
 - ["C8expocity5MHome", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "MSession"
-- !private "MHomeItemCreate"
-- "MHome"
-- !private "String"
-- "MHomeItem"
-- !private "StringLiteralType"
-- !private "NSLocalizedString"
-- !private "Array"
 - "FDatabaseModelRoom"
-- "MHomeItemAccess"
+- !private "String"
+- "MHome"
+- "MHomeItem"
+- !private "MHomeItemCreate"
+- !private "StringLiteralType"
+- !private "Array"
+- !private "MSession"
 - "MHomeItemTitle"
 - "AssignmentPrecedence"
+- !private "NSLocalizedString"
+- "MHomeItemAccess"
 depends-member:
 - ["OC8expocity18FDatabaseModelRoom6Access", "deinit"]
 - !private ["Ps9AnyObject", "Access"]

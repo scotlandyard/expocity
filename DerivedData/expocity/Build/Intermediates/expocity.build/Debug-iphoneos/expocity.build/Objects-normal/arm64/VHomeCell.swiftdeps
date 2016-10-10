@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C8expocity9VHomeCell", ""]
 provides-dynamic-lookup:
-- "isSelected"
 - "selected"
 - "isHighlighted"
+- "isSelected"
 depends-top-level:
-- "CGRect"
-- !private "UIColor"
-- !private "BooleanLiteralType"
-- "VHomeCell"
 - "NSCoder"
+- !private "fatalError"
+- "VHomeCell"
+- !private "BooleanLiteralType"
+- !private "||"
+- !private "UIColor"
+- "Bool"
 - "MHomeItem"
 - !private "StringLiteralType"
-- "CHome"
-- !private "||"
 - "AssignmentPrecedence"
+- "CGRect"
 - "UICollectionViewCell"
-- "Bool"
-- !private "fatalError"
+- "CHome"
 depends-member:
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "alpha"]

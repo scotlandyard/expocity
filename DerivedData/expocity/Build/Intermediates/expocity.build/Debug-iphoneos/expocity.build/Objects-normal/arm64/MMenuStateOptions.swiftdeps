@@ -7,10 +7,10 @@ provides-member:
 - ["C8expocity17MMenuStateOptions", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "BooleanLiteralType"
-- "MMenuState"
 - "Bool"
+- !private "BooleanLiteralType"
 - "MMenuStateOptions"
+- "MMenuState"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "showOptions"]

@@ -7,11 +7,11 @@ provides-member:
 - ["C8expocity22MChatMenuStatusStandby", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "MChatMenuItemPicture"
+- !private "StringLiteralType"
 - "MChatMenuStatus"
 - "MChatMenuStatusStandby"
-- !private "StringLiteralType"
 - !private "MChatMenuItemEmoji"
-- !private "MChatMenuItemPicture"
 - !private "MChatMenuItem"
 depends-member:
 - !private ["Ps9AnyObject", "MChatMenuItemEmoji"]

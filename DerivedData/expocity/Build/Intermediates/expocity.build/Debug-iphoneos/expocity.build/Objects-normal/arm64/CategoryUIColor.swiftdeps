@@ -8,10 +8,10 @@ provides-member:
 - ["CSo7UIColor", "collectionBackground"]
 - ["CSo7UIColor", "bubbleMine"]
 provides-dynamic-lookup:
-- "main"
-- "collectionBackground"
-- "complement"
 - "bubbleMine"
+- "main"
+- "complement"
+- "collectionBackground"
 depends-top-level:
 - "UIColor"
 depends-member:

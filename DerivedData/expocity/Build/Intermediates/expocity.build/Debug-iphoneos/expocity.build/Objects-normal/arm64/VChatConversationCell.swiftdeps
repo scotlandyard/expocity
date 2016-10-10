@@ -8,17 +8,17 @@ provides-member:
 provides-dynamic-lookup:
 - "layoutConstraints"
 depends-top-level:
-- "NSCoder"
 - !private "BooleanLiteralType"
 - "UICollectionViewCell"
 - !private "StringLiteralType"
 - "VChatConversationCell"
-- !private "UIColor"
+- "NSCoder"
 - "MChatItem"
+- !private "UIColor"
 - "CGRect"
 - "AssignmentPrecedence"
-- !private "fatalError"
 - "CChat"
+- !private "fatalError"
 depends-member:
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "backgroundColor"]

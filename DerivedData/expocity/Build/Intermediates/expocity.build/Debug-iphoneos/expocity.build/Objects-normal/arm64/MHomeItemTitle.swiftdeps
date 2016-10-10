@@ -8,14 +8,14 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "BooleanLiteralType"
-- "String"
-- "Bool"
-- !private "StringLiteralType"
-- !private "VHomeCellTitle"
-- "MHomeItem"
 - "MHomeItemTitle"
+- !private "StringLiteralType"
+- "Bool"
 - "AssignmentPrecedence"
 - "CGFloat"
+- "String"
+- !private "VHomeCellTitle"
+- "MHomeItem"
 depends-member:
 - !private ["Ps9AnyObject", "VHomeCellTitle"]
 - ["Ps9AnyObject", "init"]

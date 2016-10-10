@@ -7,16 +7,16 @@ provides-member:
 - ["C8expocity18MChatEmojiKeyboard", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MChatEmojiKeyboard"
+- !private "MChatEmojiKeyboardItemSmile"
 - !private "MChatEmojiKeyboardItemSurprise"
+- !private "MChatEmojiKeyboardItemAngry"
+- "MChatEmojiKeyboard"
+- !private "MChatEmojiKeyboardItemLike"
 - "MChatEmojiKeyboardItem"
 - "AssignmentPrecedence"
-- !private "MChatEmojiKeyboardItemLike"
-- !private "MChatEmojiKeyboardItemLove"
-- !private "MChatEmojiKeyboardItemSmile"
-- !private "Array"
-- !private "MChatEmojiKeyboardItemAngry"
 - !private "MChatEmojiKeyboardItemSad"
+- !private "Array"
+- !private "MChatEmojiKeyboardItemLove"
 depends-member:
 - !private ["Ps9AnyObject", "MChatEmojiKeyboardItemAngry"]
 - !private ["Ps9AnyObject", "MChatEmojiKeyboardItemLike"]

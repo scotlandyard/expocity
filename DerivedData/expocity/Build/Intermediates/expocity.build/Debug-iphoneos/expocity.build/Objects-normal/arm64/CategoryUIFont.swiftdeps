@@ -8,13 +8,13 @@ provides-member:
 - ["CSo6UIFont", "bold"]
 - ["CSo6UIFont", "numeric"]
 provides-dynamic-lookup:
-- "medium"
-- "regular"
 - "numeric"
+- "regular"
 - "bold"
+- "medium"
 depends-top-level:
-- "UIFont"
 - !private "StringLiteralType"
+- "UIFont"
 - "CGFloat"
 depends-member:
 - !private ["Ps9AnyObject", "UIFont"]

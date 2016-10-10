@@ -7,15 +7,15 @@ provides-member:
 - ["C8expocity25FDatabaseModelMessageText", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Array"
 - !private "Dictionary"
-- "String"
-- "FDatabaseModelMessage"
 - "StringLiteralType"
-- "FDatabaseModelMessageText"
 - !private "=="
 - "AssignmentPrecedence"
 - "CastingPrecedence"
+- "String"
+- "FDatabaseModelMessage"
+- !private "Array"
+- "FDatabaseModelMessageText"
 depends-member:
 - !private ["Ps9AnyObject", "Array"]
 - !private ["Ps9AnyObject", "Property"]

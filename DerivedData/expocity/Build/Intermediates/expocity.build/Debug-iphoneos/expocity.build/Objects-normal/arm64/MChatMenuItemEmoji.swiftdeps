@@ -8,10 +8,10 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "MChatMenuItemEmoji"
-- "CChat"
-- "String"
 - "StringLiteralType"
 - "MChatMenuItem"
+- "CChat"
+- "String"
 depends-member:
 - !private ["Ps9AnyObject", "displayEmojiKeyboard"]
 - ["Ps9AnyObject", "init"]

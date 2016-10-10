@@ -7,15 +7,15 @@ provides-member:
 - ["C8expocity10MRoomsItem", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "FMain"
 - !private "DispatchQueue"
-- "String"
 - !private "StringLiteralType"
-- !private "FDatabaseModelRoom"
-- !private "FDatabase"
 - "VRoomsCell"
-- "MRoomsItem"
 - "AssignmentPrecedence"
+- !private "FDatabaseModelRoom"
+- "String"
+- "MRoomsItem"
+- !private "FDatabase"
+- !private "FMain"
 - !private "DispatchQoS"
 depends-member:
 - !private ["Ps9AnyObject", "DispatchQoS"]

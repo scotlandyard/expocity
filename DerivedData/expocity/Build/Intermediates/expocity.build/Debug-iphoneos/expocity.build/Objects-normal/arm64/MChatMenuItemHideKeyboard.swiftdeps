@@ -7,12 +7,12 @@ provides-member:
 - ["C8expocity25MChatMenuItemHideKeyboard", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
 - !private "BooleanLiteralType"
-- "MChatMenuItemHideKeyboard"
-- "StringLiteralType"
-- !private "UIApplication"
+- "String"
 - "MChatMenuItem"
+- !private "UIApplication"
+- "StringLiteralType"
+- "MChatMenuItemHideKeyboard"
 - "CChat"
 depends-member:
 - !private ["Ps9AnyObject", "UIApplication"]

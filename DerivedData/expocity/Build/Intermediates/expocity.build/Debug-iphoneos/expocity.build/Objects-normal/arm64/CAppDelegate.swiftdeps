@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C8expocity11AppDelegate", ""]
 provides-dynamic-lookup:
-- "application"
 - "window"
+- "application"
 depends-top-level:
-- "Bool"
-- !private "UIScreen"
 - !private "BooleanLiteralType"
-- !private "FMain"
-- !private "CParent"
-- "UIResponder"
-- "AssignmentPrecedence"
-- "AppDelegate"
-- "UIApplication"
-- !private "UIColor"
-- "UIApplicationLaunchOptionsKey"
 - "UIApplicationDelegate"
+- "UIApplication"
+- !private "UIScreen"
+- !private "CParent"
 - "UIWindow"
+- "Bool"
+- "UIResponder"
+- !private "FMain"
+- !private "UIColor"
+- "AppDelegate"
+- "UIApplicationLaunchOptionsKey"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "CParent"]
 - !private ["Ps9AnyObject", "FMain"]

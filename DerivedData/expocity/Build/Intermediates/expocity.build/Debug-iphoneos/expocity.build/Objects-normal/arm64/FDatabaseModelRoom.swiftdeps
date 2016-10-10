@@ -13,18 +13,18 @@ provides-member:
 - ["OC8expocity18FDatabaseModelRoom12Presentation", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Dictionary"
 - "String"
 - "Int"
 - "StringLiteralType"
 - !private "NSDate"
 - !private "~="
+- "FDatabaseModel"
+- "TimeInterval"
 - "=="
 - "AssignmentPrecedence"
 - "CastingPrecedence"
 - "FDatabaseModelRoom"
-- "TimeInterval"
-- "FDatabaseModel"
+- !private "Dictionary"
 depends-member:
 - ["OC8expocity18FDatabaseModelRoom6Access", "RawValue"]
 - ["OC8expocity18FDatabaseModelRoom6Access", "_toAnyHashable"]

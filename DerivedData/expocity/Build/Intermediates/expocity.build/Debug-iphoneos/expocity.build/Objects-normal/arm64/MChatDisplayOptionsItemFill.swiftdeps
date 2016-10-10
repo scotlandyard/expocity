@@ -8,11 +8,11 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "String"
-- "UIViewContentMode"
 - "MChatDisplayOptionsItemFill"
-- "StringLiteralType"
-- !private "NSLocalizedString"
 - "MChatDisplayOptionsItem"
+- "StringLiteralType"
+- "UIViewContentMode"
+- !private "NSLocalizedString"
 depends-member:
 - !private ["Ps9AnyObject", "NSLocalizedString"]
 - ["Ps9AnyObject", "UIViewContentMode"]

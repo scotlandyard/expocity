@@ -7,11 +7,11 @@ provides-member:
 - ["C8expocity17MChatMenuItemSend", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "CChat"
+- "MChatMenuItemSend"
 - "MChatMenuItem"
 - "String"
-- "MChatMenuItemSend"
 - "StringLiteralType"
-- "CChat"
 depends-member:
 - !private ["Ps9AnyObject", "actionSend"]
 - ["Ps9AnyObject", "init"]

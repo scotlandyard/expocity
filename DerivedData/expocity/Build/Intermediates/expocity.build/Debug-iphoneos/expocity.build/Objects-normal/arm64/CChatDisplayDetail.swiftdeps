@@ -7,24 +7,24 @@ provides-member:
 - ["C8expocity18CChatDisplayDetail", ""]
 provides-dynamic-lookup:
 - "image"
-- "viewDidAppear"
-- "loadView"
 - "imageRect"
 - "viewDetail"
+- "loadView"
+- "viewDidAppear"
 depends-top-level:
-- "UIImage"
-- "CGRect"
-- "Bool"
-- !private "UIModalPresentationStyle"
-- "CController"
-- "MChatDisplayOptionsItem"
-- !private "StringLiteralType"
-- "NSCoder"
-- !private "fatalError"
-- !private "UIModalTransitionStyle"
-- "VChatDisplayDetail"
-- "AssignmentPrecedence"
 - "CChatDisplayDetail"
+- "CGRect"
+- "VChatDisplayDetail"
+- !private "StringLiteralType"
+- "UIImage"
+- "CController"
+- !private "UIModalTransitionStyle"
+- "NSCoder"
+- "AssignmentPrecedence"
+- "MChatDisplayOptionsItem"
+- !private "fatalError"
+- !private "UIModalPresentationStyle"
+- "Bool"
 depends-member:
 - !private ["Ps9AnyObject", "UIModalPresentationStyle"]
 - !private ["Ps9AnyObject", "UIModalTransitionStyle"]

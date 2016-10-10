@@ -7,21 +7,21 @@ provides-member:
 - ["C8expocity8MSession", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Array"
-- !private "Notification"
-- !private "FDatabase"
-- !private "NotificationCenter"
 - "MSession"
-- "String"
+- !private "NotificationCenter"
+- !private "DManager"
+- "DObjectUser"
+- !private "NSLocalizedString"
 - !private "FDatabaseModelUser"
 - "StringLiteralType"
+- !private "FDatabase"
+- "String"
 - "FDatabaseModelUserRooms"
-- !private "NSLocalizedString"
-- !private "DManager"
+- !private "FMain"
 - !private "=="
 - "AssignmentPrecedence"
-- "DObjectUser"
-- !private "FMain"
+- !private "Notification"
+- !private "Array"
 depends-member:
 - !private ["Ps9AnyObject", "DManager"]
 - !private ["Ps9AnyObject", "DObjectUser"]

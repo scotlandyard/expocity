@@ -8,9 +8,9 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "MChatMenuStatus"
-- "MChatMenu"
-- "AssignmentPrecedence"
 - !private "MChatMenuStatusStandby"
+- "AssignmentPrecedence"
+- "MChatMenu"
 depends-member:
 - !private ["Ps9AnyObject", "MChatMenuStatusStandby"]
 - !private ["Ps9AnyObject", "init"]

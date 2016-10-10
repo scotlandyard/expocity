@@ -7,14 +7,14 @@ provides-member:
 - ["C8expocity30VChatConversationCellEmojiMine", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "UIViewContentMode"
 - "VChatConversationCellEmojiMine"
-- !private "StringLiteralType"
 - "NSCoder"
+- !private "UIViewContentMode"
+- "VChatConversationCellEmoji"
+- !private "StringLiteralType"
+- "CGRect"
 - "AssignmentPrecedence"
 - !private "fatalError"
-- "CGRect"
-- "VChatConversationCellEmoji"
 depends-member:
 - !private ["Ps9AnyObject", "UIViewContentMode"]
 - !private ["Ps9AnyObject", "contentMode"]

@@ -7,13 +7,13 @@ provides-member:
 - ["C8expocity20MChatMenuItemOptions", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "BooleanLiteralType"
 - "String"
+- !private "BooleanLiteralType"
 - "CChat"
-- "StringLiteralType"
-- "MChatMenuItem"
-- !private "UIApplication"
 - "MChatMenuItemOptions"
+- "StringLiteralType"
+- !private "UIApplication"
+- "MChatMenuItem"
 depends-member:
 - !private ["Ps9AnyObject", "UIApplication"]
 - !private ["Ps9AnyObject", "displayOptions"]

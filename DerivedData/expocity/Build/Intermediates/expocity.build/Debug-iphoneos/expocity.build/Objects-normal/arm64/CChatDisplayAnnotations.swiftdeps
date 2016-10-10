@@ -6,29 +6,29 @@ provides-nominal:
 provides-member:
 - ["C8expocity23CChatDisplayAnnotations", ""]
 provides-dynamic-lookup:
-- "loadView"
-- "confirmTextAnnotation"
 - "addAnnotation"
-- "cancelAnnotation"
-- "controllerChat"
 - "viewAnnotations"
+- "cancelAnnotation"
 - "viewDidAppear"
 - "confirmAnnotation"
+- "confirmTextAnnotation"
+- "loadView"
+- "controllerChat"
 depends-top-level:
+- "CChat"
+- !private "fatalError"
+- "CChatDisplayAnnotations"
+- "Bool"
+- "MChatDisplayAnnotationsItem"
 - !private "UIModalPresentationStyle"
 - "NSCoder"
-- "MChatDisplayAnnotationsItem"
-- "CChat"
+- !private "StringLiteralType"
+- "AssignmentPrecedence"
+- "CGFloat"
+- "String"
+- !private "UIModalTransitionStyle"
 - "CController"
 - "VChatDisplayAnnotations"
-- "String"
-- !private "StringLiteralType"
-- "CChatDisplayAnnotations"
-- !private "UIModalTransitionStyle"
-- "AssignmentPrecedence"
-- !private "fatalError"
-- "CGFloat"
-- "Bool"
 depends-member:
 - !private ["Ps9AnyObject", "UIModalPresentationStyle"]
 - !private ["Ps9AnyObject", "UIModalTransitionStyle"]

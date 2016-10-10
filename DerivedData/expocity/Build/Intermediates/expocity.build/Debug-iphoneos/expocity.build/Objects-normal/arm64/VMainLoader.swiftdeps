@@ -7,18 +7,18 @@ provides-member:
 - ["C8expocity11VMainLoader", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "UIImageView"
-- !private "_ImageLiteralType"
 - "NSCoder"
-- !private "BooleanLiteralType"
-- !private "CGRect"
-- !private "UIImage"
 - "VMainLoader"
-- !private "StringLiteralType"
-- "TimeInterval"
-- "AssignmentPrecedence"
 - !private "fatalError"
+- !private "BooleanLiteralType"
 - !private "UIViewContentMode"
+- "TimeInterval"
+- !private "StringLiteralType"
+- !private "_ImageLiteralType"
+- !private "UIImage"
+- "AssignmentPrecedence"
+- !private "CGRect"
+- "UIImageView"
 depends-member:
 - !private ["Ps9AnyObject", "CGRect"]
 - !private ["Ps9AnyObject", "UIViewContentMode"]

@@ -7,11 +7,11 @@ provides-member:
 provides-dynamic-lookup:
 - "reusableIdentifier"
 depends-top-level:
+- !private "object_getClass"
 - "String"
 - "UICollectionReusableView"
-- !private "NSStringFromClass"
 - !private "AnyClass"
-- !private "object_getClass"
+- !private "NSStringFromClass"
 depends-member:
 - !private ["Ps9AnyObject", "NSStringFromClass"]
 - !private ["Ps9AnyObject", "object_getClass"]

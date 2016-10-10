@@ -7,10 +7,10 @@ provides-member:
 - ["C8expocity27MChatEmojiKeyboardItemAngry", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MChatEmojiKeyboardItem"
 - !private "_ImageLiteralType"
 - !private "StringLiteralType"
 - "MChatEmojiKeyboardItemAngry"
+- "MChatEmojiKeyboardItem"
 depends-member:
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", ""]

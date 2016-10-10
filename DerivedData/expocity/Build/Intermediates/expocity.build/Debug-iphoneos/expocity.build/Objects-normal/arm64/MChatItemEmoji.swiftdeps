@@ -7,13 +7,13 @@ provides-member:
 - ["C8expocity14MChatItemEmoji", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MChatItem"
-- "AssignmentPrecedence"
-- "CGFloat"
 - "UIImage"
 - "String"
 - "MChatItemEmoji"
 - !private "StringLiteralType"
+- "MChatItem"
+- "AssignmentPrecedence"
+- "CGFloat"
 depends-member:
 - ["Ps9AnyObject", "image"]
 - ["Ps9AnyObject", "init"]

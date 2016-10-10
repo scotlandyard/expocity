@@ -8,12 +8,12 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "String"
-- "Int"
-- !private "NSLocalizedString"
-- "StringLiteralType"
 - "CController"
-- "MMenuItem"
+- "StringLiteralType"
+- "Int"
 - !private "CHome"
+- "MMenuItem"
+- !private "NSLocalizedString"
 - "MMenuItemSettings"
 depends-member:
 - !private ["Ps9AnyObject", "CHome"]

@@ -9,17 +9,17 @@ provides-member:
 - ["OC8expocity26FDatabaseModelMessageEmoji5Emoji", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
 - "Int"
-- "FDatabaseModelMessageEmoji"
-- !private "Dictionary"
+- "String"
+- !private "Array"
 - !private "StringLiteralType"
+- "FDatabaseModelMessageEmoji"
 - !private "~="
+- !private "Dictionary"
 - "=="
 - "AssignmentPrecedence"
-- "CastingPrecedence"
-- !private "Array"
 - "FDatabaseModelMessage"
+- "CastingPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "Array"]
 - !private ["Ps9AnyObject", "Emoji"]

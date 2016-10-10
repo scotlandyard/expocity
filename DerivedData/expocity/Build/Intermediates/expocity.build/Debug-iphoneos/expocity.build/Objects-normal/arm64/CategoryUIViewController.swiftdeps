@@ -7,9 +7,9 @@ provides-member:
 provides-dynamic-lookup:
 - "parentController"
 depends-top-level:
-- "CParent"
-- "CastingPrecedence"
 - "UIViewController"
+- "CastingPrecedence"
+- "CParent"
 depends-member:
 - !private ["Ps9AnyObject", "parent"]
 - ["Ps9AnyObject", "parentController"]

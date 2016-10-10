@@ -7,9 +7,9 @@ provides-member:
 provides-dynamic-lookup:
 - "reusableIdentifier"
 depends-top-level:
-- !private "NSStringFromClass"
 - "String"
 - !private "AnyClass"
+- !private "NSStringFromClass"
 - !private "object_getClass"
 - "MKAnnotationView"
 depends-member:

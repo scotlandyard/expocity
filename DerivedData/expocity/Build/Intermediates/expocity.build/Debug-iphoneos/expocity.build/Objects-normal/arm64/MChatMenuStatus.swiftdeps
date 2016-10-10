@@ -7,9 +7,9 @@ provides-member:
 - ["C8expocity15MChatMenuStatus", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MChatMenuItem"
-- "AssignmentPrecedence"
 - "MChatMenuStatus"
+- "AssignmentPrecedence"
+- "MChatMenuItem"
 depends-member:
 - !private ["Ps9AnyObject", "items"]
 - ["Ps9AnyObject", ""]

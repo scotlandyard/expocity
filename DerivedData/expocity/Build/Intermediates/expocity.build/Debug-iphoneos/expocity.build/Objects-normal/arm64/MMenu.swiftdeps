@@ -11,12 +11,12 @@ depends-top-level:
 - !private "MMenuItemHistory"
 - !private "MMenuItemSettings"
 - "MMenu"
-- !private "MMenuStateOptions"
-- "AssignmentPrecedence"
-- "MMenuItem"
-- "MMenuItemHome"
 - !private "MMenuItemRooms"
 - !private "MMenuStatePushed"
+- !private "MMenuStateOptions"
+- "MMenuItem"
+- "MMenuItemHome"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "MMenuItemHistory"]
 - !private ["Ps9AnyObject", "MMenuItemHome"]

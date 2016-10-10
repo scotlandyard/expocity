@@ -7,8 +7,8 @@ provides-member:
 provides-dynamic-lookup:
 - "appDirectory"
 depends-top-level:
-- "FileManager"
 - "URL"
+- "FileManager"
 depends-member:
 - !private ["Ps9AnyObject", "FileManager"]
 - !private ["Ps9AnyObject", "SearchPathDirectory"]

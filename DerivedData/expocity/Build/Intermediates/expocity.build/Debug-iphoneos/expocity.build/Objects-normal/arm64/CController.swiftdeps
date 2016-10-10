@@ -6,30 +6,30 @@ provides-nominal:
 provides-member:
 - ["C8expocity11CController", ""]
 provides-dynamic-lookup:
-- "layoutRight"
+- "addShadow"
+- "layoutLeft"
+- "title"
 - "shadow"
 - "viewDidLoad"
-- "title"
 - "preferredStatusBarStyle"
 - "prefersStatusBarHidden"
-- "layoutLeft"
-- "addShadow"
+- "layoutRight"
 depends-top-level:
 - !private "BooleanLiteralType"
-- "UIViewController"
-- "String"
-- "Bool"
 - "CController"
-- !private "Array"
+- "Bool"
+- !private "UIView"
+- "NSLayoutConstraint"
 - "VMainShadow"
 - !private "StringLiteralType"
+- !private "Array"
+- "UIViewController"
 - "UIStatusBarStyle"
-- "NSLayoutConstraint"
+- "String"
 - "AssignmentPrecedence"
 - !private "CGFloat"
 - !private "Dictionary"
 - !private "UIRectEdge"
-- !private "UIView"
 depends-member:
 - !private ["Ps9AnyObject", "NSLayoutConstraint"]
 - !private ["Ps9AnyObject", "UIRectEdge"]

@@ -8,13 +8,13 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "BooleanLiteralType"
+- "Bool"
+- !private "StringLiteralType"
 - "MHomeItem"
 - !private "VHomeCellCreate"
-- "MHomeItemCreate"
-- !private "String"
-- !private "StringLiteralType"
 - "CGFloat"
-- "Bool"
+- !private "String"
+- "MHomeItemCreate"
 depends-member:
 - !private ["Ps9AnyObject", "VHomeCellCreate"]
 - ["Ps9AnyObject", "init"]

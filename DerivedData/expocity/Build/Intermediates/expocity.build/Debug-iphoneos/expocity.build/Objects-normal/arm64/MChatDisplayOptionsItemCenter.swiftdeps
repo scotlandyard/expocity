@@ -7,11 +7,11 @@ provides-member:
 - ["C8expocity29MChatDisplayOptionsItemCenter", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "NSLocalizedString"
+- "MChatDisplayOptionsItem"
 - "String"
 - "StringLiteralType"
-- "MChatDisplayOptionsItem"
 - "UIViewContentMode"
-- !private "NSLocalizedString"
 - "MChatDisplayOptionsItemCenter"
 depends-member:
 - !private ["Ps9AnyObject", "NSLocalizedString"]

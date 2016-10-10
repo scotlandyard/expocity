@@ -6,21 +6,21 @@ provides-nominal:
 provides-member:
 - ["C8expocity19CChatDisplayOptions", ""]
 provides-dynamic-lookup:
-- "loadView"
 - "viewDidAppear"
+- "loadView"
 - "viewOptions"
 depends-top-level:
-- "CController"
-- "MChatDisplayOptions"
-- "NSCoder"
-- !private "UIModalPresentationStyle"
-- "CChatDisplayOptions"
-- !private "StringLiteralType"
-- "MChat"
-- "Bool"
 - !private "UIModalTransitionStyle"
+- "MChatDisplayOptions"
+- "Bool"
+- "CChatDisplayOptions"
+- !private "UIModalPresentationStyle"
+- !private "StringLiteralType"
+- "CController"
+- "MChat"
 - "AssignmentPrecedence"
 - !private "fatalError"
+- "NSCoder"
 - "VChatDisplayOptions"
 depends-member:
 - !private ["Ps9AnyObject", "MChatDisplayOptions"]
