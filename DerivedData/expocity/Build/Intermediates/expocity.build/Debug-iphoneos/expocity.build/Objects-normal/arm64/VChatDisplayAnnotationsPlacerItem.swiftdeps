@@ -6,20 +6,20 @@ provides-nominal:
 provides-member:
 - ["C8expocity33VChatDisplayAnnotationsPlacerItem", ""]
 provides-dynamic-lookup:
-- "controller"
 - "actionSelect"
+- "controller"
 depends-top-level:
-- !private "UIControlState"
-- !private "BooleanLiteralType"
-- !private "UIViewContentMode"
-- !private "_ImageLiteralType"
-- !private "StringLiteralType"
-- "VChatDisplayAnnotationsPlacerItem"
-- "UIButton"
-- "MChatDisplayAnnotationsItem"
-- "AssignmentPrecedence"
 - !private "UIControlEvents"
+- !private "_ImageLiteralType"
+- !private "UIViewContentMode"
 - "CChatDisplayAnnotations"
+- !private "BooleanLiteralType"
+- "UIButton"
+- !private "StringLiteralType"
+- !private "UIControlState"
+- "VChatDisplayAnnotationsPlacerItem"
+- "AssignmentPrecedence"
+- "MChatDisplayAnnotationsItem"
 depends-member:
 - !private ["Ps9AnyObject", "UIControlEvents"]
 - !private ["Ps9AnyObject", "UIControlState"]

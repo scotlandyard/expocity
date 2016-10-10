@@ -7,20 +7,20 @@ provides-member:
 - ["C8expocity5MChat", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Array"
-- !private "MChatDisplayOptionsItemFill"
-- !private "BooleanLiteralType"
-- "MChatItem"
 - !private "MSession"
-- "TimeInterval"
+- !private "BooleanLiteralType"
 - "MChatDisplayAnnotations"
-- !private "=="
-- "AssignmentPrecedence"
-- "MChatDisplayOptionsItem"
 - "MChat"
-- "String"
+- "TimeInterval"
+- "MChatItem"
 - "Bool"
 - "FDatabaseModelRoom"
+- "AssignmentPrecedence"
+- !private "MChatDisplayOptionsItemFill"
+- "String"
+- "MChatDisplayOptionsItem"
+- !private "Array"
+- !private "=="
 depends-member:
 - ["OC8expocity18FDatabaseModelRoom6Access", "deinit"]
 - ["Ps9AnyObject", "Access"]

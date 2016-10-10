@@ -7,13 +7,13 @@ provides-member:
 - ["C8expocity18MChatItemEmojiMine", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "StringLiteralType"
+- !private "VChatConversationCellEmojiMine"
+- "CGFloat"
+- "UIImage"
+- !private "String"
 - "MChatItemEmoji"
 - "MChatItemEmojiMine"
-- "CGFloat"
-- !private "String"
-- "UIImage"
-- !private "VChatConversationCellEmojiMine"
-- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "VChatConversationCellEmojiMine"]
 - ["Ps9AnyObject", "heightForCurrentWidth"]

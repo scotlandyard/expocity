@@ -7,10 +7,10 @@ provides-member:
 - ["C8expocity27MChatDisplayAnnotationsItem", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "StringLiteralType"
 - "String"
-- "AssignmentPrecedence"
 - "MChatDisplayAnnotationsItem"
+- !private "StringLiteralType"
+- "AssignmentPrecedence"
 - "CGFloat"
 depends-member:
 - !private ["Ps9AnyObject", "init"]

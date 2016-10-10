@@ -7,11 +7,11 @@ provides-member:
 - ["C8expocity9MMenuItem", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MMenuItem"
-- !private "StringLiteralType"
 - "CController"
-- "Int"
 - "String"
+- "Int"
+- !private "StringLiteralType"
+- "MMenuItem"
 - !private "fatalError"
 - "AssignmentPrecedence"
 depends-member:

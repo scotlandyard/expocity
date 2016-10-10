@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.0 (swiftlang-800.0.46.2 clang-800.0.38)"
 options: "f39bf42760d328300198e10dbbde8c97"
-build_time: [529430364, 553339000]
+build_time: [529430769, 680141000]
 inputs:
   "/devel/iturbide/expocity/expocity/Model/Menu/MMenuItem.swift": [526421433, 0]
   "/devel/iturbide/expocity/expocity/Firebase/Database/Base/FDatabase.swift": [529427418, 0]
@@ -127,6 +127,6 @@ inputs:
   "/devel/iturbide/expocity/expocity/Category/CategoryUIColor.swift": [527024848, 0]
   "/devel/iturbide/expocity/expocity/Model/Menu/MMenuState.swift": [527102075, 0]
   "/devel/iturbide/expocity/expocity/View/Chat/DisplayDetail/VChatDisplayDetail.swift": [529026618, 0]
-  "/devel/iturbide/expocity/DerivedData/expocity/Build/Intermediates/expocity.build/Debug-iphoneos/expocity.build/DerivedSources/CoreDataGenerated/DExpocity/DObjectUser+CoreDataClass.swift": [529430364, 0]
-  "/devel/iturbide/expocity/DerivedData/expocity/Build/Intermediates/expocity.build/Debug-iphoneos/expocity.build/DerivedSources/CoreDataGenerated/DExpocity/DObjectUser+CoreDataProperties.swift": [529430364, 0]
-  "/devel/iturbide/expocity/DerivedData/expocity/Build/Intermediates/expocity.build/Debug-iphoneos/expocity.build/DerivedSources/CoreDataGenerated/DExpocity/DExpocity+CoreDataModel.swift": [529430364, 0]
+  "/devel/iturbide/expocity/DerivedData/expocity/Build/Intermediates/expocity.build/Debug-iphoneos/expocity.build/DerivedSources/CoreDataGenerated/DExpocity/DObjectUser+CoreDataClass.swift": [529430769, 0]
+  "/devel/iturbide/expocity/DerivedData/expocity/Build/Intermediates/expocity.build/Debug-iphoneos/expocity.build/DerivedSources/CoreDataGenerated/DExpocity/DObjectUser+CoreDataProperties.swift": [529430769, 0]
+  "/devel/iturbide/expocity/DerivedData/expocity/Build/Intermediates/expocity.build/Debug-iphoneos/expocity.build/DerivedSources/CoreDataGenerated/DExpocity/DExpocity+CoreDataModel.swift": [529430769, 0]

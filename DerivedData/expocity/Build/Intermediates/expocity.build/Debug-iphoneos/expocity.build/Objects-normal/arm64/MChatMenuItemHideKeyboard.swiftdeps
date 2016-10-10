@@ -9,11 +9,11 @@ provides-dynamic-lookup:
 depends-top-level:
 - !private "BooleanLiteralType"
 - "String"
-- "MChatMenuItem"
-- !private "UIApplication"
 - "StringLiteralType"
 - "MChatMenuItemHideKeyboard"
 - "CChat"
+- !private "UIApplication"
+- "MChatMenuItem"
 depends-member:
 - !private ["Ps9AnyObject", "UIApplication"]
 - !private ["Ps9AnyObject", "endEditing"]

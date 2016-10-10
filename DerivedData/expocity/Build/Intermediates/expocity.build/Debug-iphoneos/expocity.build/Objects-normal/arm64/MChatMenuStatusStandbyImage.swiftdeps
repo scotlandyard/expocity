@@ -7,14 +7,14 @@ provides-member:
 - ["C8expocity27MChatMenuStatusStandbyImage", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MChatMenuStatus"
-- !private "MChatMenuItemPicture"
-- "MChatMenuStatusStandbyImage"
-- !private "MChatMenuItemAnnotate"
-- !private "StringLiteralType"
-- !private "MChatMenuItemOptions"
 - !private "MChatMenuItem"
+- !private "StringLiteralType"
+- !private "MChatMenuItemPicture"
 - !private "MChatMenuItemEmoji"
+- "MChatMenuStatusStandbyImage"
+- "MChatMenuStatus"
+- !private "MChatMenuItemAnnotate"
+- !private "MChatMenuItemOptions"
 depends-member:
 - !private ["Ps9AnyObject", "MChatMenuItemAnnotate"]
 - !private ["Ps9AnyObject", "MChatMenuItemEmoji"]

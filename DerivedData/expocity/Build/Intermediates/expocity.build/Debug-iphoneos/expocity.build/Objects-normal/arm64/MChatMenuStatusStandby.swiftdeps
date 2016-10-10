@@ -8,11 +8,11 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - !private "MChatMenuItemPicture"
-- !private "StringLiteralType"
 - "MChatMenuStatus"
+- !private "StringLiteralType"
 - "MChatMenuStatusStandby"
-- !private "MChatMenuItemEmoji"
 - !private "MChatMenuItem"
+- !private "MChatMenuItemEmoji"
 depends-member:
 - !private ["Ps9AnyObject", "MChatMenuItemEmoji"]
 - !private ["Ps9AnyObject", "MChatMenuItemPicture"]

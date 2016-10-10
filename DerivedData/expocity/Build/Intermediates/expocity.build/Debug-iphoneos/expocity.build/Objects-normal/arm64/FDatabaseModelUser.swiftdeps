@@ -10,17 +10,17 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "FDatabaseModel"
-- "TimeInterval"
+- !private "Dictionary"
 - "FDatabaseModelUser"
 - "String"
 - "StringLiteralType"
-- !private "Dictionary"
+- "TimeInterval"
 - !private "~="
-- !private "NSDate"
 - "=="
 - "AssignmentPrecedence"
-- "CastingPrecedence"
+- !private "NSDate"
 - "FDatabaseModelUserRooms"
+- "CastingPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "FDatabaseModelUserRooms"]
 - !private ["Ps9AnyObject", "NSDate"]

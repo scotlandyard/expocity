@@ -6,11 +6,11 @@ provides-member:
 - ["V10Foundation4Date", "beginningOfDay"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Calendar"
-- "Date"
 - !private "Array"
-- !private "DateComponents"
+- !private "Calendar"
 - !private "NSCalendar"
+- "Date"
+- !private "DateComponents"
 - "CastingPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "Unit"]

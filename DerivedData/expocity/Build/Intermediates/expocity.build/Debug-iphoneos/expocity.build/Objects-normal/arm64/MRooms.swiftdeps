@@ -7,11 +7,11 @@ provides-member:
 - ["C8expocity6MRooms", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "FDatabaseModelUserRooms"
 - "MRoomsItem"
-- "AssignmentPrecedence"
-- !private "String"
 - "MRooms"
+- !private "String"
+- "FDatabaseModelUserRooms"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "MRoomsItem"]
 - !private ["Ps9AnyObject", "init"]

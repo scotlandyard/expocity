@@ -8,10 +8,10 @@ provides-member:
 - ["CSo6UIFont", "bold"]
 - ["CSo6UIFont", "numeric"]
 provides-dynamic-lookup:
-- "numeric"
+- "medium"
 - "regular"
 - "bold"
-- "medium"
+- "numeric"
 depends-top-level:
 - !private "StringLiteralType"
 - "UIFont"

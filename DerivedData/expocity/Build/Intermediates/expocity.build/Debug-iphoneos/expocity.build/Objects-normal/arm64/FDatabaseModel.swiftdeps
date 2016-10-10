@@ -7,9 +7,9 @@ provides-member:
 - ["C8expocity14FDatabaseModel", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "fatalError"
 - !private "StringLiteralType"
 - "FDatabaseModel"
+- !private "fatalError"
 depends-member:
 - !private ["Ps9AnyObject", "fatalError"]
 - ["Ps9AnyObject", ""]

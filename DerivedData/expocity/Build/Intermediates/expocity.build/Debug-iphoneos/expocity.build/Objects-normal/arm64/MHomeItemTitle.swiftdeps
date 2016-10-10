@@ -7,10 +7,10 @@ provides-member:
 - ["C8expocity14MHomeItemTitle", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "BooleanLiteralType"
-- "MHomeItemTitle"
-- !private "StringLiteralType"
 - "Bool"
+- "MHomeItemTitle"
+- "BooleanLiteralType"
+- !private "StringLiteralType"
 - "AssignmentPrecedence"
 - "CGFloat"
 - "String"

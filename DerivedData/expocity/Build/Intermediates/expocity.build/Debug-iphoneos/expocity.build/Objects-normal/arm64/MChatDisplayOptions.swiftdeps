@@ -7,22 +7,22 @@ provides-member:
 - ["C8expocity19MChatDisplayOptions", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "MChatDisplayOptionsItemFit"
-- "MChatDisplayOptionsItem"
-- "Int"
-- !private "MChatDisplayOptionsItemFill"
 - !private "DispatchQueue"
-- "MChat"
-- !private "MChatDisplayOptionsItemCenter"
-- !private "+="
-- !private "NotificationCenter"
 - !private "!="
+- !private "Array"
+- !private "NotificationCenter"
+- "MChat"
+- "MChatDisplayOptions"
+- !private "+="
+- !private "MChatDisplayOptionsItemCenter"
+- "Int"
+- "MChatDisplayOptionsItem"
 - !private "=="
 - "AssignmentPrecedence"
-- !private "DispatchQoS"
-- "MChatDisplayOptions"
-- !private "Array"
+- !private "MChatDisplayOptionsItemFill"
 - !private "Notification"
+- !private "MChatDisplayOptionsItemFit"
+- !private "DispatchQoS"
 depends-member:
 - !private ["Ps9AnyObject", "DispatchQoS"]
 - !private ["Ps9AnyObject", "DispatchQueue"]

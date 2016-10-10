@@ -10,18 +10,18 @@ provides-dynamic-lookup:
 - "loadView"
 - "viewOptions"
 depends-top-level:
-- !private "UIModalTransitionStyle"
-- "MChatDisplayOptions"
+- "VChatDisplayOptions"
 - "Bool"
 - "CChatDisplayOptions"
+- "NSCoder"
 - !private "UIModalPresentationStyle"
 - !private "StringLiteralType"
-- "CController"
-- "MChat"
-- "AssignmentPrecedence"
 - !private "fatalError"
-- "NSCoder"
-- "VChatDisplayOptions"
+- "MChat"
+- "CController"
+- "AssignmentPrecedence"
+- "MChatDisplayOptions"
+- !private "UIModalTransitionStyle"
 depends-member:
 - !private ["Ps9AnyObject", "MChatDisplayOptions"]
 - !private ["Ps9AnyObject", "UIModalPresentationStyle"]

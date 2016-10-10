@@ -8,15 +8,15 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "MMenuState"
-- !private "MMenuItemHistory"
-- !private "MMenuItemSettings"
-- "MMenu"
-- !private "MMenuItemRooms"
-- !private "MMenuStatePushed"
-- !private "MMenuStateOptions"
 - "MMenuItem"
-- "MMenuItemHome"
+- !private "MMenuItemSettings"
+- !private "MMenuItemHistory"
+- "MMenu"
 - "AssignmentPrecedence"
+- !private "MMenuItemRooms"
+- !private "MMenuStateOptions"
+- !private "MMenuStatePushed"
+- "MMenuItemHome"
 depends-member:
 - !private ["Ps9AnyObject", "MMenuItemHistory"]
 - !private ["Ps9AnyObject", "MMenuItemHome"]

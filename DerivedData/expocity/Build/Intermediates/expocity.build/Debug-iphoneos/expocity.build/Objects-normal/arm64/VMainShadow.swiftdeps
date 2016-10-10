@@ -6,19 +6,19 @@ provides-nominal:
 provides-member:
 - ["C8expocity11VMainShadow", ""]
 provides-dynamic-lookup:
-- "minAlpha"
 - "maxAlpha"
+- "minAlpha"
 depends-top-level:
-- !private "BooleanLiteralType"
-- "VMainShadow"
-- !private "StringLiteralType"
-- !private "UIColor"
-- "UIView"
-- "AssignmentPrecedence"
 - !private "fatalError"
-- "CGFloat"
-- "NSCoder"
+- !private "BooleanLiteralType"
 - !private "CGRect"
+- "NSCoder"
+- !private "UIColor"
+- !private "StringLiteralType"
+- "VMainShadow"
+- "AssignmentPrecedence"
+- "CGFloat"
+- "UIView"
 depends-member:
 - !private ["Ps9AnyObject", "CGRect"]
 - !private ["Ps9AnyObject", "UIColor"]

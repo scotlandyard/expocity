@@ -10,9 +10,9 @@ provides-dynamic-lookup:
 - "name"
 - "userId"
 depends-top-level:
+- !private "StringLiteralType"
 - "DObjectUser"
 - "String"
-- !private "StringLiteralType"
 - "NSFetchRequest"
 depends-member:
 - !private ["Ps9AnyObject", "NSFetchRequest"]

@@ -7,16 +7,16 @@ provides-member:
 - ["C8expocity15MHomeItemAccess", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "FDatabaseModelRoom"
 - "MHomeItemAccess"
 - "BooleanLiteralType"
+- "Bool"
 - !private "String"
 - !private "StringLiteralType"
-- "MHomeItem"
+- "FDatabaseModelRoom"
 - "AssignmentPrecedence"
 - "CGFloat"
 - !private "VHomeCellAccess"
-- "Bool"
+- "MHomeItem"
 depends-member:
 - ["OC8expocity18FDatabaseModelRoom6Access", "deinit"]
 - !private ["OC8expocity18FDatabaseModelRoom6Access", "invitationOnly"]

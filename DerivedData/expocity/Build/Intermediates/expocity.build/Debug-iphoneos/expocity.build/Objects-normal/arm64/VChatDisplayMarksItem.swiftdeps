@@ -6,27 +6,27 @@ provides-nominal:
 provides-member:
 - ["C8expocity21VChatDisplayMarksItem", ""]
 provides-dynamic-lookup:
+- "timer"
 - "controller"
 - "actionButton"
 - "timeOut"
-- "timer"
 depends-top-level:
-- "TimeInterval"
-- !private "UIControlEvents"
-- !private "!"
-- !private "UIViewContentMode"
-- !private "StringLiteralType"
+- "MChatDisplayAnnotationsItem"
+- !private "_ImageLiteralType"
 - !private "BooleanLiteralType"
 - "UIButton"
-- "MChatDisplayAnnotationsItem"
-- !private "String"
-- !private "UIControlState"
-- !private "VMainAlert"
-- "VChatDisplayMarksItem"
-- "CChat"
 - "Timer"
+- "VChatDisplayMarksItem"
+- !private "UIControlState"
+- !private "!"
+- "CChat"
+- !private "UIViewContentMode"
+- !private "String"
+- !private "StringLiteralType"
+- !private "UIControlEvents"
+- "TimeInterval"
 - "AssignmentPrecedence"
-- !private "_ImageLiteralType"
+- !private "VMainAlert"
 depends-member:
 - !private ["OC8expocity10VMainAlert9AlertType", "annotation"]
 - !private ["OC8expocity10VMainAlert9AlertType", "deinit"]

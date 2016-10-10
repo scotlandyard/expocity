@@ -7,14 +7,14 @@ provides-member:
 - ["C8expocity14MMenuItemRooms", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "NSLocalizedString"
-- !private "CRooms"
-- "String"
-- "StringLiteralType"
-- "CController"
-- "Int"
 - "MMenuItem"
+- "StringLiteralType"
+- !private "CRooms"
+- !private "NSLocalizedString"
+- "String"
+- "CController"
 - "MMenuItemRooms"
+- "Int"
 depends-member:
 - !private ["Ps9AnyObject", "CRooms"]
 - !private ["Ps9AnyObject", "NSLocalizedString"]

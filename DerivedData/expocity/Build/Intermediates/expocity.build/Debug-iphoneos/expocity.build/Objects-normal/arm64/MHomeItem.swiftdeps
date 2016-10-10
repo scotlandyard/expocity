@@ -7,11 +7,11 @@ provides-member:
 - ["C8expocity9MHomeItem", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MHomeItem"
+- "String"
 - "Bool"
+- "MHomeItem"
 - "AssignmentPrecedence"
 - "CGFloat"
-- "String"
 depends-member:
 - !private ["Ps9AnyObject", "cellHeight"]
 - !private ["Ps9AnyObject", "reusableIdentifier"]

@@ -7,10 +7,10 @@ provides-member:
 - ["C8expocity23MChatDisplayOptionsItem", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MChatDisplayOptionsItem"
 - "String"
-- "UIViewContentMode"
+- "MChatDisplayOptionsItem"
 - "AssignmentPrecedence"
+- "UIViewContentMode"
 depends-member:
 - !private ["Ps9AnyObject", "contentMode"]
 - !private ["Ps9AnyObject", "icon"]

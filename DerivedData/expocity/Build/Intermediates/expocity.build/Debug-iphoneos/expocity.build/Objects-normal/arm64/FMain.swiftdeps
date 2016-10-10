@@ -7,10 +7,10 @@ provides-member:
 - ["C8expocity5FMain", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "FMain"
+- !private "FIRApp"
 - "FDatabase"
 - !private "AssignmentPrecedence"
-- !private "FIRApp"
+- "FMain"
 depends-member:
 - !private ["Ps9AnyObject", "FDatabase"]
 - !private ["Ps9AnyObject", "FIRApp"]

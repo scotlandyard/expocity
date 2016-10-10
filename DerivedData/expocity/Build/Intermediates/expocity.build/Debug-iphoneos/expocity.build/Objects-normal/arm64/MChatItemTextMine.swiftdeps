@@ -7,13 +7,13 @@ provides-member:
 - ["C8expocity17MChatItemTextMine", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "StringLiteralType"
+- "String"
 - "MChatItemText"
+- !private "StringLiteralType"
+- "MChatItemTextMine"
+- !private "UIFont"
 - "CGFloat"
 - !private "VChatConversationCellTextMine"
-- "String"
-- !private "UIFont"
-- "MChatItemTextMine"
 depends-member:
 - !private ["Ps9AnyObject", "UIFont"]
 - !private ["Ps9AnyObject", "VChatConversationCellTextMine"]

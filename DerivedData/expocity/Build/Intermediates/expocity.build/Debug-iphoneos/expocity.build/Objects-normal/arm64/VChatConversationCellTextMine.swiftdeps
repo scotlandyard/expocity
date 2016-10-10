@@ -7,14 +7,14 @@ provides-member:
 - ["C8expocity29VChatConversationCellTextMine", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "CGRect"
+- !private "UIColor"
 - "VChatConversationCellText"
 - !private "StringLiteralType"
-- "NSCoder"
-- !private "UIColor"
-- "CGRect"
 - "VChatConversationCellTextMine"
 - "AssignmentPrecedence"
 - !private "fatalError"
+- "NSCoder"
 depends-member:
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "backgroundColor"]

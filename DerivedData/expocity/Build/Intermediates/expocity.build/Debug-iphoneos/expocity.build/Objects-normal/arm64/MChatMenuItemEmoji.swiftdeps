@@ -7,11 +7,11 @@ provides-member:
 - ["C8expocity18MChatMenuItemEmoji", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "MChatMenuItemEmoji"
-- "StringLiteralType"
-- "MChatMenuItem"
 - "CChat"
 - "String"
+- "MChatMenuItem"
+- "StringLiteralType"
+- "MChatMenuItemEmoji"
 depends-member:
 - !private ["Ps9AnyObject", "displayEmojiKeyboard"]
 - ["Ps9AnyObject", "init"]

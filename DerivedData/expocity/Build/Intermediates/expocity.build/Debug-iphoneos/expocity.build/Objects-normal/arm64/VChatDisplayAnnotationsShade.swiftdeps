@@ -7,25 +7,25 @@ provides-member:
 - ["C8expocity28VChatDisplayAnnotationsShade", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "BooleanLiteralType"
-- !private "Dictionary"
-- "VChatDisplayAnnotationsShade"
 - !private "NSLayoutConstraint"
-- !private "UIBlurEffect"
+- !private "UIVisualEffectView"
+- "Bool"
+- !private "BooleanLiteralType"
+- !private "Array"
 - "UIView"
+- "NSCoder"
+- "VChatDisplayAnnotationsShade"
+- !private "!"
 - !private "String"
 - !private "StringLiteralType"
-- "Bool"
-- !private "!"
-- "NSCoder"
-- !private "Array"
-- !private "UIColor"
+- !private "UIBlurEffectStyle"
 - !private "CGRect"
+- !private "Dictionary"
+- !private "UIBlurEffect"
 - "AssignmentPrecedence"
 - !private "fatalError"
 - !private "CGFloat"
-- !private "UIBlurEffectStyle"
-- !private "UIVisualEffectView"
+- !private "UIColor"
 depends-member:
 - !private ["Ps9AnyObject", "CGRect"]
 - !private ["Ps9AnyObject", "NSLayoutConstraint"]

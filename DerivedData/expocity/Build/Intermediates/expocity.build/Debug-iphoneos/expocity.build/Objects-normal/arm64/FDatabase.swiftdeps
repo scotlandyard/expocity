@@ -10,16 +10,16 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "FIRDataEventType"
+- !private "FIRDatabase"
 - "FDatabase"
-- "String"
 - !private "~="
 - "=="
 - "AssignmentPrecedence"
-- !private "FIRDatabase"
 - "StringLiteralType"
-- "FIRDatabaseReference"
 - "FDatabaseModel"
+- "FIRDatabaseReference"
 - "UInt"
+- "String"
 - !private "FIRDataSnapshot"
 depends-member:
 - !private ["Ps9AnyObject", "FIRDataEventType"]

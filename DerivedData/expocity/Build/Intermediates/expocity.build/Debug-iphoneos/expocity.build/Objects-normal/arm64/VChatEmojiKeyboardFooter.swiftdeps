@@ -6,29 +6,29 @@ provides-nominal:
 provides-member:
 - ["C8expocity24VChatEmojiKeyboardFooter", ""]
 provides-dynamic-lookup:
-- "controller"
 - "actionClose"
+- "controller"
 depends-top-level:
+- !private "fatalError"
+- !private "Array"
 - !private "BooleanLiteralType"
 - "UIButton"
-- !private "_ImageLiteralType"
-- !private "UIControlState"
 - !private "NSLayoutConstraint"
-- !private "UIView"
-- !private "String"
-- !private "UIControlEvents"
-- !private "StringLiteralType"
+- !private "_ImageLiteralType"
 - "NSCoder"
-- !private "Array"
-- "UICollectionReusableView"
+- !private "StringLiteralType"
+- !private "UIView"
+- !private "UIControlEvents"
 - !private "UIColor"
-- "CGRect"
-- "AssignmentPrecedence"
-- "CChat"
-- !private "CGFloat"
-- !private "fatalError"
 - "VChatEmojiKeyboardFooter"
+- "AssignmentPrecedence"
 - !private "Dictionary"
+- !private "CGFloat"
+- !private "String"
+- "CGRect"
+- !private "UIControlState"
+- "UICollectionReusableView"
+- "CChat"
 depends-member:
 - !private ["Ps9AnyObject", "NSLayoutConstraint"]
 - !private ["Ps9AnyObject", "UIButton"]
