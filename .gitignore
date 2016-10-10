@@ -1,6 +1,8 @@
 ## Build generated
 /build
 /Build
+.xcuserstate
+.xcactivitylog
 
 ## Various settings
 *.pbxuser
