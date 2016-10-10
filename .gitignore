@@ -13,3 +13,4 @@ playground.xcworkspace
 .DS_Store
 Build/
 build/
+xcuserdata/
