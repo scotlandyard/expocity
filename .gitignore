@@ -11,5 +11,5 @@
 timeline.xctimeline
 playground.xcworkspace
 .DS_Store
-Build/*
-!Build/*/**/DerivedSources/
+Build/
+build/
