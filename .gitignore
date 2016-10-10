@@ -1,3 +1,6 @@
+## Build generated
+build/
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
@@ -7,7 +10,12 @@
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+xcuserdata/
 .DS_Store
+
+## Other
+*.moved-aside
+*.xcuserstate
 
 ## Obj-C/Swift specific
 *.hmap

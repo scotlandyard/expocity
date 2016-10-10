@@ -7,6 +7,7 @@ class FDatabase
     {
         case user = "user"
         case room = "room"
+        case messages = "messages"
     }
     
     private let reference:FIRDatabaseReference

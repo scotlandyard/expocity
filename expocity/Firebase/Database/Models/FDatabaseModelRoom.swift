@@ -2,9 +2,9 @@ import Foundation
 
 class FDatabaseModelRoom:FDatabaseModel
 {
-    var name:String
-    var access:Access
-    var presentation:Presentation
+    let name:String
+    let access:Access
+    let presentation:Presentation
     let owner:String
     let created:TimeInterval
     private let kEmptyString:String = ""
