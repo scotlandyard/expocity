@@ -1,0 +1,541 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "CChatDisplayDetail"
+provides-nominal:
+- "C8expocity18CChatDisplayDetail"
+provides-member:
+- ["C8expocity18CChatDisplayDetail", ""]
+provides-dynamic-lookup:
+- "viewDetail"
+- "loadView"
+- "viewDidAppear"
+- "image"
+- "imageRect"
+depends-top-level:
+- "VChatDisplayDetail"
+- "UIImage"
+- !private "UIModalTransitionStyle"
+- "MChatDisplayOptionsItem"
+- "AssignmentPrecedence"
+- !private "fatalError"
+- "CController"
+- "CChatDisplayDetail"
+- !private "StringLiteralType"
+- !private "UIModalPresentationStyle"
+- "CGRect"
+- "NSCoder"
+- "Bool"
+depends-member:
+- !private ["Ps9AnyObject", "UIModalPresentationStyle"]
+- !private ["Ps9AnyObject", "UIModalTransitionStyle"]
+- !private ["Ps9AnyObject", "VChatDisplayDetail"]
+- !private ["Ps9AnyObject", "animateImage"]
+- ["Ps9AnyObject", "displayOption"]
+- !private ["Ps9AnyObject", "fatalError"]
+- ["Ps9AnyObject", "image"]
+- ["Ps9AnyObject", "imageRect"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "loadView"]
+- !private ["Ps9AnyObject", "modalPresentationStyle"]
+- !private ["Ps9AnyObject", "modalTransitionStyle"]
+- !private ["Ps9AnyObject", "view"]
+- ["Ps9AnyObject", "viewDetail"]
+- ["Ps9AnyObject", "viewDidAppear"]
+- ["Ps9AnyObject", ""]
+- ["Sb", "deinit"]
+- !private ["PSo15CALayerDelegate", "animateImage"]
+- !private ["PSo15CALayerDelegate", "init"]
+- ["C8expocity18CChatDisplayDetail", "Bool"]
+- ["C8expocity18CChatDisplayDetail", "CGRect"]
+- ["C8expocity18CChatDisplayDetail", "MChatDisplayOptionsItem"]
+- ["C8expocity18CChatDisplayDetail", "NSCoder"]
+- ["C8expocity18CChatDisplayDetail", "UIImage"]
+- !private ["C8expocity18CChatDisplayDetail", "UIModalPresentationStyle"]
+- !private ["C8expocity18CChatDisplayDetail", "UIModalTransitionStyle"]
+- ["C8expocity18CChatDisplayDetail", "VChatDisplayDetail"]
+- ["C8expocity18CChatDisplayDetail", "deinit"]
+- ["C8expocity18CChatDisplayDetail", "displayOption"]
+- !private ["C8expocity18CChatDisplayDetail", "fatalError"]
+- ["C8expocity18CChatDisplayDetail", "image"]
+- ["C8expocity18CChatDisplayDetail", "imageRect"]
+- ["C8expocity18CChatDisplayDetail", "init"]
+- ["C8expocity18CChatDisplayDetail", "loadView"]
+- !private ["C8expocity18CChatDisplayDetail", "modalPresentationStyle"]
+- !private ["C8expocity18CChatDisplayDetail", "modalTransitionStyle"]
+- !private ["C8expocity18CChatDisplayDetail", "view"]
+- ["C8expocity18CChatDisplayDetail", "viewDetail"]
+- ["C8expocity18CChatDisplayDetail", "viewDidAppear"]
+- ["C8expocity11CController", "Bool"]
+- ["C8expocity11CController", "CGRect"]
+- ["C8expocity11CController", "MChatDisplayOptionsItem"]
+- ["C8expocity11CController", "NSCoder"]
+- ["C8expocity11CController", "UIImage"]
+- !private ["C8expocity11CController", "UIModalPresentationStyle"]
+- !private ["C8expocity11CController", "UIModalTransitionStyle"]
+- ["C8expocity11CController", "VChatDisplayDetail"]
+- ["C8expocity11CController", "deinit"]
+- ["C8expocity11CController", "displayOption"]
+- !private ["C8expocity11CController", "fatalError"]
+- ["C8expocity11CController", "image"]
+- ["C8expocity11CController", "imageRect"]
+- ["C8expocity11CController", "init"]
+- ["C8expocity11CController", "loadView"]
+- !private ["C8expocity11CController", "modalPresentationStyle"]
+- !private ["C8expocity11CController", "modalTransitionStyle"]
+- !private ["C8expocity11CController", "view"]
+- ["C8expocity11CController", "viewDetail"]
+- ["C8expocity11CController", "viewDidAppear"]
+- ["C8expocity11CController", ""]
+- ["VSC6CGRect", "deinit"]
+- !private ["Ps7CVarArg", "UIModalPresentationStyle"]
+- !private ["Ps7CVarArg", "UIModalTransitionStyle"]
+- !private ["Ps7CVarArg", "VChatDisplayDetail"]
+- !private ["Ps7CVarArg", "animateImage"]
+- ["Ps7CVarArg", "displayOption"]
+- !private ["Ps7CVarArg", "fatalError"]
+- ["Ps7CVarArg", "image"]
+- ["Ps7CVarArg", "imageRect"]
+- ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "loadView"]
+- !private ["Ps7CVarArg", "modalPresentationStyle"]
+- !private ["Ps7CVarArg", "modalTransitionStyle"]
+- !private ["Ps7CVarArg", "view"]
+- ["Ps7CVarArg", "viewDetail"]
+- ["Ps7CVarArg", "viewDidAppear"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "UIModalPresentationStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "UIModalTransitionStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "VChatDisplayDetail"]
+- !private ["Ps28CustomDebugStringConvertible", "animateImage"]
+- ["Ps28CustomDebugStringConvertible", "displayOption"]
+- !private ["Ps28CustomDebugStringConvertible", "fatalError"]
+- ["Ps28CustomDebugStringConvertible", "image"]
+- ["Ps28CustomDebugStringConvertible", "imageRect"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "loadView"]
+- !private ["Ps28CustomDebugStringConvertible", "modalPresentationStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "modalTransitionStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- ["Ps28CustomDebugStringConvertible", "viewDetail"]
+- ["Ps28CustomDebugStringConvertible", "viewDidAppear"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "UIModalPresentationStyle"]
+- !private ["Ps23CustomStringConvertible", "UIModalTransitionStyle"]
+- !private ["Ps23CustomStringConvertible", "VChatDisplayDetail"]
+- !private ["Ps23CustomStringConvertible", "animateImage"]
+- ["Ps23CustomStringConvertible", "displayOption"]
+- !private ["Ps23CustomStringConvertible", "fatalError"]
+- ["Ps23CustomStringConvertible", "image"]
+- ["Ps23CustomStringConvertible", "imageRect"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "loadView"]
+- !private ["Ps23CustomStringConvertible", "modalPresentationStyle"]
+- !private ["Ps23CustomStringConvertible", "modalTransitionStyle"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- ["Ps23CustomStringConvertible", "viewDetail"]
+- ["Ps23CustomStringConvertible", "viewDidAppear"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "UIModalPresentationStyle"]
+- !private ["Ps9Equatable", "UIModalTransitionStyle"]
+- !private ["Ps9Equatable", "VChatDisplayDetail"]
+- !private ["Ps9Equatable", "animateImage"]
+- !private ["Ps9Equatable", "crossDissolve"]
+- ["Ps9Equatable", "displayOption"]
+- !private ["Ps9Equatable", "fatalError"]
+- ["Ps9Equatable", "image"]
+- ["Ps9Equatable", "imageRect"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "loadView"]
+- !private ["Ps9Equatable", "modalPresentationStyle"]
+- !private ["Ps9Equatable", "modalTransitionStyle"]
+- !private ["Ps9Equatable", "overCurrentContext"]
+- !private ["Ps9Equatable", "view"]
+- ["Ps9Equatable", "viewDetail"]
+- ["Ps9Equatable", "viewDidAppear"]
+- ["Ps9Equatable", ""]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "UIModalPresentationStyle"]
+- !private ["Ps8Hashable", "UIModalTransitionStyle"]
+- !private ["Ps8Hashable", "VChatDisplayDetail"]
+- !private ["Ps8Hashable", "animateImage"]
+- !private ["Ps8Hashable", "crossDissolve"]
+- ["Ps8Hashable", "displayOption"]
+- !private ["Ps8Hashable", "fatalError"]
+- ["Ps8Hashable", "image"]
+- ["Ps8Hashable", "imageRect"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "loadView"]
+- !private ["Ps8Hashable", "modalPresentationStyle"]
+- !private ["Ps8Hashable", "modalTransitionStyle"]
+- !private ["Ps8Hashable", "overCurrentContext"]
+- !private ["Ps8Hashable", "view"]
+- ["Ps8Hashable", "viewDetail"]
+- ["Ps8Hashable", "viewDidAppear"]
+- ["Ps8Hashable", ""]
+- ["SQ", "deinit"]
+- ["C8expocity23MChatDisplayOptionsItem", "deinit"]
+- !private ["PSo8NSCoding", "UIModalPresentationStyle"]
+- !private ["PSo8NSCoding", "UIModalTransitionStyle"]
+- !private ["PSo8NSCoding", "VChatDisplayDetail"]
+- !private ["PSo8NSCoding", "animateImage"]
+- ["PSo8NSCoding", "displayOption"]
+- !private ["PSo8NSCoding", "fatalError"]
+- ["PSo8NSCoding", "image"]
+- ["PSo8NSCoding", "imageRect"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "loadView"]
+- !private ["PSo8NSCoding", "modalPresentationStyle"]
+- !private ["PSo8NSCoding", "modalTransitionStyle"]
+- !private ["PSo8NSCoding", "view"]
+- ["PSo8NSCoding", "viewDetail"]
+- ["PSo8NSCoding", "viewDidAppear"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "UIModalPresentationStyle"]
+- !private ["PSo26NSExtensionRequestHandling", "UIModalTransitionStyle"]
+- !private ["PSo26NSExtensionRequestHandling", "VChatDisplayDetail"]
+- ["PSo26NSExtensionRequestHandling", "displayOption"]
+- !private ["PSo26NSExtensionRequestHandling", "fatalError"]
+- ["PSo26NSExtensionRequestHandling", "image"]
+- ["PSo26NSExtensionRequestHandling", "imageRect"]
+- ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "loadView"]
+- !private ["PSo26NSExtensionRequestHandling", "modalPresentationStyle"]
+- !private ["PSo26NSExtensionRequestHandling", "modalTransitionStyle"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- ["PSo26NSExtensionRequestHandling", "viewDetail"]
+- ["PSo26NSExtensionRequestHandling", "viewDidAppear"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "CGRect"]
+- ["CSo8NSObject", "MChatDisplayOptionsItem"]
+- ["CSo8NSObject", "NSCoder"]
+- ["CSo8NSObject", "UIImage"]
+- !private ["CSo8NSObject", "UIModalPresentationStyle"]
+- !private ["CSo8NSObject", "UIModalTransitionStyle"]
+- ["CSo8NSObject", "VChatDisplayDetail"]
+- !private ["CSo8NSObject", "animateImage"]
+- ["CSo8NSObject", "displayOption"]
+- !private ["CSo8NSObject", "fatalError"]
+- ["CSo8NSObject", "image"]
+- ["CSo8NSObject", "imageRect"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "loadView"]
+- !private ["CSo8NSObject", "modalPresentationStyle"]
+- !private ["CSo8NSObject", "modalTransitionStyle"]
+- !private ["CSo8NSObject", "view"]
+- ["CSo8NSObject", "viewDetail"]
+- ["CSo8NSObject", "viewDidAppear"]
+- !private ["PSo16NSObjectProtocol", "UIModalPresentationStyle"]
+- !private ["PSo16NSObjectProtocol", "UIModalTransitionStyle"]
+- !private ["PSo16NSObjectProtocol", "VChatDisplayDetail"]
+- !private ["PSo16NSObjectProtocol", "animateImage"]
+- ["PSo16NSObjectProtocol", "displayOption"]
+- !private ["PSo16NSObjectProtocol", "fatalError"]
+- ["PSo16NSObjectProtocol", "image"]
+- ["PSo16NSObjectProtocol", "imageRect"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "loadView"]
+- !private ["PSo16NSObjectProtocol", "modalPresentationStyle"]
+- !private ["PSo16NSObjectProtocol", "modalTransitionStyle"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- ["PSo16NSObjectProtocol", "viewDetail"]
+- ["PSo16NSObjectProtocol", "viewDidAppear"]
+- ["PSo16NSObjectProtocol", ""]
+- ["Os5Never", "deinit"]
+- ["Sq", "deinit"]
+- !private ["Ps16RawRepresentable", "crossDissolve"]
+- !private ["Ps16RawRepresentable", "overCurrentContext"]
+- ["Vs12StaticString", "deinit"]
+- !private ["Vs12StaticString", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "animateImage"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo12UIAppearance", "animateImage"]
+- !private ["PSo12UIAppearance", "init"]
+- !private ["PSo21UIAppearanceContainer", "UIModalPresentationStyle"]
+- !private ["PSo21UIAppearanceContainer", "UIModalTransitionStyle"]
+- !private ["PSo21UIAppearanceContainer", "VChatDisplayDetail"]
+- !private ["PSo21UIAppearanceContainer", "animateImage"]
+- ["PSo21UIAppearanceContainer", "displayOption"]
+- !private ["PSo21UIAppearanceContainer", "fatalError"]
+- ["PSo21UIAppearanceContainer", "image"]
+- ["PSo21UIAppearanceContainer", "imageRect"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "loadView"]
+- !private ["PSo21UIAppearanceContainer", "modalPresentationStyle"]
+- !private ["PSo21UIAppearanceContainer", "modalTransitionStyle"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- ["PSo21UIAppearanceContainer", "viewDetail"]
+- ["PSo21UIAppearanceContainer", "viewDidAppear"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo18UIContentContainer", "UIModalPresentationStyle"]
+- !private ["PSo18UIContentContainer", "UIModalTransitionStyle"]
+- !private ["PSo18UIContentContainer", "VChatDisplayDetail"]
+- ["PSo18UIContentContainer", "displayOption"]
+- !private ["PSo18UIContentContainer", "fatalError"]
+- ["PSo18UIContentContainer", "image"]
+- ["PSo18UIContentContainer", "imageRect"]
+- ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "loadView"]
+- !private ["PSo18UIContentContainer", "modalPresentationStyle"]
+- !private ["PSo18UIContentContainer", "modalTransitionStyle"]
+- !private ["PSo18UIContentContainer", "view"]
+- ["PSo18UIContentContainer", "viewDetail"]
+- ["PSo18UIContentContainer", "viewDidAppear"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "animateImage"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo13UIDynamicItem", "animateImage"]
+- !private ["PSo13UIDynamicItem", "init"]
+- !private ["PSo18UIFocusEnvironment", "UIModalPresentationStyle"]
+- !private ["PSo18UIFocusEnvironment", "UIModalTransitionStyle"]
+- !private ["PSo18UIFocusEnvironment", "VChatDisplayDetail"]
+- !private ["PSo18UIFocusEnvironment", "animateImage"]
+- ["PSo18UIFocusEnvironment", "displayOption"]
+- !private ["PSo18UIFocusEnvironment", "fatalError"]
+- ["PSo18UIFocusEnvironment", "image"]
+- ["PSo18UIFocusEnvironment", "imageRect"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "loadView"]
+- !private ["PSo18UIFocusEnvironment", "modalPresentationStyle"]
+- !private ["PSo18UIFocusEnvironment", "modalTransitionStyle"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- ["PSo18UIFocusEnvironment", "viewDetail"]
+- ["PSo18UIFocusEnvironment", "viewDidAppear"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "animateImage"]
+- !private ["PSo11UIFocusItem", "init"]
+- ["OSC24UIModalPresentationStyle", "deinit"]
+- !private ["OSC24UIModalPresentationStyle", "overCurrentContext"]
+- !private ["OSC22UIModalTransitionStyle", "crossDissolve"]
+- ["OSC22UIModalTransitionStyle", "deinit"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "CGRect"]
+- ["CSo11UIResponder", "MChatDisplayOptionsItem"]
+- ["CSo11UIResponder", "NSCoder"]
+- ["CSo11UIResponder", "UIImage"]
+- !private ["CSo11UIResponder", "UIModalPresentationStyle"]
+- !private ["CSo11UIResponder", "UIModalTransitionStyle"]
+- ["CSo11UIResponder", "VChatDisplayDetail"]
+- !private ["CSo11UIResponder", "animateImage"]
+- ["CSo11UIResponder", "displayOption"]
+- !private ["CSo11UIResponder", "fatalError"]
+- ["CSo11UIResponder", "image"]
+- ["CSo11UIResponder", "imageRect"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "loadView"]
+- !private ["CSo11UIResponder", "modalPresentationStyle"]
+- !private ["CSo11UIResponder", "modalTransitionStyle"]
+- !private ["CSo11UIResponder", "view"]
+- ["CSo11UIResponder", "viewDetail"]
+- ["CSo11UIResponder", "viewDidAppear"]
+- !private ["PSo30UIResponderStandardEditActions", "UIModalPresentationStyle"]
+- !private ["PSo30UIResponderStandardEditActions", "UIModalTransitionStyle"]
+- !private ["PSo30UIResponderStandardEditActions", "VChatDisplayDetail"]
+- !private ["PSo30UIResponderStandardEditActions", "animateImage"]
+- ["PSo30UIResponderStandardEditActions", "displayOption"]
+- !private ["PSo30UIResponderStandardEditActions", "fatalError"]
+- ["PSo30UIResponderStandardEditActions", "image"]
+- ["PSo30UIResponderStandardEditActions", "imageRect"]
+- ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "loadView"]
+- !private ["PSo30UIResponderStandardEditActions", "modalPresentationStyle"]
+- !private ["PSo30UIResponderStandardEditActions", "modalTransitionStyle"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- ["PSo30UIResponderStandardEditActions", "viewDetail"]
+- ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo16UIStateRestoring", "UIModalPresentationStyle"]
+- !private ["PSo16UIStateRestoring", "UIModalTransitionStyle"]
+- !private ["PSo16UIStateRestoring", "VChatDisplayDetail"]
+- ["PSo16UIStateRestoring", "displayOption"]
+- !private ["PSo16UIStateRestoring", "fatalError"]
+- ["PSo16UIStateRestoring", "image"]
+- ["PSo16UIStateRestoring", "imageRect"]
+- ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "loadView"]
+- !private ["PSo16UIStateRestoring", "modalPresentationStyle"]
+- !private ["PSo16UIStateRestoring", "modalTransitionStyle"]
+- !private ["PSo16UIStateRestoring", "view"]
+- ["PSo16UIStateRestoring", "viewDetail"]
+- ["PSo16UIStateRestoring", "viewDidAppear"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo18UITraitEnvironment", "UIModalPresentationStyle"]
+- !private ["PSo18UITraitEnvironment", "UIModalTransitionStyle"]
+- !private ["PSo18UITraitEnvironment", "VChatDisplayDetail"]
+- !private ["PSo18UITraitEnvironment", "animateImage"]
+- ["PSo18UITraitEnvironment", "displayOption"]
+- !private ["PSo18UITraitEnvironment", "fatalError"]
+- ["PSo18UITraitEnvironment", "image"]
+- ["PSo18UITraitEnvironment", "imageRect"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "loadView"]
+- !private ["PSo18UITraitEnvironment", "modalPresentationStyle"]
+- !private ["PSo18UITraitEnvironment", "modalTransitionStyle"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- ["PSo18UITraitEnvironment", "viewDetail"]
+- ["PSo18UITraitEnvironment", "viewDidAppear"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "animateImage"]
+- !private ["CSo6UIView", "init"]
+- ["CSo16UIViewController", "Bool"]
+- ["CSo16UIViewController", "CGRect"]
+- ["CSo16UIViewController", "MChatDisplayOptionsItem"]
+- ["CSo16UIViewController", "NSCoder"]
+- ["CSo16UIViewController", "UIImage"]
+- !private ["CSo16UIViewController", "UIModalPresentationStyle"]
+- !private ["CSo16UIViewController", "UIModalTransitionStyle"]
+- ["CSo16UIViewController", "VChatDisplayDetail"]
+- ["CSo16UIViewController", "deinit"]
+- ["CSo16UIViewController", "displayOption"]
+- !private ["CSo16UIViewController", "fatalError"]
+- ["CSo16UIViewController", "image"]
+- ["CSo16UIViewController", "imageRect"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "loadView"]
+- !private ["CSo16UIViewController", "modalPresentationStyle"]
+- !private ["CSo16UIViewController", "modalTransitionStyle"]
+- !private ["CSo16UIViewController", "view"]
+- ["CSo16UIViewController", "viewDetail"]
+- ["CSo16UIViewController", "viewDidAppear"]
+- ["Su", "deinit"]
+- !private ["C8expocity18VChatDisplayDetail", "animateImage"]
+- ["C8expocity18VChatDisplayDetail", "deinit"]
+- !private ["C8expocity18VChatDisplayDetail", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "animateImage"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps9_Hashable", "UIModalPresentationStyle"]
+- !private ["Ps9_Hashable", "UIModalTransitionStyle"]
+- !private ["Ps9_Hashable", "VChatDisplayDetail"]
+- !private ["Ps9_Hashable", "animateImage"]
+- !private ["Ps9_Hashable", "crossDissolve"]
+- ["Ps9_Hashable", "displayOption"]
+- !private ["Ps9_Hashable", "fatalError"]
+- ["Ps9_Hashable", "image"]
+- ["Ps9_Hashable", "imageRect"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "loadView"]
+- !private ["Ps9_Hashable", "modalPresentationStyle"]
+- !private ["Ps9_Hashable", "modalTransitionStyle"]
+- !private ["Ps9_Hashable", "overCurrentContext"]
+- !private ["Ps9_Hashable", "view"]
+- ["Ps9_Hashable", "viewDetail"]
+- ["Ps9_Hashable", "viewDidAppear"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sb"
+- !private "PSo15CALayerDelegate"
+- "C8expocity18CChatDisplayDetail"
+- "C8expocity11CController"
+- "VSC6CGRect"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "SQ"
+- "C8expocity23MChatDisplayOptionsItem"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "Os5Never"
+- "Sq"
+- !private "Ps16RawRepresentable"
+- "Vs12StaticString"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- "OSC24UIModalPresentationStyle"
+- "OSC22UIModalTransitionStyle"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- "Su"
+- "C8expocity18VChatDisplayDetail"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/devel/iturbide/expocity/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/devel/iturbide/expocity/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/devel/iturbide/expocity/Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/devel/iturbide/expocity/Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/devel/iturbide/expocity/Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/devel/iturbide/expocity/Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/devel/iturbide/expocity/Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/devel/iturbide/expocity/Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/devel/iturbide/expocity/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/devel/iturbide/expocity/Pods/FirebaseCrash/Frameworks/frameworks/FirebaseCrash.framework/Headers/FIRCrashLog.h"
+- "/devel/iturbide/expocity/Pods/FirebaseCrash/Frameworks/frameworks/FirebaseCrash.framework/Headers/FirebaseCrash.h"
+- "/devel/iturbide/expocity/Pods/FirebaseCrash/Frameworks/frameworks/FirebaseCrash.framework/Modules/module.modulemap"
+- "/devel/iturbide/expocity/Pods/FirebaseInstanceID/Frameworks/frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/devel/iturbide/expocity/Pods/FirebaseInstanceID/Frameworks/frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/devel/iturbide/expocity/Pods/FirebaseInstanceID/Frameworks/frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/devel/iturbide/expocity/Pods/FirebaseMessaging/Frameworks/frameworks/FirebaseMessaging.framework/Headers/FIRMessaging.h"
+- "/devel/iturbide/expocity/Pods/FirebaseMessaging/Frameworks/frameworks/FirebaseMessaging.framework/Headers/FirebaseMessaging.h"
+- "/devel/iturbide/expocity/Pods/FirebaseMessaging/Frameworks/frameworks/FirebaseMessaging.framework/Modules/module.modulemap"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorageTaskSnapshot.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorageUploadTask.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorageReference.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorageMetadata.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorageTask.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorageObservableTask.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorageDownloadTask.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorageConstants.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FIRStorage.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Headers/FirebaseStorage.h"
+- "/devel/iturbide/expocity/Pods/FirebaseStorage/Frameworks/frameworks/FirebaseStorage.framework/Modules/module.modulemap"
+- "/devel/iturbide/expocity/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
+interface-hash: "9b9eac08c2cb333956fe856e3c7d3974"
