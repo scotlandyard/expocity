@@ -1,6 +1,4 @@
 ## Build generated
-build/
-
 ## Various settings
 *.pbxuser
 !default.pbxuser
